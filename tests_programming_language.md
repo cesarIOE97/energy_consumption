@@ -52,6 +52,7 @@ Compilers | Version | Release date    | First release
  CPython | 3.11.3  | 2023-04-05 | 2022-10-24
  CPython | 3.10.11 | 2023-04-05 | 2021-10-04
  CPython | 3.9.16  | 2022-12-06 | 2020-10-05
+ CPython (Now) | 3.10.6 | 2022-08-02 | 2021-10-04
 
 
 
@@ -113,15 +114,15 @@ int main()
 > The GNU Compiler Collection includes front ends for **C, C++, Objective-C, Fortran, Ada, Go, and D**, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
 
 
-Compilers | Version | Year
----------|----------|---------
- gcc | v11.3 | 2022-04-21
- gcc | v13.1 | 2023-04-26
-  |  | 
-
 [CLANG](https://clang.llvm.org/index.html)
 
 > The Clang project provides a language front-end and tooling infrastructure for languages in the C language family (**C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript**) for the LLVM project. Both a GCC-compatible compiler driver (clang) and an MSVC-compatible compiler driver (clang-cl.exe) are provided. You can get and build the source today.
+
+Compilers | Version | Release date    | First release
+----------|---------|-----------------|---------
+ gcc (Now) | 11.3.0 | 2022-04-21 | 2021-04-27
+ gcc | 13.1 | 2023-04-26 | 2023-04-26
+ gcc | 10.4 | 2022-06-28 | 2020-05-07
 
 </details>
 

@@ -5,6 +5,9 @@ Energy consumption in the most common programming languages analyzing through di
 
 ## Measurement tools
 
+- RAPL (`perf`)
+- 
+
 ## Programming languages
 
 1. Python
