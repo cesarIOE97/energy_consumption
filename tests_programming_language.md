@@ -12,6 +12,8 @@
     - [C++](#c)
       - [Basic](#basic-1)
       - [Compilers](#compilers)
+        - [GCC](#gcc)
+        - [CLANG](#clang)
 
 
 <details>
@@ -109,12 +111,12 @@ int main()
 
 #### Compilers
 
-[GCC](https://gcc.gnu.org/)
+##### [GCC](https://gcc.gnu.org/)
 
 > The GNU Compiler Collection includes front ends for **C, C++, Objective-C, Fortran, Ada, Go, and D**, as well as libraries for these languages (libstdc++,...). GCC was originally written as the compiler for the GNU operating system. The GNU system was developed to be 100% free software, free in the sense that it respects the user's freedom.
 
 
-[CLANG](https://clang.llvm.org/index.html)
+##### [CLANG](https://clang.llvm.org/index.html)
 
 > The Clang project provides a language front-end and tooling infrastructure for languages in the C language family (**C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript**) for the LLVM project. Both a GCC-compatible compiler driver (clang) and an MSVC-compatible compiler driver (clang-cl.exe) are provided. You can get and build the source today.
 
