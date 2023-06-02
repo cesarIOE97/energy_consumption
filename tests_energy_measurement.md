@@ -1,6 +1,7 @@
 # Testing
 
 - [Testing](#testing)
+  - [Monitoring](#monitoring)
   - [Measurement tool](#measurement-tool)
     - [RAPL on Linux (Perf)](#rapl-on-linux-perf)
       - [**Description**](#description)
@@ -10,6 +11,11 @@
     - [PowerStat](#powerstat)
       - [**RESULTS (ALL AVAILABLE EVENTS):**](#results-all-available-events-1)
     - [Likwid](#likwid)
+    - [Turbostat](#turbostat)
+      - [Basic](#basic)
+      - [Field descriptions](#field-descriptions)
+
+## Monitoring
 
 
 
@@ -160,6 +166,10 @@ List of pre-defined events (to be used in -e):
        power management.  It also has an interactive mode allowing one to experiment with various
        power  management  settings.   When invoking powertop without arguments powertop starts in
        interactive mode.
+
+> It is a useful addition because it provides some additional information above and beyond what turbostat provides
+
+
 
 _Source:_
 - [GitHUB](https://github.com/fenrus75/powertop)
@@ -326,6 +336,42 @@ Power consumed: 9.42933 Watt
 
 ```
 
+
+
+</details>
+
+
+
+<details>
+<summary>turbostat</summary>
+
+### Turbostat
+
+#### Basic 
+
+Turbostat is a simple but powerful tool that is built into the Linux kernel tree. It monitors.
+
+ - Per-thread: Average frequency, activity
+ - Per-core: Core C-states, temperature
+ - Per-package: Temperature, package C-states, package power, core power (where supported), DRAM power.
+
+Turbostat has several different command-line options that can come in handy for a range of usage models. Simply running it without any parameters will provide one-second snapshots of a range of statistics.
+
+Turbostat is very useful to run alongside a workload to get statistics about the system during the measurement. Note that although the statistics provided are heavily influenced by the workload, it is also affected by anything else running on the system.
+
+INSTALL THE TOOL:
+
+```bash
+sudo apt install linux-tools-5.15.0-72-generic
+```
+
+OPTIONS
+```bash
+sudo turbostat -S
+```
+
+
+#### Field descriptions
 
 
 </details>
