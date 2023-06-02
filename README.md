@@ -13,7 +13,14 @@ Energy consumption in the most common programming languages analyzing through di
 1. Python
 2. Java
 3. JavaScript
-4. 
+4. C++
+5. Go
+6. Rust
+7. TypeScript
+8. Kotlia
+9. Ruby
+10. C#
+11. PHP
 
 ## Compilers/Interpreters
 
