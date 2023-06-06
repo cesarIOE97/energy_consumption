@@ -1,180 +1,0 @@
-Script started on 2023-06-01 16:11:39+03:00 [<not executed on terminal>]
-   39  sudop powerstat -R
-   40  sudo powerstat -R
-   41  perf list
-   42  perf list | grep power
-   43  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-   44  sudo perf statpower/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-   45  sudo perf stat power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-   46  sudo perf stat -a power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-   47  sudo perf stat -a -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-   48  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ sleep 2
-   49  man perf
-   50  python3 --version
-   51  gcc --version
-   52  cd ..
-   53  git clone https://github.com/RRZE-HPC/likwid.git
-   54  cd likwid
-   55  make
-   56  sudo make install
-   57  likwid-powermeter sleep 5
-   58  likwid-powermeter sleep 15
-   59  man likwid-powermeter 
-   60  likwid-features 
-   61  likwid-features -l
-   62  likwid-powermeter 
-   63  likwid-powermeter --version
-   64  clear
-   65  likwid-powermeter 
-   66  likwid-powermeter sleep 5
-   67  java --version
-   68  javac --version
-   69  codon --version
-   70  powertop 
-   71  sudo powertop
-   72  cd Desktop/thesis/energy_consumption/test-basic/python/
-   73  clear
-   74  perf
-   75  clear
-   76  perf stat python3 helloWorld.py 
-   77  sudo perf stat python3 helloWorld.py 
-   78  cd 
-   79  exit
-   80  clear
-   81  cd Desktop/thesis/energy_consumption/test-basic/python/
-   82  clear
-   83  likwid-powermeter python3 helloWorld.py
-   84  clear
-   85  cd ..
-   86  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   87  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   88  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   89  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   90  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   91  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   92  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   93  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   94  cd python/
-   95  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-   96  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 helloWorld.py 
-   97  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ codon run helloWorld.py 
-   98  codon run helloWorld.py 
-   99  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ codon run helloWorld.py 
-  100  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 helloWorld.py 
-  101  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ codon run helloWorld.py 
-  102  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 helloWorld.py 
-  103  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ ./helloWorld
-  104  ]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    39  sudop powerstat -R
-[?2004l39: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    40  sudo powerstat -R
-[?2004l06  ls
-  107  bash Anacon40: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    41  perf list
-[?2004l41: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    42  perf list | grep power
-[?2004lx86_64.sh 
-  108  notion
-  42: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    43  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-[?2004l43: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    44  sudo perf statpower/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-[?2004l44: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    45  sudo perf stat power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-[?2004l45: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    46  sudo perf stat -a power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-[?2004l46: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    47  sudo perf stat -a -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/
-[?2004l47: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    48  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ sleep 2
-[?2004lbase
-  128  conda config --set auto_activate_base False
-  129  source ~/.bashrc
-  130  cd Desktop/thesis/energy_consumption/te48: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    49  man perf
-[?2004l49: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    50  python3 --version
-[?2004l50: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    51  gcc --version
-[?2004l51: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    52  cd ..
-[?2004l52: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    53  git clone https://github.com/RRZE-HPC/likwid.git
-[?2004lva HelloWorld
-53: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    54  cd likwid
-[?2004l54: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    55  make
-[?2004l55: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    56  sudo make install
-[?2004l56: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    57  likwid-powermeter sleep 5
-[?2004l57: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    58  likwid-powermeter sleep 15
-[?2004l58: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    59  man likwid-powermeter 
-[?2004lpower/energy-gpu/,power/energy59: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    60  likwid-features 
-[?2004l60: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    61  likwid-features -l
-[?2004l61: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    62  likwid-powermeter 
-[?2004l62: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    63  likwid-powermeter --version
-[?2004l63: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    64  clear
-[?2004l64: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    65  likwid-powermeter 
-[?2004l65: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    66  likwid-powermeter sleep 5
-[?2004lls
-  144  jav66: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    67  java --version
-[?2004l  145  c67: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    68  javac --version
-[?2004llear
-  146  sudo perf s68: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    69  codon --version
-[?2004l69: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    70  powertop 
-[?2004l70: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    71  sudo powertop
-[?2004l71: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    72  cd Desktop/thesis/energy_consumption/test-basic/python/
-[?2004l72: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    73  clear
-[?2004l73: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    74  perf
-[?2004l74: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    75  clear
-[?2004l75: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    76  perf stat python3 helloWorld.py 
-[?2004l76: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    77  sudo perf stat python3 helloWorld.py 
-[?2004l
-  148  cd ..
-  149  cd77: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    78  cd 
-[?2004l78: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    79  exit
-[?2004l79: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    80  clear
-[?2004l80: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    81  cd Desktop/thesis/energy_consumption/test-basic/python/
-[?2004l81: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    82  clear
-[?2004l82: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    83  likwid-powermeter python3 helloWorld.py
-[?2004l83: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    84  clear
-[?2004l84: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    85  cd ..
-[?2004l85: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    86  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-[?2004l86: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    87  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-[?2004l87: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    88  sudo perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-[?2004l88: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement\[?2004holverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$    89  perf stat -e power/energy-cores/,power/energy-ram/,power/energy-gpu/,power/energy-pkg/,power/energy-psys/ python3 python/helloWorld.py
-[?2004l89: command not found
-]0;olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement\]7;file://l20-0061/u/13/olverac1/un

@@ -43,7 +43,7 @@ Source:
  - [Python Documentation by Version](https://www.python.org/doc/versions/)
  - [What's New in Python](https://docs.python.org/3/whatsnew/index.html)
 
-## Python 
+## Pyenv
 
 -What is pyenv?
   `pyenv` lets you easily switch between multiple versions of Python. It's simple, unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.
