@@ -1,29 +1,42 @@
 #!/bin/bash
 
 # Example to use this script
-# ./script5.sh "nbody.py 50000000" "nbody_50000"
-# ./script5.sh "<python_file arguments>" "<path or folder or directory>"
+# ./script6.sh "nbody.py 50000000" "nbody_50000"
+# ./script6.sh "<python_file arguments>" "<path or folder or directory>"
+
+# Show Aalto logo
+./logo.sh
 
 # Save all Python versions through the pyenv command in a list variable
 readarray -t versions < <(pyenv versions | awk '/*/{print $2} FNR>1&&!/*/{print $1}')
-echo "Running script5.sh $1 $2"
 
-# Output file for recording turbostat data in CSV format
-program=$(echo $1 | awk -F. '{print $1}')
-path=$2
-output_generalFile="$path/performance_data_allVersions_$program.csv"
-temp_file="$path/temp_performance_data.txt"
-touch $temp_file
-
-# Command to execute the Python program in each version
-python_command="python ${1}"
-echo
-echo "            --- Analysing the Python program: $1 ---"
-echo "    ... Recording the measurenments in the CSV file: $output_generalFile ..."
-
-# Analize each Python version
+# MENU
+echo "Available Python versions are the next ones:"
 for version in "${versions[@]}"; do
-  # Set the version to analyze
+  echo "  - $version"
+done
+echo "
+ *** Type the version (for example '3.11.3', or 'all' to measure all Python versions): "
+read version
+
+# CONDITION
+if [ $version == 'all' ] || [ $version == 'All' ] || [ $version == 'ALL' ]; then
+  ./script5.sh "$1" "$2"
+else
+  # Output file for recording turbostat data in CSV format
+  program=$(echo $1 | awk -F. '{print $1}')
+  path=$2
+
+  output_generalFile="$path/performance_data_allVersions_$program.csv"
+  temp_file="$path/temp_performance_data.txt"
+  touch $temp_file
+
+  # Command to execute the Python program in each version
+  python_command="python ${1}"
+  echo
+  echo "            --- Analysing the Python program: $1 ---"
+  echo "    ... Recording the measurenments in the CSV file: $output_generalFile ..."
+
   pyenv global $version
 
   # Verify the Python version
@@ -44,7 +57,7 @@ for version in "${versions[@]}"; do
   # Run the turbostat function
   echo "Running Turbostat and program:"
   run_turbostat
-  
+    
   # Convert turbostat output to CSV format
   col_names=$(tail -2 $temp_file | head -n1 | awk 'NR==1{time_elapsed=$1} {$1=$1}1' OFS=',')
   results=$(tail -1 $temp_file | awk 'NR==1{time_elapsed=$1} {$1=$1}1' OFS=',')
@@ -76,7 +89,7 @@ for version in "${versions[@]}"; do
       echo "    - Recording #$i turbostat data in a CSV file: $output_versionFile"
       echo $i,$python_version,$1,$time,$results >> $output_versionFile
     done
- 
+  
     # Compute the average of each column
     avg_time=$(awk -F ',' -v col=4 'NR>1 {sum+=$col} END {print sum/(NR-1)}' "$output_versionFile")
     avg_usec=$(awk -F ',' -v col=5 'NR>1 {sum+=$col} END {print sum/(NR-1)}' "$output_versionFile")
@@ -95,7 +108,11 @@ for version in "${versions[@]}"; do
     [ -s $output_generalFile ] || echo python_version,appplication,time_elapsed,$col_names >> $output_generalFile
     echo $python_version,$1,$time,$results,$avg_usec,$day,$avg>> $output_generalFile
   fi
-done
 
-# Remove the temporary file
-rm $temp_file
+  # Remove the temporary file
+  rm $temp_file
+
+fi
+
+
+# Parameters for energy, memory, cpu
