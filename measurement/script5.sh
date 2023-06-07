@@ -9,7 +9,7 @@ readarray -t versions < <(pyenv versions | awk '/*/{print $2} FNR>1&&!/*/{print 
 
 # Output file for recording turbostat data in CSV format
 program=$(echo $1 | awk -F. '{print $1}')
-path=$program
+path="nbody_50000"
 output_generalFile="$path/performance_data_allVersions_$program.csv"
 temp_file="$path/temp_performance_data.txt"
 touch $temp_file
