@@ -14,4 +14,4 @@ avg=$(awk -F',' 'NR>1{for(i=5;i<=NF;i++){sum[i-4]+=$i; count[i-4]++}} END{for(i=
 echo "- Recording turbostat data in a CSV file"
 col_names=$(head -1 $output_versionFile | awk -F',' '{for(i=7;i<=NF;i++) printf "%s%s", $i, (i==NF?"\n":",")}')
 [ -s $output_generalFile ] || echo python_version,appplication,time_elapsed,$col_names >> $output_generalFile
-echo $python_version,GGEG,$avg_time,$avg_usec,$day,$avg >> $output_generalFile
+echo $python_version,GGEG,$avg_time,$AV >> $output_generalFile

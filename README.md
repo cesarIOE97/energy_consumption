@@ -6,7 +6,7 @@ Energy consumption in the most common programming languages analyzing through di
 ## Measurement tools
 
 - RAPL (`perf`)
-- 
+- Turbostat
 
 ## Programming languages
 

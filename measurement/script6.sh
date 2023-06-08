@@ -15,7 +15,8 @@ echo "Available Python versions are the next ones:"
 for version in "${versions[@]}"; do
   echo "  - $version"
 done
-echo "
+echo "  - all
+
  *** Type the version (for example '3.11.3', or 'all' to measure all Python versions): "
 read version
 
@@ -116,3 +117,6 @@ fi
 
 
 # Parameters for energy, memory, cpu
+# Algorithm -> Fibonnacci
+# Script for analysis
+# 
