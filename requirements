@@ -1,0 +1,4 @@
+plotly==5.14.1
+nbformat
+ipykernel
+pandas
