@@ -1,0 +1,61 @@
+==22744== Memcheck, a memory error detector
+==22744== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22744== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==22744== Command: ./c++/test_5000/nbody_2_g++-4.7 5000
+==22744== Parent PID: 22737
+==22744== 
+==22744== 
+==22744== HEAP SUMMARY:
+==22744==     in use at exit: 122,880 bytes in 6 blocks
+==22744==   total heap usage: 30,008 allocs, 30,002 frees, 2,596,888 bytes allocated
+==22744== 
+==22744== 8,192 bytes in 1 blocks are still reachable in loss record 1 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x493951C: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== 8,192 bytes in 1 blocks are still reachable in loss record 2 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x493953F: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== 8,192 bytes in 1 blocks are still reachable in loss record 3 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4939562: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== 32,768 bytes in 1 blocks are still reachable in loss record 4 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x49395CB: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== 32,768 bytes in 1 blocks are still reachable in loss record 5 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x49395EE: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== 32,768 bytes in 1 blocks are still reachable in loss record 6 of 6
+==22744==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22744==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4939611: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==22744==    by 0x4014B1: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-4.7)
+==22744== 
+==22744== LEAK SUMMARY:
+==22744==    definitely lost: 0 bytes in 0 blocks
+==22744==    indirectly lost: 0 bytes in 0 blocks
+==22744==      possibly lost: 0 bytes in 0 blocks
+==22744==    still reachable: 122,880 bytes in 6 blocks
+==22744==         suppressed: 0 bytes in 0 blocks
+==22744== 
+==22744== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,122 @@
+Metrics:
+
+  Backend_Bound
+       [This category represents fraction of slots where no uops are being delivered due to a lack of required resources for accepting new uops in the Backend]
+  Backend_Bound_SMT
+       [This category represents fraction of slots where no uops are being delivered due to a lack of required resources for accepting new uops in the Backend. SMT version; use when SMT is enabled and measuring per logical CPU]
+  Bad_Speculation
+       [This category represents fraction of slots wasted due to incorrect speculations]
+  Bad_Speculation_SMT
+       [This category represents fraction of slots wasted due to incorrect speculations. SMT version; use when SMT is enabled and measuring per logical CPU]
+  BpTkBranch
+       [Branch instructions per taken branch]
+  Branch_Misprediction_Cost
+       [Branch Misprediction Cost: Fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)]
+  Branch_Misprediction_Cost_SMT
+       [Branch Misprediction Cost: Fraction of TMA slots wasted per non-speculative branch misprediction (retired JEClear)]
+  C2_Pkg_Residency
+       [C2 residency percent per package]
+  C3_Core_Residency
+       [C3 residency percent per core]
+  C3_Pkg_Residency
+       [C3 residency percent per package]
+  C6_Core_Residency
+       [C6 residency percent per core]
+  C6_Pkg_Residency
+       [C6 residency percent per package]
+  C7_Core_Residency
+       [C7 residency percent per core]
+  C7_Pkg_Residency
+       [C7 residency percent per package]
+  CLKS
+       [Per-Logical Processor actual clocks when the Logical Processor is active]
+  CORE_CLKS
+       [Core actual clocks when any Logical Processor is active on the Physical Core]
+  CPI
+       [Cycles Per Instruction (per Logical Processor)]
+  CPU_Utilization
+       [Average CPU Utilization]
+  CoreIPC
+       [Instructions Per Cycle (per physical core)]
+  CoreIPC_SMT
+       [Instructions Per Cycle (per physical core)]
+  DRAM_BW_Use
+       [Average external Memory Bandwidth Use for reads and writes [GB / sec]]
+  DSB_Coverage
+       [Fraction of Uops delivered by the DSB (aka Decoded ICache; or Uop Cache)]
+  FLOPc
+       [Floating Point Operations Per Cycle]
+  FLOPc_SMT
+       [Floating Point Operations Per Cycle]
+  Frontend_Bound
+       [This category represents fraction of slots where the processor's Frontend undersupplies its Backend]
+  Frontend_Bound_SMT
+       [This category represents fraction of slots where the processor's Frontend undersupplies its Backend. SMT version; use when SMT is enabled and measuring per logical CPU]
+  GFLOPs
+       [Giga Floating Point Operations Per Second]
+  ILP
+       [Instruction-Level-Parallelism (average number of uops executed when there is at least 1 uop executed)]
+  IPC
+       [Instructions Per Cycle (per Logical Processor)]
+  Instructions
+       [Total number of retired Instructions]
+  IpBranch
+       [Instructions per Branch (lower number means higher occurrence rate)]
+  IpCall
+       [Instructions per (near) call (lower number means higher occurrence rate)]
+  IpFLOP
+       [Instructions per Floating Point (FP) Operation (lower number means higher occurrence rate)]
+  IpFarBranch
+       [Instructions per Far Branch ( Far Branches apply upon transition from application to operating system, handling interrupts, exceptions) [lower number means higher occurrence rate]]
+  IpLoad
+       [Instructions per Load (lower number means higher occurrence rate)]
+  IpMispredict
+       [Number of Instructions per non-speculative Branch Misprediction (JEClear)]
+  IpStore
+       [Instructions per Store (lower number means higher occurrence rate)]
+  IpTB
+       [Instruction per taken branch]
+  Kernel_Utilization
+       [Fraction of cycles spent in the Operating System (OS) Kernel mode]
+  L1D_Cache_Fill_BW
+       [Average data fill bandwidth to the L1 data cache [GB / sec]]
+  L1MPKI
+       [L1 cache true misses per kilo instruction for retired demand loads]
+  L2HPKI_All
+       [L2 cache hits per kilo instruction for all request types (including speculative)]
+  L2MPKI
+       [L2 cache true misses per kilo instruction for retired demand loads]
+  L2MPKI_All
+       [L2 cache misses per kilo instruction for all request types (including speculative)]
+  L2_Cache_Fill_BW
+       [Average data fill bandwidth to the L2 cache [GB / sec]]
+  L3MPKI
+       [L3 cache true misses per kilo instruction for retired demand loads]
+  L3_Cache_Access_BW
+       [Average per-core data access bandwidth to the L3 cache [GB / sec]]
+  L3_Cache_Fill_BW
+       [Average per-core data fill bandwidth to the L3 cache [GB / sec]]
+  Load_Miss_Real_Latency
+       [Actual Average Latency for L1 data-cache miss demand loads (in core cycles)]
+  MEM_Parallel_Reads
+       [Average number of parallel data read requests to external memory. Accounts for demand loads and L1/L2 prefetches]
+  MLP
+       [Memory-Level-Parallelism (average number of L1 miss demand load when there is at least one such miss. Per-Logical Processor)]
+  Page_Walks_Utilization
+       [Utilization of the core's Page Walker(s) serving STLB misses triggered by instruction/Load/Store accesses]
+  Page_Walks_Utilization_SMT
+       [Utilization of the core's Page Walker(s) serving STLB misses triggered by instruction/Load/Store accesses]
+  Retiring
+       [This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired]
+  Retiring_SMT
+       [This category represents fraction of slots utilized by useful work i.e. issued uops that eventually get retired. SMT version; use when SMT is enabled and measuring per logical CPU]
+  SLOTS
+       [Total issue-pipeline slots (per-Physical Core till ICL; per-Logical Processor ICL onward)]
+  SLOTS_SMT
+       [Total issue-pipeline slots (per-Physical Core till ICL; per-Logical Processor ICL onward)]
+  SMT_2T_Utilization
+       [Fraction of cycles where both hardware Logical Processors were active]
+  Turbo_Utilization
+       [Average Frequency Utilization relative nominal frequency]
+  UPI
+       [Uops Per Instruction]

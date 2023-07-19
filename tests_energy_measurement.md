@@ -6,7 +6,7 @@
     - [RAPL on Linux (Perf)](#rapl-on-linux-perf)
       - [**Description**](#description)
       - [**RESULTS (ALL AVAILABLE EVENTS):**](#results-all-available-events)
-      - [**SCRIPT TO READ ALL POWER INFORMATION**](#script-to-read-all-power-information)
+      - [**MORE INFORMATION ABOUT THE PERF EVENTS**](#more-information-about-the-perf-events)
     - [PowerTOP](#powertop)
     - [PowerStat](#powerstat)
       - [**RESULTS (ALL AVAILABLE EVENTS):**](#results-all-available-events-1)
@@ -150,9 +150,54 @@ List of pre-defined events (to be used in -e):
 - [Measuring energy](https://luiscruz.github.io/2021/07/20/measuring-energy.html)
 - [DOCUMENTATION](https://perf.wiki.kernel.org/index.php/Tutorial)
 
-#### **SCRIPT TO READ ALL POWER INFORMATION**
+#### **MORE INFORMATION ABOUT THE PERF EVENTS**
 
+Events for performance counters in Linux:
 
+ - duration_time  
+
+FOR CPU:
+ - cpu-cycles       These events count the number of CPU cycles executed which can help to measure the
+                    total number of instructions executed and provides insights into the overall CPU
+                    workload and identify performance bottlenecks
+
+ - instructions     Number of instructions executed gives an indication of the overall workload 
+                    of the processor to understand the complexity of the code being executed and
+                    can be used to compare and can help identify bottlenecks and areas for optimization
+
+ - cycles           NUmber of CPU cycles provides insight into the actual time taken by the processor
+                    to execute the code 
+
+ - cpu-clock        Measuring the CPU clock time provides an overall view of the time taken by the CPU 
+                    to execute a program. It accounts for both busy and idle times, giving an understanding
+                    of the total time spent by the CPU on the task
+
+ - context-switches Context switches occur when the OS switches the CPU from one task to another. Counting
+                    context switches helps evaluate the scheduling efficiency and multitasking behavior of
+                    system. High context switch rates can indicate suboptimal task scheduling or resource
+                    contention
+
+ - cpu-migrations   CPU migrations occur when a task is moved from one CPU core to another. Monitoring CPU
+                    migrations helps assess load balancing and CPU utilization across cores. High CPU 
+                    migration rates may suggest imbalanced workloads or suboptimal task scheduling
+
+ - bus-cycles       
+ - cache-references
+ - cache-misses
+ - branch-instructions
+ - branch-misses
+ - L1-dcache-loads
+ - L1-dcache-loads-misses
+ - L1-dcache-stores
+ - L1-dcache-stores-misses
+ - L1-icache-loads
+ - L1-icache-load-missed
+ - TLB-load-misses
+ - iTLB-load-misses
+ - LLC-loads
+ - LLC-load-misses
+ - LLC-stores
+ - LLC-store-misses
 
 </details>
 

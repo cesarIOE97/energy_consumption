@@ -14,3 +14,5 @@ echo $pid
 # /usr/bin/time -v -p $pid
 
 top -b -n 1 -p $PID
+
+vmstat

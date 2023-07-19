@@ -6,6 +6,32 @@ Command:
 sudo apt install ./<filename>.deb
 ```
 
+--8.5--
+
+
+
+--7.5--
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/g++-7_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/libstdc++-7-dev_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/gcc-7-base_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/gcc-7_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/libgcc-7-dev_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/cpp-7_7.5.0-6ubuntu2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-7/libasan4_7.5.0-6ubuntu2_amd64.deb
+
+
+
+--6.5--
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/g++-6_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/libstdc++-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/gcc-6-base_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/gcc-6_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/libgcc-6-dev_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/cpp-6_6.5.0-2ubuntu1~18.04_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-6/libasan3_6.5.0-2ubuntu1~18.04_amd64.deb
+
+
+
 --5.5--
 ```
 wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-5/g++-5_5.5.0-12ubuntu1_amd64.deb 

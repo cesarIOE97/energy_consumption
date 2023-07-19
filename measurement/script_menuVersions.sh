@@ -13,7 +13,7 @@
 if [ $1 == 'c' ] ; then
     readarray -t versions_list < <(compgen -A command gcc | grep -wv -e gcc-nm -e gcc-ranlib -e gcc-ar | sort -u | grep gcc-)
 elif [ $1 == 'c++' ] ; then
-    readarray -t versions_list < <(compgen -A command g++ | sort -u | grep g++-)
+    readarray -t versions_list < <(compgen -A command g++ | sort -V | uniq| grep g++-)
 elif [ $1 == 'python' ] ; then
     readarray -t versions_list < <(pyenv versions | awk '/*/{print $2} FNR>1&&!/*/{print $1}')
 fi
@@ -36,13 +36,22 @@ arguments=$(echo $2 | awk '{ for (i = 2; i <= NF; i++) print $i }')
 
 # Path to save all data according to the programming language and program
 path=$1/$3
+[ -d $path ] || mkdir $path
 
 # Selection of the versions
 if [ $version_selected == 'all' ] || [ $version_selected == 'All' ] || [ $version_selected == 'ALL' ]; then
-    # Analize each version of the selected programming language
+
+    # Analize each version of the selected programming language (running, measuring, )
     for version_selected in "${versions_list[@]}"; do
         . ./script_versionSelected.sh
     done
+
 else
     . ./script_versionSelected.sh
 fi
+
+# Python script
+pyenv global 3.11.3
+# python3 analysis_turbostat.py $1 "$2" $3
+# python3 analysis_perf.py $1 "$2" $3
+python3 analysis_top.py $1 "$2" $3

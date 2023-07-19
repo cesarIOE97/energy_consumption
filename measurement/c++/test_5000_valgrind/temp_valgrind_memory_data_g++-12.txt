@@ -1,0 +1,61 @@
+==25799== Memcheck, a memory error detector
+==25799== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25799== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==25799== Command: ./c++/test_5000/nbody_2_g++-12 5000
+==25799== Parent PID: 25792
+==25799== 
+==25799== 
+==25799== HEAP SUMMARY:
+==25799==     in use at exit: 122,880 bytes in 6 blocks
+==25799==   total heap usage: 30,008 allocs, 30,002 frees, 2,596,888 bytes allocated
+==25799== 
+==25799== 8,192 bytes in 1 blocks are still reachable in loss record 1 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x493951C: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== 8,192 bytes in 1 blocks are still reachable in loss record 2 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x493953F: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== 8,192 bytes in 1 blocks are still reachable in loss record 3 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4990723: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E531: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x4939562: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== 32,768 bytes in 1 blocks are still reachable in loss record 4 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x49395CB: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== 32,768 bytes in 1 blocks are still reachable in loss record 5 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x49395EE: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== 32,768 bytes in 1 blocks are still reachable in loss record 6 of 6
+==25799==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25799==    by 0x4992436: std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x498E711: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x4939611: std::ios_base::sync_with_stdio(bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==25799==    by 0x1095AA: main (in /u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000/nbody_2_g++-12)
+==25799== 
+==25799== LEAK SUMMARY:
+==25799==    definitely lost: 0 bytes in 0 blocks
+==25799==    indirectly lost: 0 bytes in 0 blocks
+==25799==      possibly lost: 0 bytes in 0 blocks
+==25799==    still reachable: 122,880 bytes in 6 blocks
+==25799==         suppressed: 0 bytes in 0 blocks
+==25799== 
+==25799== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

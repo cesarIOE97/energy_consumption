@@ -18,13 +18,13 @@ echo "  - c++"
 echo "  - c"
 echo -n "
  *** Type the version (for example 'python' or 'c++'): "
-read programming
+read language
 
 # Selection of programming language
-if [ $programming == 'python' ] || [ $programming == 'PYTHON' ] || [ $programming == 'Python' ] ; then
+if [ $language == 'python' ] || [ $language == 'PYTHON' ] || [ $language == 'Python' ] ; then
     ./script_menuVersions.sh "python" "$1" "$2"
-elif [ $programming == 'c++' ] || [ $programming == 'C++' ] ; then
+elif [ $language == 'c++' ] || [ $language == 'C++' ] ; then
     ./script_menuVersions.sh "c++" "$1" "$2"
-elif [ $programming == 'c' ] || [ $programming == 'C' ] ; then
+elif [ $language == 'c' ] || [ $language == 'C' ] ; then
     ./script_menuVersions.sh "c" "$1" "$2"
 fi

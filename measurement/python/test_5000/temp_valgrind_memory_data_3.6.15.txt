@@ -1,0 +1,6 @@
+==42225== Memcheck, a memory error detector
+==42225== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==42225== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==42225== Command: /u/13/olverac1/unix/.pyenv/shims/python3 python/nbody.py 5000
+==42225== Parent PID: 42218
+==42225== 

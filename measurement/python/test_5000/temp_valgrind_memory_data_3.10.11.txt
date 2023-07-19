@@ -1,0 +1,6 @@
+==45766== Memcheck, a memory error detector
+==45766== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45766== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==45766== Command: /u/13/olverac1/unix/.pyenv/shims/python3 python/nbody.py 5000
+==45766== Parent PID: 45759
+==45766== 

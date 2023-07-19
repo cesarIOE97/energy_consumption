@@ -1,0 +1,6 @@
+==38662== Memcheck, a memory error detector
+==38662== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==38662== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==38662== Command: /u/13/olverac1/unix/.pyenv/shims/python3 python/nbody.py 5000
+==38662== Parent PID: 38655
+==38662== 

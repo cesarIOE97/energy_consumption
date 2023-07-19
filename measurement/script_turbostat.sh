@@ -15,7 +15,6 @@
 
 # Create and generate files and directories needed
 output_generalFile="$path/turbostat_performance_data_allVersions.csv"
-[ -d $path ] || mkdir $path
 temp_file="$path/temp_turbostat_performance_data.txt"
 touch $temp_file
 
@@ -33,6 +32,7 @@ results=$(tail -1 $temp_file | awk 'NR==1{time_elapsed=$1} {$1=$1}1' OFS=',' | a
 time=$(tail -3 $temp_file | head -n1 | awk '{print $1}')
 
 # Verify the time elapsed to determine how many samples to measure
+echo
 echo "    - Time of the 1st running: $time"
 if [ $(echo "$time <= 60" | bc -l) -eq 1 ]; then
     # Create a CSV file for each version
@@ -56,7 +56,7 @@ if [ $(echo "$time <= 60" | bc -l) -eq 1 ]; then
 
         # Record turbostat data in the NEW CSV file for each version
         echo "    - Recording #$i turbostat data in a CSV file: $output_versionFile"
-        echo $i,$version_selected,$2,$time,$results >> $output_versionFile
+        echo $i,$confirm_version,$2,$time,$results >> $output_versionFile
     done
   
     # Compute the average of each column
@@ -69,13 +69,13 @@ if [ $(echo "$time <= 60" | bc -l) -eq 1 ]; then
     echo "    - Recording AVG turbostat data in the general CSV file: $output_generalFile"
     col_names=$(head -1 $output_versionFile | awk -F',' '{for(i=2;i<=NF;i++) printf "%s%s", $i, (i==NF?"\n":",")}')
     [ -s $output_generalFile ] || echo $col_names >> $output_generalFile
-    echo $version_selected,$2,$avg_time,$avg_usec,$day,$avg_cols >> $output_generalFile
+    echo $confirm_version,$2,$avg_time,$avg_usec,$day,$avg_cols >> $output_generalFile
 
 else
     # Record turbostat data in the CSV file with ALL the versions (only once)
-    echo "    - Recording AVG turbostat data in the general CSV file: $output_generalFile"
+    echo "    - Recording turbostat data in the general CSV file: $output_generalFile"
     [ -s $output_generalFile ] || echo version,appplication,time_elapsed,$col_names >> $output_generalFile
-    echo $version_selected,$2,$time,$results>> $output_generalFile
+    echo $confirm_version,$2,$time,$results>> $output_generalFile
 fi
 
 # Remove the temporary file

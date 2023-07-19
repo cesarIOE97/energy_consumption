@@ -1,0 +1,2 @@
+version,appplication,timestamp,pid,command,virt,res,shr,percent_cpu,percent_mem,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
+Python 3.11.3,nbody.py 5000,1689708166,379933,python3,18292,8620,6016,9.1,0.1,493,29,395,67,2,92.1,7.9,0.0,0.0,0.0,0.0,0.0,0.0,15795.0 MiB,6821.6 MiB,5164.1 MiB,3809.3 MiB,4096.0 MiB,1480.1 MiB,2615.9 MiB,9323.3 MiB

@@ -73,6 +73,10 @@ Add the next lines in the `/etc/sudoers` using the command `sudo visudo`:
 olverac1  ALL=(ALL) ALL
 olverac1  ALL=(root) NOPASSWD: /u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement
 olverac1  ALL=(ALL) NOPASSWD:ALL
+
+
+olverac1 ALL=(ALL) NOPASSWD: ALL
+olverac1 ALL=NOPASSWD: /u/13/olverac1/unix/Desktop/thesis/energy_consumption/measurement
 ```
 
 Solution of the issue of SSL of the current versions
