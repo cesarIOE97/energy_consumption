@@ -1,6 +1,0 @@
-==39569== Memcheck, a memory error detector
-==39569== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==39569== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==39569== Command: /u/13/olverac1/unix/.pyenv/shims/python3 python/nbody.py 5000
-==39569== Parent PID: 39562
-==39569== 

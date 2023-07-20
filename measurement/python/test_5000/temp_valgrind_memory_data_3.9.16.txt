@@ -1,6 +1,0 @@
-==44880== Memcheck, a memory error detector
-==44880== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==44880== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==44880== Command: /u/13/olverac1/unix/.pyenv/shims/python3 python/nbody.py 5000
-==44880== Parent PID: 44873
-==44880== 

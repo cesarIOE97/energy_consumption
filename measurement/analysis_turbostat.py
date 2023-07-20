@@ -19,7 +19,7 @@ command=sys.argv[2]
 directory=sys.argv[3]
 
 # Define path
-path=language + '/' + directory + '/'
+path=language + '/' + directory + '/turbostat/'
 actual_directory = os.getcwd() + '/'
 
 python_releaseDates = {
@@ -199,7 +199,7 @@ if __name__ == '__main__':
     html_string = '''
     <html>
         <head>
-            <title>Analysis of ''' + language + '''     through ''' + command + '''</title>
+            <title>Turbostat - Analysis of ''' + language + '''     through ''' + command + '''</title>
             <link rel="shortcut icon" type="x-icon" href="''' + actual_directory + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>

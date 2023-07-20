@@ -14,8 +14,10 @@
 # output_generalFile
 
 # Create and generate files and directories needed
-output_generalFile="$path/turbostat_performance_data_allVersions.csv"
-temp_file="$path/temp_turbostat_performance_data.txt"
+pathTurbostat=$path/turbostat
+[ -d $pathTurbostat ] || mkdir $pathTurbostat
+output_generalFile="$pathTurbostat/turbostat_performance_data_allVersions.csv"
+temp_file="$pathTurbostat/temp_turbostat_performance_data.txt"
 touch $temp_file
 
 run_turbostat() {
@@ -36,13 +38,13 @@ echo
 echo "    - Time of the 1st running: $time"
 if [ $(echo "$time <= 60" | bc -l) -eq 1 ]; then
     # Create a CSV file for each version
-    output_versionFile="$path/turbostat_performance_data_$version_selected.csv"
+    output_versionFile="$pathTurbostat/turbostat_performance_data_$version_selected.csv"
     touch $output_versionFile
 
     # Record the first measurement
     echo "    - Recording #1 turbostat data in a CSV file: $output_versionFile"
     [ -s $output_versionFile ] || echo test,version,appplication,time_elapsed,$col_names >> $output_versionFile
-    echo "1,$version_selected,$2,$time,$results" >> $output_versionFile
+    echo "1,$confirm_version,$2,$time,$results" >> $output_versionFile
 
     for (( i=2; i<=10; i++ )); do
         # Run the turbostat function

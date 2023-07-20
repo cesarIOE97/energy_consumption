@@ -14,9 +14,11 @@
 # $2 -> file <arguments>
 # output_generalFile
 
-# Create and generate files and directories neededqq
-output_generalTop="$path/top_data_allVersions.csv"
-output_fileTop="$path/temp_top_data_$version_selected.csv"
+# Create and generate files and directories needed
+pathTop=$path/top
+[ -d $pathTop ] || mkdir $pathTop
+output_generalTop="$pathTop/top_data_allVersions.csv"
+output_fileTop="$pathTop/temp_top_data_$version_selected.csv"
 touch $output_fileTop
 
 run_command() {

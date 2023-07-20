@@ -20,7 +20,7 @@ command=sys.argv[2]
 directory=sys.argv[3]
 
 # Define path
-path=language + '/' + directory + '/'
+path=language + '/' + directory + '/top/'
 actual_directory = os.getcwd() + '/'
 
 python_releaseDates = {
@@ -117,7 +117,7 @@ def from_CSVfiles(path, filename_start):
 
     return all_df
 
-# Function to normalize Turbostat data
+# Function to normalize Top data
 def PerfData_normalized(df):
     df_data = df[['version', 'release_date', 'appplication']]
     df_metric = df.loc[:, ~df.columns.isin(['version', 'release_date', 'appplication'])]
@@ -219,7 +219,7 @@ if __name__ == '__main__':
     html_string = '''
     <html>
         <head>
-            <title>Analysis of ''' + language + '''     through ''' + command + '''</title>
+            <title>Top - Analysis of ''' + language + '''     through ''' + command + '''</title>
             <link rel="shortcut icon" type="x-icon" href="''' + actual_directory + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
@@ -269,9 +269,9 @@ if __name__ == '__main__':
                 
             </div>
             
-            <h2>Turbostat dataset</h2>
+            <h2>Top dataset</h2>
             ''' + table + '''
-            <h2>Summary table of Turbostat dataset</h2>
+            <h2>Summary table of Top dataset</h2>
             ''' + summary_table + '''
         </body>
     </html>'''

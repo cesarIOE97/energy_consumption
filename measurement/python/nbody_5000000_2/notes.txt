@@ -1,0 +1,836 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "nbody.py 5000000" "nbody_5000000_2"'
+ONLY terminal was opened
+PC connected all time and 'performance' config
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 5000000" "nbody_5000000_2"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): all
+
+        ... Analysing Python 2.5.6 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 32.626749
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.5.6.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 32978803849
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 152984...
+-0.169075164
+-0.169083134
+Python program with PID 152984 has ended. Monitoring stopped.
+
+        ... Analysing Python 2.7.18 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 33.095470
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_2.7.18.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 33029352376
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 154587...
+-0.169075164
+-0.169083134
+Python program with PID 154587 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.0.1 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 34.372080
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.0.1.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 32943674671
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 155952...
+-0.169075164
+-0.169083134
+Python program with PID 155952 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.4.10 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 43.028044
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.4.10.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 43823338360
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 157401...
+-0.169075164
+-0.169083134
+Python program with PID 157401 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.5.10 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 43.595299
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.5.10.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 45635496183
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 159725...
+-0.169075164
+-0.169083134
+Python program with PID 159725 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.6.15 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 44.166871
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.6.15.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 39749751324
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 161063...
+-0.169075164
+-0.169083134
+Python program with PID 161063 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.7.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 39.109053
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.7.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 38697502472
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 162405...
+-0.169075164
+-0.169083134
+Python program with PID 162405 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.8.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 44.807265
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.8.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 45063055688
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 163845...
+-0.169075164
+-0.169083134
+Python program with PID 163845 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.9.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 44.347867
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.9.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 44543131908
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 166130...
+-0.169075164
+-0.169083134
+Python program with PID 166130 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.10.11 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 45.744015
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.10.11.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 44885655812
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 167766...
+-0.169075164
+-0.169083134
+Python program with PID 167766 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.11.3 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 23.142752
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.11.3.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 22689534473
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 169227...
+-0.169075164
+-0.169083134
+Python program with PID 169227 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.12.0b1 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 24.752860
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.12.0b1.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 26249797469
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 170529...
+-0.169075164
+-0.169083134
+Python program with PID 170529 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.13.0a0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+
+    - Time of the 1st running: 25.872884
+    - Recording #1 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #2 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #3 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #4 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #5 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #6 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #7 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording #8 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #9 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+-0.169075164
+-0.169083134
+    - Recording #10 turbostat data in a CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_3.13-dev.csv
+    - Recording AVG turbostat data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169083134
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+
+    - Time of the 1st running: 27950235400
+    - Recording perf data in the general CSV file: python/nbody_5000000_2/turbostat/turbostat_performance_data_allVersions.csv
+Running the program for monitoring:
+Monitoring memory usage of process with PID 172767...
+-0.169075164
+-0.169083134
+Python program with PID 172767 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+     version release_date      appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0      2.5.6   2011-05-26  nbody.py 5000000             1.00  0.30  ...      594095           2748331                   462.61%               0                  0
+1     2.7.18   2020-04-20  nbody.py 5000000             0.99  0.30  ...      778126            718002                    92.27%               0                  0
+2      3.0.1   2009-02-13  nbody.py 5000000             1.00  0.30  ...      362302           3144065                   867.80%               0                  0
+3     3.4.10   2019-03-18  nbody.py 5000000             1.00  0.37  ...      852595            105066                    12.32%               0                  0
+4     3.5.10   2020-09-05  nbody.py 5000000             1.00  0.38  ...    10678880          17913678                   167.75%               0                  0
+5     3.6.15   2021-09-04  nbody.py 5000000             0.99  0.37  ...     1135090           5271692                   464.43%               0                  0
+6     3.7.16   2022-12-06  nbody.py 5000000             0.99  0.35  ...   102441612           7636636                     7.45%               0                  0
+7     3.8.16   2022-12-06  nbody.py 5000000             1.00  0.38  ...     1396824         101135544                  7240.39%               0                  0
+8     3.9.16   2022-12-06  nbody.py 5000000             0.99  0.36  ...     1908968           4548084                   238.25%               0                  0
+9    3.10.11   2023-04-05  nbody.py 5000000             1.00  0.37  ...      992825          14452487                  1455.69%               0                  0
+10    3.11.3   2023-04-05  nbody.py 5000000             1.00  0.34  ...      224487             39088                    17.41%               0                  0
+11  3.12.0b1   2023-05-22  nbody.py 5000000             1.00  0.38  ...    24466368          36704656                   150.02%               0                  1
+12  3.13.0a0   2023-06-07  nbody.py 5000000             1.00  0.39  ...     2892260          45309987                  1566.59%               0                  0
+
+[13 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+     version release_date      appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0      2.5.6   2011-05-26  nbody.py 5000000               0  1689849796  152984  ...     6567.0 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12648.3 MiB          NaN
+1      2.5.6   2011-05-26  nbody.py 5000000               1  1689849798  152984  ...     6567.2 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12646.6 MiB          NaN
+2      2.5.6   2011-05-26  nbody.py 5000000               2  1689849799  152984  ...     6559.2 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12654.2 MiB          NaN
+3      2.5.6   2011-05-26  nbody.py 5000000               3  1689849800  152984  ...     6559.2 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12654.7 MiB          NaN
+4      2.5.6   2011-05-26  nbody.py 5000000               4  1689849801  152984  ...     6559.2 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12654.7 MiB          NaN
+..       ...          ...               ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+18  3.13.0a0   2023-06-07  nbody.py 5000000              18  1689860414  172767  ...     6632.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12644.2 MiB          NaN
+19  3.13.0a0   2023-06-07  nbody.py 5000000              19  1689860415  172767  ...     6632.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12645.4 MiB          NaN
+20  3.13.0a0   2023-06-07  nbody.py 5000000              20  1689860416  172767  ...     6632.1 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12645.2 MiB          NaN
+21  3.13.0a0   2023-06-07  nbody.py 5000000              21  1689860417  172767  ...     6633.0 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12645.0 MiB          NaN
+22  3.13.0a0   2023-06-07  nbody.py 5000000              22  1689860418  172767  ...     6630.5 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  12646.0 MiB          NaN
+
+[419 rows x 34 columns]
+Analysis of Top data

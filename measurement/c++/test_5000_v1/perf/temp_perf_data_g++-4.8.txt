@@ -1,0 +1,79 @@
+# started on Wed Jul 19 16:30:00 2023
+
+
+ Performance counter stats for './c++/test_5000_v1/nbody_2_g++-4.8 5000':
+
+        17,114,737      msr/tsc/                  #    1.895 G/sec                  
+                                                  #     0.99 CPU_Utilization          (39.14%)
+        17,025,346      cpu_clk_unhalted.ref_tsc  #    1.885 G/sec                    (39.14%)
+        71,776,931      inst_retired.any          #    7.947 G/sec                  
+                                                  #     0.49 CPI                      (83.40%)
+        34,825,970      cycles                    #    3.856 GHz                      (83.40%)
+        35,024,154      cycles                    #    3.878 GHz                    
+                                                  #     0.58 Retiring               
+        81,174,191      uops_retired.retire_slots #    8.988 G/sec                  
+        35,024,154      cycles                    #    3.878 GHz                    
+                                                  #     0.12 Frontend_Bound         
+        17,146,303      idq_uops_not_delivered.core #    1.898 G/sec                  
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      idq_uops_not_delivered.core                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      uops_executed.core_cycles_ge_1                                     (0.00%)
+     <not counted>      uops_executed.thread                                          (0.00%)
+     <not counted>      inst_retired.any                                              (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      cpu_clk_unhalted.thread:k                                     (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      l1d.replacement                                               (0.00%)
+         9,367,627 ns   duration_time             #    1.037 G/sec                                                                                        
+     <not counted>      cpu_clk_unhalted.ref_tsc                                      (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+         9,367,627 ns   duration_time             #    1.037 G/sec                  
+   <not supported> Joules power/energy-cores/                                         
+   <not supported> Joules power/energy-ram/                                           
+   <not supported> Joules power/energy-gpu/                                           
+   <not supported> Joules power/energy-pkg/                                           
+   <not supported> Joules power/energy-psys/                                          
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      instructions                                                  (0.00%)
+              9.03 msec cpu-clock                 #    0.964 CPUs utilized          
+     <not counted>      cpu-cycles                                                    (0.00%)
+                 0      cpu-migrations            #    0.000 /sec                   
+     <not counted>      ref-cycles                                                    (0.00%)
+     <not counted>      bus-cycles                                                    (0.00%)
+              9.03 msec task-clock                #    0.964 CPUs utilized          
+                19 C    msr/cpu_thermal_margin/   #    2.104 K/sec                  
+     <not counted>      branches                                                      (0.00%)
+     <not counted>      branch-misses                                                 (0.00%)
+     <not counted>      mem-loads                                                     (0.00%)
+     <not counted>      mem-stores                                                    (0.00%)
+               139      page-faults               #   15.390 K/sec                  
+               139      minor-faults              #   15.390 K/sec                  
+                 0      major-faults              #    0.000 /sec                   
+     <not counted>      cache-references                                              (0.00%)
+     <not counted>      cache-misses                                                  (0.00%)
+     <not counted>      L1-dcache-loads                                               (0.00%)
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      LLC-loads                                                     (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+     <not counted>      L1-icache-load-misses                                         (0.00%)
+     <not counted>      dTLB-loads                                                    (0.00%)
+     <not counted>      dTLB-load-misses                                              (0.00%)
+     <not counted>      iTLB-loads                                                    (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+                 0      block:block_rq_issue      #    0.000 /sec                   
+                 0      block:block_rq_complete   #    0.000 /sec                   
+
+       0.009367627 seconds time elapsed
+
+       0.009428000 seconds user
+       0.000000000 seconds sys
+
+
+The events in group usually have to be from the same PMU. Try reorganizing the group.

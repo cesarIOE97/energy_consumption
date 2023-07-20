@@ -1,0 +1,862 @@
+
+    <html>
+        <head>
+            <title>Top - Analysis of c++     through nbody_2.c 5000</title>
+            <link rel="shortcut icon" type="x-icon" href="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/aalto.ico"> </link>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <style>
+                body{ margin:0 100; background:whitesmoke; }
+                *{box-sizing: border-box;}
+                .column {float: left; width: 50%; padding: 10px;}
+                .row:after {content: ""; display: table; clear: both;}
+                .plot {width: 100%; height: 600;}
+                h1 {text-align: center}
+                h2 {text-align: center}
+            </style>
+        </head>
+        <body>
+            <h1>Analysis of performance, memory and energy consumption in <b>c++</b> through <b>nbody_2.c 5000</b> </h1>
+            <div class="row">
+                <div class="column">
+                    <h2>Perf Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Virtual memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000_v1/top/plotTop1_virtualMemory.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: Resident memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000_v1/top/plotTop2_residentMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 3 *** --->
+                    <h3>Section 3: Shared memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000_v1/top/plotTop3_sharedMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 4 *** --->
+                    <h3>Section 4: Percent of CPU used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000_v1/top/plotTop4_percentCPU.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 5 *** --->
+                    <h3>Section 5: Percent of Memory used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/c++/test_5000_v1/top/plotTop5_percentMemory.html"></iframe>
+                    <p>Notes</p>
+                </div>
+                
+            </div>
+            
+            <h2>Top dataset</h2>
+            <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>version</th>
+      <th>release_date</th>
+      <th>appplication</th>
+      <th>no_measurement</th>
+      <th>timestamp</th>
+      <th>pid</th>
+      <th>command</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>tasks_total</th>
+      <th>tasks_running</th>
+      <th>tasks_sleeping</th>
+      <th>tasks_stopped</th>
+      <th>tasks_zombie</th>
+      <th>cpu_us</th>
+      <th>cpu_sy</th>
+      <th>cpu_ni</th>
+      <th>cpu_id</th>
+      <th>cpu_wa</th>
+      <th>cpu_hi</th>
+      <th>cpu_si</th>
+      <th>cpu_st</th>
+      <th>mem_total</th>
+      <th>mem_free</th>
+      <th>mem_used</th>
+      <th>mem_buff_cache</th>
+      <th>swap_total</th>
+      <th>swap_free</th>
+      <th>swap_used</th>
+      <th>swap_avail</th>
+      <th>Unnamed: 32</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>g++-4.4</td>
+      <td>2012-03-13</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773388</td>
+      <td>96809</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343</td>
+      <td>2</td>
+      <td>340</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5.5</td>
+      <td>1.6</td>
+      <td>0.0</td>
+      <td>93.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6138.2 MiB</td>
+      <td>4463.9 MiB</td>
+      <td>5192.9 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10197.7 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-4.6</td>
+      <td>2013-04-12</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773392</td>
+      <td>97354</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343</td>
+      <td>1</td>
+      <td>341</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5.4</td>
+      <td>1.5</td>
+      <td>0.0</td>
+      <td>93.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6105.1 MiB</td>
+      <td>4462.1 MiB</td>
+      <td>5227.8 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10179.3 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-4.7</td>
+      <td>2014-06-12</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773396</td>
+      <td>97899</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343</td>
+      <td>1</td>
+      <td>341</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4.7</td>
+      <td>2.3</td>
+      <td>0.0</td>
+      <td>93.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6102.5 MiB</td>
+      <td>4458.0 MiB</td>
+      <td>5234.4 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10194.6 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-4.8</td>
+      <td>2015-06-23</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773400</td>
+      <td>98443</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343</td>
+      <td>1</td>
+      <td>341</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2.3</td>
+      <td>1.6</td>
+      <td>0.0</td>
+      <td>96.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6080.5 MiB</td>
+      <td>4463.7 MiB</td>
+      <td>5250.8 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10189.6 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-4.9</td>
+      <td>2015-06-26</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773405</td>
+      <td>98998</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343</td>
+      <td>1</td>
+      <td>341</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3.9</td>
+      <td>0.8</td>
+      <td>0.0</td>
+      <td>95.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6067.2 MiB</td>
+      <td>4464.2 MiB</td>
+      <td>5263.6 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10195.9 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-5</td>
+      <td>2017-10-10</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773409</td>
+      <td>99546</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>342</td>
+      <td>3</td>
+      <td>338</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4.7</td>
+      <td>3.1</td>
+      <td>0.0</td>
+      <td>92.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>6034.8 MiB</td>
+      <td>4463.6 MiB</td>
+      <td>5296.6 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10189.6 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-6</td>
+      <td>2018-10-26</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773413</td>
+      <td>100152</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>344</td>
+      <td>1</td>
+      <td>342</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5.5</td>
+      <td>1.6</td>
+      <td>0.0</td>
+      <td>92.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5960.1 MiB</td>
+      <td>4507.3 MiB</td>
+      <td>5327.6 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10137.8 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-7</td>
+      <td>2019-11-14</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773417</td>
+      <td>100702</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>342</td>
+      <td>1</td>
+      <td>340</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2.4</td>
+      <td>0.8</td>
+      <td>0.0</td>
+      <td>96.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5996.3 MiB</td>
+      <td>4457.8 MiB</td>
+      <td>5340.9 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10204.7 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-8</td>
+      <td>2021-05-14</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773421</td>
+      <td>101304</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>344</td>
+      <td>1</td>
+      <td>342</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3.2</td>
+      <td>1.6</td>
+      <td>0.0</td>
+      <td>95.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5662.7 MiB</td>
+      <td>4505.3 MiB</td>
+      <td>5627.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10131.7 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-9</td>
+      <td>2022-05-27</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773425</td>
+      <td>101849</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>342</td>
+      <td>1</td>
+      <td>340</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3.9</td>
+      <td>1.6</td>
+      <td>0.0</td>
+      <td>93.7</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.8</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5636.1 MiB</td>
+      <td>4514.4 MiB</td>
+      <td>5644.5 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10139.1 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-10</td>
+      <td>2023-07-07</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773429</td>
+      <td>102394</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>341</td>
+      <td>1</td>
+      <td>339</td>
+      <td>1</td>
+      <td>0</td>
+      <td>9.2</td>
+      <td>3.8</td>
+      <td>0.0</td>
+      <td>86.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5604.7 MiB</td>
+      <td>4513.7 MiB</td>
+      <td>5676.6 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10140.6 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-11</td>
+      <td>2023-05-29</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773434</td>
+      <td>102939</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>341</td>
+      <td>1</td>
+      <td>339</td>
+      <td>1</td>
+      <td>0</td>
+      <td>11.7</td>
+      <td>2.3</td>
+      <td>0.0</td>
+      <td>85.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5583.5 MiB</td>
+      <td>4500.3 MiB</td>
+      <td>5711.1 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10152.3 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-12</td>
+      <td>2023-05-08</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773438</td>
+      <td>103493</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>339</td>
+      <td>1</td>
+      <td>337</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4.6</td>
+      <td>2.3</td>
+      <td>0.0</td>
+      <td>93.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5535.2 MiB</td>
+      <td>4465.8 MiB</td>
+      <td>5794.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10145.2 MiB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>g++-13</td>
+      <td>2023-04-26</td>
+      <td>nbody_2.c 5000</td>
+      <td>0</td>
+      <td>1689773442</td>
+      <td>104037</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>339</td>
+      <td>2</td>
+      <td>336</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4.0</td>
+      <td>0.8</td>
+      <td>0.0</td>
+      <td>95.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15795.0 MiB</td>
+      <td>5360.1 MiB</td>
+      <td>4468.1 MiB</td>
+      <td>5966.8 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>4096.0 MiB</td>
+      <td>0.0 MiB</td>
+      <td>10163.4 MiB</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+            <h2>Summary table of Top dataset</h2>
+            <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>release_date</th>
+      <th>no_measurement</th>
+      <th>timestamp</th>
+      <th>pid</th>
+      <th>command</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>tasks_total</th>
+      <th>tasks_running</th>
+      <th>tasks_sleeping</th>
+      <th>tasks_stopped</th>
+      <th>tasks_zombie</th>
+      <th>cpu_us</th>
+      <th>cpu_sy</th>
+      <th>cpu_ni</th>
+      <th>cpu_id</th>
+      <th>cpu_wa</th>
+      <th>cpu_hi</th>
+      <th>cpu_si</th>
+      <th>cpu_st</th>
+      <th>Unnamed: 32</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>14</td>
+      <td>14.0</td>
+      <td>1.400000e+01</td>
+      <td>14.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>14.000000</td>
+      <td>14.000000</td>
+      <td>14.000000</td>
+      <td>14.0</td>
+      <td>14.0</td>
+      <td>14.000000</td>
+      <td>14.000000</td>
+      <td>14.0</td>
+      <td>14.000000</td>
+      <td>14.0</td>
+      <td>14.0</td>
+      <td>14.000000</td>
+      <td>14.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2018-11-27 12:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>100422.785714</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>342.071429</td>
+      <td>1.285714</td>
+      <td>339.785714</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>5.071429</td>
+      <td>1.835714</td>
+      <td>0.0</td>
+      <td>93.035714</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.057143</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2012-03-13 00:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>96809.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>339.000000</td>
+      <td>1.000000</td>
+      <td>336.000000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.300000</td>
+      <td>0.800000</td>
+      <td>0.0</td>
+      <td>85.900000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2015-06-23 18:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>98581.750000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>341.250000</td>
+      <td>1.000000</td>
+      <td>339.000000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.900000</td>
+      <td>1.525000</td>
+      <td>0.0</td>
+      <td>92.925000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2019-05-06 00:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>100427.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>342.500000</td>
+      <td>1.000000</td>
+      <td>340.000000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.650000</td>
+      <td>1.600000</td>
+      <td>0.0</td>
+      <td>93.100000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2023-02-01 12:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>102257.750000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>343.000000</td>
+      <td>1.000000</td>
+      <td>341.000000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>5.475000</td>
+      <td>2.300000</td>
+      <td>0.0</td>
+      <td>95.200000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2023-07-07 00:00:00</td>
+      <td>0.0</td>
+      <td>1.689773e+09</td>
+      <td>104037.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>344.000000</td>
+      <td>3.000000</td>
+      <td>342.000000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>11.700000</td>
+      <td>3.800000</td>
+      <td>0.0</td>
+      <td>96.900000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.800000</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.740674e+01</td>
+      <td>2340.815084</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.591530</td>
+      <td>0.611250</td>
+      <td>1.805060</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.544505</td>
+      <td>0.864342</td>
+      <td>0.0</td>
+      <td>3.144619</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.213809</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+        </body>
+    </html>

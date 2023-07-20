@@ -18,8 +18,10 @@
 # output_filePerf="temp_perf_data.txt"
 # touch $output_filePerf
 # command="python3 python/nbody.py 50000000"
-output_generalPerf="$path/perf_data_allVersions.csv"
-output_filePerf="$path/temp_perf_data_$version_selected.txt"
+pathPerf=$path/perf
+[ -d $pathPerf ] || mkdir $pathPerf
+output_generalPerf="$pathPerf/perf_data_allVersions.csv"
+output_filePerf="$pathPerf/temp_perf_data_$version_selected.txt"
 touch $output_filePerf
 
 run_perf() {
@@ -184,7 +186,7 @@ echo
 echo "    - Time of the 1st running: $time"
 if [ $(echo "$time <= 1000000000" | bc -l) -eq 1 ]; then
     # Create a CSV file for each version
-    output_versionPerfFile="$path/perf_performance_data_$version_selected.csv"
+    output_versionPerfFile="$pathPerf/perf_performance_data_$version_selected.csv"
     touch $output_versionPerfFile
 
     # Record the first measurement

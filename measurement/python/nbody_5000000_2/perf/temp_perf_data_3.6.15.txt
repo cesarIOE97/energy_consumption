@@ -1,0 +1,85 @@
+# started on Thu Jul 20 14:53:49 2023
+
+
+ Performance counter stats for 'python3 python/nbody.py 5000000':
+
+    75,261,139,027      msr/tsc/                  #    1.894 G/sec                  
+                                                  #     0.99 CPU_Utilization          (16.12%)
+    74,788,278,661      cpu_clk_unhalted.ref_tsc  #    1.882 G/sec                    (16.12%)
+   438,257,263,722      inst_retired.any          #   11.026 G/sec                  
+                                                  #     0.37 CPI                      (19.36%)
+   161,033,346,925      cycles                    #    4.052 GHz                      (19.36%)
+   161,050,717,337      cycles                    #    4.052 GHz                    
+                                                  #     0.69 Retiring                 (16.17%)
+   446,341,255,095      uops_retired.retire_slots #   11.230 G/sec                    (16.17%)
+   161,110,352,361      cycles                    #    4.054 GHz                    
+                                                  #     0.20 Frontend_Bound           (12.99%)
+   128,221,192,250      idq_uops_not_delivered.core #    3.226 G/sec                    (12.99%)
+   482,747,495,729      uops_issued.any           #   12.146 G/sec                  
+                                                  #     0.08 Bad_Speculation          (3.27%)
+   161,225,382,996      cycles                    #    4.056 GHz                      (3.27%)
+   444,895,468,922      uops_retired.retire_slots #   11.193 G/sec                    (3.27%)
+     3,932,731,994      int_misc.recovery_cycles  #   98.947 M/sec                    (3.27%)
+   484,041,640,120      uops_issued.any           #   12.178 G/sec                  
+                                                  #     0.03 Backend_Bound            (3.24%)
+   161,023,575,444      cycles                    #    4.051 GHz                      (3.24%)
+   127,879,123,068      idq_uops_not_delivered.core #    3.217 G/sec                    (3.24%)
+     3,913,572,766      int_misc.recovery_cycles  #   98.465 M/sec                    (3.24%)
+   446,175,414,004      uops_retired.retire_slots #   11.226 G/sec                    (3.24%)
+   149,141,999,881      uops_executed.core_cycles_ge_1 #    3.752 G/sec                  
+                                                  #     6.73 ILP                      (3.22%)
+   502,008,609,240      uops_executed.thread      #   12.630 G/sec                    (3.22%)
+   438,448,203,392      inst_retired.any          #   11.031 G/sec                  
+                                                  #     2.72 IPC                      (6.45%)
+   160,998,065,317      cpu_clk_unhalted.thread   #    4.051 G/sec                    (6.45%)
+        87,145,946      cpu_clk_unhalted.thread:k #    2.193 M/sec                  
+                                                  #     0.00 Kernel_Utilization       (9.67%)
+   161,022,340,760      cpu_clk_unhalted.thread   #    4.051 G/sec                    (9.67%)
+        75,779,383      l1d.replacement           #    1.907 M/sec                  
+                                                  #     0.12 L1D_Cache_Fill_BW        (9.67%)
+    39,749,751,324 ns   duration_time             #    1.000 G/sec                                                                                        
+    74,786,211,187      cpu_clk_unhalted.ref_tsc  #    1.882 G/sec                  
+                                                  #     2.15 Turbo_Utilization        (12.89%)
+   161,024,552,441      cpu_clk_unhalted.thread   #    4.051 G/sec                    (12.89%)
+    39,749,751,324 ns   duration_time             #    1.000 G/sec                  
+   <not supported> Joules power/energy-cores/                                         
+   <not supported> Joules power/energy-ram/                                           
+   <not supported> Joules power/energy-gpu/                                           
+   <not supported> Joules power/energy-pkg/                                           
+   <not supported> Joules power/energy-psys/                                          
+   161,031,781,985      cycles                    #    4.052 GHz                      (12.89%)
+   438,271,064,775      instructions              #    2.72  insn per cycle           (16.12%)
+         39,745.86 msec cpu-clock                 #    1.000 CPUs utilized          
+   161,033,440,729      cpu-cycles                #    4.052 GHz                      (16.12%)
+                37      cpu-migrations            #    0.931 /sec                   
+    74,784,552,818      ref-cycles                #    1.882 G/sec                    (12.89%)
+       946,765,346      bus-cycles                #   23.820 M/sec                    (16.12%)
+         39,746.01 msec task-clock                #    1.000 CPUs utilized          
+             1,937 C    msr/cpu_thermal_margin/   #   48.735 /sec                   
+    83,806,484,240      branches                  #    2.109 G/sec                    (19.34%)
+       628,508,969      branch-misses             #    0.75% of all branches          (22.56%)
+                 0      mem-loads                 #    0.000 /sec                     (22.57%)
+    70,267,147,150      mem-stores                #    1.768 G/sec                    (12.90%)
+             8,757      page-faults               #  220.324 /sec                   
+             8,757      minor-faults              #  220.324 /sec                   
+                 0      major-faults              #    0.000 /sec                   
+        12,549,805      cache-references          #  315.751 K/sec                    (12.90%)
+           640,646      cache-misses              #    5.105 % of all cache refs      (12.90%)
+   142,228,495,789      L1-dcache-loads           #    3.578 G/sec                    (12.90%)
+        73,772,148      L1-dcache-load-misses     #    0.05% of all L1-dcache accesses  (12.90%)
+           838,832      LLC-loads                 #   21.105 K/sec                    (12.90%)
+            35,447      LLC-load-misses           #    4.23% of all LL-cache accesses  (12.90%)
+        11,790,536      L1-icache-load-misses                                         (12.90%)
+   142,141,245,855      dTLB-loads                #    3.576 G/sec                    (12.90%)
+             4,149      dTLB-load-misses          #    0.00% of all dTLB cache accesses  (12.89%)
+         1,135,090      iTLB-loads                #   28.559 K/sec                    (12.89%)
+         5,271,692      iTLB-load-misses          #  464.43% of all iTLB cache accesses  (12.89%)
+                 0      block:block_rq_issue      #    0.000 /sec                   
+                 0      block:block_rq_complete   #    0.000 /sec                   
+
+      39.749751324 seconds time elapsed
+
+      39.740033000 seconds user
+       0.008868000 seconds sys
+
+

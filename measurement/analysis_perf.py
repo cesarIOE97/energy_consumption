@@ -1,5 +1,6 @@
 # Libraries
 import sys
+import re
 import os
 import glob
 import webbrowser
@@ -19,7 +20,7 @@ command=sys.argv[2]
 directory=sys.argv[3]
 
 # Define path
-path=language + '/' + directory + '/'
+path=language + '/' + directory + '/perf/'
 actual_directory = os.getcwd() + '/'
 
 python_releaseDates = {
@@ -87,9 +88,10 @@ def from_CSVfile(file):
     df.replace(to_replace='-', value=0, inplace=True)
     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
     #     print(df)
+
     return df
 
-# Function to normalize Turbostat data
+# Function to normalize perf data
 def PerfData_normalized(df):
     df_data = df[['version', 'release_date', 'appplication']]
     df_metric = df.loc[:, ~df.columns.isin(['version', 'release_date', 'appplication'])]
@@ -158,6 +160,22 @@ if __name__ == '__main__':
     
     df = from_CSVfile(path + 'perf_data_allVersions.csv')
     display(df)
+
+    # Define a regular expression pattern to match any non-numeric characters
+    pattern = r'[^0-9.]'
+
+    # Convert non-numeric columns to string type
+    non_numeric_cols = df.select_dtypes(exclude=['int64', 'float64']).columns
+    df[non_numeric_cols] = df[non_numeric_cols].astype(str)
+
+    # Apply the regular expression replacement to string columns in the DataFrame
+    df = df.applymap(lambda x: re.sub(pattern, '', x) if isinstance(x, str) else x)
+
+    # Convert columns back to numeric type
+    df = df.apply(pd.to_numeric, errors='ignore')
+
+
+    df.to_csv(path + "perf_test.csv", index=False)
     
     first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_PerfData(df, normalized=False)
     first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_PerfData(df, normalized=True)
@@ -171,7 +189,7 @@ if __name__ == '__main__':
     html_string = '''
     <html>
         <head>
-            <title>Analysis of ''' + language + '''     through ''' + command + '''</title>
+            <title>Perf - Analysis of ''' + language + '''     through ''' + command + '''</title>
             <link rel="shortcut icon" type="x-icon" href="''' + actual_directory + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
@@ -220,7 +238,7 @@ if __name__ == '__main__':
                     <p>Notes</p>
                 </div>
                 <div class="column">
-                    <h2>Turbostat Data Normalized</h2>
+                    <h2>Perf Data Normalized</h2>
                     <!-- *** Section 1 *** --->
                     <h3>Section 1: Energy consumption and time elapsed </h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
@@ -253,9 +271,9 @@ if __name__ == '__main__':
                 </div>
             </div>
             
-            <h2>Turbostat dataset</h2>
+            <h2>Perf dataset</h2>
             ''' + table + '''
-            <h2>Summary table of Turbostat dataset</h2>
+            <h2>Summary table of Perf dataset</h2>
             ''' + summary_table + '''
         </body>
     </html>'''
