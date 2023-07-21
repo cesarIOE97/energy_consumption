@@ -118,7 +118,7 @@ def from_CSVfiles(path, filename_start):
     return all_df
 
 # Function to normalize Top data
-def PerfData_normalized(df):
+def TopData_normalized(df):
     df_data = df[['version', 'release_date', 'appplication']]
     df_metric = df.loc[:, ~df.columns.isin(['version', 'release_date', 'appplication'])]
 
@@ -142,7 +142,7 @@ def line_plot(df, filename_plot, x_data, y_data, text_data, norm):
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
     plot = plotly.offline.plot(fig, filename=path + filename_plot + normalized + '.html', auto_open=False)
-    return plot
+    return filename_plot + ".html"
 
 def line_plot_3variables(df, filename_plot, x_data, y_data, color_data, text_data, norm):
     normalized = ''
@@ -156,11 +156,11 @@ def line_plot_3variables(df, filename_plot, x_data, y_data, color_data, text_dat
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
     plot = plotly.offline.plot(fig, filename=path + filename_plot + normalized + '.html', auto_open=False)
-    return plot
+    return filename_plot + ".html"
 
-def plot_PerfData(df, normalized):
+def plot_TopData(df, normalized):
 
-    if normalized: df = PerfData_normalized(df)
+    if normalized: df = TopData_normalized(df)
 
     print("Analysis of Top data")
 
@@ -207,10 +207,10 @@ if __name__ == '__main__':
     df = from_CSVfiles(path, path + 'temp_top_data_')
     display(df)
     
-    first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_PerfData(df, normalized=False)
-    # first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_PerfData(df, normalized=True)
+    first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_TopData(df, normalized=False)
+    # first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_TopData(df, normalized=True)
 
-    summary_table = df.describe()
+    summary_table = df.groupby('version')[['virt','res','shr','percent_cpu','percent_mem']].agg(['max','min'])
     summary_table = summary_table.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">') # use bootstrap styling
     table = df.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">')
 
@@ -220,7 +220,7 @@ if __name__ == '__main__':
     <html>
         <head>
             <title>Top - Analysis of ''' + language + '''     through ''' + command + '''</title>
-            <link rel="shortcut icon" type="x-icon" href="''' + actual_directory + "aalto.ico" + '''"> </link>
+            <link rel="shortcut icon" type="x-icon" href="''' + "../../../" + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
                 body{ margin:0 100; background:whitesmoke; }
@@ -236,41 +236,39 @@ if __name__ == '__main__':
             <h1>Analysis of performance, memory and energy consumption in <b>''' + language + '''</b> through <b>''' + command + '''</b> </h1>
             <div class="row">
                 <div class="column">
-                    <h2>Perf Data</h2>
+                    <h2>Top Data</h2>
                     <!-- *** Section 1 *** --->
                     <h3>Section 1: Virtual memory through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + first_plot + '''"></iframe>
+                        src="''' + first_plot + '''"></iframe>
                     <p>Notes: </p>
                     <!-- *** Section 2 *** --->
                     <h3>Section 2: Resident memory through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + second_plot + '''"></iframe>
+                        src="''' + second_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 3 *** --->
                     <h3>Section 3: Shared memory through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + third_plot + '''"></iframe>
+                        src="''' + third_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 4 *** --->
                     <h3>Section 4: Percent of CPU used through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fourth_plot + '''"></iframe>
+                        src="''' + fourth_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 5 *** --->
                     <h3>Section 5: Percent of Memory used through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fifth_plot + '''"></iframe>
+                        src="''' + fifth_plot + '''"></iframe>
                     <p>Notes</p>
                 </div>
                 
             </div>
             
-            <h2>Top dataset</h2>
-            ''' + table + '''
             <h2>Summary table of Top dataset</h2>
             ''' + summary_table + '''
         </body>

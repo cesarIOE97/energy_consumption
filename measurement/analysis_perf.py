@@ -116,7 +116,7 @@ def line_plot(df, filename_plot, x_data, y_data, text_data, norm):
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
     plot = plotly.offline.plot(fig, filename=path + filename_plot + normalized + '.html', auto_open=False)
-    return plot
+    return filename_plot + ".html"
 
 def plot_PerfData(df, normalized):
 
@@ -190,7 +190,7 @@ if __name__ == '__main__':
     <html>
         <head>
             <title>Perf - Analysis of ''' + language + '''     through ''' + command + '''</title>
-            <link rel="shortcut icon" type="x-icon" href="''' + actual_directory + "aalto.ico" + '''"> </link>
+            <link rel="shortcut icon" type="x-icon" href="''' + "../../../" + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
                 body{ margin:0 100; background:whitesmoke; }
@@ -210,31 +210,31 @@ if __name__ == '__main__':
                     <!-- *** Section 1 *** --->
                     <h3>Section 1: Pipe efficiency and time elapsed </h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + first_plot + '''"></iframe>
+                        src="''' + first_plot + '''"></iframe>
                     <p>Notes: </p>
                     
                     <!-- *** Section 2 *** --->
                     <h3>Section 2: CPU information</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + second_plot + '''"></iframe>
+                        src="''' + second_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 3 *** --->
                     <h3>Section 3: Cstates</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + third_plot + '''"></iframe>
+                        src="''' + third_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 4 *** --->
                     <h3>Section 4: Temperature</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fourth_plot + '''"></iframe>
+                        src="''' + fourth_plot + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 5 *** --->
                     <h3>Section 5: More parameters</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fifth_plot + '''"></iframe>
+                        src="''' + fifth_plot + '''"></iframe>
                     <p>Notes</p>
                 </div>
                 <div class="column">
@@ -242,31 +242,31 @@ if __name__ == '__main__':
                     <!-- *** Section 1 *** --->
                     <h3>Section 1: Energy consumption and time elapsed </h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + first_plotNorm + '''"></iframe>
+                        src="''' + first_plotNorm + '''"></iframe>
                     <p>Notes: </p>
                     
                     <!-- *** Section 2 *** --->
                     <h3>Section 2: CPU information</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + second_plotNorm + '''"></iframe>
+                        src="''' + second_plotNorm + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 3 *** --->
                     <h3>Section 3: Cstates</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + third_plotNorm + '''"></iframe>
+                        src="''' + third_plotNorm + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 4 *** --->
                     <h3>Section 4: Temperature</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fourth_plotNorm + '''"></iframe>
+                        src="''' + fourth_plotNorm + '''"></iframe>
                     <p>Notes</p>
 
                     <!-- *** Section 5 *** --->
                     <h3>Section 5: More parameters</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + actual_directory + fifth_plotNorm + '''"></iframe>
+                        src="''' + fifth_plotNorm + '''"></iframe>
                     <p>Notes</p>
                 </div>
             </div>

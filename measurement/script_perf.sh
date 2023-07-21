@@ -179,7 +179,7 @@ echo "Running Perf and program:"
 run_perf
 
 # Record perf data in the CSV file with ALL the versions (only once)
-echo "    - Recording perf data in the general CSV file: $output_generalFile"
+echo "    - Recording perf data in the general CSV file: $output_generalPerf"
 
 # Verify the time elapsed to determine how many samples to measure
 echo
@@ -215,7 +215,7 @@ if [ $(echo "$time <= 1000000000" | bc -l) -eq 1 ]; then
 
 else
     # Record perf data in the CSV file with ALL the versions (only once)
-    echo "    - Recording perf data in the general CSV file: $output_generalFile"
+    echo "    - Recording perf data in the general CSV file: $output_generalPerf"
     [ -s $output_generalPerf ] || echo version,appplication,$col_names >> $output_generalPerf
     echo $confirm_version,$2,$results>> $output_generalPerf
 fi

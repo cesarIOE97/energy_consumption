@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html style="height:100%; width:100%">
+<head>
+    <title>Tabbed Webpage</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Adjust the size of the iframes to fit your requirements */
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body style="height:100%; width:100%">
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="webpage1-tab" data-toggle="tab" href="#webpage1" role="tab" aria-controls="webpage1" aria-selected="true">Turbostat</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="webpage2-tab" data-toggle="tab" href="#webpage2" role="tab" aria-controls="webpage2" aria-selected="false">Perf</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="webpage3-tab" data-toggle="tab" href="#webpage3" role="tab" aria-controls="webpage3" aria-selected="false">Top</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent" style="height:100%; width:100%">
+        <div class="tab-pane fade show active" id="webpage1" role="tabpanel" aria-labelledby="webpage1-tab" style="height:100%; width:100%">
+            <div class="iframe-container">
+                <iframe src="turbostat/report_Turbostat.html" frameborder="0" style="height:100%; width:100%"></iframe>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="webpage2" role="tabpanel" aria-labelledby="webpage2-tab" style="height:100%; width:100%">
+            <div class="iframe-container">
+                <iframe src="perf/report_Perf.html" frameborder="0" style="height:100%; width:100%"></iframe>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="webpage3" role="tabpanel" aria-labelledby="webpage3-tab" style="height:100%; width:100%">
+            <div class="iframe-container">
+                <iframe src="top/report_Top.html" frameborder="0" style="height:100%; width:100%"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

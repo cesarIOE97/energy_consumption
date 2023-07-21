@@ -59,7 +59,7 @@ function get_top_data() {
 }
 
 # Run command to monitor it by its PID
-echo "Running the program for monitoring:"
+echo "Running the program for monitoring using 'top':"
 run_command
 pid=$!
 

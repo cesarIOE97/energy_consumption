@@ -2,7 +2,7 @@
 
 Running the command: './index.sh "nbody.py 5000000" "nbody_5000000_2"'
 ONLY terminal was opened
-PC connected all time and 'performance' config
+PC connected all time and 'performance' config (100%)
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
