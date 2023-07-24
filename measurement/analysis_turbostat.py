@@ -104,8 +104,7 @@ def TurbostatData_normalized(df):
 # Function to plot the trends
 def line_plot(df, filename_plot, x_data, y_data, text_data, norm):
     
-    normalized = ''
-    if norm: normalized = "_Normalized"
+    if norm: filename_plot = filename_plot + "_Normalized"
 
     fig = px.line(df,
                   x = x_data,
@@ -113,7 +112,8 @@ def line_plot(df, filename_plot, x_data, y_data, text_data, norm):
                   text=text_data,
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
-    plot = plotly.offline.plot(fig, filename=path + filename_plot + normalized + '.html', auto_open=False)
+    plot = plotly.offline.plot(fig, filename=path + filename_plot + '.html', auto_open=False)
+
     return filename_plot + ".html"
 
 def plot_TurbostatData(df, normalized):
@@ -199,11 +199,11 @@ if __name__ == '__main__':
     html_string = '''
     <html>
         <head>
-            <title>Turbostat - Analysis of ''' + language + '''     through ''' + command + '''</title>
+            <title>Turbostat data</title>
             <link rel="shortcut icon" type="x-icon" href="''' + "../../../" + "aalto.ico" + '''"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
-                body{ margin:0 100; background:whitesmoke; }
+                body{ margin:0 50; background:whitesmoke; }
                 *{box-sizing: border-box;}
                 .column {float: left; width: 50%; padding: 10px;}
                 .row:after {content: ""; display: table; clear: both;}
@@ -213,7 +213,7 @@ if __name__ == '__main__':
             </style>
         </head>
         <body>
-            <h1>Analysis of performance, memory and energy consumption in <b>''' + language + '''</b> through <b>''' + command + '''</b> </h1>
+            <h1>Turbostat data in <b>''' + language + '''</b> through <b>''' + command + '''</b> </h1>
             <div class="row">
                 <div class="column">
                     <h2>Turbostat Data</h2>
@@ -291,5 +291,3 @@ if __name__ == '__main__':
     f = open(path + 'report_Turbostat.html','w')
     f.write(html_string)
     f.close()
-
-    webbrowser.open_new_tab(path + 'report_Turbostat.html')

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plotly Graphs in Tabs</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    /* ... (Previous styles remain the same) ... */
+
+    /* Add a loading spinner */
+    .loading-spinner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plotly Graphs in Tabs</h1>
+
+  <ul class="tabs">
+    <li onclick="loadTab('perf/report_Perf')">Tab 1</li>
+    <li onclick="loadTab('top/report_Top')">Tab 2</li>
+    <!-- Add more tabs as needed -->
+  </ul>
+
+  <div id="content">
+    <!-- Content of the tabs will be loaded here -->
+  </div>
+
+  <!-- Add a loading spinner element -->
+  <div class="loading-spinner">
+    Loading...
+  </div>
+
+  <script>
+    let isLoading = false;
+
+    function loadTab(tabName) {
+      if (isLoading) return;
+      isLoading = true;
+
+      const iframe = document.getElementById('content');
+      const loadingSpinner = document.querySelector('.loading-spinner');
+      
+      // Show the loading spinner while the content is being fetched
+      loadingSpinner.style.display = 'block';
+      
+      // Create a new XMLHttpRequest object
+      const xhr = new XMLHttpRequest();
+      
+      // Set up the event handler for when the request completes
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            // On success, insert the content into the iframe
+            iframe.contentDocument.open();
+            iframe.contentDocument.write(xhr.responseText);
+            iframe.contentDocument.close();
+          } else {
+            // On error, display an error message
+            iframe.contentDocument.open();
+            iframe.contentDocument.write('<h2>Error loading content</h2>');
+            iframe.contentDocument.close();
+          }
+
+          // Hide the loading spinner and mark loading as complete
+          loadingSpinner.style.display = 'none';
+          isLoading = false;
+
+          // Call a function to handle any JavaScript-dependent content inside the tab
+          handleTabContentLoaded();
+        }
+      };
+
+      // Open and send the request to fetch the tab content
+      xhr.open('GET', `${tabName}.html`, true);
+      xhr.send();
+    }
+
+    function handleTabContentLoaded() {
+      // Get all tab content elements
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      // Hide all tab content elements
+      tabContents.forEach(content => content.style.display = 'none');
+
+      // Show the selected tab content
+      const iframeContent = document.getElementById('content').contentDocument;
+      iframeContent.querySelectorAll('.tab-content').forEach(content => {
+        content.style.display = 'block';
+
+        // Handle any Plotly graphs or other JavaScript-dependent content
+        if (content.dataset.jsLoaded === undefined) {
+          content.dataset.jsLoaded = 'true';
+          const scriptElements = content.querySelectorAll('script');
+          scriptElements.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.innerHTML = script.innerHTML;
+            iframeContent.body.appendChild(newScript);
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
