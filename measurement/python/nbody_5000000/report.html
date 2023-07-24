@@ -3,7 +3,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Report - python nbody.py 5000000</title>
+        <title>Report - python nbody.py 50000000</title>
         <link rel="shortcut icon" type="x-icon" href="../../aalto.ico"> </link>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <style>
@@ -19,10 +19,13 @@
                 margin: 5px 0;
             }
             h1 {text-align: center; margin: 5px 0;}
+            @media (max-width: 1200px) {
+                h1 {font-size: 1.5rem;}
+            }
         </style>
     </head>
     <body>
-        <h1 class="mb-4">Analysis of energy consumption, performance and memory usage in <b>python</b> through <b>nbody.py 5000000</b> </h1>
+        <h1 class="mb-4">Analysis of energy consumption, performance and memory usage in <b>python</b> through <b>nbody.py 50000000</b> </h1>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="turbostat-tab" data-toggle="tab" href="#turbostat" role="tab" aria-controls="turbostat" aria-selected="true" onclick="loadTab('turbostat/report_Turbostat')">Turbostat</a>
@@ -36,7 +39,7 @@
         </ul>
 
         <div class="tab-content" id="myTabContent"  >
-             <iframe id="content" src="turbostat/report_Turbostat.html" frameborder="0"></iframe>
+            <iframe id="content" src="turbostat/report_Turbostat.html" frameborder="0"></iframe>
         </div>
 
         <!-- Add Bootstrap and jQuery scripts -->
@@ -49,7 +52,6 @@
             iframe.src = `${tabName}.html`;
             }
         </script>
-
     </body>
     </html>
     

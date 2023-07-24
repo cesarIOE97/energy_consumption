@@ -69,6 +69,26 @@ def get_release_date(version):
     elif language == 'c++':
         return cplusplus_releaseDates.get(version, 'Unknown')
     
+def df_remove_string(df):
+    # Define a regular expression pattern to match any non-numeric characters
+    pattern = r'[^0-9.]'
+
+    df_data = df[['version', 'release_date', 'appplication']]
+    df_metric = df.loc[:, ~df.columns.isin(['version', 'release_date', 'appplication'])]
+
+    # Convert non-numeric columns to string type
+    non_numeric_cols = df_metric.select_dtypes(exclude=['int64', 'float64']).columns
+    df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+
+    # Apply the regular expression replacement to string columns in the DataFrame
+    df_metric = df_metric.applymap(lambda x: re.sub(pattern, '', x) if isinstance(x, str) else x)
+
+    # Convert columns back to numeric type
+    df_metric = df_metric.apply(pd.to_numeric, errors='ignore')
+    df = pd.concat([df_data,df_metric.reindex(df_data.index)], axis=1)
+
+    return df
+    
 # Function to extract information
 def from_CSVfile(file):
      # Read CSV file
@@ -88,6 +108,8 @@ def from_CSVfile(file):
     df.replace(to_replace='-', value=0, inplace=True)
     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
     #     print(df)
+
+    df = df_remove_string(df)
 
     return df
 
@@ -158,23 +180,6 @@ def plot_PerfData(df, normalized):
 if __name__ == '__main__':
     
     df = from_CSVfile(path + 'perf_data_allVersions.csv')
-    display(df)
-
-    # Define a regular expression pattern to match any non-numeric characters
-    pattern = r'[^0-9.]'
-
-    # Convert non-numeric columns to string type
-    non_numeric_cols = df.select_dtypes(exclude=['int64', 'float64']).columns
-    df[non_numeric_cols] = df[non_numeric_cols].astype(str)
-
-    # Apply the regular expression replacement to string columns in the DataFrame
-    df = df.applymap(lambda x: re.sub(pattern, '', x) if isinstance(x, str) else x)
-
-    # Convert columns back to numeric type
-    df = df.apply(pd.to_numeric, errors='ignore')
-
-
-    df.to_csv(path + "perf_test.csv", index=False)
     
     first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_PerfData(df, normalized=False)
     first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_PerfData(df, normalized=True)
@@ -199,6 +204,12 @@ if __name__ == '__main__':
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>

@@ -12,10 +12,16 @@
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>
-            <h1>Perf data in <b>python</b> through <b>nbody.py 5000000</b> </h1>
+            <h1>Perf data in <b>python</b> through <b>nbody.py 50000000</b> </h1>
             <div class="row">
                 <div class="column">
                     <h2>Perf Data</h2>
@@ -139,8 +145,8 @@
     <tr>
       <th>0</th>
       <td>2.5.6</td>
-      <td>20110526</td>
-      <td>0.5</td>
+      <td>2011-05-26</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.30</td>
       <td>0.79</td>
@@ -197,8 +203,8 @@
     <tr>
       <th>1</th>
       <td>2.7.18</td>
-      <td>20200420</td>
-      <td>0.5</td>
+      <td>2020-04-20</td>
+      <td>nbody.py 5000000</td>
       <td>0.99</td>
       <td>0.30</td>
       <td>0.80</td>
@@ -255,8 +261,8 @@
     <tr>
       <th>2</th>
       <td>3.0.1</td>
-      <td>20090213</td>
-      <td>0.5</td>
+      <td>2009-02-13</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.30</td>
       <td>0.80</td>
@@ -313,8 +319,8 @@
     <tr>
       <th>3</th>
       <td>3.4.10</td>
-      <td>20190318</td>
-      <td>0.5</td>
+      <td>2019-03-18</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.37</td>
       <td>0.68</td>
@@ -371,8 +377,8 @@
     <tr>
       <th>4</th>
       <td>3.5.10</td>
-      <td>20200905</td>
-      <td>0.5</td>
+      <td>2020-09-05</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.38</td>
       <td>0.65</td>
@@ -429,8 +435,8 @@
     <tr>
       <th>5</th>
       <td>3.6.15</td>
-      <td>20210904</td>
-      <td>0.5</td>
+      <td>2021-09-04</td>
+      <td>nbody.py 5000000</td>
       <td>0.99</td>
       <td>0.37</td>
       <td>0.69</td>
@@ -487,8 +493,8 @@
     <tr>
       <th>6</th>
       <td>3.7.16</td>
-      <td>20221206</td>
-      <td>0.5</td>
+      <td>2022-12-06</td>
+      <td>nbody.py 5000000</td>
       <td>0.99</td>
       <td>0.35</td>
       <td>0.72</td>
@@ -545,8 +551,8 @@
     <tr>
       <th>7</th>
       <td>3.8.16</td>
-      <td>20221206</td>
-      <td>0.5</td>
+      <td>2022-12-06</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.38</td>
       <td>0.66</td>
@@ -603,8 +609,8 @@
     <tr>
       <th>8</th>
       <td>3.9.16</td>
-      <td>20221206</td>
-      <td>0.5</td>
+      <td>2022-12-06</td>
+      <td>nbody.py 5000000</td>
       <td>0.99</td>
       <td>0.36</td>
       <td>0.70</td>
@@ -661,8 +667,8 @@
     <tr>
       <th>9</th>
       <td>3.10.11</td>
-      <td>20230405</td>
-      <td>0.5</td>
+      <td>2023-04-05</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.37</td>
       <td>0.67</td>
@@ -719,8 +725,8 @@
     <tr>
       <th>10</th>
       <td>3.11.3</td>
-      <td>20230405</td>
-      <td>0.5</td>
+      <td>2023-04-05</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.34</td>
       <td>0.75</td>
@@ -776,9 +782,9 @@
     </tr>
     <tr>
       <th>11</th>
-      <td>3.12.01</td>
-      <td>20230522</td>
-      <td>0.5</td>
+      <td>3.12.0b1</td>
+      <td>2023-05-22</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.38</td>
       <td>0.63</td>
@@ -834,9 +840,9 @@
     </tr>
     <tr>
       <th>12</th>
-      <td>3.13.00</td>
-      <td>20230607</td>
-      <td>0.5</td>
+      <td>3.13.0a0</td>
+      <td>2023-06-07</td>
+      <td>nbody.py 5000000</td>
       <td>1.00</td>
       <td>0.39</td>
       <td>0.62</td>
@@ -897,8 +903,6 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>release_date</th>
-      <th>appplication</th>
       <th>CPU_Utilization</th>
       <th>CPI</th>
       <th>Retiring</th>
@@ -956,8 +960,6 @@
   <tbody>
     <tr>
       <th>count</th>
-      <td>1.300000e+01</td>
-      <td>13.0</td>
       <td>13.000000</td>
       <td>13.000000</td>
       <td>13.000000</td>
@@ -1013,8 +1015,6 @@
     </tr>
     <tr>
       <th>mean</th>
-      <td>2.019914e+07</td>
-      <td>0.5</td>
       <td>0.996923</td>
       <td>0.353077</td>
       <td>0.704615</td>
@@ -1070,8 +1070,6 @@
     </tr>
     <tr>
       <th>std</th>
-      <td>4.594311e+04</td>
-      <td>0.0</td>
       <td>0.004804</td>
       <td>0.033011</td>
       <td>0.062931</td>
@@ -1127,8 +1125,6 @@
     </tr>
     <tr>
       <th>min</th>
-      <td>2.009021e+07</td>
-      <td>0.5</td>
       <td>0.990000</td>
       <td>0.300000</td>
       <td>0.620000</td>
@@ -1184,8 +1180,6 @@
     </tr>
     <tr>
       <th>25%</th>
-      <td>2.020042e+07</td>
-      <td>0.5</td>
       <td>0.990000</td>
       <td>0.340000</td>
       <td>0.660000</td>
@@ -1241,8 +1235,6 @@
     </tr>
     <tr>
       <th>50%</th>
-      <td>2.022121e+07</td>
-      <td>0.5</td>
       <td>1.000000</td>
       <td>0.370000</td>
       <td>0.690000</td>
@@ -1298,8 +1290,6 @@
     </tr>
     <tr>
       <th>75%</th>
-      <td>2.023040e+07</td>
-      <td>0.5</td>
       <td>1.000000</td>
       <td>0.380000</td>
       <td>0.750000</td>
@@ -1355,8 +1345,6 @@
     </tr>
     <tr>
       <th>max</th>
-      <td>2.023061e+07</td>
-      <td>0.5</td>
       <td>1.000000</td>
       <td>0.390000</td>
       <td>0.800000</td>
