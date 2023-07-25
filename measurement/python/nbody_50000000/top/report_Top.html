@@ -12,6 +12,12 @@
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>
@@ -43,7 +49,18 @@
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop5_percentMemory.html"></iframe>
                     <p>Notes</p>
                 </div>
-                
+                <div class="column">
+                    <h2>Top data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Memory information through different versions </h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_memoryData.html"></iframe>
+                    <p>Notes: </p>
+                    
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: CPU and Memory percent through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_percentData.html"></iframe>
+                    <p>Notes</p>
+                </div>
             </div>
             
             <h2>Summary table of Top dataset</h2>
@@ -115,9 +132,9 @@
       <th>3.0.1</th>
       <td>20432.0</td>
       <td>20432.0</td>
-      <td>9560.0</td>
       <td>9544.0</td>
-      <td>5984.0</td>
+      <td>9544.0</td>
+      <td>5972.0</td>
       <td>5972.0</td>
       <td>100.0</td>
       <td>62.5</td>
@@ -193,12 +210,12 @@
       <th>3.5.10</th>
       <td>15544.0</td>
       <td>15544.0</td>
-      <td>8260.0</td>
       <td>8216.0</td>
-      <td>4884.0</td>
+      <td>8216.0</td>
+      <td>4840.0</td>
       <td>4840.0</td>
       <td>100.0</td>
-      <td>56.2</td>
+      <td>58.8</td>
       <td>0.1</td>
       <td>0.1</td>
     </tr>
@@ -207,9 +224,9 @@
       <td>15484.0</td>
       <td>15484.0</td>
       <td>8344.0</td>
-      <td>8312.0</td>
+      <td>8344.0</td>
       <td>5112.0</td>
-      <td>5080.0</td>
+      <td>5112.0</td>
       <td>100.0</td>
       <td>62.5</td>
       <td>0.1</td>
