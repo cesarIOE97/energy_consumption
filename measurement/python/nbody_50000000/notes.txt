@@ -1,0 +1,1106 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "nbody.py 50000000" "nbody_50000000"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Some pauses starting with the versions 3.0.1, 3.5.10, 3.6.15 (running perf)
+Measurements done one by one
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): all
+
+        ... Analysing Python 2.5.6 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 355.481114
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 343053080426
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 262830...
+-0.169075164
+-0.169059907
+Python program with PID 262830 has ended. Monitoring stopped.
+
+        ... Analysing Python 2.7.18 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 347.486969
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 352264373564
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 265464...
+-0.169075164
+-0.169059907
+Python program with PID 265464 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.0.1 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 364.669273
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 268947...
+-0.169075164
+-0.169059907
+Python program with PID 268947 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.4.10 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 469.906909
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 459909169205
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 271485...
+-0.169075164
+-0.169059907
+Python program with PID 271485 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.5.10 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 459.262553
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 275801...
+-0.169075164
+-0.169059907
+Python program with PID 275801 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.6.15 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 438.453403
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+[sudo] password for olverac1: 
+sudo: a password is required
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 279520...
+-0.169075164
+^C
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.0.1
+
+        ... Analysing Python 3.0.1 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+-0.169059907
+
+    - Time of the 1st running: 373.340926
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 357172356285
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 281891...
+-0.169075164
+-0.169059907
+Python program with PID 281891 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+  version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0   2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1  2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2   3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3  3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4  3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5  3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6   3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+
+[7 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+603   3.0.1   2009-02-13  nbody.py 50000000             308  1690199394  281891  ...     7763.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13668.3 MiB          NaN
+604   3.0.1   2009-02-13  nbody.py 50000000             309  1690199395  281891  ...     7763.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13668.3 MiB          NaN
+605   3.0.1   2009-02-13  nbody.py 50000000             310  1690199396  281891  ...     7763.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13668.3 MiB          NaN
+606   3.0.1   2009-02-13  nbody.py 50000000             311  1690199397  281891  ...     7763.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13668.3 MiB          NaN
+607   3.0.1   2009-02-13  nbody.py 50000000             312  1690199399  281891  ...     7763.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13668.4 MiB          NaN
+
+[2225 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.5.10
+
+        ... Analysing Python 3.5.10 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 477.378797
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 485790197400
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 286866...
+-0.169075164
+-0.169059907
+Python program with PID 286866 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+  version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0   2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1  2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2   3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3  3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4  3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5  3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6   3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7  3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+
+[8 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+758  3.5.10   2020-09-05  nbody.py 50000000             400  1690201598  286866  ...     8038.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13083.8 MiB          NaN
+759  3.5.10   2020-09-05  nbody.py 50000000             401  1690201599  286866  ...     8038.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13083.3 MiB          NaN
+760  3.5.10   2020-09-05  nbody.py 50000000             402  1690201600  286866  ...     8038.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13083.3 MiB          NaN
+761  3.5.10   2020-09-05  nbody.py 50000000             403  1690201602  286866  ...     8038.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13082.1 MiB          NaN
+762  3.5.10   2020-09-05  nbody.py 50000000             404  1690201603  286866  ...     8038.8 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13082.3 MiB          NaN
+
+[2630 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.6.15
+
+        ... Analysing Python 3.6.15 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 455.441555
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 460831587127
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 290897...
+-0.169075164
+-0.169059907
+Python program with PID 290897 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+  version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0   2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1  2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2   3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3  3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4  3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5  3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6   3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7  3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8  3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+
+[9 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+636  3.6.15   2021-09-04  nbody.py 50000000             394  1690203406  290897  ...     8041.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13001.7 MiB          NaN
+637  3.6.15   2021-09-04  nbody.py 50000000             395  1690203407  290897  ...     8041.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13001.7 MiB          NaN
+638  3.6.15   2021-09-04  nbody.py 50000000             396  1690203408  290897  ...     8041.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13001.5 MiB          NaN
+639  3.6.15   2021-09-04  nbody.py 50000000             397  1690203409  290897  ...     8041.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13001.5 MiB          NaN
+640  3.6.15   2021-09-04  nbody.py 50000000             398  1690203411  290897  ...     8041.3 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13001.0 MiB          NaN
+
+[3029 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.7.16
+
+        ... Analysing Python 3.7.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 441.709867
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 447681830483
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 295917...
+-0.169075164
+-0.169059907
+Python program with PID 295917 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+  version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0   2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1  2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2   3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3  3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4  3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5  3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6   3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7  3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8  3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9  3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+
+[10 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+378  3.7.16   2022-12-06  nbody.py 50000000             378  1690205172  295917  ...     8091.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13006.0 MiB          NaN
+379  3.7.16   2022-12-06  nbody.py 50000000             379  1690205174  295917  ...     8091.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13006.0 MiB          NaN
+380  3.7.16   2022-12-06  nbody.py 50000000             380  1690205175  295917  ...     8091.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13006.0 MiB          NaN
+381  3.7.16   2022-12-06  nbody.py 50000000             381  1690205176  295917  ...     8091.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13006.0 MiB          NaN
+382  3.7.16   2022-12-06  nbody.py 50000000             382  1690205177  295917  ...     8091.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  13006.0 MiB          NaN
+
+[3412 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ 
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.8.16
+
+        ... Analysing Python 3.8.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 513.548942
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 533425431175
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 300162...
+-0.169075164
+-0.169059907
+Python program with PID 300162 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+   version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0    2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1   2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2    3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3   3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4   3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5   3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6    3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7   3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8   3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9   3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10  3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+
+[11 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+469  3.8.16   2022-12-06  nbody.py 50000000             469  1690207482  300162  ...     8167.1 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12944.1 MiB          NaN
+470  3.8.16   2022-12-06  nbody.py 50000000             470  1690207483  300162  ...     8167.1 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12944.1 MiB          NaN
+471  3.8.16   2022-12-06  nbody.py 50000000             471  1690207485  300162  ...     8167.1 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12944.2 MiB          NaN
+472  3.8.16   2022-12-06  nbody.py 50000000             472  1690207486  300162  ...     8167.1 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12944.2 MiB          NaN
+473  3.8.16   2022-12-06  nbody.py 50000000             473  1690207487  300162  ...     8167.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12944.2 MiB          NaN
+
+[3886 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.9.16
+
+        ... Analysing Python 3.9.16 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 511.911240
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 526124935425
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 306077...
+-0.169075164
+-0.169059907
+Python program with PID 306077 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+   version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0    2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1   2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2    3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3   3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4   3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5   3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6    3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7   3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8   3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9   3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10  3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+11  3.9.16   2022-12-06  nbody.py 50000000             1.00  0.37  ...  17744271.0       838422473.0                  4725.03%             0.0                0.0
+
+[12 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+437  3.9.16   2022-12-06  nbody.py 50000000             437  1690209696  306077  ...     8924.5 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10990.2 MiB          NaN
+438  3.9.16   2022-12-06  nbody.py 50000000             438  1690209697  306077  ...     8924.5 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10990.2 MiB          NaN
+439  3.9.16   2022-12-06  nbody.py 50000000             439  1690209698  306077  ...     8924.5 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10990.2 MiB          NaN
+440  3.9.16   2022-12-06  nbody.py 50000000             440  1690209699  306077  ...     8924.5 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10990.2 MiB          NaN
+441  3.9.16   2022-12-06  nbody.py 50000000             441  1690209700  306077  ...     8932.4 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10985.9 MiB          NaN
+
+[4328 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.10.11
+
+        ... Analysing Python 3.10.11 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 466.319330
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 500204414828
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 311972...
+-0.169075164
+-0.169059907
+Python program with PID 311972 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+    version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0     2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1    2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2     3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3    3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4    3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5    3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6     3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7    3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8    3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9    3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10   3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+11   3.9.16   2022-12-06  nbody.py 50000000             1.00  0.37  ...  17744271.0       838422473.0                  4725.03%             0.0                0.0
+12  3.10.11   2023-04-05  nbody.py 50000000             1.00  0.37  ...  10365220.0         4715870.0                    45.50%             0.0                0.0
+
+[13 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+     version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0      2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1      2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2      2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3      2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4      2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..       ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+435  3.10.11   2023-04-05  nbody.py 50000000             435  1690214406  311972  ...     8302.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11764.1 MiB          NaN
+436  3.10.11   2023-04-05  nbody.py 50000000             436  1690214407  311972  ...     8302.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11763.6 MiB          NaN
+437  3.10.11   2023-04-05  nbody.py 50000000             437  1690214408  311972  ...     8302.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11763.6 MiB          NaN
+438  3.10.11   2023-04-05  nbody.py 50000000             438  1690214409  311972  ...     8302.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11763.6 MiB          NaN
+439  3.10.11   2023-04-05  nbody.py 50000000             439  1690214411  311972  ...     8302.0 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11763.6 MiB          NaN
+
+[4768 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.11.3
+
+        ... Analysing Python 3.11.3 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 239.210786
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 250322362722
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 317451...
+-0.169075164
+-0.169059907
+Python program with PID 317451 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+    version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0     2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1    2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2     3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3    3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4    3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5    3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6     3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7    3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8    3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9    3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10   3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+11   3.9.16   2022-12-06  nbody.py 50000000             1.00  0.37  ...  17744271.0       838422473.0                  4725.03%             0.0                0.0
+12  3.10.11   2023-04-05  nbody.py 50000000             1.00  0.37  ...  10365220.0         4715870.0                    45.50%             0.0                0.0
+13   3.11.3   2023-04-05  nbody.py 50000000             1.00  0.35  ...   2799492.0          447250.0                    15.98%             0.0                0.0
+
+[14 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+    version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0     2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1     2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2     2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3     2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4     2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..      ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+219  3.11.3   2023-04-05  nbody.py 50000000             219  1690217226  317451  ...     9008.8 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11062.0 MiB          NaN
+220  3.11.3   2023-04-05  nbody.py 50000000             220  1690217227  317451  ...     8932.8 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11712.7 MiB          NaN
+221  3.11.3   2023-04-05  nbody.py 50000000             221  1690217228  317451  ...     8932.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11712.9 MiB          NaN
+222  3.11.3   2023-04-05  nbody.py 50000000             222  1690217230  317451  ...     8929.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11716.8 MiB          NaN
+223  3.11.3   2023-04-05  nbody.py 50000000             223  1690217231  317451  ...     8914.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  11740.2 MiB          NaN
+
+[4992 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.12.0b1
+
+        ... Analysing Python 3.12.0b1 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 278.852508
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 299288190282
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 320163...
+-0.169075164
+-0.169059907
+Python program with PID 320163 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+     version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0      2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1     2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2      3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3     3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4     3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5     3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6      3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7     3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8     3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9     3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10    3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+11    3.9.16   2022-12-06  nbody.py 50000000             1.00  0.37  ...  17744271.0       838422473.0                  4725.03%             0.0                0.0
+12   3.10.11   2023-04-05  nbody.py 50000000             1.00  0.37  ...  10365220.0         4715870.0                    45.50%             0.0                0.0
+13    3.11.3   2023-04-05  nbody.py 50000000             1.00  0.35  ...   2799492.0          447250.0                    15.98%             0.0                0.0
+14  3.12.0b1   2023-05-22  nbody.py 50000000             1.00  0.37  ...  38543248.0       246939655.0                   640.68%             0.0                0.0
+
+[15 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+      version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0       2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1       2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2       2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3       2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4       2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..        ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+251  3.12.0b1   2023-05-22  nbody.py 50000000             251  1690218581  320163  ...     9466.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10974.4 MiB          NaN
+252  3.12.0b1   2023-05-22  nbody.py 50000000             252  1690218582  320163  ...     9466.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10974.6 MiB          NaN
+253  3.12.0b1   2023-05-22  nbody.py 50000000             253  1690218583  320163  ...     9466.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10974.4 MiB          NaN
+254  3.12.0b1   2023-05-22  nbody.py 50000000             254  1690218585  320163  ...     9466.7 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10974.4 MiB          NaN
+255  3.12.0b1   2023-05-22  nbody.py 50000000             255  1690218586  320163  ...     9469.2 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  10977.0 MiB          NaN
+
+[5248 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.py 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): 3.13-dev
+
+        ... Analysing Python 3.13.0a0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 278.271677
+    - Recording turbostat data in the general CSV file: python/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 296572673846
+    - Recording perf data in the general CSV file: python/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 324285...
+-0.169075164
+-0.169059907
+Python program with PID 324285 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+     version release_date       appplication  CPU_Utilization   CPI  ...  iTLB_loads  iTLB_load_misses  percent_iTLB_load_misses  block_rq_issue  block_rq_complete
+0      2.5.6   2011-05-26  nbody.py 50000000             0.99  0.30  ...   6961552.0        19017416.0                   273.18%             0.0                0.0
+1     2.7.18   2020-04-20  nbody.py 50000000             1.00  0.30  ...   3451255.0         5427261.0                   157.25%             0.0                0.0
+2      3.0.1   2009-02-13  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+3     3.4.10   2019-03-18  nbody.py 50000000             1.00  0.37  ...   5908615.0        33749471.0                   571.19%             0.0                0.0
+4     3.5.10   2020-09-05  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+5     3.6.15   2021-09-04  nbody.py 50000000              NaN   NaN  ...         NaN               NaN                       NaN             NaN                NaN
+6      3.0.1   2009-02-13  nbody.py 50000000             1.00  0.30  ...   5914646.0        41886977.0                   708.19%             0.0                0.0
+7     3.5.10   2020-09-05  nbody.py 50000000             1.00  0.38  ...   4201157.0          753290.0                    17.93%             0.0               25.0
+8     3.6.15   2021-09-04  nbody.py 50000000             1.00  0.37  ...  10003340.0        56724048.0                   567.05%             0.0                0.0
+9     3.7.16   2022-12-06  nbody.py 50000000             1.00  0.35  ...   6942859.0         6186658.0                    89.11%             0.0                0.0
+10    3.8.16   2022-12-06  nbody.py 50000000             1.00  0.38  ...  12967892.0       697067294.0                  5375.33%             0.0                0.0
+11    3.9.16   2022-12-06  nbody.py 50000000             1.00  0.37  ...  17744271.0       838422473.0                  4725.03%             0.0                0.0
+12   3.10.11   2023-04-05  nbody.py 50000000             1.00  0.37  ...  10365220.0         4715870.0                    45.50%             0.0                0.0
+13    3.11.3   2023-04-05  nbody.py 50000000             1.00  0.35  ...   2799492.0          447250.0                    15.98%             0.0                0.0
+14  3.12.0b1   2023-05-22  nbody.py 50000000             1.00  0.37  ...  38543248.0       246939655.0                   640.68%             0.0                0.0
+15  3.13.0a0   2023-06-07  nbody.py 50000000             1.00  0.37  ...   2290527.0       464729308.0                 20289.19%             0.0                0.0
+
+[16 rows x 55 columns]
+Analysis of Perf data
+Analysis of Perf data
+      version release_date       appplication  no_measurement   timestamp     pid  ... mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0       2.5.6   2011-05-26  nbody.py 50000000               0  1690187767  262830  ...     8197.6 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12518.0 MiB          NaN
+1       2.5.6   2011-05-26  nbody.py 50000000               1  1690187768  262830  ...     8197.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+2       2.5.6   2011-05-26  nbody.py 50000000               2  1690187770  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.3 MiB          NaN
+3       2.5.6   2011-05-26  nbody.py 50000000               3  1690187771  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12519.1 MiB          NaN
+4       2.5.6   2011-05-26  nbody.py 50000000               4  1690187772  262830  ...     8189.9 MiB  4096.0 MiB  4094.5 MiB    1.5 MiB  12517.9 MiB          NaN
+..        ...          ...                ...             ...         ...     ...  ...            ...         ...         ...        ...          ...          ...
+260  3.13.0a0   2023-06-07  nbody.py 50000000             260  1690221063  324285  ...     8206.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12900.6 MiB          NaN
+261  3.13.0a0   2023-06-07  nbody.py 50000000             261  1690221064  324285  ...     8206.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12900.6 MiB          NaN
+262  3.13.0a0   2023-06-07  nbody.py 50000000             262  1690221065  324285  ...     8206.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12900.6 MiB          NaN
+263  3.13.0a0   2023-06-07  nbody.py 50000000             263  1690221066  324285  ...     8206.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12900.6 MiB          NaN
+264  3.13.0a0   2023-06-07  nbody.py 50000000             264  1690221067  324285  ...     8206.9 MiB  4096.0 MiB  4095.0 MiB    1.0 MiB  12900.6 MiB          NaN
+
+[5513 rows x 34 columns]
+Analysis of Top data
+Creating the general report ...
