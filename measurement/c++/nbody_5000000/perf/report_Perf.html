@@ -5,17 +5,23 @@
             <link rel="shortcut icon" type="x-icon" href="../../../aalto.ico"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
-                body{ margin:0 100; background:whitesmoke; }
+                body{ margin:0 50; background:whitesmoke; }
                 *{box-sizing: border-box;}
                 .column {float: left; width: 50%; padding: 10px;}
                 .row:after {content: ""; display: table; clear: both;}
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>
-            <h1>Perf data in <b>c++</b> through <b>nbody_2.c 5000000</b> </h1>
+            <h1>Perf data in <b>c++</b> through <b>nbody_2.c 50000000</b> </h1>
             <div class="row">
                 <div class="column">
                     <h2>Perf Data</h2>
@@ -138,9 +144,9 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>4.4</td>
-      <td>20120313</td>
-      <td>2.5</td>
+      <td>g++-4.4</td>
+      <td>2012-03-13</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.42</td>
       <td>0.70</td>
@@ -196,9 +202,9 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>4.6</td>
-      <td>20130412</td>
-      <td>2.5</td>
+      <td>g++-4.6</td>
+      <td>2013-04-12</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.42</td>
       <td>0.66</td>
@@ -254,9 +260,9 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>4.7</td>
-      <td>20140612</td>
-      <td>2.5</td>
+      <td>g++-4.7</td>
+      <td>2014-06-12</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.42</td>
       <td>0.65</td>
@@ -312,9 +318,9 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>4.8</td>
-      <td>20150623</td>
-      <td>2.5</td>
+      <td>g++-4.8</td>
+      <td>2015-06-23</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.44</td>
       <td>0.63</td>
@@ -370,9 +376,9 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>4.9</td>
-      <td>20150626</td>
-      <td>2.5</td>
+      <td>g++-4.9</td>
+      <td>2015-06-26</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.44</td>
       <td>0.63</td>
@@ -428,9 +434,9 @@
     </tr>
     <tr>
       <th>5</th>
-      <td>5.0</td>
-      <td>20171010</td>
-      <td>2.5</td>
+      <td>g++-5</td>
+      <td>2017-10-10</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.43</td>
       <td>0.65</td>
@@ -486,9 +492,9 @@
     </tr>
     <tr>
       <th>6</th>
-      <td>6.0</td>
-      <td>20181026</td>
-      <td>2.5</td>
+      <td>g++-6</td>
+      <td>2018-10-26</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.43</td>
       <td>0.65</td>
@@ -544,9 +550,9 @@
     </tr>
     <tr>
       <th>7</th>
-      <td>7.0</td>
-      <td>20191114</td>
-      <td>2.5</td>
+      <td>g++-7</td>
+      <td>2019-11-14</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.98</td>
       <td>0.43</td>
       <td>0.65</td>
@@ -602,9 +608,9 @@
     </tr>
     <tr>
       <th>8</th>
-      <td>8.0</td>
-      <td>20210514</td>
-      <td>2.5</td>
+      <td>g++-8</td>
+      <td>2021-05-14</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.44</td>
       <td>0.64</td>
@@ -660,9 +666,9 @@
     </tr>
     <tr>
       <th>9</th>
-      <td>9.0</td>
-      <td>20220527</td>
-      <td>2.5</td>
+      <td>g++-9</td>
+      <td>2022-05-27</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.98</td>
       <td>0.43</td>
       <td>0.65</td>
@@ -718,9 +724,9 @@
     </tr>
     <tr>
       <th>10</th>
-      <td>10.0</td>
-      <td>20230707</td>
-      <td>2.5</td>
+      <td>g++-10</td>
+      <td>2023-07-07</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.98</td>
       <td>0.44</td>
       <td>0.63</td>
@@ -776,9 +782,9 @@
     </tr>
     <tr>
       <th>11</th>
-      <td>11.0</td>
-      <td>20230529</td>
-      <td>2.5</td>
+      <td>g++-11</td>
+      <td>2023-05-29</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.45</td>
       <td>0.62</td>
@@ -834,9 +840,9 @@
     </tr>
     <tr>
       <th>12</th>
-      <td>12.0</td>
-      <td>20230508</td>
-      <td>2.5</td>
+      <td>g++-12</td>
+      <td>2023-05-08</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.45</td>
       <td>0.62</td>
@@ -892,9 +898,9 @@
     </tr>
     <tr>
       <th>13</th>
-      <td>13.0</td>
-      <td>20230426</td>
-      <td>2.5</td>
+      <td>g++-13</td>
+      <td>2023-04-26</td>
+      <td>nbody_2.c 5000000</td>
       <td>0.99</td>
       <td>0.43</td>
       <td>0.65</td>
@@ -955,9 +961,6 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>version</th>
-      <th>release_date</th>
-      <th>appplication</th>
       <th>CPU_Utilization</th>
       <th>CPI</th>
       <th>Retiring</th>
@@ -1016,9 +1019,6 @@
     <tr>
       <th>count</th>
       <td>14.000000</td>
-      <td>1.400000e+01</td>
-      <td>14.0</td>
-      <td>14.000000</td>
       <td>14.000000</td>
       <td>14.000000</td>
       <td>14.000000</td>
@@ -1073,9 +1073,6 @@
     </tr>
     <tr>
       <th>mean</th>
-      <td>7.457143</td>
-      <td>2.018492e+07</td>
-      <td>2.5</td>
       <td>0.987857</td>
       <td>0.433571</td>
       <td>0.645000</td>
@@ -1131,9 +1128,6 @@
     </tr>
     <tr>
       <th>std</th>
-      <td>3.039918</td>
-      <td>4.109685e+04</td>
-      <td>0.0</td>
       <td>0.004258</td>
       <td>0.010082</td>
       <td>0.020286</td>
@@ -1189,9 +1183,6 @@
     </tr>
     <tr>
       <th>min</th>
-      <td>4.400000</td>
-      <td>2.012031e+07</td>
-      <td>2.5</td>
       <td>0.980000</td>
       <td>0.420000</td>
       <td>0.620000</td>
@@ -1247,9 +1238,6 @@
     </tr>
     <tr>
       <th>25%</th>
-      <td>4.825000</td>
-      <td>2.015062e+07</td>
-      <td>2.5</td>
       <td>0.990000</td>
       <td>0.430000</td>
       <td>0.630000</td>
@@ -1305,9 +1293,6 @@
     </tr>
     <tr>
       <th>50%</th>
-      <td>6.500000</td>
-      <td>2.018607e+07</td>
-      <td>2.5</td>
       <td>0.990000</td>
       <td>0.430000</td>
       <td>0.650000</td>
@@ -1363,9 +1348,6 @@
     </tr>
     <tr>
       <th>75%</th>
-      <td>9.750000</td>
-      <td>2.022795e+07</td>
-      <td>2.5</td>
       <td>0.990000</td>
       <td>0.440000</td>
       <td>0.650000</td>
@@ -1421,9 +1403,6 @@
     </tr>
     <tr>
       <th>max</th>
-      <td>13.000000</td>
-      <td>2.023071e+07</td>
-      <td>2.5</td>
       <td>0.990000</td>
       <td>0.450000</td>
       <td>0.700000</td>

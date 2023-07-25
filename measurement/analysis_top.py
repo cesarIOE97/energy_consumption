@@ -4,10 +4,12 @@ import os
 import re
 import glob
 import webbrowser
+import natsort
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly
 from sklearn.preprocessing import MaxAbsScaler
 from IPython.display import display, HTML
@@ -69,13 +71,6 @@ def get_release_date(version):
     elif language == 'c++':
         return cplusplus_releaseDates.get(version, 'Unknown')
 
-# Function to order appropiately
-def extract_version(filename):
-    # Use regular expression to extract the version number from the filename
-    match = re.search(r'\d+\.\d+\.\d+', filename)
-    return tuple(map(int, match.group(0).split('.'))) if match else (0, 0, 0)
-
-
 # Function to extract information
 def from_CSVfile(file):
      # Read CSV file
@@ -95,6 +90,9 @@ def from_CSVfile(file):
     df.replace(to_replace='-', value=0, inplace=True)
     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
     #     print(df)
+
+    df = df.dropna(subset=['command'])
+
     return df
 
 def from_CSVfiles(path, filename_start):
@@ -103,14 +101,11 @@ def from_CSVfiles(path, filename_start):
     list_files = os.listdir(path)
 
     # Get list of all files only in the given directory
-    list_files = glob.glob(path + "*.csv")
-    
-    # Sort list of files based on last modification time in ascending order
-    list_files.sort(key=os.path.getmtime)
+    list_files = natsort.natsorted(list_files)
 
     for file_name in list_files:
         if file_name.startswith(filename_start) and file_name.endswith('.csv'):
-            df = from_CSVfile(file_name)
+            df = from_CSVfile(path + file_name)
             all_df = pd.concat([all_df, df])
 
     all_df.to_csv(path + "top_data_allVersions.csv", index=False)
@@ -140,12 +135,6 @@ def line_plot(df, filename_plot, x_data, y_data, text_data, norm):
                   text=text_data,
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
-    fig.update_layout(legend=dict(
-        yanchor="top",
-        y=0.99,
-        xanchor="left",
-        x=0.01
-    ))
     plot = plotly.offline.plot(fig, filename=path + filename_plot + '.html', auto_open=False)
     return filename_plot + ".html"
 
@@ -160,14 +149,20 @@ def line_plot_3variables(df, filename_plot, x_data, y_data, color_data, text_dat
                   text=text_data,
                   title=language + ' ' + command)
     fig.update_traces(textposition="bottom right")
-    fig.update_layout(legend=dict(
-        yanchor="top",
-        y=0.99,
-        xanchor="left",
-        x=0.01
-    ))
     plot = plotly.offline.plot(fig, filename=path + filename_plot + normalized + '.html', auto_open=False)
     return filename_plot + ".html"
+
+# def line_plot_3variables(df, filename_plot, x_data, y_data, color_data, text_data, norm):
+
+#     if norm: filename_plot = filename_plot + "_Normalized"
+
+#     fig = px.scatter(x=df['virt'], y=df['virt'],
+# 	         size=df['no_measurement'], color=df['version'],
+#                  hover_name=df['version'])
+
+#     fig.update_traces(textposition="bottom right")
+#     plot = plotly.offline.plot(fig, filename=path + filename_plot + '.html', auto_open=False)
+#     return filename_plot + ".html"
 
 def plot_TopData(df, normalized):
 
@@ -212,14 +207,33 @@ def plot_TopData(df, normalized):
 
     return first_url, second_url, third_url, fourth_url, fifth_url
     
+def plot_TopDataLine(df, normalized):
+
+    if normalized: df = TopData_normalized(df)
+
+    print("Analysis of Top data")
+
+    first_url = line_plot(df=df, filename_plot='plotTop1_memoryData',
+              x_data="version", 
+              y_data=["virt","res","shr"],
+              text_data=pd.to_datetime(df['release_date']).dt.year,
+              norm=normalized)
+    
+    second_url = line_plot(df=df, filename_plot='plotTop2_percentData',
+              x_data="version", 
+              y_data=["percent_cpu","percent_mem"],
+              text_data=pd.to_datetime(df['release_date']).dt.year,
+              norm=normalized)
+    
+    return first_url, second_url
 
 if __name__ == '__main__':
     
-    df = from_CSVfiles(path, path + 'temp_top_data_')
+    df = from_CSVfiles(path, 'temp_top_data_')
     display(df)
     
     first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_TopData(df, normalized=False)
-    # first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_TopData(df, normalized=True)
+    first_plotMemory, second_plotPercent = plot_TopDataLine(df, normalized=False)
 
     summary_table = df.groupby('version')[['virt','res','shr','percent_cpu','percent_mem']].agg(['max','min'])
     summary_table = summary_table.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">') # use bootstrap styling
@@ -241,6 +255,12 @@ if __name__ == '__main__':
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>
@@ -277,7 +297,20 @@ if __name__ == '__main__':
                         src="''' + fifth_plot + '''"></iframe>
                     <p>Notes</p>
                 </div>
-                
+                <div class="column">
+                    <h2>Top data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Memory information through different versions </h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+                        src="''' + first_plotMemory + '''"></iframe>
+                    <p>Notes: </p>
+                    
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: CPU and Memory percent through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+                        src="''' + second_plotPercent + '''"></iframe>
+                    <p>Notes</p>
+                </div>
             </div>
             
             <h2>Summary table of Top dataset</h2>

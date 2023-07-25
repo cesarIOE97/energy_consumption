@@ -210,6 +210,12 @@ if __name__ == '__main__':
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>

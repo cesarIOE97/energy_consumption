@@ -5,17 +5,23 @@
             <link rel="shortcut icon" type="x-icon" href="../../../aalto.ico"> </link>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
             <style>
-                body{ margin:0 100; background:whitesmoke; }
+                body{ margin:0 50; background:whitesmoke; }
                 *{box-sizing: border-box;}
                 .column {float: left; width: 50%; padding: 10px;}
                 .row:after {content: ""; display: table; clear: both;}
                 .plot {width: 100%; height: 600;}
                 h1 {text-align: center}
                 h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
             </style>
         </head>
         <body>
-            <h1>Turbostat data in <b>c++</b> through <b>nbody_2.c 5000000</b> </h1>
+            <h1>Turbostat data in <b>c++</b> through <b>nbody_2.c 50000000</b> </h1>
             <div class="row">
                 <div class="column">
                     <h2>Turbostat Data</h2>
@@ -1045,7 +1051,6 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>release_date</th>
       <th>time_elapsed</th>
       <th>usec</th>
       <th>Time_Of_Day_Seconds</th>
@@ -1109,7 +1114,6 @@
   <tbody>
     <tr>
       <th>count</th>
-      <td>14</td>
       <td>14.000000</td>
       <td>14.000000</td>
       <td>1.400000e+01</td>
@@ -1171,7 +1175,6 @@
     </tr>
     <tr>
       <th>mean</th>
-      <td>2018-11-27 12:00:00</td>
       <td>7.895688</td>
       <td>1102.592857</td>
       <td>1.689941e+09</td>
@@ -1232,8 +1235,68 @@
       <td>0.0</td>
     </tr>
     <tr>
+      <th>std</th>
+      <td>0.563773</td>
+      <td>16.119385</td>
+      <td>2.473386e+03</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.609282</td>
+      <td>0.055252</td>
+      <td>7.398441</td>
+      <td>0.0</td>
+      <td>0.062779</td>
+      <td>1703.312373</td>
+      <td>0.0</td>
+      <td>12.070218</td>
+      <td>81.035217</td>
+      <td>39.501894</td>
+      <td>22.907060</td>
+      <td>74.635180</td>
+      <td>1.454889</td>
+      <td>235.845182</td>
+      <td>176.062551</td>
+      <td>1041.067569</td>
+      <td>0.0</td>
+      <td>0.027346</td>
+      <td>0.017541</td>
+      <td>0.008018</td>
+      <td>0.086266</td>
+      <td>0.004972</td>
+      <td>0.655664</td>
+      <td>1.152096</td>
+      <td>1.645069</td>
+      <td>0.130454</td>
+      <td>0.012774</td>
+      <td>0.114920</td>
+      <td>0.271667</td>
+      <td>0.770044</td>
+      <td>0.827182</td>
+      <td>0.115388</td>
+      <td>70.321085</td>
+      <td>4.008919</td>
+      <td>0.368382</td>
+      <td>0.113205</td>
+      <td>0.113166</td>
+      <td>0.110015</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10.023727</td>
+      <td>8.572223</td>
+      <td>0.012688</td>
+      <td>0.337825</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
       <th>min</th>
-      <td>2012-03-13 00:00:00</td>
       <td>7.429860</td>
       <td>1082.000000</td>
       <td>1.689937e+09</td>
@@ -1295,7 +1358,6 @@
     </tr>
     <tr>
       <th>25%</th>
-      <td>2015-06-23 18:00:00</td>
       <td>7.498720</td>
       <td>1091.900000</td>
       <td>1.689939e+09</td>
@@ -1357,7 +1419,6 @@
     </tr>
     <tr>
       <th>50%</th>
-      <td>2019-05-06 00:00:00</td>
       <td>7.575225</td>
       <td>1099.750000</td>
       <td>1.689941e+09</td>
@@ -1419,7 +1480,6 @@
     </tr>
     <tr>
       <th>75%</th>
-      <td>2023-02-01 12:00:00</td>
       <td>8.150215</td>
       <td>1113.075000</td>
       <td>1.689942e+09</td>
@@ -1481,7 +1541,6 @@
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-07-07 00:00:00</td>
       <td>8.948580</td>
       <td>1143.000000</td>
       <td>1.689945e+09</td>
@@ -1538,68 +1597,6 @@
       <td>134.670000</td>
       <td>0.090000</td>
       <td>5.400000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>NaN</td>
-      <td>0.563773</td>
-      <td>16.119385</td>
-      <td>2.473386e+03</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.609282</td>
-      <td>0.055252</td>
-      <td>7.398441</td>
-      <td>0.0</td>
-      <td>0.062779</td>
-      <td>1703.312373</td>
-      <td>0.0</td>
-      <td>12.070218</td>
-      <td>81.035217</td>
-      <td>39.501894</td>
-      <td>22.907060</td>
-      <td>74.635180</td>
-      <td>1.454889</td>
-      <td>235.845182</td>
-      <td>176.062551</td>
-      <td>1041.067569</td>
-      <td>0.0</td>
-      <td>0.027346</td>
-      <td>0.017541</td>
-      <td>0.008018</td>
-      <td>0.086266</td>
-      <td>0.004972</td>
-      <td>0.655664</td>
-      <td>1.152096</td>
-      <td>1.645069</td>
-      <td>0.130454</td>
-      <td>0.012774</td>
-      <td>0.114920</td>
-      <td>0.271667</td>
-      <td>0.770044</td>
-      <td>0.827182</td>
-      <td>0.115388</td>
-      <td>70.321085</td>
-      <td>4.008919</td>
-      <td>0.368382</td>
-      <td>0.113205</td>
-      <td>0.113166</td>
-      <td>0.110015</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>10.023727</td>
-      <td>8.572223</td>
-      <td>0.012688</td>
-      <td>0.337825</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
