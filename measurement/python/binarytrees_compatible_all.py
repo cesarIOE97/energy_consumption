@@ -1,4 +1,3 @@
-from multiprocessing import cpu_count
 import sys
 import gc
 import os
@@ -40,7 +39,7 @@ def data_iter(d, n):
     c = sum(results)
     return niter, d, c
 
-def binary_trees_run(n, workers):
+def binary_trees_run(n):
     """ Run binary trees benchmark """
     gc.disable()
     result = {}
@@ -53,10 +52,9 @@ def binary_trees_run(n, workers):
         result[item] = data_iter(d, n)
     for value in id_list:
         niter, d, c = result[value]
-        print("{}\t trees of depth {}\t check: {}".format(niter, d, c))
+        # print("{}\t trees of depth {}\t check: {}".format(niter, d, c))
+        print("%d\t trees of depth %d\t check: %d" % (niter, d, c))
 
 if __name__ == "__main__":
-    logicalcpu_cores = cpu_count()
-    workers = 2 if logicalcpu_cores > 2 else logicalcpu_cores
     n = int(sys.argv[1])
-    binary_trees_run(n, workers)
+    binary_trees_run(n)

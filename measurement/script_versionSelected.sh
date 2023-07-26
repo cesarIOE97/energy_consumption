@@ -30,7 +30,7 @@ elif [ $1 == 'c++' ] ; then
     command="./$path/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'python' ] ; then
     # python nbody.py 50000
-    command="python3 $1/$2"
+    command="python $1/$2"
 fi
 
 # Sleep for 2 mins to allow a cool-down and in turn affect energy measurements (which are suceptible to this)
@@ -44,4 +44,4 @@ sleep 2m
 . ./script_perf.sh 
 sleep 2m
 . ./script_top.sh
-#. ./script_valgrind.sh 
+# . ./script_valgrind.sh 
