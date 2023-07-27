@@ -1,0 +1,77 @@
+# started on Wed Jul 26 23:43:37 2023
+
+
+ Performance counter stats for 'python python/fibonacci_oldVersions.py 600000':
+
+    13,957,111,226      msr/tsc/                  #    1.876 G/sec                  
+                                                  #     0.99 CPU_Utilization          (3.32%)
+    13,858,731,824      cpu_clk_unhalted.ref_tsc  #    1.863 G/sec                    (3.32%)
+     <not counted>      inst_retired.any                                              (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      idq_uops_not_delivered.core                                     (0.00%)
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      idq_uops_not_delivered.core                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      uops_executed.core_cycles_ge_1                                     (0.00%)
+     <not counted>      uops_executed.thread                                          (0.00%)
+     <not counted>      inst_retired.any                                              (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      cpu_clk_unhalted.thread:k                                     (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      l1d.replacement                                               (0.00%)
+     7,771,826,131 ns   duration_time             #    1.045 G/sec                                                                                        
+    13,871,401,695      cpu_clk_unhalted.ref_tsc  #    1.865 G/sec                  
+                                                  #     2.09 Turbo_Utilization        (3.39%)
+    29,001,657,690      cpu_clk_unhalted.thread   #    3.899 G/sec                    (3.39%)
+     7,771,826,131 ns   duration_time             #    1.045 G/sec                  
+   <not supported> Joules power/energy-cores/                                         
+   <not supported> Joules power/energy-ram/                                           
+   <not supported> Joules power/energy-gpu/                                           
+   <not supported> Joules power/energy-pkg/                                           
+   <not supported> Joules power/energy-psys/                                          
+    29,233,460,499      cycles                    #    3.930 GHz                      (3.27%)
+     <not counted>      instructions                                                  (0.00%)
+          7,438.41 msec cpu-clock                 #    0.957 CPUs utilized          
+    29,393,862,813      cpu-cycles                #    3.952 GHz                      (3.36%)
+               120      cpu-migrations            #   16.132 /sec                   
+    13,836,783,964      ref-cycles                #    1.860 G/sec                    (6.56%)
+     <not counted>      bus-cycles                                                    (0.00%)
+          7,438.68 msec task-clock                #    0.957 CPUs utilized          
+             2,207 C    msr/cpu_thermal_margin/   #  296.698 /sec                   
+     <not counted>      branches                                                      (0.00%)
+     <not counted>      branch-misses                                                 (0.00%)
+     <not counted>      mem-loads                                                     (0.00%)
+     <not counted>      mem-stores                                                    (0.00%)
+         3,862,858      page-faults               #  519.303 K/sec                  
+         3,862,698      minor-faults              #  519.281 K/sec                  
+               159      major-faults              #   21.375 /sec                   
+     <not counted>      cache-references                                              (0.00%)
+     <not counted>      cache-misses                                                  (0.00%)
+     <not counted>      L1-dcache-loads                                               (0.00%)
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      LLC-loads                                                     (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+     <not counted>      L1-icache-load-misses                                         (0.00%)
+     <not counted>      dTLB-loads                                                    (0.00%)
+     <not counted>      dTLB-load-misses                                              (0.00%)
+     <not counted>      iTLB-loads                                                    (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+               302      block:block_rq_issue      #   40.599 /sec                   
+               162      block:block_rq_complete   #   21.778 /sec                   
+
+       7.771826131 seconds time elapsed
+
+       2.814741000 seconds user
+       4.626887000 seconds sys
+
+
+The events in group usually have to be from the same PMU. Try reorganizing the group.
