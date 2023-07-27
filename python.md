@@ -20,23 +20,23 @@ End-of-life (unsupported versions):
 
 Interpreters | Version | Release date    | First release | Status
 -------------|---------|-----------------|---------------|-------
- CPython | 3.13.0a0  | 2023-06-07 | 2023-06-07 | alpha (preview)
- CPython | 3.12.0b1  | 2023-05-22 | 2023-05-22 | beta (preview)
- CPython | 3.11.3  | 2023-04-05 | 2022-10-24 | bugfix (suppported)
- CPython | 3.10.11 | 2023-04-05 | 2021-10-04 | security (suppported)
- CPython | 3.9.16 | 2022-12-06 | 2020-10-05 | security (suppported)
- CPython | 3.8.16 | 2022-12-06 | 2019-10-14 | security (suppported)
- CPython | 3.7.16 | 2022-12-06 | 2018-06-27 | security (suppported)
- CPython | 3.6.15 | 2021-09-04 | 2016-12-23 | end-of-life (unsupported)
- CPython | 3.5.10 | 2020-09-05 | 2015-09-13 | end-of-life (unsupported)
- CPython | 3.4.10 | 2019-03-18 | 2014-03-16 | end-of-life (unsupported)
- (X) CPython | 3.3.7 | 2017-09-19 | 2012-09-29 | end-of-life (unsupported)
- (X) CPython | 3.2.6 | 2014-10-11 | 2011-02-20 | end-of-life (unsupported)
- (X) CPython | 3.1.5 | 2012-04-09 | 2009-06-27 | end-of-life (unsupported)
- CPython | 3.0.1 | 2009-02-13 | 2008-12-03 | end-of-life (unsupported)
- CPython | 2.7.18 | 2020-04-20 | 2010-07-04 | end-of-life (unsupported)
- (X) CPython | 2.6.9 | 2013-10-29 | 2008-10-01 | end-of-life (unsupported)
- CPython | 2.5.6 | 2011-05-26 | 2006-09-19 | end-of-life (unsupported)
+ CPython | 3.13.0a0  | 2023-06-07 | 2023-06-07 | alpha (preview) - installed
+ CPython | 3.12.0b1  | 2023-05-22 | 2023-05-22 | beta (preview) - installed
+ CPython | 3.11.3  | 2023-04-05 | 2022-10-24 | bugfix (suppported) - installed
+ CPython | 3.10.11 | 2023-04-05 | 2021-10-04 | security (suppported) - installed
+ CPython | 3.9.16 | 2022-12-06 | 2020-10-05 | security (suppported) - installed
+ CPython | 3.8.16 | 2022-12-06 | 2019-10-14 | security (suppported) - installed
+ CPython | 3.7.16 | 2022-12-06 | 2018-06-27 | security (suppported) - installed
+ CPython | 3.6.15 | 2021-09-04 | 2016-12-23 | end-of-life (unsupported) - installed
+ CPython | 3.5.10 | 2020-09-05 | 2015-09-13 | end-of-life (unsupported) - installed
+ CPython | 3.4.10 | 2019-03-18 | 2014-03-16 | end-of-life (unsupported) - installed
+ (X) CPython | 3.3.7 | 2017-09-19 | 2012-09-29 | end-of-life (unsupported) - NO installed
+ (X) CPython | 3.2.6 | 2014-10-11 | 2011-02-20 | end-of-life (unsupported) - NO installed
+ (X) CPython | 3.1.5 | 2012-04-09 | 2009-06-27 | end-of-life (unsupported) - NO installed
+ CPython | 3.0.1 | 2009-02-13 | 2008-12-03 | end-of-life (unsupported) - installed
+ CPython | 2.7.18 | 2020-04-20 | 2010-07-04 | end-of-life (unsupported) - installed
+ (X) CPython | 2.6.9 | 2013-10-29 | 2008-10-01 | end-of-life (unsupported) - NO installed
+ CPython | 2.5.6 | 2011-05-26 | 2006-09-19 | end-of-life (unsupported) - installed
 
 
 
