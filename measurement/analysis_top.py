@@ -71,6 +71,15 @@ def get_release_date(version):
     elif language == 'c++':
         return cplusplus_releaseDates.get(version, 'Unknown')
 
+# Function to convert "g" to "k"
+def convert_g_to_k(value):
+    value_str = str(value)
+    if value_str[-1].lower() == 'g':
+        g_value = float(value_str[:-1])
+        k_value = g_value * 1000000  # 1 giga = 1000000 kilo
+        return int(k_value)
+    return value
+
 # Function to extract information
 def from_CSVfile(file):
      # Read CSV file
@@ -92,6 +101,19 @@ def from_CSVfile(file):
     #     print(df)
 
     df = df.dropna(subset=['command'])
+
+    # Apply the conversion function to the DataFrame column
+    df['res'] = df['res'].apply(convert_g_to_k)
+    df['virt'] = df['virt'].apply(convert_g_to_k)
+
+    # # Drop the original column if needed
+    # df.drop(columns=['res'], inplace=True)
+    # df.rename(columns={'res_k': 'res'}, inplace=True)
+    df['res'] = pd.to_numeric(df['res'], errors='coerce')
+
+    # df.drop(columns=['virt'], inplace=True)
+    # df.rename(columns={'virt_k': 'virt'}, inplace=True)
+    df['virt'] = pd.to_numeric(df['virt'], errors='coerce')
 
     return df
 
@@ -298,13 +320,12 @@ if __name__ == '__main__':
                     <p>Notes</p>
                 </div>
                 <div class="column">
-                    <h2>Top data</h2>
+                    <h2>Top Data</h2>
                     <!-- *** Section 1 *** --->
                     <h3>Section 1: Memory information through different versions </h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
                         src="''' + first_plotMemory + '''"></iframe>
                     <p>Notes: </p>
-                    
                     <!-- *** Section 2 *** --->
                     <h3>Section 2: CPU and Memory percent through different versions</h3>
                     <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
