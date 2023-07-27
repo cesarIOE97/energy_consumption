@@ -5,6 +5,10 @@
     "python.formatting.provider": "none",
     "files.associations": {
         "vector": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "functional": "c",
+        "ostream": "c",
+        "compare": "c",
+        "cstdint": "c"
     }
 }
