@@ -17,7 +17,7 @@
 # output_generalPerf="perf_data_allVersions.csv"
 # output_filePerf="temp_perf_data.txt"
 # touch $output_filePerf
-# command="python3 python/nbody.py 50000000"
+# command="python python/nbody.py 50000000"
 pathPerf=$path/perf
 [ -d $pathPerf ] || mkdir $pathPerf
 output_generalPerf="$pathPerf/perf_data_allVersions.csv"
