@@ -1,0 +1,567 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "fibonacci_oldVersions.py 600000" "fibonacci_600000"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Without problems in terms of pauses
+The Wi-FI was disconnected
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "fibonacci_oldVersions.py 600000" "fibonacci_600000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): all
+
+        ... Analysing Python 2.5.6 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 12.402024
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.5.6.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 10999036788
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 548036...
+./script_top.sh: line 88: 548036 Killed                  $command 2>&1
+Python program with PID 548036 has ended. Monitoring stopped.
+
+        ... Analysing Python 2.7.18 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 8.215088
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_2.7.18.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7624625931
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 549364...
+./script_top.sh: line 87: 549364 Killed                  $command 2>&1
+Python program with PID 549364 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.0.1 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 11.668396
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.0.1.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 9759211171
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 550573...
+./script_top.sh: line 87: 550573 Killed                  $command 2>&1
+Python program with PID 550573 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.4.10 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 7.512440
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.4.10.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7339399080
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 551710...
+./script_top.sh: line 87: 551710 Killed                  $command 2>&1
+Python program with PID 551710 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.5.10 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 12.144923
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.5.10.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 10446779067
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 552971...
+./script_top.sh: line 87: 552971 Killed                  $command 2>&1
+Python program with PID 552971 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.6.15 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 7.405832
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.6.15.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 9750930880
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 554087...
+./script_top.sh: line 87: 554087 Killed                  $command 2>&1
+Python program with PID 554087 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.7.16 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 7.476514
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.7.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 8765275414
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 555957...
+./script_top.sh: line 87: 555957 Killed                  $command 2>&1
+Python program with PID 555957 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.8.16 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 8.548844
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.8.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7279907328
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 557079...
+./script_top.sh: line 87: 557079 Killed                  $command 2>&1
+Python program with PID 557079 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.9.16 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 7.732363
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.9.16.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 9714560043
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 558303...
+./script_top.sh: line 87: 558303 Killed                  $command 2>&1
+Python program with PID 558303 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.10.11 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 8.867179
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.10.11.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7658267785
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 559496...
+./script_top.sh: line 87: 559496 Killed                  $command 2>&1
+Python program with PID 559496 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.11.3 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 8.626419
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.11.3.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7771826131
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 560708...
+./script_top.sh: line 87: 560708 Killed                  $command 2>&1
+Python program with PID 560708 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.12.0b1 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 12.456467
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.12.0b1.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7531035314
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 561978...
+./script_top.sh: line 87: 561978 Killed                  $command 2>&1
+Python program with PID 561978 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.13.0a0 ...
+Running Turbostat and program:
+
+    - Time of the 1st running: 8.859522
+    - Recording #1 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #2 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #3 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #4 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #5 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #6 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #7 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #8 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #9 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+Running Turbostat and program:
+    - Recording #10 turbostat data in a CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_3.13-dev.csv
+    - Recording AVG turbostat data in the general CSV file: python/fibonacci_600000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+python: Killed
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7164255826
+    - Recording perf data in the general CSV file: python/fibonacci_600000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 563229...
+./script_top.sh: line 87: 563229 Killed                  $command 2>&1
+Python program with PID 563229 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:81: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/sklearn/preprocessing/_data.py:1207: RuntimeWarning:
+
+All-NaN slice encountered
+
+Analysis of Perf data
+     version release_date                     appplication  no_measurement   timestamp     pid command     virt     res  ...    mem_total     mem_free     mem_used  mem_buff_cache  swap_total  swap_free   swap_used   swap_avail  Unnamed: 32
+0      2.5.6   2011-05-26  fibonacci_oldVersions.py 600000               0  1690399585  548036  python   161676  154348  ...  15795.0 MiB  14554.5 MiB    804.6 MiB       435.9 MiB  4096.0 MiB  154.8 MiB  3941.2 MiB  14589.4 MiB          NaN
+1      2.5.6   2011-05-26  fibonacci_oldVersions.py 600000               1  1690399586  548036  python  2072756    2.0g  ...  15795.0 MiB  12683.0 MiB   2675.3 MiB       436.7 MiB  4096.0 MiB  155.6 MiB  3940.4 MiB  12718.8 MiB          NaN
+2      2.5.6   2011-05-26  fibonacci_oldVersions.py 600000               2  1690399587  548036  python  4011824    3.8g  ...  15795.0 MiB  10792.5 MiB   4572.8 MiB       429.7 MiB  4096.0 MiB  155.6 MiB  3940.4 MiB  10828.3 MiB          NaN
+3      2.5.6   2011-05-26  fibonacci_oldVersions.py 600000               3  1690399588  548036  python  5963828    5.7g  ...  15795.0 MiB   8881.6 MiB   6483.7 MiB       429.7 MiB  4096.0 MiB  156.1 MiB  3939.9 MiB   8917.4 MiB          NaN
+4      2.5.6   2011-05-26  fibonacci_oldVersions.py 600000               4  1690399589  548036  python  7918392    7.5g  ...  15795.0 MiB   6968.0 MiB   8397.3 MiB       429.7 MiB  4096.0 MiB  156.3 MiB  3939.7 MiB   7003.8 MiB          NaN
+..       ...          ...                              ...             ...         ...     ...     ...      ...     ...  ...          ...          ...          ...             ...         ...        ...         ...          ...          ...
+2   3.13.0a0   2023-06-07  fibonacci_oldVersions.py 600000               2  1690405303  563229  python  6618216    6.3g  ...  15795.0 MiB   8188.1 MiB   7088.0 MiB       518.8 MiB  4096.0 MiB  223.6 MiB  3872.4 MiB   8309.3 MiB          NaN
+3   3.13.0a0   2023-06-07  fibonacci_oldVersions.py 600000               3  1690405304  563229  python  9881592    9.4g  ...  15795.0 MiB   4995.3 MiB  10280.8 MiB       518.8 MiB  4096.0 MiB  224.6 MiB  3871.4 MiB   5116.5 MiB          NaN
+4   3.13.0a0   2023-06-07  fibonacci_oldVersions.py 600000               4  1690405305  563229  python    12.5g   12.5g  ...  15795.0 MiB   1799.6 MiB  13476.6 MiB       518.8 MiB  4096.0 MiB  224.8 MiB  3871.1 MiB   1920.7 MiB          NaN
+5   3.13.0a0   2023-06-07  fibonacci_oldVersions.py 600000               5  1690405306  563229  python    14.4g   14.3g  ...  15795.0 MiB    149.0 MiB  15304.2 MiB       341.8 MiB  4096.0 MiB  205.3 MiB  3890.7 MiB    108.0 MiB          NaN
+6   3.13.0a0   2023-06-07  fibonacci_oldVersions.py 600000               6  1690405308  563229  python        0       0  ...  15795.0 MiB   2770.0 MiB  12704.3 MiB       320.8 MiB  4096.0 MiB  182.1 MiB  3913.9 MiB   2718.1 MiB          NaN
+
+[92 rows x 34 columns]
+Analysis of Top data
+Analysis of Top data
+Traceback (most recent call last):
+  File "/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_top.py", line 236, in <module>
+    first_plotMemory, second_plotPercent = plot_TopDataLine(df, normalized=False)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_top.py", line 216, in plot_TopDataLine
+    first_url = line_plot(df=df, filename_plot='plotTop1_memoryData',
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_top.py", line 132, in line_plot
+    fig = px.line(df,
+          ^^^^^^^^^^^
+  File "/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/plotly/express/_chart_types.py", line 264, in line
+    return make_figure(args=locals(), constructor=go.Scatter)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/plotly/express/_core.py", line 1996, in make_figure
+    args = build_dataframe(args, constructor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/plotly/express/_core.py", line 1456, in build_dataframe
+    raise ValueError(
+ValueError: Plotly Express cannot process wide-form data with columns of different type.
+Creating the general report ...

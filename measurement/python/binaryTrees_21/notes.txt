@@ -1,0 +1,626 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "binarytrees_compatible_all.py 21" "binaryTrees_21"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Without problems in terms of pauses
+The Wi-Fi was disconnected to avoid the permission issues
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "binarytrees_compatible_all.py 21" "binaryTrees_21"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): python
+
+Available python versions are the next ones:
+  - 2.5.6
+  - 2.7.18
+  - 3.0.1
+  - 3.4.10
+  - 3.5.10
+  - 3.6.15
+  - 3.7.16
+  - 3.8.16
+  - 3.9.16
+  - 3.10.11
+  - 3.11.3
+  - 3.12.0b1
+  - 3.13-dev
+  - all
+
+ *** Type the version (for example '2.5.6', or 'all' to measure all python versions): all
+
+        ... Analysing Python 2.5.6 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 183.459214
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 167729957781
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 449601...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 449601 has ended. Monitoring stopped.
+
+        ... Analysing Python 2.7.18 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 172.279438
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 173024938237
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 451033...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 451033 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.0.1 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 213.267826
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 213831533630
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 453268...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 453268 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.4.10 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 202.861389
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 197907102575
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 455333...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 455333 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.5.10 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 218.555820
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 211374036097
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 457003...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 457003 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.6.15 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 216.215403
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 214398430184
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 458674...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 458674 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.7.16 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 221.110539
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 214261320794
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 461307...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 461307 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.8.16 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 204.492068
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 203335458651
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 462960...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 462960 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.9.16 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 195.466257
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 192934580275
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 464680...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 464680 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.10.11 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 212.621928
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 209303755173
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 467007...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 467007 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.11.3 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 123.871587
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 120792547648
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 468691...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 468691 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.12.0b1 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 137.742044
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 133508939868
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 469765...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 469765 has ended. Monitoring stopped.
+
+        ... Analysing Python 3.13.0a0 ...
+Running Turbostat and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+
+    - Time of the 1st running: 137.562197
+    - Recording turbostat data in the general CSV file: python/binaryTrees_21/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 136834555401
+    - Recording perf data in the general CSV file: python/binaryTrees_21/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 471076...
+2097152	 trees of depth 4	 check: 65011712
+524288	 trees of depth 6	 check: 66584576
+131072	 trees of depth 8	 check: 66977792
+32768	 trees of depth 10	 check: 67076096
+8192	 trees of depth 12	 check: 67100672
+2048	 trees of depth 14	 check: 67106816
+512	 trees of depth 16	 check: 67108352
+128	 trees of depth 18	 check: 67108736
+32	 trees of depth 20	 check: 67108832
+Python program with PID 471076 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:81: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/sklearn/preprocessing/_data.py:1207: RuntimeWarning:
+
+All-NaN slice encountered
+
+Analysis of Perf data
+      version release_date                      appplication  no_measurement   timestamp     pid command      virt       res  ...    mem_total    mem_free    mem_used  mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 32
+0       2.5.6   2011-05-26  binarytrees_compatible_all.py 21               0  1690304879  449601  python   95716.0   88676.0  ...  15795.0 MiB  5790.2 MiB  4388.8 MiB      5616.0 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10606.8 MiB          NaN
+1       2.5.6   2011-05-26  binarytrees_compatible_all.py 21               1  1690304880  449601  python   95716.0   88676.0  ...  15795.0 MiB  5790.2 MiB  4388.6 MiB      5616.2 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10606.8 MiB          NaN
+2       2.5.6   2011-05-26  binarytrees_compatible_all.py 21               2  1690304881  449601  python   95716.0   88676.0  ...  15795.0 MiB  5796.6 MiB  4390.2 MiB      5608.2 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10613.3 MiB          NaN
+3       2.5.6   2011-05-26  binarytrees_compatible_all.py 21               3  1690304882  449601  python   95716.0   88676.0  ...  15795.0 MiB  5795.6 MiB  4391.1 MiB      5608.2 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10612.3 MiB          NaN
+4       2.5.6   2011-05-26  binarytrees_compatible_all.py 21               4  1690304884  449601  python   95716.0   88676.0  ...  15795.0 MiB  5795.4 MiB  4391.4 MiB      5608.2 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10612.1 MiB          NaN
+..        ...          ...                               ...             ...         ...     ...     ...       ...       ...  ...          ...         ...         ...             ...         ...         ...        ...          ...          ...
+112  3.13.0a0   2023-06-07  binarytrees_compatible_all.py 21             112  1690316099  471076  python  253044.0  243432.0  ...  15795.0 MiB  5625.2 MiB  4454.2 MiB      5715.5 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10549.4 MiB          NaN
+113  3.13.0a0   2023-06-07  binarytrees_compatible_all.py 21             113  1690316100  471076  python  261236.0  252112.0  ...  15795.0 MiB  5617.1 MiB  4462.4 MiB      5715.5 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10541.3 MiB          NaN
+114  3.13.0a0   2023-06-07  binarytrees_compatible_all.py 21             114  1690316101  471076  python  266356.0  257624.0  ...  15795.0 MiB  5611.9 MiB  4467.5 MiB      5715.6 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10536.1 MiB          NaN
+115  3.13.0a0   2023-06-07  binarytrees_compatible_all.py 21             115  1690316102  471076  python  270452.0  261288.0  ...  15795.0 MiB  5608.2 MiB  4471.2 MiB      5715.6 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10532.4 MiB          NaN
+116  3.13.0a0   2023-06-07  binarytrees_compatible_all.py 21             116  1690316103  471076  python  279668.0  270232.0  ...  15795.0 MiB  5598.9 MiB  4480.5 MiB      5715.6 MiB  4096.0 MiB  4079.5 MiB   16.5 MiB  10523.1 MiB          NaN
+
+[2067 rows x 34 columns]
+Analysis of Top data
+Analysis of Top data
+Creating the general report ...

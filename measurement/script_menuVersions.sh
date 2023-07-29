@@ -16,6 +16,8 @@ elif [ $1 == 'c++' ] ; then
     readarray -t versions_list < <(compgen -A command g++ | sort -V | uniq| grep g++-)
 elif [ $1 == 'python' ] ; then
     readarray -t versions_list < <(pyenv versions | awk '/*/{print $2} FNR>1&&!/*/{print $1}')
+elif [ $1 == 'java' ] ; then
+    readarray -t versions_list < <(sudo update-alternatives --display java | awk '/priority/{print $1}' | grep -oP '/usr/lib/jvm/\K\java-\K\d+|jdk-\K\d+' | sort -V)
 fi
 
 # MENU

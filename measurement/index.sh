@@ -15,6 +15,7 @@
 echo "Available programming languages are the next ones:"
 echo "  - python"
 echo "  - c++"
+echo "  - java"
 echo "  - c"
 echo -n "
  *** Type the version (for example 'python' or 'c++'): "
@@ -25,6 +26,8 @@ if [ $language == 'python' ] || [ $language == 'PYTHON' ] || [ $language == 'Pyt
     ./script_menuVersions.sh "python" "$1" "$2"
 elif [ $language == 'c++' ] || [ $language == 'C++' ] ; then
     ./script_menuVersions.sh "c++" "$1" "$2"
+elif [ $language == 'java' ] || [ $language == 'JAVA' ] || [ $language == 'Java' ] ; then
+    ./script_menuVersions.sh "java" "$1" "$2"
 elif [ $language == 'c' ] || [ $language == 'C' ] ; then
     ./script_menuVersions.sh "c" "$1" "$2"
 fi

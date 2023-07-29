@@ -61,12 +61,30 @@ cplusplus_releaseDates = {
     'g++-13 13.1.0': '2023-04-26',
 }
 
+java_releaseDates = {
+    '1.8.0_362': '2023-04-18',
+    '9.0.4': '2018-01-16',
+    '10.0.2': '2018-07-17',
+    '11.0.19': '2020-10-20',
+    '12.0.2': '2019-07-16',
+    '13.0.2': '2020-01-14',
+    '14.0.2': '2020-07-14',
+    '15.0.2': '2021-01-19',
+    '16.0.2': '2021-07-20',
+    '17.0.7': '2023-04-18',
+    '18.0.2-ea': '2022-07-19',
+    '19.0.2': '2023-01-17',
+    '20.0.2': '2023-07-18',
+}
+
 # Function to get release date for a given Python version
 def get_release_date(version):
     if language == 'python':
         return python_releaseDates.get(version, 'Unknown')
     elif language == 'c++':
         return cplusplus_releaseDates.get(version, 'Unknown')
+    elif language == 'java':
+        return java_releaseDates.get(version, 'Unknown')
     
 # Function to extract information
 def from_CSVfile(file):

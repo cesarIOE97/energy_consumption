@@ -1,0 +1,2 @@
+version,appplication,no_measurement,timestamp,pid,command,virt,res,shr,percent_cpu,percent_mem,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
+16.0.2,nbody.java 5000,0,1690633802,1149496,,,,,,,579,1,387,191,0,19.0,6.7,0.0,74.3,0.0,0.0,0.0,0.0,15795.0 MiB,1514.6 MiB,8034.6 MiB,6245.8 MiB,4096.0 MiB,734.1 MiB,3361.9 MiB,6433.5 MiB
