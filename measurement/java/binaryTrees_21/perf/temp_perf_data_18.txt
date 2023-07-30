@@ -1,0 +1,77 @@
+# started on Sat Jul 29 19:19:14 2023
+
+
+ Performance counter stats for 'java -cp java binarytrees 21':
+
+    17,420,665,866      msr/tsc/                  #    1.705 G/sec                  
+                                                  #     0.99 CPU_Utilization          (3.44%)
+    17,316,330,539      cpu_clk_unhalted.ref_tsc  #    1.695 G/sec                    (3.44%)
+     <not counted>      inst_retired.any                                              (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      idq_uops_not_delivered.core                                     (0.00%)
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_issued.any                                               (0.00%)
+     <not counted>      cycles                                                        (0.00%)
+     <not counted>      idq_uops_not_delivered.core                                     (0.00%)
+     <not counted>      int_misc.recovery_cycles                                      (0.00%)
+     <not counted>      uops_retired.retire_slots                                     (0.00%)
+     <not counted>      uops_executed.core_cycles_ge_1                                     (0.00%)
+     <not counted>      uops_executed.thread                                          (0.00%)
+     <not counted>      inst_retired.any                                              (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      cpu_clk_unhalted.thread:k                                     (0.00%)
+     <not counted>      cpu_clk_unhalted.thread                                       (0.00%)
+     <not counted>      l1d.replacement                                               (0.00%)
+     1,895,764,892 ns   duration_time             #  185.587 M/sec                                                                                        
+    16,886,803,991      cpu_clk_unhalted.ref_tsc  #    1.653 G/sec                  
+                                                  #     1.88 Turbo_Utilization        (3.53%)
+    31,690,138,984      cpu_clk_unhalted.thread   #    3.102 G/sec                    (3.53%)
+     1,895,764,892 ns   duration_time             #  185.587 M/sec                  
+   <not supported> Joules power/energy-cores/                                         
+   <not supported> Joules power/energy-ram/                                           
+   <not supported> Joules power/energy-gpu/                                           
+   <not supported> Joules power/energy-pkg/                                           
+   <not supported> Joules power/energy-psys/                                          
+    31,316,767,867      cycles                    #    3.066 GHz                      (3.87%)
+     <not counted>      instructions                                                  (0.00%)
+         10,214.68 msec cpu-clock                 #    5.388 CPUs utilized          
+    31,234,224,962      cpu-cycles                #    3.058 GHz                      (3.77%)
+               149      cpu-migrations            #   14.586 /sec                   
+    16,988,902,517      ref-cycles                #    1.663 G/sec                    (7.61%)
+     <not counted>      bus-cycles                                                    (0.00%)
+         10,215.23 msec task-clock                #    5.388 CPUs utilized          
+             1,208 C    msr/cpu_thermal_margin/   #  118.258 /sec                   
+     <not counted>      branches                                                      (0.00%)
+     <not counted>      branch-misses                                                 (0.00%)
+     <not counted>      mem-loads                                                     (0.00%)
+     <not counted>      mem-stores                                                    (0.00%)
+           431,937      page-faults               #   42.285 K/sec                  
+           431,928      minor-faults              #   42.284 K/sec                  
+                 8      major-faults              #    0.783 /sec                   
+     <not counted>      cache-references                                              (0.00%)
+     <not counted>      cache-misses                                                  (0.00%)
+     <not counted>      L1-dcache-loads                                               (0.00%)
+     <not counted>      L1-dcache-load-misses                                         (0.00%)
+     <not counted>      LLC-loads                                                     (0.00%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+     <not counted>      L1-icache-load-misses                                         (0.00%)
+     <not counted>      dTLB-loads                                                    (0.00%)
+     <not counted>      dTLB-load-misses                                              (0.00%)
+     <not counted>      iTLB-loads                                                    (0.00%)
+     <not counted>      iTLB-load-misses                                              (0.00%)
+                 0      block:block_rq_issue      #    0.000 /sec                   
+                 3      block:block_rq_complete   #    0.294 /sec                   
+
+       1.895764892 seconds time elapsed
+
+       9.412465000 seconds user
+       0.819344000 seconds sys
+
+
+The events in group usually have to be from the same PMU. Try reorganizing the group.
