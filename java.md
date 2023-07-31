@@ -1,22 +1,18 @@
-Interpreters | Version | Release date    | First release | Status
--------------|---------|-----------------|---------------|-------
- CPython | 3.13.0a0  | 2023-06-07 | 2023-06-07 | alpha (preview)
- CPython | 3.12.0b1  | 2023-05-22 | 2023-05-22 | beta (preview)
- CPython | 3.11.3  | 2023-04-05 | 2022-10-24 | bugfix (suppported)
- CPython | 3.10.11 | 2023-04-05 | 2021-10-04 | security (suppported)
- CPython | 3.9.16 | 2022-12-06 | 2020-10-05 | security (suppported)
- CPython | 3.8.16 | 2022-12-06 | 2019-10-14 | security (suppported)
- CPython | 3.7.16 | 2022-12-06 | 2018-06-27 | security (suppported)
- CPython | 3.6.15 | 2021-09-04 | 2016-12-23 | end-of-life (unsupported)
- CPython | 3.5.10 | 2020-09-05 | 2015-09-13 | end-of-life (unsupported)
- CPython | 3.4.10 | 2019-03-18 | 2014-03-16 | end-of-life (unsupported)
- (X) CPython | 3.3.7 | 2017-09-19 | 2012-09-29 | end-of-life (unsupported)
- (X) CPython | 3.2.6 | 2014-10-11 | 2011-02-20 | end-of-life (unsupported)
- (X) CPython | 3.1.5 | 2012-04-09 | 2009-06-27 | end-of-life (unsupported)
- CPython | 3.0.1 | 2009-02-13 | 2008-12-03 | end-of-life (unsupported)
- CPython | 2.7.18 | 2020-04-20 | 2010-07-04 | end-of-life (unsupported)
- (X) CPython | 2.6.9 | 2013-10-29 | 2008-10-01 | end-of-life (unsupported)
- CPython | 2.5.6 | 2011-05-26 | 2006-09-19 | end-of-life (unsupported)
+Compiler | Version | Release date    | First release | Status
+---------|---------|-----------------|---------------|-------
+ javac | 20.0.2 | 2023-07-18 | 2023-03-21 | installed
+ javac | 19.0.2 | 2023-01-17 | 2022-09-20 | installed
+ javac | 18.0.2-ea | 2022-07-19 | 2022-03-22 | installed
+ javac | 17.0.7 | 2023-04-18 | 2021-09-14 | installed
+ javac | 16.0.2 | 2021-07-20 | 2021-03-16 | installed
+ javac | 15.0.2 | 2021-01-19 | 2020-09-15	 | installed
+ javac | 14.0.2 | 2020-07-14 | 2020-03-17 | installed
+ javac | 13.0.2 | 2020-01-14 | 2019-09-17 | installed
+ javac | 12.0.2 | 2019-07-16 | 2019-03-19 | installed
+ javac | 11.0.19 | 2020-10-20 | 2018-09-25 | installed
+ javac | 10.0.2 | 2018-07-17 | 2018-03-20 | installed
+ javac | 9.0.2 | 2018-01-16 | 2017-09-21 | installed
+ javac | 1.8.0_362 | 2023-04-18 | 2014-03-18 | installed
 
 
 Installation of old and no supported versions
@@ -92,3 +88,13 @@ sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-10.0.2/
 
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-9.0.4/bin/java 1091
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-9.0.4/bin/javac 1091
+
+
+
+- Source: 
+  - https://kilishek.com/2021/05/05/installing-java-openjdk-from-tar-gz-archive-and-update-the-default-jdk-used/
+  - https://www.java.com/releases/matrix/
+  - https://www.java.com/releases/
+  - https://jdk.java.net/archive/
+
+

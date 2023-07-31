@@ -3,6 +3,8 @@
 
    contributed by Mark C. Lewis
    double[] instead of Object[] by Han Kai
+
+   Java #5
 */
 
 public final class nbody {
