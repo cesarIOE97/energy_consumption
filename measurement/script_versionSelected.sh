@@ -39,7 +39,7 @@ if [ $1 == 'c' ] ; then
     command="./${path}/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'c++' ] ; then
     # g++-11 c++/nbody.c -o c++/test/nbody_g++-11
-    $version_selected $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
+    $version_selected -O3 $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
     command="./$path/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'python' ] ; then
     # python nbody.py 50000
@@ -55,10 +55,12 @@ fi
 # sleep 2m
 
 # Run measurement tools
-# sleep 2m
+sleep 2m
 . ./script_turbostat.sh
-# sleep 2m
-# . ./script_perf.sh 
-# sleep 2m
-# . ./script_top.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+
+
 # . ./script_valgrind.sh 

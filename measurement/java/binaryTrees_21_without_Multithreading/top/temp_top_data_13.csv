@@ -1,0 +1,5 @@
+version,appplication,no_measurement,timestamp,pid,command,time,virt,res,shr,percent_cpu,percent_mem,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
+13.0.2,binarytrees.java 21,0,1690808178,166663,java,0:00.61,7267920,321084,24552,406.7,2.0,351,1,278,71,1,45.6,4.8,0.0,49.6,0.0,0.0,0.0,0.0,15795.0 MiB,6267.1 MiB,3696.2 MiB,5831.7 MiB,4096.0 MiB,4096.0 MiB,0.0 MiB,11419.3 MiB
+13.0.2,binarytrees.java 21,1,1690808179,166663,java,0:02.18,7267920,1.6g,25624,93.8,10.6,351,1,278,71,1,13.2,0.8,0.0,86.0,0.0,0.0,0.0,0.0,15795.0 MiB,4879.9 MiB,5083.0 MiB,5832.1 MiB,4096.0 MiB,4096.0 MiB,0.0 MiB,10032.2 MiB
+13.0.2,binarytrees.java 21,2,1690808180,166663,java,0:03.36,7267920,1.6g,25624,93.8,10.6,351,1,278,71,1,13.2,1.6,0.0,85.3,0.0,0.0,0.0,0.0,15795.0 MiB,4886.2 MiB,5084.5 MiB,5824.2 MiB,4096.0 MiB,4096.0 MiB,0.0 MiB,10038.6 MiB
+13.0.2,binarytrees.java 21,3,1690808181,166663,,,,,,,,351,2,277,71,1,7.0,3.1,0.0,89.1,0.8,0.0,0.0,0.0,15795.0 MiB,6520.4 MiB,3442.5 MiB,5832.1 MiB,4096.0 MiB,4096.0 MiB,0.0 MiB,11672.8 MiB

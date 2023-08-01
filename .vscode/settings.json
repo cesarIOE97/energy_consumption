@@ -9,6 +9,7 @@
         "functional": "c",
         "ostream": "c",
         "compare": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "iterator": "c"
     }
 }
