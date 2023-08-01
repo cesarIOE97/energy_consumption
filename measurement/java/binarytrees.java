@@ -5,17 +5,15 @@
  * based on Jarkko Miettinen's Java program
  * contributed by Tristan Dupont
  * *reset*
+ * 
+ * Java #7
+ * 
+ * NOTE removing ExecutorService (Multithreading)
  */
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class binarytrees {
 
     private static final int MIN_DEPTH = 4;
-    private static final ExecutorService EXECUTOR_SERVICE = 
-        Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     public static void main(final String[] args) throws Exception {
         int n = 0;
@@ -34,22 +32,16 @@ public class binarytrees {
         final String[] results = new String[(maxDepth - MIN_DEPTH) / 2 + 1];
 
         for (int d = MIN_DEPTH; d <= maxDepth; d += 2) {
-            final int depth = d;
-            EXECUTOR_SERVICE.execute(() -> {
-                int check = 0;
+            int check = 0;
 
-                final int iterations = 1 << (maxDepth - depth + MIN_DEPTH);
-                for (int i = 1; i <= iterations; ++i) {
-                    final TreeNode treeNode1 = bottomUpTree(depth);
-                    check += treeNode1.itemCheck();
-                }
-                results[(depth - MIN_DEPTH) / 2] = 
-                   iterations + "\t trees of depth " + depth + "\t check: " + check;
-            });
+            final int iterations = 1 << (maxDepth - d + MIN_DEPTH);
+            for (int i = 1; i <= iterations; ++i) {
+                final TreeNode treeNode1 = bottomUpTree(d);
+                check += treeNode1.itemCheck();
+            }
+            results[(d - MIN_DEPTH) / 2] = 
+               iterations + "\t trees of depth " + d + "\t check: " + check;
         }
-
-        EXECUTOR_SERVICE.shutdown();
-        EXECUTOR_SERVICE.awaitTermination(120L, TimeUnit.SECONDS);
 
         for (final String str : results) {
             System.out.println(str);
@@ -81,13 +73,10 @@ public class binarytrees {
         }
 
         private int itemCheck() {
-            // if necessary deallocate here
             if (null == left) {
                 return 1;
             }
             return 1 + left.itemCheck() + right.itemCheck();
         }
-
     }
-
 }
