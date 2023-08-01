@@ -43,7 +43,7 @@ elif [ $1 == 'c++' ] ; then
     command="./$path/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'python' ] ; then
     # python nbody.py 50000
-    command="python $1/$2"
+    command="python -OO $1/$2"
 elif [ $1 == 'java' ] ; then
     # javac nbody.py 50000
     javac -d $1 $1/$filename_program
