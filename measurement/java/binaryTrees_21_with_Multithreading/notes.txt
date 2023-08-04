@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Running the command: './index.sh "binarytrees.java 21" "binaryTrees_21"'
+Running the command: './index.sh "binarytrees.java 21" "binaryTrees_21_with_Multithreading"'
 ONLY terminal was opened
 PC connected all time and 'performance' config (100%)
 Without problems in terms of pauses

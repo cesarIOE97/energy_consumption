@@ -1,0 +1,79 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "binarytrees.java 21" "binaryTrees_21_without_Multithreading"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Without problems in terms of pauses
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+*** THE OUTPUT WAS SO LARGE ***
+
+ataaatacaagcatatgaggccagtcatggagctttcatttggactaacatttccgtaga
+gtcatatcacgcctgtaatctgatccgtctttttctattcgaagtgttatcagatacatg
+acgcccttgcgtgacattcatggctcctgacatcgggtcttttaggctgaatctaatcta
+acccaatttgtttggattgtgggtcctccattttgtctgttaatgcttattaagattaaa
+aatgtactacgtatttagacctaatgattgcgatacgctgtggaccattaatataagctg
+cgccaggggatttttccagatcatctggcctgtgtatatgttcaaatctaatagccgaga
+gaaattactccgacggaaaataaaggcagataagcgtttcagagcaccatcgtggcgttt
+agtcaacctttagttcggaatttattaatatacaatctcactctttggacgagctcctta
+aaagatgcccttgtatatcatgtcccgtacctaaaagtataccagcatcatcaaagaaca
+gttaaggaatacgactgctctataattgtccgaggagtaccttctcatctgccaatagtc
+gttgggttggaaaacaacgcattaatatgccacacttgtcaattagaagtttctataaag
+gggacgagtaactgatttgagacctagcacggcagaggacgttcgtgtgacaacatctct
+ttataagtttgagataaaatcgctaatctacaatgattatttgccaatcattatcgaatg
+cgcaaagtatctcctgttcgtgattctagcctaaggccattactatggtcaaattatgct
+aatcgaagcagtcttctaacacccttagaaaagcaaacactattgaatactgccgccgca
+ttcgccagcaccaacataactgcacgtgcttttttccatgattggcattatgaaagattt
+gatctatgattcttaccagttgcaatattcaatttagcatgtgttcctaattattgtgtt
+attatggtctatctcatcatgtaaatgaagatcatgacgtcaacacagattctagtcagg
+atcatcagttcctcggggaaatcgcacctaggaacagccttatgcaaccgctaaacaaag
+caatgaggatgtaccgacaaaagctcgatttaaaagcctcgaaacgagatgtacgaatcg
+tttactgccttttatgaggagtcgagtactgttggttcatatttgctacatgattgtatg
+taataacgatcccgccctttatcggttcgatcctttatggcgataagttatgaatcgtca
+gtatctttagatcaaaaactcaactagtacccagttccccggaggaacggtcatgattaa
+tgcgttttacggtctcccgtccctcttcttgtcagaggaatcagtttcatccgatcccac
+tcgatgattggtatagctatttgccgaaaagccacaacgtattcggtactatcttgtttg
+attcccctgtatcttaattc
+Python program with PID 441600 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:99: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+Analysis of Perf data
+      version release_date                          appplication  no_measurement   timestamp     pid command     time  ...    mem_free    mem_used  mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 33
+0   1.8.0_362   2023-04-18  fasta.java 25000000 > test_fasta.txt               0  1690981036  429028    java  0:00.08  ...  7272.5 MiB  1857.0 MiB      6665.5 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13228.1 MiB          NaN
+1   1.8.0_362   2023-04-18  fasta.java 25000000 > test_fasta.txt               1  1690981038  429028    java  0:00.39  ...  7272.0 MiB  1857.4 MiB      6665.6 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13227.5 MiB          NaN
+2   1.8.0_362   2023-04-18  fasta.java 25000000 > test_fasta.txt               2  1690981039  429028    java  0:00.65  ...  7271.3 MiB  1858.3 MiB      6665.4 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13226.8 MiB          NaN
+3   1.8.0_362   2023-04-18  fasta.java 25000000 > test_fasta.txt               3  1690981040  429028    java  0:00.99  ...  7269.6 MiB  1859.5 MiB      6665.9 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13225.4 MiB          NaN
+4   1.8.0_362   2023-04-18  fasta.java 25000000 > test_fasta.txt               4  1690981041  429028    java  0:01.40  ...  7268.8 MiB  1860.1 MiB      6666.1 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13224.8 MiB          NaN
+..        ...          ...                                   ...             ...         ...     ...     ...      ...  ...         ...         ...             ...         ...         ...        ...          ...          ...
+11     20.0.2   2023-07-18  fasta.java 25000000 > test_fasta.txt              11  1690988433  441600    java  0:04.01  ...  7273.7 MiB  1826.4 MiB      6694.9 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13258.4 MiB          NaN
+12     20.0.2   2023-07-18  fasta.java 25000000 > test_fasta.txt              12  1690988434  441600    java  0:04.36  ...  7273.2 MiB  1826.8 MiB      6695.0 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13258.1 MiB          NaN
+13     20.0.2   2023-07-18  fasta.java 25000000 > test_fasta.txt              13  1690988435  441600    java  0:04.71  ...  7272.4 MiB  1827.7 MiB      6694.8 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13257.2 MiB          NaN
+14     20.0.2   2023-07-18  fasta.java 25000000 > test_fasta.txt              14  1690988436  441600    java  0:05.06  ...  7271.9 MiB  1827.8 MiB      6695.2 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13257.0 MiB          NaN
+15     20.0.2   2023-07-18  fasta.java 25000000 > test_fasta.txt              15  1690988437  441600    java  0:05.41  ...  7273.0 MiB  1826.3 MiB      6695.7 MiB  4096.0 MiB  4092.2 MiB    3.8 MiB  13258.6 MiB          NaN
+
+[208 rows x 35 columns]
+Analysis of Top data
+Analysis of Top data
+Creating the general report ...
