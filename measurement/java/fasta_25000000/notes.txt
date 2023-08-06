@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Running the command: './index.sh "binarytrees.java 21" "binaryTrees_21_without_Multithreading"'
+Running the command: './index.sh "fasta.java 25000000" "fasta_25000000"'
 ONLY terminal was opened
 PC connected all time and 'performance' config (100%)
 Without problems in terms of pauses
