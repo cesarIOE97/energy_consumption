@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly
 from sklearn.preprocessing import MaxAbsScaler
 from IPython.display import display, HTML
@@ -170,18 +171,44 @@ def plot_TurbostatData(df, normalized):
               text_data=pd.to_datetime(df['release_date']).dt.year,
               norm=normalized)
     return first_url, second_url, third_url, fourth_url, fifth_url
-    
+
 
 if __name__ == '__main__':
     
     df = from_CSVfile(path + 'turbostat_performance_data_allVersions.csv')
     
-    first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_TurbostatData(df, normalized=False)
-    first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_TurbostatData(df, normalized=True)
+    # first_plot, second_plot, third_plot, fourth_plot, fifth_plot = plot_TurbostatData(df, normalized=False)
+    # first_plotNorm, second_plotNorm, third_plotNorm, fourth_plotNorm, fifth_plotNorm = plot_TurbostatData(df, normalized=True)
 
-    summary_table = df.describe()
-    summary_table = summary_table.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">') # use bootstrap styling
-    table = df.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">')
+    # summary_table = df.describe()
+    # summary_table = summary_table.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">') # use bootstrap styling
+    # table = df.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">')
+
+    df['version'] = df['version'].map({'2.5.6': 2.5, '2.7.18': 2.7, '3.0.1': 3, '3.4.10': 3.4, 
+                                       '3.5.10': 3.5, '3.6.15': 3.6, '3.7.16': 3.7, '3.8.16': 3.8,
+                                       '3.9.16': 3.9, '3.10.11': 3.10, '3.11.3': 3.11, '3.12.0b1': 3.12, '3.13.0a0': 3.13})
+    fig = px.parallel_coordinates(df, color="version")
+    plotly.offline.plot(fig, filename=path + "parallel_coordinates_ALL" + '.html', auto_open=True)
+
+    # fig = go.Figure(data=
+    #     go.Parcoords(
+    #         line = dict(color = df['version'], ),
+    #         dimensions = list([
+    #             dict(label = 'time_elapsed', values = df['time_elapsed']),
+    #             dict(label = 'Pkg_J', values = df['Pkg_J']),
+    #             dict(label = 'Cor_J', values = df['Cor_J']),
+    #             dict(label = 'RAM_J', values = df['RAM_J']),
+    #             dict(label = 'GFX_J', values = df['GFX_J'])
+    #         ])
+    #     )
+    # )
+
+    # fig.update_layout(
+    #     plot_bgcolor = 'white',
+    #     paper_bgcolor = 'white'
+    # )
+
+    # fig.show()
 
     # Extract relevant columns
     version = df['version']
@@ -214,104 +241,104 @@ if __name__ == '__main__':
 
     # Obtain all files starting with 'plot'
 
-    html_string = '''
-    <html>
-        <head>
-            <title>Turbostat data</title>
-            <link rel="shortcut icon" type="x-icon" href="''' + "../../../" + "aalto.ico" + '''"> </link>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-            <style>
-                body{ margin:0 50; background:whitesmoke; }
-                *{box-sizing: border-box;}
-                .column {float: left; width: 50%; padding: 10px;}
-                .row:after {content: ""; display: table; clear: both;}
-                .plot {width: 100%; height: 600;}
-                h1 {text-align: center}
-                h2 {text-align: center}
-                @media (max-width: 1200px) {
-                    .column {
-                    width: 100%;
-                    float: none;
-                    }
-                }
-            </style>
-        </head>
-        <body>
-            <h1>Turbostat data in <b>''' + language + '''</b> through <b>''' + command + '''</b> </h1>
-            <div class="row">
-                <div class="column">
-                    <h2>Turbostat Data</h2>
-                    <!-- *** Section 1 *** --->
-                    <h3>Section 1: Energy consumption and time elapsed </h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + first_plot + '''"></iframe>
-                    <p>Notes: </p>
+    # html_string = '''
+    # <html>
+    #     <head>
+    #         <title>Turbostat data</title>
+    #         <link rel="shortcut icon" type="x-icon" href="''' + "../../../" + "aalto.ico" + '''"> </link>
+    #         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    #         <style>
+    #             body{ margin:0 50; background:whitesmoke; }
+    #             *{box-sizing: border-box;}
+    #             .column {float: left; width: 50%; padding: 10px;}
+    #             .row:after {content: ""; display: table; clear: both;}
+    #             .plot {width: 100%; height: 600;}
+    #             h1 {text-align: center}
+    #             h2 {text-align: center}
+    #             @media (max-width: 1200px) {
+    #                 .column {
+    #                 width: 100%;
+    #                 float: none;
+    #                 }
+    #             }
+    #         </style>
+    #     </head>
+    #     <body>
+    #         <h1>Turbostat data in <b>''' + language + '''</b> through <b>''' + command + '''</b> </h1>
+    #         <div class="row">
+    #             <div class="column">
+    #                 <h2>Turbostat Data</h2>
+    #                 <!-- *** Section 1 *** --->
+    #                 <h3>Section 1: Energy consumption and time elapsed </h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + first_plot + '''"></iframe>
+    #                 <p>Notes: </p>
                     
-                    <!-- *** Section 2 *** --->
-                    <h3>Section 2: CPU information</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + second_plot + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 2 *** --->
+    #                 <h3>Section 2: CPU information</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + second_plot + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 3 *** --->
-                    <h3>Section 3: Cstates</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + third_plot + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 3 *** --->
+    #                 <h3>Section 3: Cstates</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + third_plot + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 4 *** --->
-                    <h3>Section 4: Temperature</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fourth_plot + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 4 *** --->
+    #                 <h3>Section 4: Temperature</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + fourth_plot + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 5 *** --->
-                    <h3>Section 5: More parameters</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fifth_plot + '''"></iframe>
-                    <p>Notes</p>
-                </div>
-                <div class="column">
-                    <h2>Turbostat Data Normalized</h2>
-                    <!-- *** Section 1 *** --->
-                    <h3>Section 1: Energy consumption and time elapsed </h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + first_plotNorm + '''"></iframe>
-                    <p>Notes: </p>
+    #                 <!-- *** Section 5 *** --->
+    #                 <h3>Section 5: More parameters</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + fifth_plot + '''"></iframe>
+    #                 <p>Notes</p>
+    #             </div>
+    #             <div class="column">
+    #                 <h2>Turbostat Data Normalized</h2>
+    #                 <!-- *** Section 1 *** --->
+    #                 <h3>Section 1: Energy consumption and time elapsed </h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + first_plotNorm + '''"></iframe>
+    #                 <p>Notes: </p>
                     
-                    <!-- *** Section 2 *** --->
-                    <h3>Section 2: CPU information</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + second_plotNorm + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 2 *** --->
+    #                 <h3>Section 2: CPU information</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + second_plotNorm + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 3 *** --->
-                    <h3>Section 3: Cstates</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + third_plotNorm + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 3 *** --->
+    #                 <h3>Section 3: Cstates</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + third_plotNorm + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 4 *** --->
-                    <h3>Section 4: Temperature</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fourth_plotNorm + '''"></iframe>
-                    <p>Notes</p>
+    #                 <!-- *** Section 4 *** --->
+    #                 <h3>Section 4: Temperature</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + fourth_plotNorm + '''"></iframe>
+    #                 <p>Notes</p>
 
-                    <!-- *** Section 5 *** --->
-                    <h3>Section 5: More parameters</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fifth_plotNorm + '''"></iframe>
-                    <p>Notes</p>
-                </div>
-            </div>
+    #                 <!-- *** Section 5 *** --->
+    #                 <h3>Section 5: More parameters</h3>
+    #                 <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+    #                     src="''' + fifth_plotNorm + '''"></iframe>
+    #                 <p>Notes</p>
+    #             </div>
+    #         </div>
             
-            <h2>Turbostat dataset</h2>
-            ''' + table + '''
-            <h2>Summary table of Turbostat dataset</h2>
-            ''' + summary_table + '''
-        </body>
-    </html>'''
+    #         <h2>Turbostat dataset</h2>
+    #         ''' + table + '''
+    #         <h2>Summary table of Turbostat dataset</h2>
+    #         ''' + summary_table + '''
+    #     </body>
+    # </html>'''
 
-    f = open(path + 'report_Turbostat.html','w')
-    f.write(html_string)
-    f.close()
+    # f = open(path + 'report_Turbostat.html','w')
+    # f.write(html_string)
+    # f.close()
