@@ -78,6 +78,32 @@ java_releaseDates = {
     '20.0.2': '2023-07-18',
 }
 
+js_releaseDates = {
+    '20.5.1': '2023-08-09',
+    '19.9.0': '2023-04-10',
+    '18.17.1': '2023-08-08',
+    '17.9.1': '2022-06-01',
+    '16.20.2': '2023-08-08',
+    '15.14.0': '2021-04-06',
+    '14.21.3': '2023-02-16',
+    '13.14.0': '2020-04-29',
+    '12.22.12': '2022-04-05',
+    '11.15.0': '2019-04-30',
+    '10.24.1': '2021-04-06',
+    '9.11.2': '2018-06-12',
+    '8.17.0': '2019-12-17',
+    '7.10.1': '2017-07-11',
+    '6.17.1': '2019-04-03',
+    '5.12.0': '2016-06-23',
+    '4.9.1': '2018-03-29',
+    '3.3.1': '2015-09-15',
+    '2.5.0': '2015-07-28',
+    '1.8.4': '2015-07-09',
+    '0.12.18': '2017-02-22',
+    '0.10.48': '2016-10-18',
+    '0.8.28': '2014-07-31'
+}
+
 # Function to get release date for a given Python version
 def get_release_date(version):
     if language == 'python':
@@ -86,6 +112,8 @@ def get_release_date(version):
         return cplusplus_releaseDates.get(version, 'Unknown')
     elif language == 'java':
         return java_releaseDates.get(version, 'Unknown')
+    elif language == 'js':
+        return js_releaseDates.get(version, 'Unknown')
 
 # Function to convert "g", "m" or KiB to "byte"
 def convert_g_to_byte(value):
@@ -128,14 +156,14 @@ def Data_normalized(df, tool):
 def from_CSVfile(file, directory, tool):
      # Read CSV file
     df = pd.read_csv(file)
+    if language == 'js': df['version'] = df['version'].str.replace('v', '')
+    
+    # New column 'release_date' as the second 
+    df['release_date'] = df['version'].apply(get_release_date)
+    df.insert(1, 'release_date', df.pop('release_date'))
 
-    if (tool == "turbostat") or (tool == "top"):
-        # New column 'release_date' as the second 
-        df['release_date'] = df['version'].apply(get_release_date)
-        df.insert(1, 'release_date', df.pop('release_date'))
-
-        # Convert date into datetime
-        df['release_date'] = pd.to_datetime(df['release_date'])
+    # Convert date into datetime
+    df['release_date'] = pd.to_datetime(df['release_date'])
 
     # New column 'path' as the third
     df['path'] = directory
@@ -202,14 +230,18 @@ def from_CSVfiles(tool, norm):
 
 
 # PLOTTING
-def custom_hover(program, x, y, mean, diff, percent_diff):
+def custom_hover(program, x, y, mean, diff, percent_diff, diff_flag):
     percent_difffromMean = 0 if mean == 0 else 100 * (y/mean)
-    return f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%</b><br>Difference: {diff:.2f}<br><b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%</b><br>Difference From Mean: {y:.2f}<br>Mean: {mean:.2f}<br>'
+    if diff_flag:
+        hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br></b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}<br>Mean: {mean:.2f}<br>'
+    else:
+        hover = f'Version: {x}<br>Program: {program}<br><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br><b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}</b><br>Mean: {mean:.2f}<br>'
+    return hover
 
-def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff):
+def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag):
 
-    if type == "barTop": df = df.groupby([x_data,color_data])[[y_data]].mean().reset_index()
-    if type == "lineTop": df = df.groupby([x_data,color_data])[[y_data]].mean().reset_index()
+    if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+    if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
 
     mean_per_program = df.groupby(color_data)[y_data].mean()
 
@@ -223,13 +255,14 @@ def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff):
         program_df['Difference'] = program_df[y_data].diff()
         program_df['Percentage_Difference'] = program_df[y_data].pct_change()*100
         program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
-        hover_texts = [custom_hover(program, x, y, mean, diff, percent_diff) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
-        if diff:
+        if diff_flag:
+            hover_texts = [custom_hover(program, x, y, mean, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
             bar_trace = go.Bar(x=program_df[x_data], y=program_df['Difference'],
                             name=f'{program} - Mean: { format(mean_per_program[program], ".2f")}',
                             hovertemplate=hover_texts,
                             text=program_df["Percentage_Difference"])
         else:
+            hover_texts = [custom_hover(program, x, y, mean, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
             bar_trace = go.Bar(x=program_df[x_data], y=program_df['DifferenceFromMean'],
                            name=f'{program} - Mean: { format(mean_per_program[program], ".2f")}',
                            hovertemplate=hover_texts,
@@ -258,7 +291,7 @@ def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
     if type == "line" or type == "lineTop":
         
-        if type == "lineTop": df = df.groupby([x_data,color_data])[[y_data]].mean().reset_index()
+        if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
 
         fig = px.line(df,
                 x = x_data,
@@ -281,7 +314,7 @@ def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
     elif type == "bar" or type == "barTop":
 
-        if type == "barTop": df = df.groupby([x_data,color_data])[[y_data]].mean().reset_index()
+        if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
 
         fig = px.bar(df,
                      x = x_data,
@@ -371,8 +404,8 @@ def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
 def three_plots(df, title, filename_plot, x_data, y_data, color_data, type):
     fig1 = plot_Type(df, filename_plot, x_data, y_data, color_data, type)
-    fig2 = plot_Compare(df, filename_plot + "_Comparison_Diff", x_data, y_data, color_data, type, diff=True)
-    fig3 = plot_Compare(df, filename_plot + "_Comparison_DiffFromMean", x_data, y_data, color_data, type, diff=False)
+    fig2 = plot_Compare(df, filename_plot + "_Comparison_Diff", x_data, y_data, color_data, type, diff_flag=True)
+    fig3 = plot_Compare(df, filename_plot + "_Comparison_DiffFromMean", x_data, y_data, color_data, type, diff_flag=False)
 
     div_string = '''
                 <div class="row">
@@ -596,6 +629,15 @@ def html_CPUPlots(df_turbo, df_top):
                         y_data="Totl%C0", 
                         color_data="path",
                         type="line")
+    
+    # Busy%, Bzy_MHz (C0 state), IPC, IRQ, POLL (CPU)
+    
+    nTH = three_plots(df_top, "Number of threads",
+                        filename_plot="turbostat_noThreads", 
+                        x_data="version", 
+                        y_data="nTH", 
+                        color_data="path",
+                        type="lineTop")
 
     div_html = cpu_usage + Avg_MHz + Totl_C0
     
@@ -739,10 +781,46 @@ def html_Temperature(df):
     
     return div_html
 
+def html_PageFaults(df_turbostat, df_top, def_perf):
+
+    page_faults = three_plots(def_perf, "Page Faults",
+                         filename_plot="top_page_faults", 
+                         x_data="version", 
+                         y_data="page_faults", 
+                         color_data="path",
+                         type="line")
+    
+    minor_faults = three_plots(def_perf, "Minor Faults",
+                         filename_plot="top_minor_faults", 
+                         x_data="version", 
+                         y_data="minor_faults", 
+                         color_data="path",
+                         type="line")
+
+    # nMaj (memory), nMin (memory)
+    nMaj = three_plots(df_top, "Major Page Fault Count",
+                         filename_plot="top_nMaj", 
+                         x_data="version", 
+                         y_data="nMaj", 
+                         color_data="path",
+                         type="lineTop")
+    
+    nMin = three_plots(df_top, "Minor Page Fault Count",
+                         filename_plot="top_nMin", 
+                         x_data="version", 
+                         y_data="nMin", 
+                         color_data="path",
+                         type="lineTop")
+
+    div_html = page_faults + minor_faults + nMaj + nMin
+    
+    return div_html
+
 def html_Information(title, parameter, color):
 
     df_turbostat = from_CSVfiles("turbostat", norm=False)
     df_top = from_CSVfiles("top", norm=False)
+    df_perf = from_CSVfiles("top", norm=False)
 
     if parameter == "general":
         div_Information = html_EnergyPlots(df_turbostat)
@@ -758,19 +836,16 @@ def html_Information(title, parameter, color):
         div_Information = html_Temperature(df_turbostat)
     elif parameter == "cstates":
         div_Information = html_Cstates(df_turbostat)
-    
+    elif parameter == "pageFaults":
+        div_Information = html_PageFaults(df_turbostat, df_top, df_perf)
+
     # perf
     # freq_cycles_GHz, cpu_clock_msec, no_cpus, cpu_cycles, cpu_migrations, ref_cycles (CPU)
-    # page_faults (memory), minor_faults (memory),
-
-    # top
-    # nTH (CPU), nMaj (memory), nMin (memory)
 
     # turbostat
     # Avg_MHz, Busy%, Bzy_MHz (C0 state), IPC, IRQ, POLL (CPU)
 
-    # C1	C1E	C3	C6	C7s	C8	C9	C10
-    # C1%	C1E%	C3%	C6%	C7s%	C8%
+    # GFX%rc6	GFXMHz	GFXAMHz	Totl%C0	Any%C0	GFX%C0	CPUGFX%
 
 
     div_string = '''
@@ -791,6 +866,7 @@ if __name__ == '__main__':
     div_cpu = html_Information("CPU usage", "cpu", "#F1C40F")
     div_temp = html_Information("Temperature", "temperature", "#9B59B6")
     div_cstates = html_Information("Cstates", "cstates", "#F4D03F")
+    div_pageFaults = html_Information("Page Faults", "pageFaults", "#F4D03F")
 
     print("Creating the general report for " + language + "...")
     

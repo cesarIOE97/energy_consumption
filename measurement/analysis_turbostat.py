@@ -77,6 +77,33 @@ java_releaseDates = {
     '20.0.2': '2023-07-18',
 }
 
+js_releaseDates = {
+    '20.5.1': '2023-08-09',
+    '19.9.0': '2023-04-10',
+    '18.17.1': '2023-08-08',
+    '17.9.1': '2022-06-01',
+    '16.20.2': '2023-08-08',
+    '15.14.0': '2021-04-06',
+    '14.21.3': '2023-02-16',
+    '13.14.0': '2020-04-29',
+    '12.22.12': '2022-04-05',
+    '11.15.0': '2019-04-30',
+    '10.24.1': '2021-04-06',
+    '9.11.2': '2018-06-12',
+    '8.17.0': '2019-12-17',
+    '7.10.1': '2017-07-11',
+    '6.17.1': '2019-04-03',
+    '5.12.0': '2016-06-23',
+    '4.9.1': '2018-03-29',
+    '3.3.1': '2015-09-15',
+    '2.5.0': '2015-07-28',
+    '1.8.4': '2015-07-09',
+    '0.12.18': '2017-02-22',
+    '0.10.48': '2016-10-18',
+    '0.8.28': '2014-07-31'
+}
+
+
 # Function to get release date for a given Python version
 def get_release_date(version):
     if language == 'python':
@@ -85,11 +112,15 @@ def get_release_date(version):
         return cplusplus_releaseDates.get(version, 'Unknown')
     elif language == 'java':
         return java_releaseDates.get(version, 'Unknown')
+    elif language == 'js':
+        return js_releaseDates.get(version, 'Unknown')
     
 # Function to extract information
 def from_CSVfile(file):
      # Read CSV file
     df = pd.read_csv(file)
+
+    if language == 'js': df['version'] = df['version'].str.replace('v', '')
 
     # New column 'release_date' as the second 
     df['release_date'] = df['version'].apply(get_release_date)

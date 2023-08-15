@@ -1,0 +1,2 @@
+version,appplication,no_measurement,timestamp,pid,command,time,virt,res,shr,percent_cpu,percent_mem,nTH,P,TIME,SWAP,CODE,DATA,nMaj,nMin,nDRT,USED,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
+v18.17.1,nbody_6.js 1000,0,1692099925,512660,,,,,,,,,,,,,,,,,,398,1,376,21,0,9.6,5.1,0.0,85.4,0.0,0.0,0.0,0.0,15795.0 MiB,1209.8 MiB,8588.7 MiB,5996.5 MiB,4096.0 MiB,261.6 MiB,3834.4 MiB,5916.8 MiB

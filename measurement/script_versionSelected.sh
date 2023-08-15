@@ -30,6 +30,11 @@ elif [ $1 == 'java' ] ; then
     confirm_version=$(java -version 2>&1 | awk 'NR==1{print $3}' | tr -d '"')
     echo
     echo "        ... Analysing java $confirm_version and javac $confirm_javacversion ..."
+elif [ $1 == 'js' ] ; then
+    nvm use $version_selected
+    confirm_version=$(node --version 2>&1)
+    echo
+    echo "        ... Analysing js $confirm_version ..."
 fi
 
 # Run commands turbostat, time,
@@ -50,18 +55,20 @@ elif [ $1 == 'java' ] ; then
     # javac nbody.py 50000
     javac -d $1 $1/$filename_program
     command="java -cp $1 $filename_program_woExtension $arguments"
+elif [ $1 == 'js' ] ; then
+    command="node $1/$2"
 fi
 
-# Sleep for 2 mins to allow a cool-down and in turn affect energy measurements (which are suceptible to this)
-# ** CLEAR THE MEMORY COMMAND **
-# sleep 2m
+# # Sleep for 2 mins to allow a cool-down and in turn affect energy measurements (which are suceptible to this)
+# # ** CLEAR THE MEMORY COMMAND **
+# # sleep 2m
 
-# Run measurement tools
-sleep 2m
+# # Run measurement tools
+# sleep 2m
 . ./script_turbostat.sh
-sleep 2m
+# sleep 2m
 . ./script_perf.sh 
-sleep 2m
+# sleep 2m
 . ./script_top.sh
 
 

@@ -18,6 +18,9 @@ elif [ $1 == 'python' ] ; then
     readarray -t versions_list < <(pyenv versions | awk '/*/{print $2} FNR>1&&!/*/{print $1}')
 elif [ $1 == 'java' ] ; then
     readarray -t versions_list < <(sudo update-alternatives --display java | awk '/priority/{print $1}' | grep -oP '/usr/lib/jvm/\K\java-\K\d+|jdk-\K\d+' | sort -V)
+elif [ $1 == 'js' ] ; then
+    source /u/13/olverac1/unix/.nvm/nvm.sh
+    readarray -t versions_list < <(nvm ls | awk '{print $2}' | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+')
 fi
 
 # MENU

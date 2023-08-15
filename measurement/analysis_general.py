@@ -41,6 +41,7 @@ if __name__ == '__main__':
     html_python = html_Language("python", active = True)
     html_cplusplus = html_Language("c++", active = False)
     html_java = html_Language("java", active = False)
+    html_js = html_Language("js", active=False)
 
     print("Creating the general report ...")
     html_string = '''
@@ -90,6 +91,7 @@ if __name__ == '__main__':
             ''' + html_python + '''
             ''' + html_cplusplus + '''
             ''' + html_java + '''
+            ''' + html_js + '''
         </ul>
 
         <div class="tab-content" id="myTabContent"  >
