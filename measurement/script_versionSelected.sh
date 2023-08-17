@@ -64,11 +64,11 @@ fi
 # # sleep 2m
 
 # # Run measurement tools
-sleep 2m
-. ./script_turbostat.sh
-sleep 2m
-. ./script_perf.sh 
-sleep 2m
+# sleep 2m
+# . ./script_turbostat.sh
+# sleep 2m
+# . ./script_perf.sh 
+# sleep 2m
 . ./script_top.sh
 
 

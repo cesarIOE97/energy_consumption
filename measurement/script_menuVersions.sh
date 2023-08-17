@@ -46,9 +46,23 @@ path=$1/$3
 # Selection of the versions
 if [ $version_selected == 'all' ] || [ $version_selected == 'All' ] || [ $version_selected == 'ALL' ]; then
 
+    flag=0
+
+    echo -n "
+    *** Run for 'all' versions or starting FROM a specific version (for example '$versions_list', or 'all' to measure all $1 versions): "
+    read from_version
+
     # Analize each version of the selected programming language (running, measuring, )
     for version_selected in "${versions_list[@]}"; do
-        . ./script_versionSelected.sh
+        if [ $from_version == $version_selected ]; then
+            flag=1
+        elif [ $from_version == 'all' ] || [ $from_version == 'All' ] || [ $from_version == 'ALL' ]; then
+            flag=1
+        fi
+        if [ $flag -eq 1 ]; then
+            # echo "CHECKING VERSIONS"
+            . ./script_versionSelected.sh
+        fi
     done
 
 else
