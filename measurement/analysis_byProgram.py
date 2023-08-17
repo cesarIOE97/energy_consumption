@@ -126,6 +126,9 @@ def convert_g_to_byte(value):
     elif value_str[-1].lower() == 'm':
         m_value = float(value_str[:-1])
         Byte_value = m_value * 1024 * 1024 # 1 giga = 1,000,000
+    elif value_str[-1].lower() == 'k':
+        k_value = float(value_str[:-1])
+        Byte_value = k_value * 1024 # 1 kilo = 1,000
     else:
         k_value = float(value_str)
         Byte_value = k_value * 1024 # 1 kilo = 1,000
@@ -182,6 +185,8 @@ def from_CSVfile(file, directory, tool):
         df['DATA'] = convert_toUnit(df['DATA'])
         df['SWAP'] = convert_toUnit(df['SWAP'])
         df['USED'] = convert_toUnit(df['USED'])
+        df['nMin'] = convert_toUnit(df['nMin'])
+        df['nMaj'] = convert_toUnit(df['nMaj'])
 
     # Changes in the 'version' column
     if language == 'python': df['version'] = df['version'].str.replace('Python ', '')
@@ -781,16 +786,16 @@ def html_Temperature(df):
     
     return div_html
 
-def html_PageFaults(df_turbostat, df_top, def_perf):
+def html_PageFaults(df_top, df_perf):
 
-    page_faults = three_plots(def_perf, "Page Faults",
+    page_faults = three_plots(df_perf, "Page Faults",
                          filename_plot="top_page_faults", 
                          x_data="version", 
                          y_data="page_faults", 
                          color_data="path",
                          type="line")
     
-    minor_faults = three_plots(def_perf, "Minor Faults",
+    minor_faults = three_plots(df_perf, "Minor Faults",
                          filename_plot="top_minor_faults", 
                          x_data="version", 
                          y_data="minor_faults", 
@@ -820,7 +825,7 @@ def html_Information(title, parameter, color):
 
     df_turbostat = from_CSVfiles("turbostat", norm=False)
     df_top = from_CSVfiles("top", norm=False)
-    df_perf = from_CSVfiles("top", norm=False)
+    df_perf = from_CSVfiles("perf", norm=False)
 
     if parameter == "general":
         div_Information = html_EnergyPlots(df_turbostat)
@@ -837,7 +842,7 @@ def html_Information(title, parameter, color):
     elif parameter == "cstates":
         div_Information = html_Cstates(df_turbostat)
     elif parameter == "pageFaults":
-        div_Information = html_PageFaults(df_turbostat, df_top, df_perf)
+        div_Information = html_PageFaults(df_top, df_perf)
 
     # perf
     # freq_cycles_GHz, cpu_clock_msec, no_cpus, cpu_cycles, cpu_migrations, ref_cycles (CPU)
@@ -865,8 +870,8 @@ if __name__ == '__main__':
     div_time = html_Information("Time Elapsed", "time", "#F39C12")
     div_cpu = html_Information("CPU usage", "cpu", "#F1C40F")
     div_temp = html_Information("Temperature", "temperature", "#9B59B6")
-    div_cstates = html_Information("Cstates", "cstates", "#F4D03F")
-    div_pageFaults = html_Information("Page Faults", "pageFaults", "#F4D03F")
+    div_cstates = html_Information("Cstates", "cstates", "#F7DC6F")
+    div_pageFaults = html_Information("Page Faults", "pageFaults", "#5DADE2")
 
     print("Creating the general report for " + language + "...")
     
@@ -916,6 +921,7 @@ if __name__ == '__main__':
             ''' + div_cpu + '''
             ''' + div_cstates + '''
             ''' + div_temp + '''
+            ''' + div_pageFaults + '''
         </body>
     </html>'''
 

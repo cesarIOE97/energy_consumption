@@ -2,43 +2,13 @@
 # https://salsa.debian.org/benchmarksgame-team/benchmarksgame/
 #
 # contributed by Diogo
-# sudo turbostat --Summary python3 binarytrees.py 2
+# Python 3 #3
 
 from concurrent.futures import ProcessPoolExecutor as PoolExecutor
 from multiprocessing import cpu_count
 import sys
 import gc
-import os
 
-import tracemalloc
-
-# from memory_profiler import profile
-
-# @profile
-
-# import psutil
-
-# # inner psutil function
-# def process_memory():
-#     process = psutil.Process(os.getpid())
-#     mem_info = process.memory_info()
-#     return mem_info.rss
-
-# # decorator function
-# def profile(func):
-#     def wrapper(*args, **kwargs):
- 
-#         mem_before = process_memory()
-#         result = func(*args, **kwargs)
-#         mem_after = process_memory()
-#         print("{}:consumed memory: {:,}".format(
-#             func.__name__,
-#             mem_before, mem_after, mem_after - mem_before))
- 
-#         return result
-#     return wrapper
-
-# @profile
 
 def tree_make(n: int) -> list:
     """ Creates a tree recursively based on lists of 2 elements
@@ -176,11 +146,9 @@ def binary_trees_run(n: int, workers: int):
     # del result['longlived']
     print(f"long lived tree of depth {n}\t check: {longlived[1]}")
     del longlived
-    
+
 
 if __name__ == "__main__":
-    # starting the monitoring
-    tracemalloc.start()
 
     # Get how many cores available
     logicalcpu_cores: int = cpu_count()
@@ -190,9 +158,3 @@ if __name__ == "__main__":
 
     n: int = int(sys.argv[1])
     binary_trees_run(n, workers)
-
-    # displaying the memory
-    print(tracemalloc.get_traced_memory())
-    
-    # stopping the library
-    tracemalloc.stop()
