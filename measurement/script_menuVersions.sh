@@ -72,3 +72,4 @@ fi
 # Python script
 pyenv global 3.11.3
 python3 analysis.py $1 "$2" $3
+python3 analysis_general.py

@@ -1,0 +1,1115 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "nbody_2_original.c 50000000" "nbody_50000000_original_O3flag"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Without problems in terms of pauses
+
+*** STARTING IN VERSION v6.5.0 START TO RUN APPROPRIATELY ***
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody_2_original.c 50000000" "nbody_50000000_original_O3flag"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - java
+  - js
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): c++
+
+Available c++ versions are the next ones:
+  - g++-4.4
+  - g++-4.6
+  - g++-4.7
+  - g++-4.8
+  - g++-4.9
+  - g++-5
+  - g++-6
+  - g++-7
+  - g++-8
+  - g++-9
+  - g++-10
+  - g++-11
+  - g++-12
+  - g++-13
+  - all
+
+ *** Type the version (for example 'g++-4.4', or 'all' to measure all c++ versions): all
+
+    *** Run for 'all' versions or starting FROM a specific version (for example 'g++-4.4', or 'all' to measure all c++ versions): all
+
+        ... Analysing g++-4.4 4.4.7 ...
+In file included from /usr/include/c++/4.4/array:35,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/4.4/c++0x_warning.h:31: error: #error This file requires compiler and library support for the upcoming ISO C++ standard, C++0x. This support is currently experimental, and must be enabled with the -std=c++0x or -std=gnu++0x compiler options.
+c++/nbody_2_original.c:20: error: expected constructor, destructor, or type conversion before ‘double’
+c++/nbody_2_original.c:21: error: expected constructor, destructor, or type conversion before ‘double’
+c++/nbody_2_original.c:22: error: expected constructor, destructor, or type conversion before ‘double’
+c++/nbody_2_original.c:26: error: expected identifier before numeric constant
+c++/nbody_2_original.c:26: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26: error: ISO C++ forbids declaration of ‘alignas’ with no type
+c++/nbody_2_original.c:26: error: expected ‘;’ before ‘double’
+c++/nbody_2_original.c:28: error: expected identifier before numeric constant
+c++/nbody_2_original.c:28: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28: error: ISO C++ forbids declaration of ‘alignas’ with no type
+c++/nbody_2_original.c:28: error: expected ‘;’ before ‘double’
+c++/nbody_2_original.c:30: error: expected ‘;’ before ‘noexcept’
+c++/nbody_2_original.c:36: error: expected ‘;’ before ‘}’ token
+c++/nbody_2_original.c:39: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:51: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:63: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:75: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:87: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:101: error: ISO C++ forbids declaration of ‘array’ with no type
+c++/nbody_2_original.c:101: error: invalid use of ‘::’
+c++/nbody_2_original.c:101: error: expected ‘;’ before ‘<’ token
+c++/nbody_2_original.c:102: error: ISO C++ forbids declaration of ‘constexpr’ with no type
+c++/nbody_2_original.c:102: error: expected ‘;’ before ‘unsigned’
+c++/nbody_2_original.c:105: error: expected ‘;’ before ‘noexcept’
+c++/nbody_2_original.c:233: error: expected ‘;’ at end of input
+c++/nbody_2_original.c:233: error: expected ‘}’ at end of input
+c++/nbody_2_original.c:233: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+
+    - Time of the 1st running: 0.002120
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 88831...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.4: No such file or directory
+Python program with PID 88831 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.6 4.6.4 ...
+In file included from /usr/include/c++/4.6/array:35:0,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/4.6/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the upcoming ISO C++ standard, C++0x. This support is currently experimental, and must be enabled with the -std=c++0x or -std=gnu++0x compiler options.
+c++/nbody_2_original.c:20:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:20:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:21:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:21:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:22:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:22:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:26:13: error: expected identifier before numeric constant
+c++/nbody_2_original.c:26:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+c++/nbody_2_original.c:26:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:13: error: expected identifier before numeric constant
+c++/nbody_2_original.c:28:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+c++/nbody_2_original.c:28:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:5: error: ‘int Body::alignas(int)’ cannot be overloaded
+c++/nbody_2_original.c:26:5: error: with ‘int Body::alignas(int)’
+c++/nbody_2_original.c:30:75: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:30:77: error: ‘noexcept’ does not name a type
+c++/nbody_2_original.c:39:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:39:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:51:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:51:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:63:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:63:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:75:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:75:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:87:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:87:1: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:101:5: error: ‘array’ in namespace ‘std’ does not name a type
+c++/nbody_2_original.c:102:12: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:102:12: note: C++0x ‘constexpr’ only available with -std=c++0x or -std=gnu++0x
+c++/nbody_2_original.c:105:17: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:105:19: error: ‘noexcept’ does not name a type
+c++/nbody_2_original.c:113:2: error: expected unqualified-id before ‘{’ token
+c++/nbody_2_original.c:233:1: error: expected ‘}’ at end of input
+c++/nbody_2_original.c:233:1: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+
+    - Time of the 1st running: 0.001627
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 89330...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.6: No such file or directory
+Python program with PID 89330 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.7 4.7.4 ...
+In file included from /usr/include/c++/4.7/array:36:0,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/4.7/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+c++/nbody_2_original.c:20:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:20:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:21:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:21:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:22:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:22:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:26:13: error: expected identifier before numeric constant
+c++/nbody_2_original.c:26:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+c++/nbody_2_original.c:26:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:13: error: expected identifier before numeric constant
+c++/nbody_2_original.c:28:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+c++/nbody_2_original.c:28:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:5: error: ‘int Body::alignas(int)’ cannot be overloaded
+c++/nbody_2_original.c:26:5: error: with ‘int Body::alignas(int)’
+c++/nbody_2_original.c:30:75: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:30:77: error: ‘noexcept’ does not name a type
+c++/nbody_2_original.c:39:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:39:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:51:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:51:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:63:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:63:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:75:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:75:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:87:1: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:87:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:101:5: error: ‘array’ in namespace ‘std’ does not name a type
+c++/nbody_2_original.c:102:12: error: ‘constexpr’ does not name a type
+c++/nbody_2_original.c:102:12: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:105:17: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:105:19: error: ‘noexcept’ does not name a type
+c++/nbody_2_original.c:113:2: error: expected unqualified-id before ‘{’ token
+c++/nbody_2_original.c:233:1: error: expected ‘}’ at end of input
+c++/nbody_2_original.c:233:1: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+
+    - Time of the 1st running: 0.001626
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 89717...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.7: No such file or directory
+Python program with PID 89717 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.8 4.8.5 ...
+In file included from /usr/include/c++/4.8/array:35:0,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+c++/nbody_2_original.c:20:1: error: ‘constexpr’ does not name a type
+ constexpr double PI = 3.141592653589793;
+ ^
+c++/nbody_2_original.c:20:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:21:1: error: ‘constexpr’ does not name a type
+ constexpr double SOLAR_MASS = 4 * PI * PI;
+ ^
+c++/nbody_2_original.c:21:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:22:1: error: ‘constexpr’ does not name a type
+ constexpr double DAYS_PER_YEAR = 365.24;
+ ^
+c++/nbody_2_original.c:22:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:26:13: error: expected identifier before numeric constant
+     alignas(16) double x, vx, y, vy, z, vz;
+             ^
+c++/nbody_2_original.c:26:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double x, vx, y, vy, z, vz;
+               ^
+c++/nbody_2_original.c:26:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:13: error: expected identifier before numeric constant
+     alignas(16) double mass;
+             ^
+c++/nbody_2_original.c:28:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double mass;
+               ^
+c++/nbody_2_original.c:28:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:5: error: ‘int Body::alignas(int)’ cannot be overloaded
+     alignas(16) double mass;
+     ^
+c++/nbody_2_original.c:26:5: error: with ‘int Body::alignas(int)’
+     alignas(16) double x, vx, y, vy, z, vz;
+     ^
+c++/nbody_2_original.c:30:75: error: expected ‘;’ at end of member declaration
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                           ^
+c++/nbody_2_original.c:30:77: error: ‘noexcept’ does not name a type
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                             ^
+c++/nbody_2_original.c:39:1: error: ‘constexpr’ does not name a type
+ constexpr Body jupiter(){
+ ^
+c++/nbody_2_original.c:39:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:51:1: error: ‘constexpr’ does not name a type
+ constexpr Body saturn(){
+ ^
+c++/nbody_2_original.c:51:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:63:1: error: ‘constexpr’ does not name a type
+ constexpr Body uranus(){
+ ^
+c++/nbody_2_original.c:63:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:75:1: error: ‘constexpr’ does not name a type
+ constexpr Body neptune(){
+ ^
+c++/nbody_2_original.c:75:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:87:1: error: ‘constexpr’ does not name a type
+ constexpr Body sun(){
+ ^
+c++/nbody_2_original.c:87:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:101:5: error: ‘array’ in namespace ‘std’ does not name a type
+     std::array<Body, 5> bodies;
+     ^
+c++/nbody_2_original.c:102:12: error: ‘constexpr’ does not name a type
+     static constexpr unsigned int bodies_size = 5;
+            ^
+c++/nbody_2_original.c:102:12: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:105:17: error: expected ‘;’ at end of member declaration
+     NBodySystem() noexcept
+                 ^
+c++/nbody_2_original.c:105:19: error: ‘noexcept’ does not name a type
+     NBodySystem() noexcept
+                   ^
+c++/nbody_2_original.c:113:2: error: expected unqualified-id before ‘{’ token
+  {
+  ^
+c++/nbody_2_original.c:233:1: error: expected ‘}’ at end of input
+ }
+ ^
+c++/nbody_2_original.c:233:1: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+
+    - Time of the 1st running: 0.001804
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 90229...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.8: No such file or directory
+Python program with PID 90229 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.9 4.9.3 ...
+In file included from /usr/include/c++/4.9/array:35:0,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/4.9/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+c++/nbody_2_original.c:20:1: error: ‘constexpr’ does not name a type
+ constexpr double PI = 3.141592653589793;
+ ^
+c++/nbody_2_original.c:20:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:21:1: error: ‘constexpr’ does not name a type
+ constexpr double SOLAR_MASS = 4 * PI * PI;
+ ^
+c++/nbody_2_original.c:21:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:22:1: error: ‘constexpr’ does not name a type
+ constexpr double DAYS_PER_YEAR = 365.24;
+ ^
+c++/nbody_2_original.c:22:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:26:13: error: expected identifier before numeric constant
+     alignas(16) double x, vx, y, vy, z, vz;
+             ^
+c++/nbody_2_original.c:26:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double x, vx, y, vy, z, vz;
+               ^
+c++/nbody_2_original.c:26:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:13: error: expected identifier before numeric constant
+     alignas(16) double mass;
+             ^
+c++/nbody_2_original.c:28:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double mass;
+               ^
+c++/nbody_2_original.c:28:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:5: error: ‘int Body::alignas(int)’ cannot be overloaded
+     alignas(16) double mass;
+     ^
+c++/nbody_2_original.c:26:5: error: with ‘int Body::alignas(int)’
+     alignas(16) double x, vx, y, vy, z, vz;
+     ^
+c++/nbody_2_original.c:30:75: error: expected ‘;’ at end of member declaration
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                           ^
+c++/nbody_2_original.c:30:77: error: ‘noexcept’ does not name a type
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                             ^
+c++/nbody_2_original.c:39:1: error: ‘constexpr’ does not name a type
+ constexpr Body jupiter(){
+ ^
+c++/nbody_2_original.c:39:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:51:1: error: ‘constexpr’ does not name a type
+ constexpr Body saturn(){
+ ^
+c++/nbody_2_original.c:51:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:63:1: error: ‘constexpr’ does not name a type
+ constexpr Body uranus(){
+ ^
+c++/nbody_2_original.c:63:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:75:1: error: ‘constexpr’ does not name a type
+ constexpr Body neptune(){
+ ^
+c++/nbody_2_original.c:75:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:87:1: error: ‘constexpr’ does not name a type
+ constexpr Body sun(){
+ ^
+c++/nbody_2_original.c:87:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:101:10: error: ‘array’ in namespace ‘std’ does not name a template type
+     std::array<Body, 5> bodies;
+          ^
+c++/nbody_2_original.c:102:12: error: ‘constexpr’ does not name a type
+     static constexpr unsigned int bodies_size = 5;
+            ^
+c++/nbody_2_original.c:102:12: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:105:17: error: expected ‘;’ at end of member declaration
+     NBodySystem() noexcept
+                 ^
+c++/nbody_2_original.c:105:19: error: ‘noexcept’ does not name a type
+     NBodySystem() noexcept
+                   ^
+c++/nbody_2_original.c:113:2: error: expected unqualified-id before ‘{’ token
+  {
+  ^
+c++/nbody_2_original.c:233:1: error: expected ‘}’ at end of input
+ }
+ ^
+c++/nbody_2_original.c:233:1: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+
+    - Time of the 1st running: 0.001961
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 90773...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-4.9: No such file or directory
+Python program with PID 90773 has ended. Monitoring stopped.
+
+        ... Analysing g++-5 5.5.0 ...
+In file included from /usr/include/c++/5/array:35:0,
+                 from c++/nbody_2_original.c:17:
+/usr/include/c++/5/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support \
+  ^
+c++/nbody_2_original.c:20:1: error: ‘constexpr’ does not name a type
+ constexpr double PI = 3.141592653589793;
+ ^
+c++/nbody_2_original.c:20:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:21:1: error: ‘constexpr’ does not name a type
+ constexpr double SOLAR_MASS = 4 * PI * PI;
+ ^
+c++/nbody_2_original.c:21:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:22:1: error: ‘constexpr’ does not name a type
+ constexpr double DAYS_PER_YEAR = 365.24;
+ ^
+c++/nbody_2_original.c:22:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:26:13: error: expected identifier before numeric constant
+     alignas(16) double x, vx, y, vy, z, vz;
+             ^
+c++/nbody_2_original.c:26:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:26:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double x, vx, y, vy, z, vz;
+               ^
+c++/nbody_2_original.c:26:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:13: error: expected identifier before numeric constant
+     alignas(16) double mass;
+             ^
+c++/nbody_2_original.c:28:13: error: expected ‘,’ or ‘...’ before numeric constant
+c++/nbody_2_original.c:28:15: error: ISO C++ forbids declaration of ‘alignas’ with no type [-fpermissive]
+     alignas(16) double mass;
+               ^
+c++/nbody_2_original.c:28:15: error: expected ‘;’ at end of member declaration
+c++/nbody_2_original.c:28:5: error: ‘int Body::alignas(int)’ cannot be overloaded
+     alignas(16) double mass;
+     ^
+c++/nbody_2_original.c:26:5: error: with ‘int Body::alignas(int)’
+     alignas(16) double x, vx, y, vy, z, vz;
+     ^
+c++/nbody_2_original.c:30:75: error: expected ‘;’ at end of member declaration
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                           ^
+c++/nbody_2_original.c:30:77: error: ‘noexcept’ does not name a type
+     Body& offsetMomentum(const double px, const double py, const double pz) noexcept {
+                                                                             ^
+c++/nbody_2_original.c:30:77: note: C++11 ‘noexcept’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:39:1: error: ‘constexpr’ does not name a type
+ constexpr Body jupiter(){
+ ^
+c++/nbody_2_original.c:39:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:51:1: error: ‘constexpr’ does not name a type
+ constexpr Body saturn(){
+ ^
+c++/nbody_2_original.c:51:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:63:1: error: ‘constexpr’ does not name a type
+ constexpr Body uranus(){
+ ^
+c++/nbody_2_original.c:63:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:75:1: error: ‘constexpr’ does not name a type
+ constexpr Body neptune(){
+ ^
+c++/nbody_2_original.c:75:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:87:1: error: ‘constexpr’ does not name a type
+ constexpr Body sun(){
+ ^
+c++/nbody_2_original.c:87:1: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:101:10: error: ‘array’ in namespace ‘std’ does not name a template type
+     std::array<Body, 5> bodies;
+          ^
+c++/nbody_2_original.c:102:12: error: ‘constexpr’ does not name a type
+     static constexpr unsigned int bodies_size = 5;
+            ^
+c++/nbody_2_original.c:102:12: note: C++11 ‘constexpr’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:105:17: error: expected ‘;’ at end of member declaration
+     NBodySystem() noexcept
+                 ^
+c++/nbody_2_original.c:105:19: error: ‘noexcept’ does not name a type
+     NBodySystem() noexcept
+                   ^
+c++/nbody_2_original.c:105:19: note: C++11 ‘noexcept’ only available with -std=c++11 or -std=gnu++11
+c++/nbody_2_original.c:113:2: error: expected unqualified-id before ‘{’ token
+  {
+  ^
+c++/nbody_2_original.c:233:1: error: expected ‘}’ at end of input
+ }
+ ^
+c++/nbody_2_original.c:233:1: error: expected unqualified-id at end of input
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+
+    - Time of the 1st running: 0.001870
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+turbostat: exec ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+Workload failed: No such file or directory
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 
+(standard_in) 1: syntax error
+./script_perf.sh: line 187: [: -eq: unary operator expected
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 91299...
+./script_top.sh: line 36: ./c++/nbody_50000000_original_O3flag/nbody_2_original_g++-5: No such file or directory
+Python program with PID 91299 has ended. Monitoring stopped.
+
+        ... Analysing g++-6 6.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 3.516566
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3520401868
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 91696...
+-0.169075164
+-0.169059907Python program with PID 91696 has ended. Monitoring stopped.
+
+        ... Analysing g++-7 7.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.511373
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2514115357
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 92130...
+-0.169075164
+-0.169059907Python program with PID 92130 has ended. Monitoring stopped.
+
+        ... Analysing g++-8  ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.965934
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2801954808
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 92532...
+-0.169075164
+-0.169059907Python program with PID 92532 has ended. Monitoring stopped.
+
+        ... Analysing g++-9 9.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.777546
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2777189526
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 93762...
+-0.169075164
+-0.169059907Python program with PID 93762 has ended. Monitoring stopped.
+
+        ... Analysing g++-10 10.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.939331
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2938833560
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 94201...
+-0.169075164
+-0.169059907Python program with PID 94201 has ended. Monitoring stopped.
+
+        ... Analysing g++-11 11.4.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.927361
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2938299955
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 94601...
+-0.169075164
+-0.169059907Python program with PID 94601 has ended. Monitoring stopped.
+
+        ... Analysing g++-12 12.3.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.856531
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2856408052
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 95035...
+-0.169075164
+-0.169059907Python program with PID 95035 has ended. Monitoring stopped.
+
+        ... Analysing g++-13 13.1.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 2.849629
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_original_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 2848248097
+    - Recording perf data in the general CSV file: c++/nbody_50000000_original_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 95476...
+-0.169075164
+-0.169059907Python program with PID 95476 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:127: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+Analysis of Perf data
+  version release_date                 appplication no_measurement   timestamp    pid          command     time    virt  ...    mem_total    mem_free    mem_used  mem_buff_cache  swap_total   swap_free swap_used   swap_avail  Unnamed: 43
+0   g++-6   2018-10-26  nbody_2_original.c 50000000              0  1692622304  91696  nbody_2_origina  0:00.16  6524.0  ...  15795.0 MiB  6950.3 MiB  1636.3 MiB      7208.4 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13450.8 MiB          NaN
+1   g++-6   2018-10-26  nbody_2_original.c 50000000              1  1692622306  91696  nbody_2_origina  0:01.33  6524.0  ...  15795.0 MiB  6957.0 MiB  1637.3 MiB      7200.7 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13457.5 MiB          NaN
+2   g++-6   2018-10-26  nbody_2_original.c 50000000              2  1692622307  91696  nbody_2_origina  0:02.50  6524.0  ...  15795.0 MiB  6956.0 MiB  1638.3 MiB      7200.7 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13456.6 MiB          NaN
+0   g++-7   2019-11-14  nbody_2_original.c 50000000              0  1692622698  92130  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6939.8 MiB  1644.1 MiB      7211.1 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13443.0 MiB          NaN
+1   g++-7   2019-11-14  nbody_2_original.c 50000000              1  1692622699  92130  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6939.3 MiB  1644.2 MiB      7211.5 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13442.6 MiB          NaN
+2   g++-7   2019-11-14  nbody_2_original.c 50000000              2  1692622700  92130  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6947.7 MiB  1643.8 MiB      7203.5 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13451.0 MiB          NaN
+0   g++-8   2021-05-14  nbody_2_original.c 50000000              0  1692623094  92532  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6950.0 MiB  1632.7 MiB      7212.3 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13454.4 MiB          NaN
+1   g++-8   2021-05-14  nbody_2_original.c 50000000              1  1692623095  92532  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6943.9 MiB  1636.9 MiB      7214.2 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13449.9 MiB          NaN
+2   g++-8   2021-05-14  nbody_2_original.c 50000000              2  1692623096  92532  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6957.2 MiB  1631.6 MiB      7206.2 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13463.2 MiB          NaN
+0   g++-9   2022-05-27  nbody_2_original.c 50000000              0  1692623489  93762  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6947.4 MiB  1625.6 MiB      7221.9 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13461.4 MiB          NaN
+1   g++-9   2022-05-27  nbody_2_original.c 50000000              1  1692623490  93762  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6947.2 MiB  1625.7 MiB      7222.1 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13461.1 MiB          NaN
+2   g++-9   2022-05-27  nbody_2_original.c 50000000              2  1692623492  93762  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6948.0 MiB  1632.9 MiB      7214.1 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13461.9 MiB          NaN
+0  g++-10   2023-07-07  nbody_2_original.c 50000000              0  1692623886  94201  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6928.3 MiB  1643.5 MiB      7223.2 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13443.4 MiB          NaN
+1  g++-10   2023-07-07  nbody_2_original.c 50000000              1  1692623888  94201  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6943.8 MiB  1635.7 MiB      7215.5 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13458.9 MiB          NaN
+2  g++-10   2023-07-07  nbody_2_original.c 50000000              2  1692623889  94201  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6943.8 MiB  1635.8 MiB      7215.3 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13459.0 MiB          NaN
+0  g++-11   2023-05-29  nbody_2_original.c 50000000              0  1692624284  94601  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6947.2 MiB  1622.2 MiB      7225.6 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13464.8 MiB          NaN
+1  g++-11   2023-05-29  nbody_2_original.c 50000000              1  1692624285  94601  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6945.7 MiB  1623.4 MiB      7225.8 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13463.4 MiB          NaN
+2  g++-11   2023-05-29  nbody_2_original.c 50000000              2  1692624286  94601  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6952.9 MiB  1624.3 MiB      7217.8 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13470.5 MiB          NaN
+0  g++-12   2023-05-08  nbody_2_original.c 50000000              0  1692624680  95035  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6934.1 MiB  1639.3 MiB      7221.6 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13447.7 MiB          NaN
+1  g++-12   2023-05-08  nbody_2_original.c 50000000              1  1692624681  95035  nbody_2_origina  0:01.34  6528.0  ...  15795.0 MiB  6932.8 MiB  1640.3 MiB      7221.9 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13446.5 MiB          NaN
+2  g++-12   2023-05-08  nbody_2_original.c 50000000              2  1692624682  95035  nbody_2_origina  0:02.51  6528.0  ...  15795.0 MiB  6933.3 MiB  1647.7 MiB      7213.9 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13447.0 MiB          NaN
+0  g++-13   2023-04-26  nbody_2_original.c 50000000              0  1692625077  95476  nbody_2_origina  0:00.16  6528.0  ...  15795.0 MiB  6928.6 MiB  1642.9 MiB      7223.5 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13444.2 MiB          NaN
+1  g++-13   2023-04-26  nbody_2_original.c 50000000              1  1692625078  95476  nbody_2_origina  0:01.33  6528.0  ...  15795.0 MiB  6926.6 MiB  1644.5 MiB      7223.8 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13442.3 MiB          NaN
+2  g++-13   2023-04-26  nbody_2_original.c 50000000              2  1692625079  95476  nbody_2_origina  0:02.50  6528.0  ...  15795.0 MiB  6934.1 MiB  1644.9 MiB      7216.0 MiB  4096.0 MiB  4091.7 MiB   4.2 MiB  13449.7 MiB          NaN
+
+[24 rows x 45 columns]
+Analysis of Top data
+Analysis of Top data
+Creating the general report ...

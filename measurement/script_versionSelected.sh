@@ -39,20 +39,22 @@ fi
 
 # Run commands turbostat, time,
 if [ $1 == 'c' ] ; then
-    # gcc-11 c++/nbody.c -o c++/test/nbody_g++-11     
+    # e.g. gcc-11 c++/nbody.c -o c++/test/nbody_g++-11
     $version_selected $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
     command="./${path}/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'c++' ] ; then
-    # g++-11 c++/nbody.c -o c++/test/nbody_g++-11
+    # e.g. g++-11 c++/nbody.c -o c++/test/nbody_g++-11
     $version_selected $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
     # $version_selected -O3 $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
     command="./$path/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'python' ] ; then
-    # python nbody.py 50000
+    # e.g. python nbody.py 50000
+    # -OO flag --------> discard docstrings, 
+    #            '-----> turn off debugs, remove assert statements, and IIRC
     command="python $1/$2"
     # command="python -OO $1/$2"
 elif [ $1 == 'java' ] ; then
-    # javac nbody.py 50000
+    # e.g. javac nbody.py 50000
     javac -d $1 $1/$filename_program
     command="java -cp $1 $filename_program_woExtension $arguments"
 elif [ $1 == 'js' ] ; then
@@ -64,12 +66,11 @@ fi
 # # sleep 2m
 
 # # Run measurement tools
-# sleep 2m
-# . ./script_turbostat.sh
+sleep 2m
+. ./script_turbostat.sh
 # sleep 2m
 # . ./script_perf.sh 
 # sleep 2m
-. ./script_top.sh
-
+# . ./script_top.sh
 
 # . ./script_valgrind.sh 

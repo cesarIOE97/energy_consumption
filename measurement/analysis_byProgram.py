@@ -281,6 +281,7 @@ def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag)
         
 
     fig = go.Figure(data=bar_traces, layout=layout)
+    if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
 
     # Check if the directory exists
     directory = language + '/general_plots/'
@@ -396,6 +397,8 @@ def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
        ]
 
     fig.update_layout(updatemenus=updatemenus, annotations=annotations, hovermode="x unified")
+    if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
+
 
     # Check if the directory exists
     directory = language + '/general_plots/'

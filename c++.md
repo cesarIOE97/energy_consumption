@@ -9,7 +9,7 @@ Compilers | Version | Release date    | First release | C+++ Standard Support | 
  GCC and G++ | 9.5 | 2022-05-27 | 2019-05-03 | C++17, C++14, C++11, C++98 | installed
  GCC and G++ | 8.5 | 2021-05-14 | 2018-05-02 | C++17, C++14, C++11, C++98 | installed
  GCC and G++ | 7.5 | 2019-11-14 | 2017-05-02 | C++17, C++14, C++11, C++98 | installed
- GCC and G++ | 6.5 | 2018-10-26 | 2016-04-27 | C++17, C++14, C++11, finC++98 | installed
+ GCC and G++ | 6.5 | 2018-10-26 | 2016-04-27 | C++17, C++14, C++11, C++98 | installed
  GCC and G++ | 5.5 | 2017-10-10 | 2015-04-22 | C++17,C++14, C++11, C++98 | installed
  GCC and G++ | 4.9.3 | 2015-06-26 | 2014-04-22 | C++14, C++11, C++98 | installed
  GCC and G++ | 4.8.5 | 2015-06-23 | 2013-03-22 | C++11, C++98 | installed

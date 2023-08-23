@@ -192,7 +192,7 @@ if [ $(echo "$time <= 1000000000" | bc -l) -eq 1 ]; then
     # Record the first measurement
     echo "    - Recording #1 perf data in a CSV file: $output_versionPerfFile"
     [ -s $output_versionPerfFile ] || echo test,version,appplication,time_elapsed,$col_names >> $output_versionPerfFile
-    echo "1,$confirm_version,$2,$time,$results" >> $output_versionPerfFile
+    echo "1,$confirm_version,$2,$results" >> $output_versionPerfFile
 
     for (( i=2; i<=10; i++ )); do
         # Run the perf function
@@ -201,7 +201,7 @@ if [ $(echo "$time <= 1000000000" | bc -l) -eq 1 ]; then
 
         # Record perf data in the NEW CSV file for each version
         echo "    - Recording #$i perf data in a CSV file: $output_versionPerfFile"
-        echo $i,$confirm_version,$2,$time,$results >> $output_versionPerfFile
+        echo $i,$confirm_version,$2,$results >> $output_versionPerfFile
     done
 
     # Compute the average of each column

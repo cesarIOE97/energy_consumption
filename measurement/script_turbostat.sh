@@ -36,7 +36,7 @@ time=$(tail -3 $temp_file | head -n1 | awk '{print $1}')
 # Verify the time elapsed to determine how many samples to measure
 echo
 echo "    - Time of the 1st running: $time"
-if [ $(echo "$time <= 60" | bc -l) -eq 1 ]; then
+if [ $(echo "$time <= 3600" | bc -l) -eq 1 ]; then
     # Create a CSV file for each version
     output_versionFile="$pathTurbostat/turbostat_performance_data_$version_selected.csv"
     touch $output_versionFile

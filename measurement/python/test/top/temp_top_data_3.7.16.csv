@@ -1,0 +1,5 @@
+version,appplication,no_measurement,timestamp,pid,command,time,virt,res,shr,percent_cpu,percent_mem,nTH,P,TIME,SWAP,CODE,DATA,nMaj,nMin,nDRT,USED,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
+Python 3.7.16,binaryTrees.py 10,0,1692273602,207485,,,,,,,,,,,,,,,,,,339,2,329,8,0,20.0,7.1,0.0,71.6,1.3,0.0,0.0,0.0,15795.0 MiB,2705.9 MiB,5115.4 MiB,7973.7 MiB,4096.0 MiB,3998.5 MiB,97.5 MiB,9610.8 MiB
+Python 3.7.16,binarytrees.py 10,0,1692273636,209657,,,,,,,,,,,,,,,,,,344,1,330,13,0,16.2,8.8,0.0,72.8,2.2,0.0,0.0,0.0,15795.0 MiB,2461.2 MiB,5330.3 MiB,8003.5 MiB,4096.0 MiB,3998.5 MiB,97.5 MiB,9426.1 MiB
+Python 3.7.16,binarytrees.py 10,0,1692343501,18245,,,,,,,,,,,,,,,,,,346,1,343,2,0,13.8,3.8,0.0,80.8,1.5,0.0,0.0,0.0,15795.0 MiB,1524.4 MiB,7388.5 MiB,6882.1 MiB,4096.0 MiB,4095.7 MiB,0.2 MiB,5266.9 MiB
+Python 3.7.16,toosimple.py 10000,0,1692355174,52493,,,,,,,,,,,,,,,,,,349,2,345,2,0,20.6,4.3,0.0,75.2,0.0,0.0,0.0,0.0,15795.0 MiB,2655.7 MiB,5638.8 MiB,7500.5 MiB,4096.0 MiB,4055.7 MiB,40.2 MiB,7139.5 MiB
