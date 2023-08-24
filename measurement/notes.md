@@ -3,6 +3,8 @@
 ## Aalto computer
 
  - FIX THE NUMBER OF TIMES FOR EACH APPLICATION (10 TIMES ALWAYS)
+
+
  - CHOOSE MEDIAN INSTEAD OF MEAN FOR DATA
  - Check the cpu usage, memory usage and CPU CYCLES (or CPU times)
  - Keep the difference in each version plot and SET to percentage (Relative results) instead of the JOULES (Absolute number)
