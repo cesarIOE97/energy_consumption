@@ -1,7 +1,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Running the command: './index.sh "binaryTrees_7_original.js 21" "binaryTrees_21_original"'
+Running the command: './index.sh "binaryTrees_1_original.js 21" "binaryTrees_21_original_v1"'
 ONLY terminal was opened
 PC connected all time and 'performance' config (100%)
 Without problems in terms of pauses

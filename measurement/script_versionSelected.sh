@@ -44,8 +44,8 @@ if [ $1 == 'c' ] ; then
     command="./${path}/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'c++' ] ; then
     # e.g. g++-11 c++/nbody.c -o c++/test/nbody_g++-11
-    $version_selected $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
-    # $version_selected -O3 $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
+    # $version_selected $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
+    $version_selected -O3 $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
     command="./$path/${filename_program_woExtension}_$version_selected $arguments"
 elif [ $1 == 'python' ] ; then
     # e.g. python nbody.py 50000
