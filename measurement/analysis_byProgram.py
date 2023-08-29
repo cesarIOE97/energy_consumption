@@ -202,16 +202,15 @@ def from_CSVfiles(tool, norm):
 
     all_df = pd.DataFrame()
 
-    extra = ''
-    if tool == "turbostat": extra = "_performance"
-
     list_directories = next(os.walk(language))[1]
     list_directories.sort()
 
     for directory_name in list_directories:
-        if directory_name != "older" and directory_name != "test" and directory_name != "general_plots":
+        if directory_name != "older" and directory_name != "test" and directory_name != "general_plots" and directory_name != "general_plots_v1":
+            
             path=language + '/' + directory_name + '/' + tool + '/'
-            if tool != "top": path = path + tool + extra
+            if tool == "perf": path = path + tool
+
             if tool == "top":
 
                 df = pd.DataFrame()
@@ -226,6 +225,18 @@ def from_CSVfiles(tool, norm):
                         df = pd.concat([df, df_Top])
 
                 df.to_csv(path + "top_data_allVersions.csv", index=False)
+            elif tool == "turbostat":
+                df = pd.DataFrame()
+                list_files = os.listdir(path)
+
+                # Get list of all files only in the given directory
+                list_files = natsort.natsorted(list_files)
+
+                for file_name in list_files:
+                    if file_name.startswith("turbostat_performance_data") and file_name.endswith('.csv') and file_name != "turbostat_performance_data_allVersions.csv":
+                        df_Turbo = from_CSVfile(path + file_name, directory_name, tool)
+                        df = pd.concat([df, df_Turbo])
+
             else:
                 df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
                 if norm: df = Data_normalized(df, tool)
@@ -235,7 +246,7 @@ def from_CSVfiles(tool, norm):
 
 
 # PLOTTING
-def custom_hover(program, x, y, mean, diff, percent_diff, diff_flag):
+def custom_hover_mean(program, x, y, mean, diff, percent_diff, diff_flag):
     percent_difffromMean = 0 if mean == 0 else 100 * (y/mean)
     if diff_flag:
         hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br></b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}<br>Mean: {mean:.2f}<br>'
@@ -243,35 +254,43 @@ def custom_hover(program, x, y, mean, diff, percent_diff, diff_flag):
         hover = f'Version: {x}<br>Program: {program}<br><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br><b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}</b><br>Mean: {mean:.2f}<br>'
     return hover
 
+def custom_hover_median(program, x, median, diff, percent_diff):
+    hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br>Median: {median:.2f}<br>'
+    return hover
+
 def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag):
 
-    if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
-    if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+    # if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+    # if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+    if type == "barTop" or type == "lineTop" or type == "barTurbo" or type == "lineTurbo": 
+        df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
 
-    mean_per_program = df.groupby(color_data)[y_data].mean()
+    median_per_program = df.groupby(color_data)[y_data].median()
+    # mean_per_program = df.groupby(color_data)[y_data].mean()
 
-    df['DifferenceFromMean'] = df.apply(lambda row: row[y_data] - mean_per_program[row[color_data]], axis=1)
+    # df['DifferenceFromMean'] = df.apply(lambda row: row[y_data] - mean_per_program[row[color_data]], axis=1)
 
     # Create grouped bar traces for each program
     bar_traces = []
     for program in df[color_data].unique():
         program_df = df[df[color_data] == program]
-        mean = mean_per_program[program]
+        # mean = mean_per_program[program]
+        median = median_per_program[program]
         program_df['Difference'] = program_df[y_data].diff()
         program_df['Percentage_Difference'] = program_df[y_data].pct_change()*100
-        program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
+        # program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
         if diff_flag:
-            hover_texts = [custom_hover(program, x, y, mean, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
+            hover_texts = [custom_hover_median(program, x, median, diff, percent_diff) for x, diff, percent_diff in zip(program_df[x_data],program_df['Difference'],program_df['Percentage_Difference'])]
             bar_trace = go.Bar(x=program_df[x_data], y=program_df['Difference'],
-                            name=f'{program} - Mean: { format(mean_per_program[program], ".2f")}',
+                            name=f'{program} - Median: { format(median_per_program[program], ".2f")}',
                             hovertemplate=hover_texts,
                             text=program_df["Percentage_Difference"])
-        else:
-            hover_texts = [custom_hover(program, x, y, mean, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
-            bar_trace = go.Bar(x=program_df[x_data], y=program_df['DifferenceFromMean'],
-                           name=f'{program} - Mean: { format(mean_per_program[program], ".2f")}',
-                           hovertemplate=hover_texts,
-                           text=program_df["Percentage_DifferenceFromMean"])
+        # else:
+            # hover_texts = [custom_hover_mean(program, x, y, median, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
+            # bar_trace = go.Bar(x=program_df[x_data], y=program_df['DifferenceFromMean'],
+            #                name=f'{program} - Mean: { format(median_per_program[program], ".2f")}',
+            #                hovertemplate=hover_texts,
+            #                text=program_df["Percentage_DifferenceFromMean"])
         bar_traces.append(bar_trace)
         # bar_traces.append(median_trace)
 
@@ -295,9 +314,10 @@ def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag)
 
 def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
-    if type == "line" or type == "lineTop":
+    if type == "line" or type == "lineTop" or type == "lineTurbo":
         
-        if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+        if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+        if type == "lineTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
 
         fig = px.line(df,
                 x = x_data,
@@ -320,7 +340,8 @@ def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
     elif type == "bar" or type == "barTop":
 
-        if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
+        if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+        if type == "barTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
 
         fig = px.bar(df,
                      x = x_data,
@@ -426,14 +447,14 @@ def three_plots(df, title, filename_plot, x_data, y_data, color_data, type):
                 </div>
                 <div class="row">
                     <div class="column">
-                        <!-- *** Section 1 *** --->
+                        <!-- *** Section 2 *** --->
                         <h3>Section:  Difference of ''' + title + '''</h3>
                         <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
                             src="''' + fig2 + '''"></iframe>
                         <p>Notes: Detect major changes between version to another</p>
                     </div>
                     <div class="column">
-                        <!-- *** Section 1 *** --->
+                        <!-- *** Section 3 *** --->
                         <h3>Section: Difference from Mean of ''' + title + '''</h3>
                         <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
                             src="''' + fig3 + '''"></iframe>
@@ -447,25 +468,25 @@ def three_plots(df, title, filename_plot, x_data, y_data, color_data, type):
 def two_plots(df, title, filename_plot, x_data, y_data, color_data, type):
 
     fig1 = plot_Type(df, filename_plot, x_data, y_data, color_data, type)
-    fig2 = plot_Compare(df, filename_plot + "_Comparison", x_data, y_data, color_data, type, diff=False)
+    fig2 = plot_Compare(df, filename_plot + "_Comparison_Diff", x_data, y_data, color_data, type, diff_flag=True)
 
     div_string = '''
                 <div class="row">
-                    <div class="column">
-                        <!-- *** Section 1 *** --->
-                        <h3>Section:  ''' + title + '''</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                            src="''' + fig1 + '''"></iframe>
-                        <p>Notes: </p>
-                    </div>
-                    <div class="column">
-                            <!-- *** Section 1 *** --->
-                            <h3>Section: Comparison of ''' + title + '''</h3>
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  ''' + title + '''</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+                        src="''' + fig1 + '''"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of ''' + title + '''</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
                             <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
                                 src="''' + fig2 + '''"></iframe>
-                            <p>Notes: </p>
+                            <p>Notes: Detect major changes between version to another</p>
                     </div>
-                </div>
+                </details>
     '''
 
     return div_string
@@ -489,7 +510,7 @@ def one_plot(df, title, filename_plot, x_data, y_data, color_data, type):
 
 def html_TimePlots(df):
     
-    time_elapsed = three_plots(df, "Time Elapsed",
+    time_elapsed = two_plots(df, "Time Elapsed",
                     filename_plot="turbostat_time_elapsed", 
                     x_data="version", 
                     y_data="time_elapsed", 
@@ -502,25 +523,25 @@ def html_TimePlots(df):
 
 def html_EnergyPlots(df):
     
-    pkg = three_plots(df, "Package Energy Consumption",
+    pkg = two_plots(df, "Package Energy Consumption",
                     filename_plot="turbostat_Pkg_J", 
                     x_data="version", 
                     y_data="Pkg_J", 
                     color_data="path",
                     type="bar")
-    RAM = three_plots(df, "RAM Energy Consumption",
+    RAM = two_plots(df, "RAM Energy Consumption",
                     filename_plot="turbostat_RAM_J", 
                     x_data="version", 
                     y_data="RAM_J", 
                     color_data="path",
                     type="bar")
-    Cor = three_plots(df, "Core Energy Consumption",
+    Cor = two_plots(df, "Core Energy Consumption",
                     filename_plot="turbostat_Cor_J", 
                     x_data="version", 
                     y_data="Cor_J", 
                     color_data="path",
                     type="bar")
-    GFX = three_plots(df, "GFX Energy Consumption",
+    GFX = two_plots(df, "GFX Energy Consumption",
                     filename_plot="turbostat_GFX_J", 
                     x_data="version", 
                     y_data="GFX_J", 
@@ -533,7 +554,7 @@ def html_EnergyPlots(df):
 
 def html_MemoryPlots(df_turbo, df_top):
 
-    mem_usage = three_plots(df_top, "Mean of Percentage of Memory usage",
+    mem_usage = two_plots(df_top, "Mean of Percentage of Memory usage",
                          filename_plot="top_percent_mem", 
                          x_data="version", 
                          y_data="percent_mem", 
@@ -547,7 +568,7 @@ def html_MemoryPlots(df_turbo, df_top):
                          color_data="path",
                          type="box")
     
-    virt_Bar = three_plots(df_top, "Mean of Virtual Memory",
+    virt_Bar = two_plots(df_top, "Mean of Virtual Memory",
                          filename_plot="top_virt", 
                          x_data="version", 
                          y_data="virt", 
@@ -561,7 +582,7 @@ def html_MemoryPlots(df_turbo, df_top):
                          color_data="path",
                          type="box")
     
-    res_Bar = three_plots(df_top, "Mean of Resident Memory",
+    res_Bar = two_plots(df_top, "Mean of Resident Memory",
                          filename_plot="top_res", 
                          x_data="version", 
                          y_data="res", 
@@ -575,7 +596,7 @@ def html_MemoryPlots(df_turbo, df_top):
                          color_data="path",
                          type="box")
     
-    shr_Bar = three_plots(df_top, "Mean of Shared Memory",
+    shr_Bar = two_plots(df_top, "Mean of Shared Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="shr", 
@@ -589,7 +610,7 @@ def html_MemoryPlots(df_turbo, df_top):
                          color_data="path",
                          type="box")
     
-    code_Bar = three_plots(df_top, "Mean of Code Memory",
+    code_Bar = two_plots(df_top, "Mean of Code Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="CODE", 
@@ -603,7 +624,7 @@ def html_MemoryPlots(df_turbo, df_top):
                          color_data="path",
                          type="box")
     
-    data_Bar = three_plots(df_top, "Mean of DATA Memory",
+    data_Bar = two_plots(df_top, "Mean of DATA Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="DATA", 
@@ -617,21 +638,21 @@ def html_MemoryPlots(df_turbo, df_top):
 
 def html_CPUPlots(df_turbo, df_top):
 
-    cpu_usage = three_plots(df_top, "Mean of Percentage of CPU usage",
+    cpu_usage = two_plots(df_top, "Mean of Percentage of CPU usage",
                          filename_plot="top_percent_cpu", 
                          x_data="version", 
                          y_data="percent_cpu", 
                          color_data="path",
                          type="lineTop")
     
-    Avg_MHz = three_plots(df_turbo, "Average Frequency (MHz)",
+    Avg_MHz = two_plots(df_turbo, "Average Frequency (MHz)",
                         filename_plot="turbostat_Avg_MHz", 
                         x_data="version", 
                         y_data="Avg_MHz", 
                         color_data="path",
                         type="line")
     
-    Totl_C0 = three_plots(df_turbo, "Total Percent in C0 state (active)",
+    Totl_C0 = two_plots(df_turbo, "Total Percent in C0 state (active)",
                         filename_plot="turbostat_Totl_C0", 
                         x_data="version", 
                         y_data="Totl%C0", 
@@ -640,7 +661,7 @@ def html_CPUPlots(df_turbo, df_top):
     
     # Busy%, Bzy_MHz (C0 state), IPC, IRQ, POLL (CPU)
     
-    nTH = three_plots(df_top, "Number of threads",
+    nTH = two_plots(df_top, "Number of threads",
                         filename_plot="turbostat_noThreads", 
                         x_data="version", 
                         y_data="nTH", 
@@ -653,112 +674,112 @@ def html_CPUPlots(df_turbo, df_top):
 
 def html_Cstates(df):
 
-    C1 = three_plots(df, "Linux requested the C1 idle state",
+    C1 = two_plots(df, "Linux requested the C1 idle state",
                     filename_plot="turbostat_C1", 
                     x_data="version", 
                     y_data="C1", 
                     color_data="path",
                     type="line")
     
-    C1E = three_plots(df, "Linux requested the C1E idle state",
+    C1E = two_plots(df, "Linux requested the C1E idle state",
                     filename_plot="turbostat_C1E", 
                     x_data="version", 
                     y_data="C1E", 
                     color_data="path",
                     type="line")
 
-    C3 = three_plots(df, "Linux requested the C3 idle state",
+    C3 = two_plots(df, "Linux requested the C3 idle state",
                     filename_plot="turbostat_C3", 
                     x_data="version", 
                     y_data="C3", 
                     color_data="path",
                     type="line")
     
-    C6 = three_plots(df, "Linux requested the C6 idle state",
+    C6 = two_plots(df, "Linux requested the C6 idle state",
                     filename_plot="turbostat_C6", 
                     x_data="version", 
                     y_data="C6", 
                     color_data="path",
                     type="line")
     
-    C7s = three_plots(df, "Linux requested the C7s idle state",
+    C7s = two_plots(df, "Linux requested the C7s idle state",
                     filename_plot="turbostat_C7s", 
                     x_data="version", 
                     y_data="C7s", 
                     color_data="path",
                     type="line")
     
-    C8 = three_plots(df, "Linux requested the C8 idle state",
+    C8 = two_plots(df, "Linux requested the C8 idle state",
                     filename_plot="turbostat_C8", 
                     x_data="version", 
                     y_data="C8", 
                     color_data="path",
                     type="line")
     
-    C9 = three_plots(df, "Linux requested the C9 idle state",
+    C9 = two_plots(df, "Linux requested the C9 idle state",
                     filename_plot="turbostat_C9", 
                     x_data="version", 
                     y_data="C9", 
                     color_data="path",
                     type="line")
     
-    C10 = three_plots(df, "Linux requested the C10 idle state",
+    C10 = two_plots(df, "Linux requested the C10 idle state",
                     filename_plot="turbostat_C10", 
                     x_data="version", 
                     y_data="C10", 
                     color_data="path",
                     type="line")
     
-    C1_percent = three_plots(df, "Linux requested the C1% idle state",
+    C1_percent = two_plots(df, "Linux requested the C1% idle state",
                     filename_plot="turbostat_C1_percent", 
                     x_data="version", 
                     y_data="C1%", 
                     color_data="path",
                     type="line")
     
-    C1E_percent = three_plots(df, "Linux requested the C1E% idle state",
+    C1E_percent = two_plots(df, "Linux requested the C1E% idle state",
                     filename_plot="turbostat_C1E_percent", 
                     x_data="version", 
                     y_data="C1E%", 
                     color_data="path",
                     type="line")
 
-    C3_percent = three_plots(df, "Linux requested the C3% idle state",
+    C3_percent = two_plots(df, "Linux requested the C3% idle state",
                     filename_plot="turbostat_C3_percent", 
                     x_data="version", 
                     y_data="C3%", 
                     color_data="path",
                     type="line")
     
-    C6_percent = three_plots(df, "Linux requested the C6% idle state",
+    C6_percent = two_plots(df, "Linux requested the C6% idle state",
                     filename_plot="turbostat_C6_percent", 
                     x_data="version", 
                     y_data="C6%", 
                     color_data="path",
                     type="line")
     
-    C7s_percent = three_plots(df, "Linux requested the C7s% idle state",
+    C7s_percent = two_plots(df, "Linux requested the C7s% idle state",
                     filename_plot="turbostat_C7s_percent", 
                     x_data="version", 
                     y_data="C7s%", 
                     color_data="path",
                     type="line")
     
-    C8_percent = three_plots(df, "Linux requested the C8% idle state",
+    C8_percent = two_plots(df, "Linux requested the C8% idle state",
                     filename_plot="turbostat_C8_percent", 
                     x_data="version", 
                     y_data="C8%", 
                     color_data="path",
                     type="line")
     
-    C9_percent = three_plots(df, "Linux requested the C9% idle state",
+    C9_percent = two_plots(df, "Linux requested the C9% idle state",
                     filename_plot="turbostat_C9_percent", 
                     x_data="version", 
                     y_data="C9%", 
                     color_data="path",
                     type="line")
     
-    C10_percent = three_plots(df, "Linux requested the C10% idle state",
+    C10_percent = two_plots(df, "Linux requested the C10% idle state",
                     filename_plot="turbostat_C10_percent", 
                     x_data="version", 
                     y_data="C10%", 
@@ -771,14 +792,14 @@ def html_Cstates(df):
 
 def html_Temperature(df):
 
-    CoreTmp = three_plots(df, "Degrees Celsius reported by the per-core Digital Thermal Sensor",
+    CoreTmp = two_plots(df, "Degrees Celsius reported by the per-core Digital Thermal Sensor",
                          filename_plot="top_CoreTmp", 
                          x_data="version", 
                          y_data="CoreTmp", 
                          color_data="path",
                          type="line")
     
-    PkgTmp = three_plots(df, "Degrees Celsius reported by the per-package Package Thermal Monitor",
+    PkgTmp = two_plots(df, "Degrees Celsius reported by the per-package Package Thermal Monitor",
                         filename_plot="turbostat_PkgTmp", 
                         x_data="version", 
                         y_data="PkgTmp", 
@@ -791,14 +812,14 @@ def html_Temperature(df):
 
 def html_PageFaults(df_top, df_perf):
 
-    page_faults = three_plots(df_perf, "Page Faults",
+    page_faults = two_plots(df_perf, "Page Faults",
                          filename_plot="top_page_faults", 
                          x_data="version", 
                          y_data="page_faults", 
                          color_data="path",
                          type="line")
     
-    minor_faults = three_plots(df_perf, "Minor Faults",
+    minor_faults = two_plots(df_perf, "Minor Faults",
                          filename_plot="top_minor_faults", 
                          x_data="version", 
                          y_data="minor_faults", 
@@ -806,14 +827,14 @@ def html_PageFaults(df_top, df_perf):
                          type="line")
 
     # nMaj (memory), nMin (memory)
-    nMaj = three_plots(df_top, "Major Page Fault Count",
+    nMaj = two_plots(df_top, "Major Page Fault Count",
                          filename_plot="top_nMaj", 
                          x_data="version", 
                          y_data="nMaj", 
                          color_data="path",
                          type="lineTop")
     
-    nMin = three_plots(df_top, "Minor Page Fault Count",
+    nMin = two_plots(df_top, "Minor Page Fault Count",
                          filename_plot="top_nMin", 
                          x_data="version", 
                          y_data="nMin", 
