@@ -5,11 +5,13 @@ import glob
 import webbrowser
 import natsort
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.figure_factory as ff
 from sklearn.preprocessing import MaxAbsScaler
 from IPython.display import display, HTML
 
@@ -64,15 +66,18 @@ cplusplus_releaseDates = {
 
 java_releaseDates = {
     '1.8.0_362': '2023-04-18',
+    '1.8.0_382': '2023-07-18',
     '9.0.4': '2018-01-16',
     '10.0.2': '2018-07-17',
     '11.0.19': '2020-10-20',
+    '11.0.20': '2023-07-18',
     '12.0.2': '2019-07-16',
     '13.0.2': '2020-01-14',
     '14.0.2': '2020-07-14',
     '15.0.2': '2021-01-19',
     '16.0.2': '2021-07-20',
     '17.0.7': '2023-04-18',
+    '17.0.8': '2023-07-18',
     '18.0.2-ea': '2022-07-19',
     '19.0.2': '2023-01-17',
     '20.0.2': '2023-07-18',
@@ -206,7 +211,7 @@ def from_CSVfiles(tool, norm):
     list_directories.sort()
 
     for directory_name in list_directories:
-        if directory_name != "older" and directory_name != "test" and directory_name != "general_plots" and directory_name != "general_plots_v1":
+        if directory_name != "waiting" and directory_name != "older" and directory_name != "test" and directory_name != "general_plots" and directory_name != "general_plots_v1":
             
             path=language + '/' + directory_name + '/' + tool + '/'
             if tool == "perf": path = path + tool
@@ -236,7 +241,7 @@ def from_CSVfiles(tool, norm):
                     if file_name.startswith("turbostat_performance_data") and file_name.endswith('.csv') and file_name != "turbostat_performance_data_allVersions.csv":
                         df_Turbo = from_CSVfile(path + file_name, directory_name, tool)
                         df = pd.concat([df, df_Turbo])
-
+                df['Pkg+RAM_J'] = df['Pkg_J'] + df['RAM_J']
             else:
                 df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
                 if norm: df = Data_normalized(df, tool)
@@ -281,7 +286,7 @@ def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag)
         # program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
         if diff_flag:
             hover_texts = [custom_hover_median(program, x, median, diff, percent_diff) for x, diff, percent_diff in zip(program_df[x_data],program_df['Difference'],program_df['Percentage_Difference'])]
-            bar_trace = go.Bar(x=program_df[x_data], y=program_df['Difference'],
+            bar_trace = go.Bar(x=program_df[x_data], y=program_df['Percentage_Difference'],
                             name=f'{program} - Median: { format(median_per_program[program], ".2f")}',
                             hovertemplate=hover_texts,
                             text=program_df["Percentage_Difference"])
@@ -314,111 +319,154 @@ def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag)
 
 def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
 
-    if type == "line" or type == "lineTop" or type == "lineTurbo":
+    if type == "corrTurbo":
+
+        corrs = df[['time_elapsed','Pkg_J','Cor_J','GFX_J','RAM_J', 'Avg_MHz', 'Busy%', 'IPC', 'IRQ', 'POLL', 'C1%','C1E%','C3%','C6%','C7s%','C8%','C9%','C10%','CPU%c1','CPU%c3','CPU%c6','CPU%c7','CoreTmp','PkgTmp','GFX%rc6','Totl%C0','Any%C0','GFX%C0','CPUGFX%']].corr()
+
+        np.fill_diagonal(corrs.values, np.nan)
+
+        corrs = corrs.head(5)
+
+        heat = go.Heatmap(z=corrs.values.round(2),
+                        x=list(corrs.columns),
+                        y=list(corrs.index),
+                        xgap=1, ygap=1,
+                        texttemplate="%{z}",
+                        showscale=True,
+                        colorbar_thickness=20,
+                        colorbar_ticklen=3,
+                        # zmax=1, zmin=0.1
+                        )
+        layout = go.Layout(title_x=0.5, 
+                        xaxis_showgrid=False,
+                        yaxis_showgrid=False,
+                        yaxis_autorange='reversed')
+        fig=go.Figure(data=[heat], layout=layout)
+
+    elif type == "scattermatrixTurbo":
+
+        # fig = ff.create_scatterplotmatrix(df[['time_elapsed', 'Pkg_J', 'RAM_J', 'version']], 
+        #                           height=1000,
+        #                           width=1000,
+        #                           diag='histogram',
+        #                           text=df['version'],
+        #                           index='version')
         
-        if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-        if type == "lineTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+        fig = px.scatter(df, x='time_elapsed', y='Pkg+RAM_J', color='path',
+                 animation_frame="version",
+                 range_x=[df['time_elapsed'].min(),df['time_elapsed'].max()], range_y=[df['Pkg_J'].min(),df['Pkg_J'].max()]
+                 )
+    elif type == "scatterTurbo":
 
-        fig = px.line(df,
-                x = x_data,
-                y = y_data,
-                color = color_data,
-                title=language + ' - ' + filename_plot)
-        fig.update_traces(textposition="bottom right")
-        buttons=list([
-                     dict(
-                          args=[{"type": "line",}],
-                          label="Line Chart",
-                          method="restyle"
-                        ),
-                     dict(
-                          args=[{"type": "bar"}],
-                          label="Bar Chart",
-                          method="restyle"
-                     )
-                   ])
+        fig = px.scatter(df, x='time_elapsed', y='Pkg+RAM_J', color="version")
 
-    elif type == "bar" or type == "barTop":
+    else:
 
-        if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-        if type == "barTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+        if type == "line" or type == "lineTop" or type == "lineTurbo":
+            
+            if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+            if type == "lineTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
 
-        fig = px.bar(df,
-                     x = x_data,
-                     y = y_data,
-                     color = color_data,
-                     title=language + ' - ' + filename_plot)
-        buttons=list([
-                      dict(
-                           args=[{"type": "bar"}],
-                           label="Bar Chart",
-                           method="restyle"
-                      ),dict(
-                           args=[{"type": "line",}],
-                           label="Line Chart",
-                           method="restyle"
-                      )
+            fig = px.line(df,
+                    x = x_data,
+                    y = y_data,
+                    color = color_data,
+                    title=language + ' - ' + filename_plot)
+            fig.update_traces(textposition="bottom right")
+            buttons=list([
+                        dict(
+                            args=[{"type": "line",}],
+                            label="Line Chart",
+                            method="restyle"
+                            ),
+                        dict(
+                            args=[{"type": "bar"}],
+                            label="Bar Chart",
+                            method="restyle"
+                        )
                     ])
 
-    elif type == "box":
-        fig = px.box(df,
+        elif type == "bar" or type == "barTop":
+
+            if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+            if type == "barTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
+
+            fig = px.bar(df,
                         x = x_data,
                         y = y_data,
                         color = color_data,
                         title=language + ' - ' + filename_plot)
-        # fig.update_traces(textposition="bottom right")
+            buttons=list([
+                        dict(
+                            args=[{"type": "bar"}],
+                            label="Bar Chart",
+                            method="restyle"
+                        ),dict(
+                            args=[{"type": "line",}],
+                            label="Line Chart",
+                            method="restyle"
+                        )
+                        ])
 
-        buttons=list([
-                      dict(
-                           args=[{"type": "box"}],
-                           label="Box Plot",
-                           method="restyle"
-                      )])
+        elif type == "box":
+            fig = px.box(df,
+                            x = x_data,
+                            y = y_data,
+                            color = color_data,
+                            title=language + ' - ' + filename_plot)
+            # fig.update_traces(textposition="bottom right")
 
-    
-    updatemenus = list([
-            dict(
-                type="dropdown",
-                direction="down",
-                x=0.12,
-                y=1.12,
-                xanchor="left",
-                yanchor="top",
-                pad={"r": 10, "t": 10},
-                buttons=buttons
-            ),
-            dict(
-                type="dropdown",
-                direction="down",
-                x=0.44,
-                y=1.12,
-                xanchor="left",
-                yanchor="top",
-                pad={"r": 10, "t": 10},
-                buttons=list([
-                    dict(
-                        args=[{"yaxis.type": "linear"}],
-                        label="Linear Scale",
-                        method="relayout"
-                    ),
-                    dict(
-                        args=[{"yaxis.type": "log"}],
-                        label="Log Scale",
-                        method="relayout"
-                    )
-                ])
-            ),
-        ])
+            buttons=list([
+                        dict(
+                            args=[{"type": "box"}],
+                            label="Box Plot",
+                            method="restyle"
+                        )])
 
-    annotations=[
-            dict(text="Plot type:", x=-0.01, xref="paper", y=1.08, yref="paper",
-                                align="left", showarrow=False),
-            dict(text="Scale:", x=0.4, xref="paper", y=1.08,
-                                yref="paper", showarrow=False),
-       ]
+        
+        updatemenus = list([
+                dict(
+                    type="dropdown",
+                    direction="down",
+                    x=0.12,
+                    y=1.12,
+                    xanchor="left",
+                    yanchor="top",
+                    pad={"r": 10, "t": 10},
+                    buttons=buttons
+                ),
+                dict(
+                    type="dropdown",
+                    direction="down",
+                    x=0.44,
+                    y=1.12,
+                    xanchor="left",
+                    yanchor="top",
+                    pad={"r": 10, "t": 10},
+                    buttons=list([
+                        dict(
+                            args=[{"yaxis.type": "linear"}],
+                            label="Linear Scale",
+                            method="relayout"
+                        ),
+                        dict(
+                            args=[{"yaxis.type": "log"}],
+                            label="Log Scale",
+                            method="relayout"
+                        )
+                    ])
+                ),
+            ])
 
-    fig.update_layout(updatemenus=updatemenus, annotations=annotations, hovermode="x unified")
-    if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
+        annotations=[
+                dict(text="Plot type:", x=-0.01, xref="paper", y=1.08, yref="paper",
+                                    align="left", showarrow=False),
+                dict(text="Scale:", x=0.4, xref="paper", y=1.08,
+                                    yref="paper", showarrow=False),
+        ]
+
+        fig.update_layout(updatemenus=updatemenus, annotations=annotations, hovermode="x unified")
+        if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
 
 
     # Check if the directory exists
@@ -508,6 +556,40 @@ def one_plot(df, title, filename_plot, x_data, y_data, color_data, type):
 
     return div_string
 
+def html_generalPlots(df_turbostat, df_top, df_perf):
+
+    corr_turbostat = one_plot(df_turbostat, "Correlation (Turbostat tool)",
+                              filename_plot="turbostat_correlation", 
+                              x_data="", 
+                              y_data="", 
+                              color_data="",
+                              type="corrTurbo")
+    
+    scatterplot_matrix = one_plot(df_turbostat, "Scatterplot Matrix",
+                                  filename_plot="turbostat_scatterplot_matrix", 
+                                  x_data="", 
+                                  y_data="", 
+                                  color_data="",
+                                  type="scattermatrixTurbo")
+    
+    scatterplot = one_plot(df_turbostat, "Scatterplot (Energy vs Time elapsed)",
+                                  filename_plot="turbostat_scatterplot", 
+                                  x_data="", 
+                                  y_data="", 
+                                  color_data="",
+                                  type="scatterTurbo")
+    
+    energy = two_plots(df_turbostat, "Energy Consumption (Pkg + RAM)",
+                    filename_plot="turbostat_Pkg+RAM_J", 
+                    x_data="version", 
+                    y_data="Pkg+RAM_J", 
+                    color_data="path",
+                    type="lineTurbo")
+
+    div_html = corr_turbostat + energy + scatterplot_matrix + scatterplot
+    
+    return div_html
+
 def html_TimePlots(df):
     
     time_elapsed = two_plots(df, "Time Elapsed",
@@ -515,7 +597,7 @@ def html_TimePlots(df):
                     x_data="version", 
                     y_data="time_elapsed", 
                     color_data="path",
-                    type="bar")
+                    type="lineTurbo")
 
     div_html = time_elapsed
     
@@ -528,25 +610,25 @@ def html_EnergyPlots(df):
                     x_data="version", 
                     y_data="Pkg_J", 
                     color_data="path",
-                    type="bar")
+                    type="lineTurbo")
     RAM = two_plots(df, "RAM Energy Consumption",
                     filename_plot="turbostat_RAM_J", 
                     x_data="version", 
                     y_data="RAM_J", 
                     color_data="path",
-                    type="bar")
+                    type="lineTurbo")
     Cor = two_plots(df, "Core Energy Consumption",
                     filename_plot="turbostat_Cor_J", 
                     x_data="version", 
                     y_data="Cor_J", 
                     color_data="path",
-                    type="bar")
+                    type="lineTurbo")
     GFX = two_plots(df, "GFX Energy Consumption",
                     filename_plot="turbostat_GFX_J", 
                     x_data="version", 
                     y_data="GFX_J", 
                     color_data="path",
-                    type="bar")
+                    type="lineTurbo")
 
     div_html = pkg + RAM + Cor + GFX
     
@@ -650,14 +732,14 @@ def html_CPUPlots(df_turbo, df_top):
                         x_data="version", 
                         y_data="Avg_MHz", 
                         color_data="path",
-                        type="line")
+                        type="lineTurbo")
     
     Totl_C0 = two_plots(df_turbo, "Total Percent in C0 state (active)",
                         filename_plot="turbostat_Totl_C0", 
                         x_data="version", 
                         y_data="Totl%C0", 
                         color_data="path",
-                        type="line")
+                        type="lineTurbo")
     
     # Busy%, Bzy_MHz (C0 state), IPC, IRQ, POLL (CPU)
     
@@ -679,114 +761,115 @@ def html_Cstates(df):
                     x_data="version", 
                     y_data="C1", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C1E = two_plots(df, "Linux requested the C1E idle state",
                     filename_plot="turbostat_C1E", 
                     x_data="version", 
                     y_data="C1E", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
 
     C3 = two_plots(df, "Linux requested the C3 idle state",
                     filename_plot="turbostat_C3", 
                     x_data="version", 
                     y_data="C3", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C6 = two_plots(df, "Linux requested the C6 idle state",
                     filename_plot="turbostat_C6", 
                     x_data="version", 
                     y_data="C6", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C7s = two_plots(df, "Linux requested the C7s idle state",
                     filename_plot="turbostat_C7s", 
                     x_data="version", 
                     y_data="C7s", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C8 = two_plots(df, "Linux requested the C8 idle state",
                     filename_plot="turbostat_C8", 
                     x_data="version", 
                     y_data="C8", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C9 = two_plots(df, "Linux requested the C9 idle state",
                     filename_plot="turbostat_C9", 
                     x_data="version", 
                     y_data="C9", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C10 = two_plots(df, "Linux requested the C10 idle state",
                     filename_plot="turbostat_C10", 
                     x_data="version", 
                     y_data="C10", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C1_percent = two_plots(df, "Linux requested the C1% idle state",
                     filename_plot="turbostat_C1_percent", 
                     x_data="version", 
                     y_data="C1%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C1E_percent = two_plots(df, "Linux requested the C1E% idle state",
                     filename_plot="turbostat_C1E_percent", 
                     x_data="version", 
                     y_data="C1E%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
 
     C3_percent = two_plots(df, "Linux requested the C3% idle state",
                     filename_plot="turbostat_C3_percent", 
                     x_data="version", 
                     y_data="C3%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C6_percent = two_plots(df, "Linux requested the C6% idle state",
                     filename_plot="turbostat_C6_percent", 
                     x_data="version", 
                     y_data="C6%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C7s_percent = two_plots(df, "Linux requested the C7s% idle state",
                     filename_plot="turbostat_C7s_percent", 
                     x_data="version", 
                     y_data="C7s%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C8_percent = two_plots(df, "Linux requested the C8% idle state",
                     filename_plot="turbostat_C8_percent", 
                     x_data="version", 
                     y_data="C8%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C9_percent = two_plots(df, "Linux requested the C9% idle state",
                     filename_plot="turbostat_C9_percent", 
                     x_data="version", 
                     y_data="C9%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
     
     C10_percent = two_plots(df, "Linux requested the C10% idle state",
                     filename_plot="turbostat_C10_percent", 
                     x_data="version", 
                     y_data="C10%", 
                     color_data="path",
-                    type="line")
+                    type="lineTurbo")
 
-    div_html = C1 + C1_percent + C1E + C1E_percent + C3 + C3_percent + C6 + C6_percent + C7s + C7s_percent + C8 + C8_percent + C9 + C9_percent + C10 + C10_percent
+    # div_html = C1 + C1_percent + C1E + C1E_percent + C3 + C3_percent + C6 + C6_percent + C7s + C7s_percent + C8 + C8_percent + C9 + C9_percent + C10 + C10_percent
+    div_html = C1_percent + C1E_percent + C3_percent + C6_percent + C7s_percent + C8_percent + C9_percent + C10_percent
 
     return div_html
 
@@ -797,14 +880,14 @@ def html_Temperature(df):
                          x_data="version", 
                          y_data="CoreTmp", 
                          color_data="path",
-                         type="line")
+                         type="lineTurbo")
     
     PkgTmp = two_plots(df, "Degrees Celsius reported by the per-package Package Thermal Monitor",
                         filename_plot="turbostat_PkgTmp", 
                         x_data="version", 
                         y_data="PkgTmp", 
                         color_data="path",
-                        type="line")
+                        type="lineTurbo")
 
     div_html = CoreTmp + PkgTmp
     
@@ -852,7 +935,7 @@ def html_Information(title, parameter, color):
     df_perf = from_CSVfiles("perf", norm=False)
 
     if parameter == "general":
-        div_Information = html_EnergyPlots(df_turbostat)
+        div_Information = html_generalPlots(df_turbostat, df_top, df_perf)
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":
