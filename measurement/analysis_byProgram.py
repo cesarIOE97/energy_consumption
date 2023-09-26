@@ -1,4 +1,5 @@
 # Libraries
+import re
 import sys
 import os
 import glob
@@ -71,6 +72,7 @@ java_releaseDates = {
     '10.0.2': '2018-07-17',
     '11.0.19': '2020-10-20',
     '11.0.20': '2023-07-18',
+    '11.0.20.1': '2023-08-22',
     '12.0.2': '2019-07-16',
     '13.0.2': '2020-01-14',
     '14.0.2': '2020-07-14',
@@ -78,6 +80,7 @@ java_releaseDates = {
     '16.0.2': '2021-07-20',
     '17.0.7': '2023-04-18',
     '17.0.8': '2023-07-18',
+    '17.0.8.1': '2023-08-22',
     '18.0.2-ea': '2022-07-19',
     '19.0.2': '2023-01-17',
     '20.0.2': '2023-07-18',
@@ -143,6 +146,12 @@ def convert_toUnit(column):
     column = column.apply(convert_g_to_byte)
     column = pd.to_numeric(column, errors='coerce')
     return column
+
+# Define a function to remove units from a string
+def remove_units(cell_value):
+    # Use regular expressions to remove units
+    cell_value = re.sub(r'[A-Za-z]+', '', str(cell_value))
+    return cell_value
     
 def Data_normalized(df, tool):
     df_data = df[['version', 'release_date', 'path', 'appplication']]

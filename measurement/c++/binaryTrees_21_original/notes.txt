@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Running the command: './index.sh "binaryTrees_2.c 21" "binaryTrees_21"'
+Running the command: './index.sh "binaryTrees_2.c 21" "binaryTrees_21_original"'
 ONLY terminal was opened
 PC connected all time and 'performance' config (100%)
 Without problems in terms of pauses

@@ -1,7 +1,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-Running the command: './index.sh "binarytrees.py 21" "binaryTrees_original_OOflag"'
+Running the command: './index.sh "binarytrees.py 21" "binaryTrees_21_original_OOflag"'
 ONLY terminal was opened
 PC connected all time and 'performance' config (100%)
 Without problems in terms of pauses

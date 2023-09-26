@@ -59,33 +59,37 @@ function get_top_data() {
     echo $results
 }
 
-# Run command to monitor it by its PID
-echo "Running the program for monitoring using 'top':"
-run_command
-pid=$!
-
-# Monitor memory usage and other parameters until the Python program ends
-echo "Monitoring memory usage of process with PID $pid..."
-
 col_names=$(echo '
-        no_measurement,
-        timestamp,pid,command,
-        time,virt,res,shr,percent_cpu,percent_mem,
-        nTH,P,TIME,SWAP,CODE,DATA,nMaj,nMin,nDRT,USED,
-        tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,
-        cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,
-        mem_total,mem_free,mem_used,mem_buff_cache,
-        swap_total,swap_free,swap_used,swap_avail,
-        ' | tr -d " \t\n\r" )
-[ -s $output_fileTop ] || echo version,appplication,$col_names >> $output_fileTop
+            no_measurement,
+            timestamp,pid,command,
+            time,virt,res,shr,percent_cpu,percent_mem,
+            nTH,P,TIME,SWAP,CODE,DATA,nMaj,nMin,nDRT,USED,
+            tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,
+            cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,
+            mem_total,mem_free,mem_used,mem_buff_cache,
+            swap_total,swap_free,swap_used,swap_avail,
+            ' | tr -d " \t\n\r" )
+[ -s $output_fileTop ] || echo test,version,appplication,$col_names >> $output_fileTop
 
-count=0
+for (( i=1; i<=10; i++ )); do
+    # Run the perf function
+    echo "Running #$i top and program and recording in a CSV file: $output_fileTop"
+    run_command
+    pid=$!
 
-while kill -0 $pid 2>/dev/null; do
-    new_row=$(get_top_data $pid)
-    echo $confirm_version,$2,$count,$new_row >> $output_fileTop
-    sleep 1
-    ((count++))
+    # Monitor memory usage and other parameters until the Python program ends
+    echo "Monitoring memory usage of process with PID $pid..."
+
+    count=0
+    while kill -0 $pid 2>/dev/null; do
+        new_row=$(get_top_data $pid)
+        echo $i,$confirm_version,$2,$count,$new_row >> $output_fileTop
+        sleep 1
+        ((count++))
+    done
+
+    echo "Python program with PID $pid has ended. Monitoring stopped."
 done
 
-echo "Python program with PID $pid has ended. Monitoring stopped."
+
+
