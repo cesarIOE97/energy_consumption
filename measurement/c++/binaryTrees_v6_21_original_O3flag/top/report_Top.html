@@ -1,0 +1,289 @@
+
+    <html>
+        <head>
+            <title>Top data</title>
+            <link rel="shortcut icon" type="x-icon" href="../../../aalto.ico"> </link>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <style>
+                body{ margin:0 50; background:whitesmoke; }
+                *{box-sizing: border-box;}
+                .column {float: left; width: 50%; padding: 10px;}
+                .row:after {content: ""; display: table; clear: both;}
+                .plot {width: 100%; height: 600;}
+                h1 {text-align: center}
+                h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Top data in in <b>c++</b> through <b>binaryTrees_6.c 21</b> </h1>
+            <div class="row">
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Virtual memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_virtualMemory.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: Resident memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_residentMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 3 *** --->
+                    <h3>Section 3: Shared memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop3_sharedMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 4 *** --->
+                    <h3>Section 4: Percent of CPU used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop4_percentCPU.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 5 *** --->
+                    <h3>Section 5: Percent of Memory used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop5_percentMemory.html"></iframe>
+                    <p>Notes</p>
+                </div>
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Memory information through different versions </h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_memoryData.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: CPU and Memory percent through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_percentData.html"></iframe>
+                    <p>Notes</p>
+                </div>
+            </div>
+            
+            <h2>Summary table of Top dataset</h2>
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">virt</th>
+      <th colspan="2" halign="left">res</th>
+      <th colspan="2" halign="left">shr</th>
+      <th colspan="2" halign="left">percent_cpu</th>
+      <th colspan="2" halign="left">percent_mem</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>g++-10</th>
+      <td>203032.0</td>
+      <td>137492.0</td>
+      <td>179812.0</td>
+      <td>94592.0</td>
+      <td>3416.0</td>
+      <td>3104.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>1.1</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>g++-11</th>
+      <td>203032.0</td>
+      <td>137492.0</td>
+      <td>200020.0</td>
+      <td>77956.0</td>
+      <td>3416.0</td>
+      <td>3104.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>1.2</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>g++-12</th>
+      <td>203032.0</td>
+      <td>137492.0</td>
+      <td>187016.0</td>
+      <td>89236.0</td>
+      <td>3424.0</td>
+      <td>3108.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>1.2</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>g++-13</th>
+      <td>203032.0</td>
+      <td>137492.0</td>
+      <td>200020.0</td>
+      <td>85884.0</td>
+      <td>3408.0</td>
+      <td>3080.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>1.2</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>g++-4.4</th>
+      <td>203024.0</td>
+      <td>71944.0</td>
+      <td>199964.0</td>
+      <td>46724.0</td>
+      <td>3356.0</td>
+      <td>3060.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>1.2</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>g++-4.6</th>
+      <td>203024.0</td>
+      <td>71944.0</td>
+      <td>197896.0</td>
+      <td>41184.0</td>
+      <td>3412.0</td>
+      <td>3108.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>1.2</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>g++-4.7</th>
+      <td>153868.0</td>
+      <td>71944.0</td>
+      <td>151036.0</td>
+      <td>52900.0</td>
+      <td>3412.0</td>
+      <td>3060.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>0.9</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>g++-4.8</th>
+      <td>153868.0</td>
+      <td>71944.0</td>
+      <td>151004.0</td>
+      <td>48400.0</td>
+      <td>3380.0</td>
+      <td>3092.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>0.9</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>g++-4.9</th>
+      <td>153868.0</td>
+      <td>71944.0</td>
+      <td>151036.0</td>
+      <td>53932.0</td>
+      <td>3412.0</td>
+      <td>3128.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.9</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>g++-5</th>
+      <td>153876.0</td>
+      <td>71952.0</td>
+      <td>151044.0</td>
+      <td>63616.0</td>
+      <td>3420.0</td>
+      <td>3092.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.9</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>g++-6</th>
+      <td>153872.0</td>
+      <td>71948.0</td>
+      <td>151040.0</td>
+      <td>65508.0</td>
+      <td>3416.0</td>
+      <td>3100.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.9</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>g++-7</th>
+      <td>203032.0</td>
+      <td>0.0</td>
+      <td>200028.0</td>
+      <td>0.0</td>
+      <td>3420.0</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>1.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>g++-8</th>
+      <td>203028.0</td>
+      <td>39176.0</td>
+      <td>200012.0</td>
+      <td>35724.0</td>
+      <td>3404.0</td>
+      <td>3116.0</td>
+      <td>100.0</td>
+      <td>88.2</td>
+      <td>1.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>g++-9</th>
+      <td>203028.0</td>
+      <td>39176.0</td>
+      <td>200012.0</td>
+      <td>33784.0</td>
+      <td>3416.0</td>
+      <td>3096.0</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>1.2</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+        </body>
+    </html>

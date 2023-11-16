@@ -42,14 +42,6 @@
                 <summary style="background-color: #B3B6B7;">General Information</summary>
                 
                 <div class="row">
-                        <!-- *** Section 1 *** --->
-                        <h3>Section:  Correlation (Turbostat tool)</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_correlation.html"></iframe>
-                        <p>Notes: </p>
-                    </div>
-                </div>
-    
-                <div class="row">
                     
                     <!-- *** Section 1 *** --->
                     <h3>Section:  Energy Consumption (Pkg + RAM)</h3>
@@ -67,19 +59,4212 @@
                 <div class="row">
                         <!-- *** Section 1 *** --->
                         <h3>Section:  Scatterplot Matrix</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_scatterplot_matrix.html"></iframe>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_scatterplot_matrix.html"></iframe>
                         <p>Notes: </p>
                     </div>
                 </div>
     
                 <div class="row">
                         <!-- *** Section 1 *** --->
-                        <h3>Section:  Scatterplot (Energy vs Time elapsed)</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_scatterplot.html"></iframe>
+                        <h3>Section:  Scatterplot per Program (Energy vs Time elapsed)</h3>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_scatterplot_perProgram.html"></iframe>
                         <p>Notes: </p>
                     </div>
                 </div>
     
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Scatterplot per Version(Energy vs Time elapsed)</h3>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_scatterplot_perVersion.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #B3B6B7;">Matrix Correlation for each tool</summary>
+                
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application)</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/general_correlation_MedianValues.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/general_correlation_MedianValues_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>63</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>1</td>
+      <td>0.999532</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>2</td>
+      <td>0.930752</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.795537</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>3</td>
+      <td>0.920815</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.761345</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>4</td>
+      <td>0.907532</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.791187</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>5</td>
+      <td>0.830824</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.726161</td>
+    </tr>
+    <tr>
+      <th>IPC_perf</th>
+      <td>6</td>
+      <td>0.826997</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.750817</td>
+    </tr>
+    <tr>
+      <th>Retiring</th>
+      <td>7</td>
+      <td>0.826665</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>8</td>
+      <td>0.820982</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.738261</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>9</td>
+      <td>0.796674</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.701120</td>
+      <td>-0.836052</td>
+    </tr>
+    <tr>
+      <th>ILP</th>
+      <td>10</td>
+      <td>0.771417</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>11</td>
+      <td>0.708893</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.903003</td>
+      <td>-0.724875</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>12</td>
+      <td>0.707504</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.896950</td>
+      <td>-0.701892</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>13</td>
+      <td>-0.719513</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.895514</td>
+      <td>0.791842</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>14</td>
+      <td>-0.734531</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.838242</td>
+      <td>0.710255</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>15</td>
+      <td>-0.763299</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.814559</td>
+      <td>0.837980</td>
+    </tr>
+    <tr>
+      <th>CoreTmp</th>
+      <td>16</td>
+      <td>-0.783163</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.822942</td>
+      <td>0.808685</td>
+    </tr>
+    <tr>
+      <th>PkgTmp</th>
+      <td>17</td>
+      <td>-0.784527</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.829490</td>
+      <td>0.813134</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>18</td>
+      <td>-0.830675</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.725164</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>19</td>
+      <td>-0.843685</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.738130</td>
+      <td>0.760917</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>20</td>
+      <td>-0.891362</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761398</td>
+      <td>0.752376</td>
+    </tr>
+    <tr>
+      <th>percent_cpu</th>
+      <td>21</td>
+      <td>-0.901828</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.730944</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>22</td>
+      <td>-0.905774</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768417</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>23</td>
+      <td>-0.905788</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768419</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>24</td>
+      <td>-0.906531</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768209</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>25</td>
+      <td>-0.910759</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.762060</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>26</td>
+      <td>-0.915311</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761219</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>27</td>
+      <td>-0.930958</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.792599</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>28</td>
+      <td>-0.933445</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.789028</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>29</td>
+      <td>NaN</td>
+      <td>0.987911</td>
+      <td>NaN</td>
+      <td>0.816870</td>
+      <td>0.719646</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>30</td>
+      <td>NaN</td>
+      <td>0.879798</td>
+      <td>0.929275</td>
+      <td>0.765442</td>
+      <td>0.800923</td>
+    </tr>
+    <tr>
+      <th>mem_stores</th>
+      <td>31</td>
+      <td>NaN</td>
+      <td>0.840199</td>
+      <td>0.889700</td>
+      <td>0.939385</td>
+      <td>0.808064</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>32</td>
+      <td>NaN</td>
+      <td>0.832529</td>
+      <td>0.886109</td>
+      <td>0.933961</td>
+      <td>0.777275</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>33</td>
+      <td>NaN</td>
+      <td>0.815230</td>
+      <td>0.831317</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>34</td>
+      <td>NaN</td>
+      <td>0.787530</td>
+      <td>0.816870</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>35</td>
+      <td>NaN</td>
+      <td>0.773887</td>
+      <td>0.826767</td>
+      <td>NaN</td>
+      <td>0.792656</td>
+    </tr>
+    <tr>
+      <th>cpu_migrations</th>
+      <td>36</td>
+      <td>NaN</td>
+      <td>0.770124</td>
+      <td>0.807857</td>
+      <td>0.926484</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>37</td>
+      <td>NaN</td>
+      <td>0.748272</td>
+      <td>0.771392</td>
+      <td>NaN</td>
+      <td>0.705181</td>
+    </tr>
+    <tr>
+      <th>cache_references</th>
+      <td>38</td>
+      <td>NaN</td>
+      <td>0.717208</td>
+      <td>0.766855</td>
+      <td>0.983229</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>39</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.987911</td>
+      <td>0.787530</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td>40</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.770704</td>
+      <td>NaN</td>
+      <td>0.792224</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>41</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.741588</td>
+      <td>0.972477</td>
+      <td>0.701450</td>
+    </tr>
+    <tr>
+      <th>cache_misses</th>
+      <td>42</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.736779</td>
+      <td>0.952432</td>
+      <td>0.750579</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>43</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.731286</td>
+      <td>NaN</td>
+      <td>0.730136</td>
+    </tr>
+    <tr>
+      <th>GFX_J</th>
+      <td>44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.719646</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>45</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.931392</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>percent_cache_misses</th>
+      <td>46</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.918893</td>
+      <td>0.730777</td>
+    </tr>
+    <tr>
+      <th>DATA</th>
+      <td>47</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.900104</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>minor_faults</th>
+      <td>48</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.891124</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>page_faults</th>
+      <td>49</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.891099</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.890155</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>res</th>
+      <td>51</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.889533</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>percent_mem</th>
+      <td>52</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.887780</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>53</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.882092</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Frontend_Bound</th>
+      <td>54</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.857897</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>55</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.770626</td>
+      <td>0.749271</td>
+    </tr>
+    <tr>
+      <th>C9%</th>
+      <td>56</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.723343</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>iTLB_load_misses</th>
+      <td>57</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.716541</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>58</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.832333</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>59</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.832325</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>60</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.825340</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>61</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.824207</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>62</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.819744</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>63</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.816039</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>31</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GFX%C0</th>
+      <td>1</td>
+      <td>-0.933445</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.789028</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>2</td>
+      <td>-0.930958</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.792599</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>3</td>
+      <td>-0.915311</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761219</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>4</td>
+      <td>-0.910759</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.762060</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>5</td>
+      <td>-0.906531</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768209</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>6</td>
+      <td>-0.905788</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768419</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>7</td>
+      <td>-0.905774</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768417</td>
+    </tr>
+    <tr>
+      <th>percent_cpu</th>
+      <td>8</td>
+      <td>-0.901828</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.730944</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>9</td>
+      <td>-0.891362</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761398</td>
+      <td>0.752376</td>
+    </tr>
+    <tr>
+      <th>C3%</th>
+      <td>10</td>
+      <td>-0.890765</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>iTLB_loads</th>
+      <td>11</td>
+      <td>-0.879912</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>12</td>
+      <td>-0.843685</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.738130</td>
+      <td>0.760917</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>13</td>
+      <td>-0.830675</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.725164</td>
+    </tr>
+    <tr>
+      <th>PkgTmp</th>
+      <td>14</td>
+      <td>-0.784527</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.829490</td>
+      <td>0.813134</td>
+    </tr>
+    <tr>
+      <th>CoreTmp</th>
+      <td>15</td>
+      <td>-0.783163</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.822942</td>
+      <td>0.808685</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>16</td>
+      <td>-0.772926</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>17</td>
+      <td>-0.763299</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.814559</td>
+      <td>0.837980</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>18</td>
+      <td>-0.734531</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.838242</td>
+      <td>0.710255</td>
+    </tr>
+    <tr>
+      <th>C1%</th>
+      <td>19</td>
+      <td>-0.720038</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>20</td>
+      <td>-0.719513</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.895514</td>
+      <td>0.791842</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>21</td>
+      <td>0.707504</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.896950</td>
+      <td>-0.701892</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>22</td>
+      <td>0.708893</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.903003</td>
+      <td>-0.724875</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>23</td>
+      <td>0.796674</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.701120</td>
+      <td>-0.836052</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>24</td>
+      <td>0.820982</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.738261</td>
+    </tr>
+    <tr>
+      <th>IPC_perf</th>
+      <td>25</td>
+      <td>0.826997</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.750817</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>26</td>
+      <td>0.830824</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.726161</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>27</td>
+      <td>0.907532</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.791187</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>28</td>
+      <td>0.920815</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.761345</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>29</td>
+      <td>0.930752</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.795537</td>
+    </tr>
+    <tr>
+      <th>CPU_Utilization</th>
+      <td>30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.729345</td>
+      <td>-0.978789</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>31</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.726195</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool)</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/turbostat_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>15</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CPU%c7</th>
+      <td>1</td>
+      <td>0.914331</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.718791</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>2</td>
+      <td>0.913645</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.783169</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>3</td>
+      <td>0.895331</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.748067</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>4</td>
+      <td>0.825054</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>5</td>
+      <td>-0.904595</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.728192</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>6</td>
+      <td>-0.905246</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.715971</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>7</td>
+      <td>-0.911078</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.719278</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>8</td>
+      <td>-0.924155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.775864</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>9</td>
+      <td>-0.928125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.767599</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>10</td>
+      <td>NaN</td>
+      <td>0.989937</td>
+      <td>NaN</td>
+      <td>0.744567</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>11</td>
+      <td>NaN</td>
+      <td>0.725956</td>
+      <td>0.744567</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>12</td>
+      <td>NaN</td>
+      <td>0.712882</td>
+      <td>0.717565</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.989937</td>
+      <td>0.725956</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.825685</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.703868</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>8</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GFX%C0</th>
+      <td>1</td>
+      <td>-0.928125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.767599</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>2</td>
+      <td>-0.924155</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.775864</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>3</td>
+      <td>-0.911078</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.719278</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>4</td>
+      <td>-0.905246</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.715971</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>5</td>
+      <td>-0.904595</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.728192</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>6</td>
+      <td>0.895331</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.748067</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>7</td>
+      <td>0.913645</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.783169</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>8</td>
+      <td>0.914331</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.718791</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool)</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/perf_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/perf_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>5</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>IPC_perf</th>
+      <td>1</td>
+      <td>0.825947</td>
+    </tr>
+    <tr>
+      <th>Retiring</th>
+      <td>2</td>
+      <td>0.821831</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>3</td>
+      <td>0.819057</td>
+    </tr>
+    <tr>
+      <th>ILP</th>
+      <td>4</td>
+      <td>0.766326</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>5</td>
+      <td>0.727527</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>7</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>1</td>
+      <td>-0.905875</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>2</td>
+      <td>-0.905871</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>3</td>
+      <td>-0.890299</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>4</td>
+      <td>-0.828211</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>5</td>
+      <td>-0.769922</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>6</td>
+      <td>-0.749744</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>7</td>
+      <td>-0.708367</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool)</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/top_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/top_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #B3B6B7;">Matrix Correlation (Analysis according to the cases)</summary>
+                
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/general_correlation_MedianValues_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/general_correlation_MedianValues_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>47</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>1</td>
+      <td>0.999582</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>2</td>
+      <td>0.886952</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>3</td>
+      <td>0.834214</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>ILP</th>
+      <td>4</td>
+      <td>0.797243</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>5</td>
+      <td>0.775883</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.781752</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>6</td>
+      <td>0.751388</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.820026</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>7</td>
+      <td>-0.732771</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.712120</td>
+      <td>0.819695</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>8</td>
+      <td>NaN</td>
+      <td>0.992970</td>
+      <td>NaN</td>
+      <td>0.919588</td>
+      <td>0.858338</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>9</td>
+      <td>NaN</td>
+      <td>0.890628</td>
+      <td>0.919588</td>
+      <td>NaN</td>
+      <td>0.961662</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>10</td>
+      <td>NaN</td>
+      <td>0.837472</td>
+      <td>0.891683</td>
+      <td>0.842436</td>
+      <td>0.885690</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>11</td>
+      <td>NaN</td>
+      <td>0.826570</td>
+      <td>0.880147</td>
+      <td>0.970550</td>
+      <td>0.989703</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>12</td>
+      <td>NaN</td>
+      <td>0.821420</td>
+      <td>0.844394</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Frontend_Bound</th>
+      <td>13</td>
+      <td>NaN</td>
+      <td>0.813170</td>
+      <td>0.839709</td>
+      <td>0.979507</td>
+      <td>0.924174</td>
+    </tr>
+    <tr>
+      <th>mem_stores</th>
+      <td>14</td>
+      <td>NaN</td>
+      <td>0.804693</td>
+      <td>0.853421</td>
+      <td>0.982132</td>
+      <td>0.982112</td>
+    </tr>
+    <tr>
+      <th>GFX_J</th>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0.804542</td>
+      <td>0.858338</td>
+      <td>0.961662</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td>16</td>
+      <td>NaN</td>
+      <td>0.802334</td>
+      <td>0.845344</td>
+      <td>0.707300</td>
+      <td>0.733685</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>17</td>
+      <td>NaN</td>
+      <td>0.800239</td>
+      <td>0.860800</td>
+      <td>0.931228</td>
+      <td>0.970779</td>
+    </tr>
+    <tr>
+      <th>cache_references</th>
+      <td>18</td>
+      <td>NaN</td>
+      <td>0.792923</td>
+      <td>0.841172</td>
+      <td>0.980307</td>
+      <td>0.975270</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>19</td>
+      <td>NaN</td>
+      <td>0.755176</td>
+      <td>0.809597</td>
+      <td>0.966478</td>
+      <td>0.975621</td>
+    </tr>
+    <tr>
+      <th>cpu_migrations</th>
+      <td>20</td>
+      <td>NaN</td>
+      <td>0.751191</td>
+      <td>0.822125</td>
+      <td>0.869770</td>
+      <td>0.943186</td>
+    </tr>
+    <tr>
+      <th>cache_misses</th>
+      <td>21</td>
+      <td>NaN</td>
+      <td>0.750867</td>
+      <td>0.811705</td>
+      <td>0.955460</td>
+      <td>0.984756</td>
+    </tr>
+    <tr>
+      <th>C9%</th>
+      <td>22</td>
+      <td>NaN</td>
+      <td>0.738188</td>
+      <td>NaN</td>
+      <td>0.769872</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>percent_cache_misses</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>0.732741</td>
+      <td>0.793392</td>
+      <td>0.944030</td>
+      <td>0.986307</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>24</td>
+      <td>NaN</td>
+      <td>0.730054</td>
+      <td>0.784202</td>
+      <td>0.947609</td>
+      <td>0.954179</td>
+    </tr>
+    <tr>
+      <th>Bad_Speculation</th>
+      <td>25</td>
+      <td>NaN</td>
+      <td>0.714207</td>
+      <td>0.713282</td>
+      <td>0.871903</td>
+      <td>0.795472</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.992970</td>
+      <td>0.890628</td>
+      <td>0.804542</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>27</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.744312</td>
+      <td>0.813922</td>
+      <td>0.918237</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.734032</td>
+      <td>0.891032</td>
+      <td>0.961111</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>29</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.733833</td>
+      <td>0.924214</td>
+      <td>0.938855</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.700945</td>
+      <td>NaN</td>
+      <td>0.763383</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>31</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.874017</td>
+      <td>0.834201</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>32</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.836013</td>
+      <td>0.850696</td>
+    </tr>
+    <tr>
+      <th>DATA</th>
+      <td>33</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.815994</td>
+      <td>0.761478</td>
+    </tr>
+    <tr>
+      <th>res</th>
+      <td>34</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.799257</td>
+      <td>0.744102</td>
+    </tr>
+    <tr>
+      <th>percent_mem</th>
+      <td>35</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.794750</td>
+      <td>0.739346</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>36</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.783123</td>
+      <td>0.767370</td>
+    </tr>
+    <tr>
+      <th>CoreTmp</th>
+      <td>37</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.765740</td>
+      <td>0.889314</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>38</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.763780</td>
+      <td>0.803205</td>
+    </tr>
+    <tr>
+      <th>PkgTmp</th>
+      <td>39</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.754377</td>
+      <td>0.881567</td>
+    </tr>
+    <tr>
+      <th>page_faults</th>
+      <td>40</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.753987</td>
+      <td>0.791312</td>
+    </tr>
+    <tr>
+      <th>minor_faults</th>
+      <td>41</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.753987</td>
+      <td>0.791262</td>
+    </tr>
+    <tr>
+      <th>iTLB_load_misses</th>
+      <td>42</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.718119</td>
+      <td>0.783179</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>43</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.787913</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.787893</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>45</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.770556</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>46</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.768271</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>47</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.760167</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>22</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>C1%</th>
+      <td>1</td>
+      <td>-0.955582</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>percent_cpu</th>
+      <td>2</td>
+      <td>-0.932662</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1E%</th>
+      <td>3</td>
+      <td>-0.924047</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>4</td>
+      <td>-0.881321</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>5</td>
+      <td>-0.880984</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>iTLB_loads</th>
+      <td>6</td>
+      <td>-0.854290</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C3%</th>
+      <td>7</td>
+      <td>-0.854265</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>8</td>
+      <td>-0.831810</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>9</td>
+      <td>-0.823161</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>10</td>
+      <td>-0.822343</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>11</td>
+      <td>-0.822322</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>12</td>
+      <td>-0.808059</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>13</td>
+      <td>-0.775108</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPU%c3</th>
+      <td>14</td>
+      <td>-0.739339</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>15</td>
+      <td>-0.732771</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.712120</td>
+      <td>0.819695</td>
+    </tr>
+    <tr>
+      <th>POLL</th>
+      <td>16</td>
+      <td>-0.719836</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>17</td>
+      <td>0.751388</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.820026</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>18</td>
+      <td>0.775883</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.781752</td>
+    </tr>
+    <tr>
+      <th>CPU_Utilization</th>
+      <td>19</td>
+      <td>NaN</td>
+      <td>-0.79204</td>
+      <td>-0.838532</td>
+      <td>-0.981607</td>
+      <td>-0.973329</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.825518</td>
+      <td>-0.898812</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>21</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.837355</td>
+      <td>-0.903975</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>22</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.900454</td>
+      <td>-0.850756</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/general_correlation_MedianValues_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/general_correlation_MedianValues_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>69</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>1</td>
+      <td>0.999498</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.846576</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>2</td>
+      <td>0.995330</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.852863</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>3</td>
+      <td>0.993270</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.843110</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>4</td>
+      <td>0.979801</td>
+      <td>NaN</td>
+      <td>-0.729935</td>
+      <td>-0.708030</td>
+      <td>-0.836371</td>
+    </tr>
+    <tr>
+      <th>IPC_perf</th>
+      <td>5</td>
+      <td>0.979447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.832176</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>6</td>
+      <td>0.979300</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.927518</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>7</td>
+      <td>0.973464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.818574</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>8</td>
+      <td>0.967242</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.812791</td>
+    </tr>
+    <tr>
+      <th>Retiring</th>
+      <td>9</td>
+      <td>0.944387</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.787128</td>
+    </tr>
+    <tr>
+      <th>ILP</th>
+      <td>10</td>
+      <td>0.833886</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>11</td>
+      <td>0.814111</td>
+      <td>-0.827714</td>
+      <td>-0.922332</td>
+      <td>-0.931601</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>12</td>
+      <td>0.800334</td>
+      <td>-0.827756</td>
+      <td>-0.917497</td>
+      <td>-0.931890</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>13</td>
+      <td>-0.707106</td>
+      <td>0.891948</td>
+      <td>0.948611</td>
+      <td>0.968281</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>14</td>
+      <td>-0.707153</td>
+      <td>0.919421</td>
+      <td>0.973309</td>
+      <td>0.988499</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>15</td>
+      <td>-0.708727</td>
+      <td>0.916301</td>
+      <td>0.972522</td>
+      <td>0.979885</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mem_stores</th>
+      <td>16</td>
+      <td>-0.714791</td>
+      <td>0.915551</td>
+      <td>0.973757</td>
+      <td>0.979425</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1%</th>
+      <td>17</td>
+      <td>-0.729562</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.739819</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>18</td>
+      <td>-0.731671</td>
+      <td>0.879000</td>
+      <td>0.945111</td>
+      <td>0.960142</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>19</td>
+      <td>-0.733998</td>
+      <td>0.731623</td>
+      <td>0.829242</td>
+      <td>0.787311</td>
+      <td>0.804166</td>
+    </tr>
+    <tr>
+      <th>minor_faults</th>
+      <td>20</td>
+      <td>-0.735423</td>
+      <td>0.897790</td>
+      <td>0.965604</td>
+      <td>0.962730</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>page_faults</th>
+      <td>21</td>
+      <td>-0.735463</td>
+      <td>0.897748</td>
+      <td>0.965583</td>
+      <td>0.962686</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>nTH</th>
+      <td>22</td>
+      <td>-0.778604</td>
+      <td>0.824868</td>
+      <td>0.907369</td>
+      <td>0.938241</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cache_misses</th>
+      <td>23</td>
+      <td>-0.785343</td>
+      <td>0.872727</td>
+      <td>0.954273</td>
+      <td>0.964613</td>
+      <td>0.709729</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>24</td>
+      <td>-0.786186</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.792013</td>
+    </tr>
+    <tr>
+      <th>percent_cache_misses</th>
+      <td>25</td>
+      <td>-0.795464</td>
+      <td>0.858842</td>
+      <td>0.946370</td>
+      <td>0.949301</td>
+      <td>0.726210</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>26</td>
+      <td>-0.803501</td>
+      <td>0.829726</td>
+      <td>0.925076</td>
+      <td>0.919484</td>
+      <td>0.761844</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>27</td>
+      <td>-0.828323</td>
+      <td>0.795590</td>
+      <td>0.901354</td>
+      <td>0.899495</td>
+      <td>0.757252</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>28</td>
+      <td>-0.835148</td>
+      <td>0.816394</td>
+      <td>0.923747</td>
+      <td>0.908354</td>
+      <td>0.780544</td>
+    </tr>
+    <tr>
+      <th>virt</th>
+      <td>29</td>
+      <td>-0.856363</td>
+      <td>0.741964</td>
+      <td>0.857138</td>
+      <td>0.880746</td>
+      <td>0.707855</td>
+    </tr>
+    <tr>
+      <th>CPU%c3</th>
+      <td>30</td>
+      <td>-0.871464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.793873</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>31</td>
+      <td>-0.882515</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.740548</td>
+    </tr>
+    <tr>
+      <th>CoreTmp</th>
+      <td>32</td>
+      <td>-0.910649</td>
+      <td>0.705685</td>
+      <td>0.848558</td>
+      <td>0.833851</td>
+      <td>0.802585</td>
+    </tr>
+    <tr>
+      <th>PkgTmp</th>
+      <td>33</td>
+      <td>-0.912879</td>
+      <td>0.715176</td>
+      <td>0.856022</td>
+      <td>0.845502</td>
+      <td>0.803770</td>
+    </tr>
+    <tr>
+      <th>iTLB_loads</th>
+      <td>34</td>
+      <td>-0.917489</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.846430</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>35</td>
+      <td>-0.925222</td>
+      <td>NaN</td>
+      <td>0.844300</td>
+      <td>0.822368</td>
+      <td>0.838125</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>36</td>
+      <td>-0.942466</td>
+      <td>NaN</td>
+      <td>0.812844</td>
+      <td>0.790110</td>
+      <td>0.828956</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>37</td>
+      <td>-0.956309</td>
+      <td>NaN</td>
+      <td>0.811120</td>
+      <td>0.800132</td>
+      <td>0.831871</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>38</td>
+      <td>-0.965125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.812713</td>
+    </tr>
+    <tr>
+      <th>C3%</th>
+      <td>39</td>
+      <td>-0.965872</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.838420</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>40</td>
+      <td>-0.977060</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.840867</td>
+    </tr>
+    <tr>
+      <th>percent_cpu</th>
+      <td>41</td>
+      <td>-0.977341</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.829144</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>42</td>
+      <td>-0.977373</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843481</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>43</td>
+      <td>-0.978197</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.846451</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>44</td>
+      <td>-0.978350</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.923774</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>45</td>
+      <td>-0.979561</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.919896</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>46</td>
+      <td>-0.980521</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.847877</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>47</td>
+      <td>-0.988299</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843296</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>48</td>
+      <td>-0.988417</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843526</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>49</td>
+      <td>-0.988424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843529</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>50</td>
+      <td>-0.988591</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.850047</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>51</td>
+      <td>-0.988599</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.850050</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>52</td>
+      <td>-0.988694</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843947</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>53</td>
+      <td>-0.988707</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843707</td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td>54</td>
+      <td>-0.990443</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.855217</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>55</td>
+      <td>NaN</td>
+      <td>0.981304</td>
+      <td>0.964677</td>
+      <td>0.973090</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>DATA</th>
+      <td>56</td>
+      <td>NaN</td>
+      <td>0.976685</td>
+      <td>0.940016</td>
+      <td>0.967906</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>res</th>
+      <td>57</td>
+      <td>NaN</td>
+      <td>0.975351</td>
+      <td>0.926289</td>
+      <td>0.957522</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>percent_mem</th>
+      <td>58</td>
+      <td>NaN</td>
+      <td>0.974736</td>
+      <td>0.923572</td>
+      <td>0.954778</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>59</td>
+      <td>NaN</td>
+      <td>0.969649</td>
+      <td>NaN</td>
+      <td>0.976189</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>60</td>
+      <td>NaN</td>
+      <td>0.958300</td>
+      <td>0.976189</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cache_references</th>
+      <td>61</td>
+      <td>NaN</td>
+      <td>0.935384</td>
+      <td>0.975346</td>
+      <td>0.995324</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cpu_migrations</th>
+      <td>62</td>
+      <td>NaN</td>
+      <td>0.926423</td>
+      <td>0.927321</td>
+      <td>0.957015</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>63</td>
+      <td>NaN</td>
+      <td>0.899770</td>
+      <td>0.941725</td>
+      <td>0.959570</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Frontend_Bound</th>
+      <td>64</td>
+      <td>NaN</td>
+      <td>0.881850</td>
+      <td>0.791065</td>
+      <td>0.832715</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>iTLB_load_misses</th>
+      <td>65</td>
+      <td>NaN</td>
+      <td>0.843908</td>
+      <td>0.850358</td>
+      <td>0.887190</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C9%</th>
+      <td>66</td>
+      <td>NaN</td>
+      <td>0.794797</td>
+      <td>NaN</td>
+      <td>0.713441</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Bad_Speculation</th>
+      <td>67</td>
+      <td>NaN</td>
+      <td>0.761108</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1E%</th>
+      <td>68</td>
+      <td>NaN</td>
+      <td>0.753612</td>
+      <td>0.767286</td>
+      <td>0.811406</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>69</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.969649</td>
+      <td>0.958300</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>57</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>time</th>
+      <td>1</td>
+      <td>-0.990443</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.855217</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>2</td>
+      <td>-0.988707</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843707</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>3</td>
+      <td>-0.988694</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843947</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>4</td>
+      <td>-0.988599</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.850050</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>5</td>
+      <td>-0.988591</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.850047</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>6</td>
+      <td>-0.988424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843529</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>7</td>
+      <td>-0.988417</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843526</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>8</td>
+      <td>-0.988299</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843296</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>9</td>
+      <td>-0.980521</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.847877</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>10</td>
+      <td>-0.979561</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.919896</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>11</td>
+      <td>-0.978350</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.923774</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>12</td>
+      <td>-0.978197</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.846451</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>13</td>
+      <td>-0.977373</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.843481</td>
+    </tr>
+    <tr>
+      <th>percent_cpu</th>
+      <td>14</td>
+      <td>-0.977341</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.829144</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>15</td>
+      <td>-0.977060</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.840867</td>
+    </tr>
+    <tr>
+      <th>C3%</th>
+      <td>16</td>
+      <td>-0.965872</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.838420</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>17</td>
+      <td>-0.965125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.812713</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>18</td>
+      <td>-0.956309</td>
+      <td>NaN</td>
+      <td>0.811120</td>
+      <td>0.800132</td>
+      <td>0.831871</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>19</td>
+      <td>-0.942466</td>
+      <td>NaN</td>
+      <td>0.812844</td>
+      <td>0.790110</td>
+      <td>0.828956</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>20</td>
+      <td>-0.925222</td>
+      <td>NaN</td>
+      <td>0.844300</td>
+      <td>0.822368</td>
+      <td>0.838125</td>
+    </tr>
+    <tr>
+      <th>iTLB_loads</th>
+      <td>21</td>
+      <td>-0.917489</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.846430</td>
+    </tr>
+    <tr>
+      <th>PkgTmp</th>
+      <td>22</td>
+      <td>-0.912879</td>
+      <td>0.715176</td>
+      <td>0.856022</td>
+      <td>0.845502</td>
+      <td>0.803770</td>
+    </tr>
+    <tr>
+      <th>CoreTmp</th>
+      <td>23</td>
+      <td>-0.910649</td>
+      <td>0.705685</td>
+      <td>0.848558</td>
+      <td>0.833851</td>
+      <td>0.802585</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>24</td>
+      <td>-0.882515</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.740548</td>
+    </tr>
+    <tr>
+      <th>CPU%c3</th>
+      <td>25</td>
+      <td>-0.871464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.793873</td>
+    </tr>
+    <tr>
+      <th>virt</th>
+      <td>26</td>
+      <td>-0.856363</td>
+      <td>0.741964</td>
+      <td>0.857138</td>
+      <td>0.880746</td>
+      <td>0.707855</td>
+    </tr>
+    <tr>
+      <th>GFX_J</th>
+      <td>27</td>
+      <td>-0.844850</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>28</td>
+      <td>-0.835148</td>
+      <td>0.816394</td>
+      <td>0.923747</td>
+      <td>0.908354</td>
+      <td>0.780544</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>29</td>
+      <td>-0.828323</td>
+      <td>0.795590</td>
+      <td>0.901354</td>
+      <td>0.899495</td>
+      <td>0.757252</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>30</td>
+      <td>-0.803501</td>
+      <td>0.829726</td>
+      <td>0.925076</td>
+      <td>0.919484</td>
+      <td>0.761844</td>
+    </tr>
+    <tr>
+      <th>percent_cache_misses</th>
+      <td>31</td>
+      <td>-0.795464</td>
+      <td>0.858842</td>
+      <td>0.946370</td>
+      <td>0.949301</td>
+      <td>0.726210</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>32</td>
+      <td>-0.786186</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.792013</td>
+    </tr>
+    <tr>
+      <th>cache_misses</th>
+      <td>33</td>
+      <td>-0.785343</td>
+      <td>0.872727</td>
+      <td>0.954273</td>
+      <td>0.964613</td>
+      <td>0.709729</td>
+    </tr>
+    <tr>
+      <th>nTH</th>
+      <td>34</td>
+      <td>-0.778604</td>
+      <td>0.824868</td>
+      <td>0.907369</td>
+      <td>0.938241</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>page_faults</th>
+      <td>35</td>
+      <td>-0.735463</td>
+      <td>0.897748</td>
+      <td>0.965583</td>
+      <td>0.962686</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>minor_faults</th>
+      <td>36</td>
+      <td>-0.735423</td>
+      <td>0.897790</td>
+      <td>0.965604</td>
+      <td>0.962730</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>37</td>
+      <td>-0.733998</td>
+      <td>0.731623</td>
+      <td>0.829242</td>
+      <td>0.787311</td>
+      <td>0.804166</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>38</td>
+      <td>-0.731671</td>
+      <td>0.879000</td>
+      <td>0.945111</td>
+      <td>0.960142</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1%</th>
+      <td>39</td>
+      <td>-0.729562</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.739819</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mem_stores</th>
+      <td>40</td>
+      <td>-0.714791</td>
+      <td>0.915551</td>
+      <td>0.973757</td>
+      <td>0.979425</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>41</td>
+      <td>-0.708727</td>
+      <td>0.916301</td>
+      <td>0.972522</td>
+      <td>0.979885</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>42</td>
+      <td>-0.707153</td>
+      <td>0.919421</td>
+      <td>0.973309</td>
+      <td>0.988499</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>43</td>
+      <td>-0.707106</td>
+      <td>0.891948</td>
+      <td>0.948611</td>
+      <td>0.968281</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>44</td>
+      <td>0.800334</td>
+      <td>-0.827756</td>
+      <td>-0.917497</td>
+      <td>-0.931890</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>45</td>
+      <td>0.814111</td>
+      <td>-0.827714</td>
+      <td>-0.922332</td>
+      <td>-0.931601</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Retiring</th>
+      <td>46</td>
+      <td>0.944387</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.787128</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>47</td>
+      <td>0.967242</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.812791</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>48</td>
+      <td>0.973464</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.818574</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>49</td>
+      <td>0.979300</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.927518</td>
+    </tr>
+    <tr>
+      <th>IPC_perf</th>
+      <td>50</td>
+      <td>0.979447</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.832176</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>51</td>
+      <td>0.979801</td>
+      <td>NaN</td>
+      <td>-0.729935</td>
+      <td>-0.708030</td>
+      <td>-0.836371</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>52</td>
+      <td>0.993270</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.843110</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>53</td>
+      <td>0.995330</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.852863</td>
+    </tr>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>54</td>
+      <td>0.999498</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.846576</td>
+    </tr>
+    <tr>
+      <th>CPU_Utilization</th>
+      <td>55</td>
+      <td>NaN</td>
+      <td>-0.940964</td>
+      <td>-0.975118</td>
+      <td>-0.997628</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>56</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.744211</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>57</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.844850</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/turbostat_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>13</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>1</td>
+      <td>0.859502</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.724272</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>2</td>
+      <td>0.834290</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.710938</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>3</td>
+      <td>0.777790</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.785015</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>4</td>
+      <td>-0.821291</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.703651</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>5</td>
+      <td>-0.831539</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.700217</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>6</td>
+      <td>-0.879752</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.720336</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>7</td>
+      <td>-0.881304</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.719406</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>8</td>
+      <td>NaN</td>
+      <td>0.992374</td>
+      <td>NaN</td>
+      <td>0.868646</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>9</td>
+      <td>NaN</td>
+      <td>0.856928</td>
+      <td>0.868646</td>
+      <td>NaN</td>
+      <td>0.866023</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>10</td>
+      <td>NaN</td>
+      <td>0.756563</td>
+      <td>0.765359</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.992374</td>
+      <td>0.856928</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>GFX_J</th>
+      <td>12</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.866023</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.785154</td>
+      <td>0.759888</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>13</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>1</td>
+      <td>-0.881304</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.719406</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>2</td>
+      <td>-0.879752</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.720336</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>3</td>
+      <td>-0.831539</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.700217</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>4</td>
+      <td>-0.821291</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.703651</td>
+    </tr>
+    <tr>
+      <th>C1%</th>
+      <td>5</td>
+      <td>-0.812114</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>6</td>
+      <td>-0.808860</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1E%</th>
+      <td>7</td>
+      <td>-0.805749</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C3%</th>
+      <td>8</td>
+      <td>-0.744919</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C6%</th>
+      <td>9</td>
+      <td>-0.735661</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>10</td>
+      <td>0.777790</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.785015</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>11</td>
+      <td>0.834290</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.710938</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>12</td>
+      <td>0.859502</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.724272</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.79409</td>
+      <td>-0.739568</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/turbostat_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/turbostat_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>17</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CPU%c7</th>
+      <td>1</td>
+      <td>0.980003</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.768301</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>2</td>
+      <td>0.974108</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.781940</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>3</td>
+      <td>0.962707</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.870340</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>4</td>
+      <td>0.957946</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.738560</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>5</td>
+      <td>-0.970149</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.861912</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>6</td>
+      <td>-0.970908</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.859163</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>7</td>
+      <td>-0.978815</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.769707</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>8</td>
+      <td>-0.982582</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761403</td>
+    </tr>
+    <tr>
+      <th>Busy%</th>
+      <td>9</td>
+      <td>-0.983281</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.771364</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>10</td>
+      <td>NaN</td>
+      <td>0.981193</td>
+      <td>NaN</td>
+      <td>0.806060</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>11</td>
+      <td>NaN</td>
+      <td>0.786331</td>
+      <td>0.806060</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPU%c1</th>
+      <td>12</td>
+      <td>NaN</td>
+      <td>0.700904</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.981193</td>
+      <td>0.786331</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.735929</td>
+      <td>0.898038</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CPU%c6</th>
+      <td>15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.735236</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C1E%</th>
+      <td>16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.723577</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>17</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.717417</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>11</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Busy%</th>
+      <td>1</td>
+      <td>-0.983281</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.771364</td>
+    </tr>
+    <tr>
+      <th>Avg_MHz</th>
+      <td>2</td>
+      <td>-0.982582</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.761403</td>
+    </tr>
+    <tr>
+      <th>Totl%C0</th>
+      <td>3</td>
+      <td>-0.978815</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.769707</td>
+    </tr>
+    <tr>
+      <th>GFX%C0</th>
+      <td>4</td>
+      <td>-0.970908</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.859163</td>
+    </tr>
+    <tr>
+      <th>CPUGFX%</th>
+      <td>5</td>
+      <td>-0.970149</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.861912</td>
+    </tr>
+    <tr>
+      <th>GFX_J</th>
+      <td>6</td>
+      <td>-0.763912</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IPC</th>
+      <td>7</td>
+      <td>0.957946</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.738560</td>
+    </tr>
+    <tr>
+      <th>GFX%rc6</th>
+      <td>8</td>
+      <td>0.962707</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.870340</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>9</td>
+      <td>0.974108</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.781940</td>
+    </tr>
+    <tr>
+      <th>CPU%c7</th>
+      <td>10</td>
+      <td>0.980003</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.768301</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.763912</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/perf_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/perf_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>1</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ILP</th>
+      <td>1</td>
+      <td>0.776091</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>3</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>no_cpus</th>
+      <td>1</td>
+      <td>-0.818107</td>
+    </tr>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>2</td>
+      <td>-0.818105</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>3</td>
+      <td>-0.737110</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/perf_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/perf_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>7</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>IPC_perf</th>
+      <td>1</td>
+      <td>0.976746</td>
+    </tr>
+    <tr>
+      <th>insn_per_cycle</th>
+      <td>2</td>
+      <td>0.970639</td>
+    </tr>
+    <tr>
+      <th>Retiring</th>
+      <td>3</td>
+      <td>0.941097</td>
+    </tr>
+    <tr>
+      <th>Turbo_Utilization</th>
+      <td>4</td>
+      <td>0.859045</td>
+    </tr>
+    <tr>
+      <th>ILP</th>
+      <td>5</td>
+      <td>0.829830</td>
+    </tr>
+    <tr>
+      <th>freq_cycles_GHz</th>
+      <td>6</td>
+      <td>0.757870</td>
+    </tr>
+    <tr>
+      <th>freq_cpu_cycles_GHz</th>
+      <td>7</td>
+      <td>0.745059</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>22</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>no_cpus_task_clock</th>
+      <td>1</td>
+      <td>-0.987485</td>
+    </tr>
+    <tr>
+      <th>no_cpus</th>
+      <td>2</td>
+      <td>-0.987481</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>3</td>
+      <td>-0.984288</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>4</td>
+      <td>-0.984281</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>5</td>
+      <td>-0.975108</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>6</td>
+      <td>-0.973888</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>7</td>
+      <td>-0.973443</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>8</td>
+      <td>-0.973248</td>
+    </tr>
+    <tr>
+      <th>CPI</th>
+      <td>9</td>
+      <td>-0.963676</td>
+    </tr>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>10</td>
+      <td>-0.951453</td>
+    </tr>
+    <tr>
+      <th>LLC_load_misses</th>
+      <td>11</td>
+      <td>-0.911546</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>12</td>
+      <td>-0.880524</td>
+    </tr>
+    <tr>
+      <th>LLC_loads</th>
+      <td>13</td>
+      <td>-0.824474</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>14</td>
+      <td>-0.783180</td>
+    </tr>
+    <tr>
+      <th>cache_misses</th>
+      <td>15</td>
+      <td>-0.776439</td>
+    </tr>
+    <tr>
+      <th>percent_cache_misses</th>
+      <td>16</td>
+      <td>-0.751935</td>
+    </tr>
+    <tr>
+      <th>iTLB_loads</th>
+      <td>17</td>
+      <td>-0.750499</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>18</td>
+      <td>-0.738767</td>
+    </tr>
+    <tr>
+      <th>page_faults</th>
+      <td>19</td>
+      <td>-0.728972</td>
+    </tr>
+    <tr>
+      <th>minor_faults</th>
+      <td>20</td>
+      <td>-0.728934</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>21</td>
+      <td>-0.720558</td>
+    </tr>
+    <tr>
+      <th>mem_stores</th>
+      <td>22</td>
+      <td>-0.702202</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/top_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool) - ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/top_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="general_plots/top_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool) - WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="general_plots/top_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
             </details>
     
             
@@ -307,6 +4492,132 @@
     
             
             <details>
+                <summary style="background-color: #E74C3C;">Extra Parameters</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IPC (Instructions per Cycle/Clock) by TURBOSTAT</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/turbostat_IPC.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IPC (Instructions per Cycle/Clock) by TURBOSTAT</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_IPC_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IRQ (Interrupt Request)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/turbostat_IRQ.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IRQ (Interrupt Request)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_IRQ_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  CPI (Cycles per Instruction)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_CPI.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of CPI (Cycles per Instruction)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_CPI_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IPC (Instructions per Cycle/Clock) by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_IPC.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IPC (Instructions per Cycle/Clock) by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_IPC_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Cycles by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_cycles.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Cycles by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_cycles_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Instructions by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_instructions.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Instructions by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_instructions_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Branches by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_branches.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Branches by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_branches_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Branches Misses by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_branch_misses.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Branches Misses by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_branch_misses_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
                 <summary style="background-color: #F1C40F;">CPU usage</summary>
                 
                 <div class="row">
@@ -350,6 +4661,206 @@
                     <div class="row">
                             <!-- *** Section 2 *** --->
                             <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_Totl_C0_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F1C40F;">Performance</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Frontend_Bound</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_frontendBound.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Frontend_Bound</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_frontendBound_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Backend_Bound</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_backendBound.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Backend_Bound</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_backendBound_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Bad Speculation</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_badSpeculation.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Bad Speculation</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_badSpeculation_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Retiring</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/perf_retiring.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Retiring</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/perf_retiring_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F1C40F;">Performance Top-Analysis</summary>
+                
+                <div class="row">
+        
+                    <div class="column">
+                            <h3>Section:  Performance of binaryTrees_21_with_Multithreading</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/binaryTrees_21_with_Multithreading_performanceTopAnalysis.html"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        
+                    <div class="column">
+                            <h3>Section:  Performance of binaryTrees_21_without_Multithreading</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/binaryTrees_21_without_Multithreading_performanceTopAnalysis.html"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        
+                </div>
+            
+                <div class="row">
+        
+                    <div class="column">
+                            <h3>Section:  Performance of nbody_50000000</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/nbody_50000000_performanceTopAnalysis.html"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        
+                </div>
+            
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #9B59B6;">Temperature</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Degrees Celsius reported by the per-core Digital Thermal Sensor</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_CoreTmp.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-core Digital Thermal Sensor</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_CoreTmp_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Degrees Celsius reported by the per-package Package Thermal Monitor</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/turbostat_PkgTmp.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-package Package Thermal Monitor</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_PkgTmp_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #5DADE2;">Page Faults</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Page Faults</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_page_faults.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Page Faults</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_page_faults_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Minor Faults</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_minor_faults.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Faults</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_minor_faults_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Major Page Fault Count</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_nMaj.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Major Page Fault Count</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_nMaj_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Minor Page Fault Count</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_nMin.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Page Fault Count</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_nMin_Comparison_Diff.html"></iframe>
                             <p>Notes: Detect major changes between version to another</p>
                     </div>
                 </details>
@@ -476,108 +4987,6 @@
                     <div class="row">
                             <!-- *** Section 2 *** --->
                             <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_C10_percent_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-            </details>
-    
-            
-            <details>
-                <summary style="background-color: #9B59B6;">Temperature</summary>
-                
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Degrees Celsius reported by the per-core Digital Thermal Sensor</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_CoreTmp.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-core Digital Thermal Sensor</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_CoreTmp_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Degrees Celsius reported by the per-package Package Thermal Monitor</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/turbostat_PkgTmp.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-package Package Thermal Monitor</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/turbostat_PkgTmp_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-            </details>
-    
-            
-            <details>
-                <summary style="background-color: #5DADE2;">Page Faults</summary>
-                
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Page Faults</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_page_faults.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Page Faults</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_page_faults_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Minor Faults</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_minor_faults.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Faults</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_minor_faults_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Major Page Fault Count</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_nMaj.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Major Page Fault Count</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_nMaj_Comparison_Diff.html"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  Minor Page Fault Count</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="general_plots/top_nMin.html"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Page Fault Count</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="general_plots/top_nMin_Comparison_Diff.html"></iframe>
                             <p>Notes: Detect major changes between version to another</p>
                     </div>
                 </details>

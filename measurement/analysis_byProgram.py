@@ -15,10 +15,10 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 from sklearn.preprocessing import MaxAbsScaler
 from IPython.display import display, HTML
+from plots import *
 
 # Arguments
 # 
-# Example: python3 analysis.py c++ nbody_2.c 50000000 nbody_50000000_4
 language = sys.argv[1]
 html_filename = sys.argv[2]
 # directory=sys.argv[3]
@@ -223,8 +223,7 @@ def from_CSVfiles(tool, norm):
         if directory_name != "waiting" and directory_name != "older" and directory_name != "test" and directory_name != "general_plots" and directory_name != "general_plots_v1":
             
             path=language + '/' + directory_name + '/' + tool + '/'
-            if tool == "perf": path = path + tool
-
+            
             if tool == "top":
 
                 df = pd.DataFrame()
@@ -237,6 +236,12 @@ def from_CSVfiles(tool, norm):
                     if file_name.startswith("temp_top_data_") and file_name.endswith('.csv'):
                         df_Top = from_CSVfile(path + file_name, directory_name, tool)
                         df = pd.concat([df, df_Top])
+
+                # Split the your_column into minutes, seconds, and hundredths
+                df[['minutes', 'seconds_hundredths']] = df['time'].str.split(':', expand=True)
+
+                # Convert minutes, seconds, and hundredths to seconds
+                df['time'] = pd.to_numeric(df['minutes']) * 60 + pd.to_numeric(df['seconds_hundredths'])
 
                 df.to_csv(path + "top_data_allVersions.csv", index=False)
             elif tool == "turbostat":
@@ -251,357 +256,199 @@ def from_CSVfiles(tool, norm):
                         df_Turbo = from_CSVfile(path + file_name, directory_name, tool)
                         df = pd.concat([df, df_Turbo])
                 df['Pkg+RAM_J'] = df['Pkg_J'] + df['RAM_J']
+                df['Pkg_Watt'] = df['Pkg_J'] / df['time_elapsed']
+                df['RAM_Watt'] = df['RAM_J'] / df['time_elapsed']
+                df['Pkg+RAM_Watts'] = df['Pkg_Watt'] + df['RAM_Watt']
+            elif tool == "perf": 
+                # path = path + tool
+                df = pd.DataFrame()
+                list_files = os.listdir(path)
+
+                # Get list of all files only in the given directory
+                list_files = natsort.natsorted(list_files)
+            
+                for file_name in list_files:
+                    if file_name.startswith("perf_performance_data") and file_name.endswith('.csv'):
+                        df_Perf= from_CSVfile(path + file_name, directory_name, tool)
+                        df = pd.concat([df, df_Perf])
+
+                # Extract the units contained in the every measurement, for instance, the column 'time_elapsed'
+                # contains values in msec; so this convert into secs and remove the unit "msec" to add it in the header
+                parameters = ["time_elapsed","freq_cycles","cpu_clock","freq_cpu_cycles","task_clock","cpu_thermal_margin"]
+
+                for parameter in parameters:
+                    colname = df[parameter].str.extract(r'\s(.+)$').iloc[0, 0]
+                    if parameter == "time_elapsed":
+                        df[parameter] = df[parameter].str.replace(colname, '').astype(int)
+                        df['time_elapsed'] = df['time_elapsed'] / 1000000000
+                        df.rename(columns={parameter: f'{parameter}_sec'}, inplace=True)
+                    else:
+                        df[parameter] = df[parameter].str.replace(colname, '').astype(float)
+                        df.rename(columns={parameter: f'{parameter}_{colname}'}, inplace=True)
+                df = df.rename(columns={"IPC": "IPC_perf"})
+
+                df.to_csv(path + "perf_data_allVersions_10times.csv", index=False)
             else:
-                df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
-                if norm: df = Data_normalized(df, tool)
+                # df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
+                # if norm: df = Data_normalized(df, tool)
+                print("Error selecting the tool. Please check an appropriate too.")
             all_df = pd.concat([all_df, df])
 
     return all_df
 
+# CREATING A GENERAL DF WITH ALL IMPORTANT PARAMETERS
+def general_df(df_turbostat, df_perf, df_top):
+    df1 = df_turbostat.groupby(["path","version","release_date"], sort=False)[['time_elapsed',
+                        'Pkg_J','Cor_J','RAM_J','GFX_J', 'Avg_MHz', 'Busy%', 'IPC', 'IRQ', 'POLL', 'C1%','C1E%','C3%','C6%','C7s%','C8%',
+                        'C9%','C10%','CPU%c1','CPU%c3','CPU%c6','CPU%c7','CoreTmp','PkgTmp','GFX%rc6','Totl%C0','Any%C0','GFX%C0','CPUGFX%']].median().reset_index()
+    df2 = df_perf.groupby(["path","version","release_date"], sort=False)[['time_elapsed_sec','CPU_Utilization','Retiring','Frontend_Bound','Bad_Speculation','Backend_Bound',
+                            'CPI','ILP','IPC_perf','cycles','freq_cycles_GHz','instructions',
+                            'Kernel_Utilization', 'L1D_Cache_Fill_BW', 'Turbo_Utilization', 'cycles',
+                            'instructions', 'insn_per_cycle', 'cpu_clock_msec', 'no_cpus', 'cpu_cycles', 'freq_cpu_cycles_GHz',
+                            'cpu_migrations','ref_cycles','bus_cycles','task_clock_msec','no_cpus_task_clock',
+                            'cpu_thermal_margin_C','branches','branch_misses','mem_loads','mem_stores','page_faults','minor_faults','major_faults',
+                            'cache_references','cache_misses','percent_cache_misses','L1_dcache_loads','L1_dcache_load_misses',
+                            'LLC_loads','LLC_load_misses','L1_icache_load_misses','dTLB_loads',
+                            'dTLB_load_misses','iTLB_loads','iTLB_load_misses']].median().reset_index()
+    df3 = df_top.groupby(["path","version","release_date"], sort=False)[['time','virt','res','shr','percent_cpu','percent_mem','nTH','P',
+                        'SWAP','CODE','DATA','nMaj','nDRT','USED']].median().reset_index()
 
-# PLOTTING
-def custom_hover_mean(program, x, y, mean, diff, percent_diff, diff_flag):
-    percent_difffromMean = 0 if mean == 0 else 100 * (y/mean)
-    if diff_flag:
-        hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br></b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}<br>Mean: {mean:.2f}<br>'
-    else:
-        hover = f'Version: {x}<br>Program: {program}<br><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br><b><i>Percentage Difference from Mean:</i> {percent_difffromMean:.2f}%<br>Difference From Mean: {y:.2f}</b><br>Mean: {mean:.2f}<br>'
-    return hover
-
-def custom_hover_median(program, x, median, diff, percent_diff):
-    hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br>Median: {median:.2f}<br>'
-    return hover
-
-def plot_Compare(df, filename_plot, x_data, y_data, color_data, type, diff_flag):
-
-    # if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
-    # if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].mean().reset_index()
-    if type == "barTop" or type == "lineTop" or type == "barTurbo" or type == "lineTurbo": 
-        df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-
-    median_per_program = df.groupby(color_data)[y_data].median()
-    # mean_per_program = df.groupby(color_data)[y_data].mean()
-
-    # df['DifferenceFromMean'] = df.apply(lambda row: row[y_data] - mean_per_program[row[color_data]], axis=1)
-
-    # Create grouped bar traces for each program
-    bar_traces = []
-    for program in df[color_data].unique():
-        program_df = df[df[color_data] == program]
-        # mean = mean_per_program[program]
-        median = median_per_program[program]
-        program_df['Difference'] = program_df[y_data].diff()
-        program_df['Percentage_Difference'] = program_df[y_data].pct_change()*100
-        # program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
-        if diff_flag:
-            hover_texts = [custom_hover_median(program, x, median, diff, percent_diff) for x, diff, percent_diff in zip(program_df[x_data],program_df['Difference'],program_df['Percentage_Difference'])]
-            bar_trace = go.Bar(x=program_df[x_data], y=program_df['Percentage_Difference'],
-                            name=f'{program} - Median: { format(median_per_program[program], ".2f")}',
-                            hovertemplate=hover_texts,
-                            text=program_df["Percentage_Difference"])
-        # else:
-            # hover_texts = [custom_hover_mean(program, x, y, median, diff, percent_diff, diff_flag) for x, y, diff, percent_diff in zip(program_df[x_data], program_df['DifferenceFromMean'],program_df['Difference'],program_df['Percentage_Difference'])]
-            # bar_trace = go.Bar(x=program_df[x_data], y=program_df['DifferenceFromMean'],
-            #                name=f'{program} - Mean: { format(median_per_program[program], ".2f")}',
-            #                hovertemplate=hover_texts,
-            #                text=program_df["Percentage_DifferenceFromMean"])
-        bar_traces.append(bar_trace)
-        # bar_traces.append(median_trace)
-
-    layout = go.Layout(title='Comparison of ' + y_data,
-                       xaxis=dict(title=x_data),
-                       yaxis=dict(title='Difference from Mean of ' + y_data, zeroline=False))
-        
-
-    fig = go.Figure(data=bar_traces, layout=layout)
-    if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
-
-    # Check if the directory exists
-    directory = language + '/general_plots/'
-    if not os.path.exists(directory):
-        # If it doesn't exist, create it
-        os.makedirs(directory)
-
-    filename_plot_wDir = directory + filename_plot
-    plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
-    return 'general_plots/' + filename_plot + ".html"
-
-def plot_Type(df, filename_plot, x_data, y_data, color_data, type):
-
-    if type == "corrTurbo":
-
-        corrs = df[['time_elapsed','Pkg_J','Cor_J','GFX_J','RAM_J', 'Avg_MHz', 'Busy%', 'IPC', 'IRQ', 'POLL', 'C1%','C1E%','C3%','C6%','C7s%','C8%','C9%','C10%','CPU%c1','CPU%c3','CPU%c6','CPU%c7','CoreTmp','PkgTmp','GFX%rc6','Totl%C0','Any%C0','GFX%C0','CPUGFX%']].corr()
-
-        np.fill_diagonal(corrs.values, np.nan)
-
-        corrs = corrs.head(5)
-
-        heat = go.Heatmap(z=corrs.values.round(2),
-                        x=list(corrs.columns),
-                        y=list(corrs.index),
-                        xgap=1, ygap=1,
-                        texttemplate="%{z}",
-                        showscale=True,
-                        colorbar_thickness=20,
-                        colorbar_ticklen=3,
-                        # zmax=1, zmin=0.1
-                        )
-        layout = go.Layout(title_x=0.5, 
-                        xaxis_showgrid=False,
-                        yaxis_showgrid=False,
-                        yaxis_autorange='reversed')
-        fig=go.Figure(data=[heat], layout=layout)
-
-    elif type == "scattermatrixTurbo":
-
-        # fig = ff.create_scatterplotmatrix(df[['time_elapsed', 'Pkg_J', 'RAM_J', 'version']], 
-        #                           height=1000,
-        #                           width=1000,
-        #                           diag='histogram',
-        #                           text=df['version'],
-        #                           index='version')
-        
-        fig = px.scatter(df, x='time_elapsed', y='Pkg+RAM_J', color='path',
-                 animation_frame="version",
-                 range_x=[df['time_elapsed'].min(),df['time_elapsed'].max()], range_y=[df['Pkg_J'].min(),df['Pkg_J'].max()]
-                 )
-    elif type == "scatterTurbo":
-
-        fig = px.scatter(df, x='time_elapsed', y='Pkg+RAM_J', color="version")
-
-    else:
-
-        if type == "line" or type == "lineTop" or type == "lineTurbo":
-            
-            if type == "lineTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-            if type == "lineTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-
-            fig = px.line(df,
-                    x = x_data,
-                    y = y_data,
-                    color = color_data,
-                    title=language + ' - ' + filename_plot)
-            fig.update_traces(textposition="bottom right")
-            buttons=list([
-                        dict(
-                            args=[{"type": "line",}],
-                            label="Line Chart",
-                            method="restyle"
-                            ),
-                        dict(
-                            args=[{"type": "bar"}],
-                            label="Bar Chart",
-                            method="restyle"
-                        )
-                    ])
-
-        elif type == "bar" or type == "barTop":
-
-            if type == "barTop": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-            if type == "barTurbo": df = df.groupby([x_data,color_data], sort=False)[[y_data]].median().reset_index()
-
-            fig = px.bar(df,
-                        x = x_data,
-                        y = y_data,
-                        color = color_data,
-                        title=language + ' - ' + filename_plot)
-            buttons=list([
-                        dict(
-                            args=[{"type": "bar"}],
-                            label="Bar Chart",
-                            method="restyle"
-                        ),dict(
-                            args=[{"type": "line",}],
-                            label="Line Chart",
-                            method="restyle"
-                        )
-                        ])
-
-        elif type == "box":
-            fig = px.box(df,
-                            x = x_data,
-                            y = y_data,
-                            color = color_data,
-                            title=language + ' - ' + filename_plot)
-            # fig.update_traces(textposition="bottom right")
-
-            buttons=list([
-                        dict(
-                            args=[{"type": "box"}],
-                            label="Box Plot",
-                            method="restyle"
-                        )])
-
-        
-        updatemenus = list([
-                dict(
-                    type="dropdown",
-                    direction="down",
-                    x=0.12,
-                    y=1.12,
-                    xanchor="left",
-                    yanchor="top",
-                    pad={"r": 10, "t": 10},
-                    buttons=buttons
-                ),
-                dict(
-                    type="dropdown",
-                    direction="down",
-                    x=0.44,
-                    y=1.12,
-                    xanchor="left",
-                    yanchor="top",
-                    pad={"r": 10, "t": 10},
-                    buttons=list([
-                        dict(
-                            args=[{"yaxis.type": "linear"}],
-                            label="Linear Scale",
-                            method="relayout"
-                        ),
-                        dict(
-                            args=[{"yaxis.type": "log"}],
-                            label="Log Scale",
-                            method="relayout"
-                        )
-                    ])
-                ),
-            ])
-
-        annotations=[
-                dict(text="Plot type:", x=-0.01, xref="paper", y=1.08, yref="paper",
-                                    align="left", showarrow=False),
-                dict(text="Scale:", x=0.4, xref="paper", y=1.08,
-                                    yref="paper", showarrow=False),
-        ]
-
-        fig.update_layout(updatemenus=updatemenus, annotations=annotations, hovermode="x unified")
-        if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
+    df_merged = pd.merge(df1, df2, on=["path","version","release_date"], how='left')
+    df = pd.merge(df_merged, df3, on=["path","version","release_date"], how='left')
 
 
-    # Check if the directory exists
-    directory = language + '/general_plots/'
-    if not os.path.exists(directory):
-        # If it doesn't exist, create it
-        os.makedirs(directory)
+    path=language + '/'
+    df.to_csv(path + "dataframe_General_medianValues.csv", index=False)
 
-    filename_plot_wDir = directory + filename_plot
-    plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
-    return 'general_plots/' + filename_plot + ".html"
+    return df
 
-def three_plots(df, title, filename_plot, x_data, y_data, color_data, type):
-    fig1 = plot_Type(df, filename_plot, x_data, y_data, color_data, type)
-    fig2 = plot_Compare(df, filename_plot + "_Comparison_Diff", x_data, y_data, color_data, type, diff_flag=True)
-    fig3 = plot_Compare(df, filename_plot + "_Comparison_DiffFromMean", x_data, y_data, color_data, type, diff_flag=False)
 
-    div_string = '''
-                <div class="row">
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  ''' + title + '''</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fig1 + '''"></iframe>
-                    <p>Notes: </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column">
-                        <!-- *** Section 2 *** --->
-                        <h3>Section:  Difference of ''' + title + '''</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                            src="''' + fig2 + '''"></iframe>
-                        <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                    <div class="column">
-                        <!-- *** Section 3 *** --->
-                        <h3>Section: Difference from Mean of ''' + title + '''</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                            src="''' + fig3 + '''"></iframe>
-                        <p>Notes: Detect the trend in general considering all versions</p>
-                    </div>
-                </div>
-    '''
 
-    return div_string
-
-def two_plots(df, title, filename_plot, x_data, y_data, color_data, type):
-
-    fig1 = plot_Type(df, filename_plot, x_data, y_data, color_data, type)
-    fig2 = plot_Compare(df, filename_plot + "_Comparison_Diff", x_data, y_data, color_data, type, diff_flag=True)
-
-    div_string = '''
-                <div class="row">
-                    
-                    <!-- *** Section 1 *** --->
-                    <h3>Section:  ''' + title + '''</h3>
-                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                        src="''' + fig1 + '''"></iframe>
-                </div>
-                <details>
-                    <summary style="background-color: #E5E4E2;">Section: Difference of ''' + title + '''</summary>
-                    <div class="row">
-                            <!-- *** Section 2 *** --->
-                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                                src="''' + fig2 + '''"></iframe>
-                            <p>Notes: Detect major changes between version to another</p>
-                    </div>
-                </details>
-    '''
-
-    return div_string
-
-def one_plot(df, title, filename_plot, x_data, y_data, color_data, type):
-
-    fig1 = plot_Type(df, filename_plot, x_data, y_data, color_data, type)
-
-    div_string = '''
-                <div class="row">
-                        <!-- *** Section 1 *** --->
-                        <h3>Section:  ''' + title + '''</h3>
-                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
-                            src="''' + fig1 + '''"></iframe>
-                        <p>Notes: </p>
-                    </div>
-                </div>
-    '''
-
-    return div_string
-
-def html_generalPlots(df_turbostat, df_top, df_perf):
-
-    corr_turbostat = one_plot(df_turbostat, "Correlation (Turbostat tool)",
-                              filename_plot="turbostat_correlation", 
-                              x_data="", 
-                              y_data="", 
-                              color_data="",
-                              type="corrTurbo")
+def html_generalPlots(df_turbostat, df_top, df_perf, df):
     
-    scatterplot_matrix = one_plot(df_turbostat, "Scatterplot Matrix",
+      
+    scatterplot_matrix = two_plotsMatrix(language, df_turbostat, "Scatterplot Matrix",
                                   filename_plot="turbostat_scatterplot_matrix", 
-                                  x_data="", 
-                                  y_data="", 
-                                  color_data="",
                                   type="scattermatrixTurbo")
     
-    scatterplot = one_plot(df_turbostat, "Scatterplot (Energy vs Time elapsed)",
-                                  filename_plot="turbostat_scatterplot", 
-                                  x_data="", 
-                                  y_data="", 
-                                  color_data="",
-                                  type="scatterTurbo")
+    scatterplot_Program = two_plotsMatrix(language, df_turbostat, "Scatterplot per Program (Energy vs Time elapsed)",
+                                  filename_plot="turbostat_scatterplot_perProgram", 
+                                  type="scatterTurbo_program")
     
-    energy = two_plots(df_turbostat, "Energy Consumption (Pkg + RAM)",
+    scatterplot = two_plotsMatrix(language, df_turbostat, "Scatterplot per Version(Energy vs Time elapsed)",
+                                  filename_plot="turbostat_scatterplot_perVersion", 
+                                  type="scatterTurbo_version")
+    
+    energy = two_plots(language, df_turbostat, "Energy Consumption (Pkg + RAM)",
                     filename_plot="turbostat_Pkg+RAM_J", 
                     x_data="version", 
                     y_data="Pkg+RAM_J", 
                     color_data="path",
                     type="lineTurbo")
 
-    div_html = corr_turbostat + energy + scatterplot_matrix + scatterplot
+    div_html = energy + scatterplot_matrix + scatterplot_Program + scatterplot
     
+    return div_html
+
+def html_matrixPlots(df_turbostat, df_top, df_perf, df):
+
+    corr_gral = two_plotsMatrix(language, df, "General Correlation (median values for each version and application)",
+                              filename_plot="general_correlation_MedianValues", 
+                              type="corrGeneral")
+
+    corr_turbostat = two_plotsMatrix(language, df_turbostat, "Correlation (Turbostat tool)",
+                              filename_plot="turbostat_correlation_General", 
+                              type="corrTurbo")
+    
+    corr_perf = two_plotsMatrix(language, df_perf, "Correlation (Perf tool)",
+                              filename_plot="perf_correlation_General", 
+                              type="corrPerf")
+    
+    corr_top = two_plotsMatrix(language, df_top, "Correlation (Top tool)",
+                              filename_plot="top_correlation_General", 
+                              type="corrTop")
+    
+    div_html = corr_gral + corr_turbostat + corr_perf + corr_top
+
+    return div_html
+
+def html_matrixAnalysis(df_turbostat, df_top, df_perf, df):
+
+    # Per versions
+    if language == "python":
+        text1 = "ONLY Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+        text2 = "WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+        filter_1 = 'version == "3.11.3" or version == "3.12.0b1" or version == "3.13.0a0"'
+        filter_2 = 'version != "3.11.3" and version != "3.12.0b1" and version != "3.13.0a0"'
+    elif language == "c++":
+        text1 = "Binary Trees Version 2 of B using -O3"
+        text2 = "Binary Trees Version 6 of B using -O3"
+        filter_1 = 'path == "binaryTrees_v2_21_original_O3flag"'
+        filter_2 = 'path == "binaryTrees_v6_21_original_O3flag"'
+    elif language == 'java':
+        text1 = "ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2"
+        text2 = "WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
+        filter_1 = 'version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2"'
+        filter_2 = 'version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2"'
+    elif language == 'js':
+        text1 = "ONLY Versions 6.17.1 and 7.10.1 in the Nbody program"
+        text2 = "WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program"
+        filter_1 = 'path == "nbody_50000000_original" and (version == "6.17.1" or version == "7.10.1")'
+        filter_2 = 'path == "nbody_50000000_original" and (version != "6.17.1" and version != "7.10.1")'
+
+    df_filtered_1 = df.query(filter_1)
+    df_filtered_2 = df.query(filter_2)
+
+    df_turbostat_filtered_1 = df_turbostat.query(filter_1)
+    df_turbostat_filtered_2 = df_turbostat.query(filter_2)
+
+    df_top_filtered_1 = df_top.query(filter_1)
+    df_top_filtered_2 = df_top.query(filter_2)
+
+    df_perf_filtered_1 = df_perf.query(filter_1)
+    df_perf_filtered_2 = df_perf.query(filter_2)
+
+    div_html = ""
+
+    
+    div_html = div_html + two_plotsMatrix(language, df_filtered_1, "General Correlation (median values for each version and application) - " + text1,
+                                     filename_plot="general_correlation_MedianValues_FilteredVersion1", 
+                                     type="corrGeneral")
+    
+    div_html = div_html + two_plotsMatrix(language, df_filtered_2, "General Correlation (median values for each version and application) - " + text2,
+                                     filename_plot="general_correlation_MedianValues_FilteredVersion2", 
+                                     type="corrGeneral")
+
+    div_html = div_html + two_plotsMatrix(language, df_turbostat_filtered_1, "Correlation (Turbostat tool) - " + text1,
+                              filename_plot="turbostat_correlation_General_FilteredVersion1", 
+                              type="corrTurbo")
+    
+    div_html = div_html + two_plotsMatrix(language, df_turbostat_filtered_2, "Correlation (Turbostat tool) - " + text2,
+                              filename_plot="turbostat_correlation_General_FilteredVersion2", 
+                              type="corrTurbo")
+    
+    div_html = div_html + two_plotsMatrix(language, df_perf_filtered_1, "Correlation (Perf tool) - " + text1,
+                              filename_plot="perf_correlation_General_FilteredVersion1", 
+                              type="corrPerf")
+    
+    div_html = div_html + two_plotsMatrix(language, df_perf_filtered_2, "Correlation (Perf tool) - " + text2,
+                              filename_plot="perf_correlation_General_FilteredVersion2", 
+                              type="corrPerf")
+    
+    div_html = div_html + two_plotsMatrix(language, df_top_filtered_1, "Correlation (Top tool) - " + text1,
+                              filename_plot="top_correlation_General_FilteredVersion1", 
+                              type="corrTop")
+    
+    div_html = div_html + two_plotsMatrix(language, df_top_filtered_2, "Correlation (Top tool) - " + text2,
+                              filename_plot="top_correlation_General_FilteredVersion2", 
+                              type="corrTop")
+    
+    # Per program
     return div_html
 
 def html_TimePlots(df):
     
-    time_elapsed = two_plots(df, "Time Elapsed",
+    time_elapsed = two_plots(language, df, "Time Elapsed",
                     filename_plot="turbostat_time_elapsed", 
                     x_data="version", 
                     y_data="time_elapsed", 
@@ -614,25 +461,25 @@ def html_TimePlots(df):
 
 def html_EnergyPlots(df):
     
-    pkg = two_plots(df, "Package Energy Consumption",
+    pkg = two_plots(language, df, "Package Energy Consumption",
                     filename_plot="turbostat_Pkg_J", 
                     x_data="version", 
                     y_data="Pkg_J", 
                     color_data="path",
                     type="lineTurbo")
-    RAM = two_plots(df, "RAM Energy Consumption",
+    RAM = two_plots(language, df, "RAM Energy Consumption",
                     filename_plot="turbostat_RAM_J", 
                     x_data="version", 
                     y_data="RAM_J", 
                     color_data="path",
                     type="lineTurbo")
-    Cor = two_plots(df, "Core Energy Consumption",
+    Cor = two_plots(language, df, "Core Energy Consumption",
                     filename_plot="turbostat_Cor_J", 
                     x_data="version", 
                     y_data="Cor_J", 
                     color_data="path",
                     type="lineTurbo")
-    GFX = two_plots(df, "GFX Energy Consumption",
+    GFX = two_plots(language, df, "GFX Energy Consumption",
                     filename_plot="turbostat_GFX_J", 
                     x_data="version", 
                     y_data="GFX_J", 
@@ -645,77 +492,77 @@ def html_EnergyPlots(df):
 
 def html_MemoryPlots(df_turbo, df_top):
 
-    mem_usage = two_plots(df_top, "Mean of Percentage of Memory usage",
+    mem_usage = two_plots(language, df_top, "Mean of Percentage of Memory usage",
                          filename_plot="top_percent_mem", 
                          x_data="version", 
                          y_data="percent_mem", 
                          color_data="path",
                          type="lineTop")
     
-    virt_Box = one_plot(df_top, "Virtual Memory",
+    virt_Box = one_plot(language, df_top, "Virtual Memory",
                          filename_plot="top_virt_box", 
                          x_data="version", 
                          y_data="virt", 
                          color_data="path",
                          type="box")
     
-    virt_Bar = two_plots(df_top, "Mean of Virtual Memory",
+    virt_Bar = two_plots(language, df_top, "Mean of Virtual Memory",
                          filename_plot="top_virt", 
                          x_data="version", 
                          y_data="virt", 
                          color_data="path",
                          type="barTop")
     
-    res_Box = one_plot(df_top, "Resident Memory",
+    res_Box = one_plot(language, df_top, "Resident Memory",
                          filename_plot="top_res_box", 
                          x_data="version", 
                          y_data="res", 
                          color_data="path",
                          type="box")
     
-    res_Bar = two_plots(df_top, "Mean of Resident Memory",
+    res_Bar = two_plots(language, df_top, "Mean of Resident Memory",
                          filename_plot="top_res", 
                          x_data="version", 
                          y_data="res", 
                          color_data="path",
                          type="barTop")
     
-    shr_Box = one_plot(df_top, "Shared Memory",
+    shr_Box = one_plot(language, df_top, "Shared Memory",
                          filename_plot="top_shr_box", 
                          x_data="version", 
                          y_data="shr", 
                          color_data="path",
                          type="box")
     
-    shr_Bar = two_plots(df_top, "Mean of Shared Memory",
+    shr_Bar = two_plots(language, df_top, "Mean of Shared Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="shr", 
                          color_data="path",
                          type="barTop")
     
-    code_Box = one_plot(df_top, "Code Memory",
+    code_Box = one_plot(language, df_top, "Code Memory",
                          filename_plot="top_shr_box", 
                          x_data="version", 
                          y_data="CODE", 
                          color_data="path",
                          type="box")
     
-    code_Bar = two_plots(df_top, "Mean of Code Memory",
+    code_Bar = two_plots(language, df_top, "Mean of Code Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="CODE", 
                          color_data="path",
                          type="barTop")
     
-    data_Box = one_plot(df_top, "DATA Memory",
+    data_Box = one_plot(language, df_top, "DATA Memory",
                          filename_plot="top_shr_box", 
                          x_data="version", 
                          y_data="DATA", 
                          color_data="path",
                          type="box")
     
-    data_Bar = two_plots(df_top, "Mean of DATA Memory",
+    data_Bar = two_plots(language, df_top, "Mean of DATA Memory",
                          filename_plot="top_shr", 
                          x_data="version", 
                          y_data="DATA", 
@@ -727,23 +574,173 @@ def html_MemoryPlots(df_turbo, df_top):
     
     return div_html
 
+def html_PerformancePlots(df_perf):
+    frontend = two_plots(language, df_perf, "Mean of Percentage of Frontend_Bound",
+                         filename_plot="perf_frontendBound", 
+                         x_data="version", 
+                         y_data="Frontend_Bound", 
+                         color_data="path",
+                         type="lineTop")
+    backend = two_plots(language, df_perf, "Mean of Percentage of Backend_Bound",
+                         filename_plot="perf_backendBound", 
+                         x_data="version", 
+                         y_data="Backend_Bound", 
+                         color_data="path",
+                         type="lineTop")
+    badSpeculation = two_plots(language, df_perf, "Mean of Percentage of Bad Speculation",
+                         filename_plot="perf_badSpeculation", 
+                         x_data="version", 
+                         y_data="Bad_Speculation", 
+                         color_data="path",
+                         type="lineTop")
+    retiring = two_plots(language, df_perf, "Mean of Percentage of Retiring",
+                         filename_plot="perf_retiring", 
+                         x_data="version", 
+                         y_data="Retiring", 
+                         color_data="path",
+                         type="lineTop")
+    
+    div_html = frontend + backend + badSpeculation + retiring
+    
+    return div_html
+
+def html_ExtraParameters(df_turbostat, df_perf):
+    IPC = two_plots(language, df_turbostat, "IPC (Instructions per Cycle/Clock) by TURBOSTAT",
+                         filename_plot="turbostat_IPC", 
+                         x_data="version", 
+                         y_data="IPC", 
+                         color_data="path",
+                         type="lineTurbo")
+    IRQ = two_plots(language, df_turbostat, "IRQ (Interrupt Request)",
+                         filename_plot="turbostat_IRQ", 
+                         x_data="version", 
+                         y_data="IRQ", 
+                         color_data="path",
+                         type="lineTop")
+    CPI = two_plots(language, df_perf, "CPI (Cycles per Instruction)",
+                         filename_plot="perf_CPI", 
+                         x_data="version", 
+                         y_data="CPI", 
+                         color_data="path",
+                         type="lineTop")
+    IPC_perf = two_plots(language, df_perf, "IPC (Instructions per Cycle/Clock) by PERF",
+                         filename_plot="perf_IPC", 
+                         x_data="version", 
+                         y_data="IPC_perf", 
+                         color_data="path",
+                         type="lineTop")
+    cycles = two_plots(language, df_perf, "Cycles by PERF",
+                         filename_plot="perf_cycles", 
+                         x_data="version", 
+                         y_data="cycles", 
+                         color_data="path",
+                         type="lineTop")
+    instructions = two_plots(language, df_perf, "Instructions by PERF",
+                         filename_plot="perf_instructions", 
+                         x_data="version", 
+                         y_data="instructions", 
+                         color_data="path",
+                         type="lineTop")
+    branches = two_plots(language, df_perf, "Branches by PERF",
+                         filename_plot="perf_branches", 
+                         x_data="version", 
+                         y_data="branches", 
+                         color_data="path",
+                         type="lineTop")
+    branch_misses = two_plots(language, df_perf, "Branches Misses by PERF",
+                         filename_plot="perf_branch_misses", 
+                         x_data="version", 
+                         y_data="branch_misses", 
+                         color_data="path",
+                         type="lineTop")
+    
+    div_html = IPC + IRQ + CPI + IPC_perf + cycles + instructions + branches + branch_misses
+    
+    return div_html
+    
+
+def html_PerformanceEachOnePlots(df_perf):
+
+    x_data = "version"
+    categories = ["Frontend_Bound","Backend_Bound","Bad_Speculation","Retiring"]
+    programs = df_perf["path"].unique()
+    div_html = ''
+    flag = True
+
+    for program in programs:
+        df = df_perf.groupby([x_data,"path"], sort=False)[categories].median().reset_index()
+        # df = df[df['version'].str.contains("2.5.6|2.7.18|3.0.1|3.4.10|3.5.10") == False]
+        df = df.query('path == "'+ program +'"')
+        df = df.drop('path', axis=1)
+        
+        if language == "python": color_list = ["DodgerBlue", "DeepSkyBlue", "OrangeRed", "Salmon", "MediumSeaGreen", "LightGreen", "SlateBlue", "Plum", "Gray", "LightGray"]
+        if language == "c++": color_list = ["DodgerBlue", "DeepSkyBlue", "OrangeRed", "Salmon", "MediumSeaGreen", "LightGreen", "SlateBlue", "Plum", "Gray", "LightGray"]
+
+        df_melted = pd.melt(df, id_vars=['version'], var_name='Perf_parameters', value_name='Value')
+        fig = px.bar(df_melted,
+                x = "version",
+                y = "Value",
+                color = "Perf_parameters",
+                title="Performance of " + program + " in " + language)
+
+        # Check if the directory exists
+        directory = language + '/general_plots/'
+        if not os.path.exists(directory):
+            # If it doesn't exist, create it
+            os.makedirs(directory)
+
+        filename_plot_wDir = directory + program + "_performanceTopAnalysis"
+        plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
+        fig = 'general_plots/' + program + "_performanceTopAnalysis" + ".html"
+
+        if flag:
+                div_html = div_html + '''
+                <div class="row">
+        '''
+
+        div_string = '''
+                    <div class="column">
+                            <h3>Section:  ''' + "Performance of " + program + '''</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+                                src="''' + fig + '''"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        '''
+        div_html = div_html + div_string
+        if not flag:
+            div_html = div_html + '''
+                </div>
+            ''' 
+            flag = True
+        else:
+            flag = False
+    
+    if not flag:
+        div_html = div_html + '''
+                </div>
+            ''' 
+    return div_html
+                         
+    
+
+
 def html_CPUPlots(df_turbo, df_top):
 
-    cpu_usage = two_plots(df_top, "Mean of Percentage of CPU usage",
+    cpu_usage = two_plots(language, df_top, "Mean of Percentage of CPU usage",
                          filename_plot="top_percent_cpu", 
                          x_data="version", 
                          y_data="percent_cpu", 
                          color_data="path",
                          type="lineTop")
     
-    Avg_MHz = two_plots(df_turbo, "Average Frequency (MHz)",
+    Avg_MHz = two_plots(language, df_turbo, "Average Frequency (MHz)",
                         filename_plot="turbostat_Avg_MHz", 
                         x_data="version", 
                         y_data="Avg_MHz", 
                         color_data="path",
                         type="lineTurbo")
     
-    Totl_C0 = two_plots(df_turbo, "Total Percent in C0 state (active)",
+    Totl_C0 = two_plots(language, df_turbo, "Total Percent in C0 state (active)",
                         filename_plot="turbostat_Totl_C0", 
                         x_data="version", 
                         y_data="Totl%C0", 
@@ -752,7 +749,7 @@ def html_CPUPlots(df_turbo, df_top):
     
     # Busy%, Bzy_MHz (C0 state), IPC, IRQ, POLL (CPU)
     
-    nTH = two_plots(df_top, "Number of threads",
+    nTH = two_plots(language, df_top, "Number of threads",
                         filename_plot="turbostat_noThreads", 
                         x_data="version", 
                         y_data="nTH", 
@@ -765,112 +762,112 @@ def html_CPUPlots(df_turbo, df_top):
 
 def html_Cstates(df):
 
-    C1 = two_plots(df, "Linux requested the C1 idle state",
+    C1 = two_plots(language, df, "Linux requested the C1 idle state",
                     filename_plot="turbostat_C1", 
                     x_data="version", 
                     y_data="C1", 
                     color_data="path",
                     type="lineTurbo")
     
-    C1E = two_plots(df, "Linux requested the C1E idle state",
+    C1E = two_plots(language, df, "Linux requested the C1E idle state",
                     filename_plot="turbostat_C1E", 
                     x_data="version", 
                     y_data="C1E", 
                     color_data="path",
                     type="lineTurbo")
 
-    C3 = two_plots(df, "Linux requested the C3 idle state",
+    C3 = two_plots(language, df, "Linux requested the C3 idle state",
                     filename_plot="turbostat_C3", 
                     x_data="version", 
                     y_data="C3", 
                     color_data="path",
                     type="lineTurbo")
     
-    C6 = two_plots(df, "Linux requested the C6 idle state",
+    C6 = two_plots(language, df, "Linux requested the C6 idle state",
                     filename_plot="turbostat_C6", 
                     x_data="version", 
                     y_data="C6", 
                     color_data="path",
                     type="lineTurbo")
     
-    C7s = two_plots(df, "Linux requested the C7s idle state",
+    C7s = two_plots(language, df, "Linux requested the C7s idle state",
                     filename_plot="turbostat_C7s", 
                     x_data="version", 
                     y_data="C7s", 
                     color_data="path",
                     type="lineTurbo")
     
-    C8 = two_plots(df, "Linux requested the C8 idle state",
+    C8 = two_plots(language, df, "Linux requested the C8 idle state",
                     filename_plot="turbostat_C8", 
                     x_data="version", 
                     y_data="C8", 
                     color_data="path",
                     type="lineTurbo")
     
-    C9 = two_plots(df, "Linux requested the C9 idle state",
+    C9 = two_plots(language, df, "Linux requested the C9 idle state",
                     filename_plot="turbostat_C9", 
                     x_data="version", 
                     y_data="C9", 
                     color_data="path",
                     type="lineTurbo")
     
-    C10 = two_plots(df, "Linux requested the C10 idle state",
+    C10 = two_plots(language, df, "Linux requested the C10 idle state",
                     filename_plot="turbostat_C10", 
                     x_data="version", 
                     y_data="C10", 
                     color_data="path",
                     type="lineTurbo")
     
-    C1_percent = two_plots(df, "Linux requested the C1% idle state",
+    C1_percent = two_plots(language, df, "Linux requested the C1% idle state",
                     filename_plot="turbostat_C1_percent", 
                     x_data="version", 
                     y_data="C1%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C1E_percent = two_plots(df, "Linux requested the C1E% idle state",
+    C1E_percent = two_plots(language, df, "Linux requested the C1E% idle state",
                     filename_plot="turbostat_C1E_percent", 
                     x_data="version", 
                     y_data="C1E%", 
                     color_data="path",
                     type="lineTurbo")
 
-    C3_percent = two_plots(df, "Linux requested the C3% idle state",
+    C3_percent = two_plots(language, df, "Linux requested the C3% idle state",
                     filename_plot="turbostat_C3_percent", 
                     x_data="version", 
                     y_data="C3%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C6_percent = two_plots(df, "Linux requested the C6% idle state",
+    C6_percent = two_plots(language, df, "Linux requested the C6% idle state",
                     filename_plot="turbostat_C6_percent", 
                     x_data="version", 
                     y_data="C6%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C7s_percent = two_plots(df, "Linux requested the C7s% idle state",
+    C7s_percent = two_plots(language, df, "Linux requested the C7s% idle state",
                     filename_plot="turbostat_C7s_percent", 
                     x_data="version", 
                     y_data="C7s%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C8_percent = two_plots(df, "Linux requested the C8% idle state",
+    C8_percent = two_plots(language, df, "Linux requested the C8% idle state",
                     filename_plot="turbostat_C8_percent", 
                     x_data="version", 
                     y_data="C8%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C9_percent = two_plots(df, "Linux requested the C9% idle state",
+    C9_percent = two_plots(language, df, "Linux requested the C9% idle state",
                     filename_plot="turbostat_C9_percent", 
                     x_data="version", 
                     y_data="C9%", 
                     color_data="path",
                     type="lineTurbo")
     
-    C10_percent = two_plots(df, "Linux requested the C10% idle state",
+    C10_percent = two_plots(language, df, "Linux requested the C10% idle state",
                     filename_plot="turbostat_C10_percent", 
                     x_data="version", 
                     y_data="C10%", 
@@ -884,14 +881,14 @@ def html_Cstates(df):
 
 def html_Temperature(df):
 
-    CoreTmp = two_plots(df, "Degrees Celsius reported by the per-core Digital Thermal Sensor",
+    CoreTmp = two_plots(language, df, "Degrees Celsius reported by the per-core Digital Thermal Sensor",
                          filename_plot="top_CoreTmp", 
                          x_data="version", 
                          y_data="CoreTmp", 
                          color_data="path",
                          type="lineTurbo")
     
-    PkgTmp = two_plots(df, "Degrees Celsius reported by the per-package Package Thermal Monitor",
+    PkgTmp = two_plots(language, df, "Degrees Celsius reported by the per-package Package Thermal Monitor",
                         filename_plot="turbostat_PkgTmp", 
                         x_data="version", 
                         y_data="PkgTmp", 
@@ -904,14 +901,14 @@ def html_Temperature(df):
 
 def html_PageFaults(df_top, df_perf):
 
-    page_faults = two_plots(df_perf, "Page Faults",
+    page_faults = two_plots(language, df_perf, "Page Faults",
                          filename_plot="top_page_faults", 
                          x_data="version", 
                          y_data="page_faults", 
                          color_data="path",
                          type="line")
     
-    minor_faults = two_plots(df_perf, "Minor Faults",
+    minor_faults = two_plots(language, df_perf, "Minor Faults",
                          filename_plot="top_minor_faults", 
                          x_data="version", 
                          y_data="minor_faults", 
@@ -919,14 +916,14 @@ def html_PageFaults(df_top, df_perf):
                          type="line")
 
     # nMaj (memory), nMin (memory)
-    nMaj = two_plots(df_top, "Major Page Fault Count",
+    nMaj = two_plots(language, df_top, "Major Page Fault Count",
                          filename_plot="top_nMaj", 
                          x_data="version", 
                          y_data="nMaj", 
                          color_data="path",
                          type="lineTop")
     
-    nMin = two_plots(df_top, "Minor Page Fault Count",
+    nMin = two_plots(language, df_top, "Minor Page Fault Count",
                          filename_plot="top_nMin", 
                          x_data="version", 
                          y_data="nMin", 
@@ -943,14 +940,26 @@ def html_Information(title, parameter, color):
     df_top = from_CSVfiles("top", norm=False)
     df_perf = from_CSVfiles("perf", norm=False)
 
+    df = general_df(df_turbostat, df_perf, df_top)
+
     if parameter == "general":
-        div_Information = html_generalPlots(df_turbostat, df_top, df_perf)
+        div_Information = html_generalPlots(df_turbostat, df_top, df_perf, df)
+    elif parameter == "matrix":
+        div_Information = html_matrixPlots(df_turbostat, df_top, df_perf, df)
+    elif parameter == "matrixAnalysis":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df)
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":
         div_Information = html_MemoryPlots(df_turbostat, df_top)
     elif parameter == "time":
         div_Information = html_TimePlots(df_turbostat)
+    elif parameter == "extra_param":
+        div_Information = html_ExtraParameters(df_turbostat, df_perf)
+    elif parameter == "performance":
+        div_Information = html_PerformancePlots(df_perf)
+    elif parameter == "performance_top":
+        div_Information = html_PerformanceEachOnePlots(df_perf)
     elif parameter == "cpu":
         div_Information = html_CPUPlots(df_turbostat, df_top)
     elif parameter == "temperature":
@@ -981,9 +990,14 @@ def html_Information(title, parameter, color):
 if __name__ == '__main__':
 
     div_general = html_Information("General Information", "general", "#B3B6B7")
+    div_matrix = html_Information("Matrix Correlation for each tool", "matrix","#B3B6B7")
+    div_matrxiAnalysis = html_Information("Matrix Correlation (Analysis according to the cases)", "matrixAnalysis","#B3B6B7")
     div_energy = html_Information("Energy Consumption", "energy", "#28B463")
     div_memory = html_Information("Memory Consumption", "memory", "#3498DB")
+    div_extraParam = html_Information("Extra Parameters", "extra_param", "#E74C3C")
     div_time = html_Information("Time Elapsed", "time", "#F39C12")
+    div_performance = html_Information("Performance", "performance", "#F1C40F")
+    div_performance_Top = html_Information("Performance Top-Analysis", "performance_top", "#F1C40F")
     div_cpu = html_Information("CPU usage", "cpu", "#F1C40F")
     div_temp = html_Information("Temperature", "temperature", "#9B59B6")
     div_cstates = html_Information("Cstates", "cstates", "#F7DC6F")
@@ -1031,13 +1045,18 @@ if __name__ == '__main__':
         <body>
             <h1>Programmming Language is  <b>''' + language + '''</b> </h1>
             ''' + div_general + '''
+            ''' + div_matrix + '''
+            ''' + div_matrxiAnalysis + '''
             ''' + div_energy + '''
             ''' + div_time + '''
             ''' + div_memory + '''
+            ''' + div_extraParam + '''
             ''' + div_cpu + '''
-            ''' + div_cstates + '''
+            ''' + div_performance + '''
+            ''' + div_performance_Top + '''
             ''' + div_temp + '''
             ''' + div_pageFaults + '''
+            ''' + div_cstates + '''
         </body>
     </html>'''
 
