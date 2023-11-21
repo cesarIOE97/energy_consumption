@@ -1,0 +1,2214 @@
+
+    <html>
+        <head>
+            <title>Analysis of c++</title>
+            <link rel="shortcut icon" type="x-icon" href="../aalto.ico"> </link>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <style>
+                body{ margin:0 50; background:whitesmoke; }
+                *{box-sizing: border-box;}
+                .column {float: left; width: 50%; padding: 10px;}
+                .row:after {content: ""; display: table; clear: both;}
+                .plot {width: 100%; height: 600;}
+                h1 {text-align: center}
+                h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
+                details > summary {
+                    padding: 4px;
+                    width: 100%;
+                    border: none;
+                    box-shadow: 1px 1px 2px #bbbbbb;
+                    cursor: pointer;
+                    font-family: inherit;
+                }
+
+                details > p {
+                    background-color: #eeeeee;
+                    padding: 4px;
+                    margin: 0;
+                    box-shadow: 1px 1px 2px #bbbbbb;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Programmming Language is  <b>c++</b> </h1>
+            
+            <details>
+                <summary style="background-color: #B3B6B7;">General Information</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Energy Consumption (Pkg + RAM)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_Pkg+RAM_J.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Energy Consumption (Pkg + RAM)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_Pkg+RAM_J_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Scatterplot Matrix</h3>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_scatterplot_matrix.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Scatterplot per Program (Energy vs Time elapsed)</h3>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_scatterplot_perProgram.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Scatterplot per Version(Energy vs Time elapsed)</h3>
+                        <iframe class="plot" style="height: 600" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_scatterplot_perVersion.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #B3B6B7;">Matrix Correlation for each tool</summary>
+                
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application)</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/general_correlation_MedianValues.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/general_correlation_MedianValues_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>23</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ref_cycles</th>
+      <td>1</td>
+      <td>0.999935</td>
+      <td>0.997200</td>
+      <td>0.996100</td>
+      <td>0.998750</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>2</td>
+      <td>0.999933</td>
+      <td>0.997220</td>
+      <td>0.996122</td>
+      <td>0.998766</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>3</td>
+      <td>0.999931</td>
+      <td>0.997181</td>
+      <td>0.996073</td>
+      <td>0.998793</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>4</td>
+      <td>0.999929</td>
+      <td>0.997180</td>
+      <td>0.996072</td>
+      <td>0.998792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>5</td>
+      <td>0.999929</td>
+      <td>0.997180</td>
+      <td>0.996071</td>
+      <td>0.998792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>6</td>
+      <td>0.999753</td>
+      <td>0.996694</td>
+      <td>0.995566</td>
+      <td>0.998071</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>7</td>
+      <td>0.999737</td>
+      <td>0.996531</td>
+      <td>0.995388</td>
+      <td>0.998030</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>8</td>
+      <td>0.998845</td>
+      <td>0.997724</td>
+      <td>0.996840</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>9</td>
+      <td>0.997097</td>
+      <td>NaN</td>
+      <td>0.999886</td>
+      <td>0.997724</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>10</td>
+      <td>0.995984</td>
+      <td>0.999886</td>
+      <td>NaN</td>
+      <td>0.996840</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>11</td>
+      <td>0.966243</td>
+      <td>0.955691</td>
+      <td>0.952975</td>
+      <td>0.962763</td>
+      <td>0.703542</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>12</td>
+      <td>0.901714</td>
+      <td>0.891359</td>
+      <td>0.887871</td>
+      <td>0.887419</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>13</td>
+      <td>0.899921</td>
+      <td>0.890708</td>
+      <td>0.887390</td>
+      <td>0.888298</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td>14</td>
+      <td>0.861268</td>
+      <td>0.858919</td>
+      <td>0.859532</td>
+      <td>0.853319</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>15</td>
+      <td>0.859295</td>
+      <td>0.836192</td>
+      <td>0.833374</td>
+      <td>0.856025</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>16</td>
+      <td>0.852720</td>
+      <td>0.866129</td>
+      <td>0.868671</td>
+      <td>0.842660</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>17</td>
+      <td>0.852421</td>
+      <td>0.858432</td>
+      <td>0.858437</td>
+      <td>0.869350</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>18</td>
+      <td>0.835362</td>
+      <td>0.848094</td>
+      <td>0.850432</td>
+      <td>0.824596</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>19</td>
+      <td>0.724414</td>
+      <td>0.721489</td>
+      <td>0.721496</td>
+      <td>0.708006</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>20</td>
+      <td>NaN</td>
+      <td>0.997097</td>
+      <td>0.995984</td>
+      <td>0.998845</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cache_references</th>
+      <td>21</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.796440</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>22</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.744992</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.704274</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>6</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>1</td>
+      <td>-0.981101</td>
+      <td>-0.969969</td>
+      <td>-0.967169</td>
+      <td>-0.977329</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>2</td>
+      <td>-0.939543</td>
+      <td>-0.928099</td>
+      <td>-0.925854</td>
+      <td>-0.933945</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>3</td>
+      <td>-0.834114</td>
+      <td>-0.814161</td>
+      <td>-0.811920</td>
+      <td>-0.832472</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>4</td>
+      <td>-0.789248</td>
+      <td>-0.807717</td>
+      <td>-0.810381</td>
+      <td>-0.808121</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>5</td>
+      <td>-0.708176</td>
+      <td>-0.718391</td>
+      <td>-0.719376</td>
+      <td>-0.710719</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>shr</th>
+      <td>6</td>
+      <td>-0.701719</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool)</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/turbostat_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>5</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RAM_J</th>
+      <td>1</td>
+      <td>0.996945</td>
+      <td>0.990815</td>
+      <td>0.988106</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>2</td>
+      <td>0.988393</td>
+      <td>NaN</td>
+      <td>0.999747</td>
+      <td>0.990815</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>3</td>
+      <td>0.985109</td>
+      <td>0.999747</td>
+      <td>NaN</td>
+      <td>0.988106</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>4</td>
+      <td>0.880566</td>
+      <td>0.874580</td>
+      <td>0.870460</td>
+      <td>0.873431</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>0.988393</td>
+      <td>0.985109</td>
+      <td>0.996945</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool)</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/perf_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/perf_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>11</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>2</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>3</td>
+      <td>0.999984</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>4</td>
+      <td>0.999983</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>5</td>
+      <td>0.998314</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>6</td>
+      <td>0.998034</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>7</td>
+      <td>0.964331</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>8</td>
+      <td>0.898438</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>9</td>
+      <td>0.847696</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>10</td>
+      <td>0.846663</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>11</td>
+      <td>0.834876</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>3</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>1</td>
+      <td>-0.970638</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>2</td>
+      <td>-0.823625</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>3</td>
+      <td>-0.778071</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool)</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_correlation_General.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool)</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/top_correlation_General_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #B3B6B7;">Matrix Correlation (Analysis according to the cases)</summary>
+                
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application) - Binary Trees Version 2 of B using -O3</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/general_correlation_MedianValues_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application) - Binary Trees Version 2 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/general_correlation_MedianValues_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  General Correlation (median values for each version and application) - Binary Trees Version 6 of B using -O3</h3>
+                        <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/general_correlation_MedianValues_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH General Correlation (median values for each version and application) - Binary Trees Version 6 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 2000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/general_correlation_MedianValues_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>23</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ref_cycles</th>
+      <td>1</td>
+      <td>0.999935</td>
+      <td>0.997200</td>
+      <td>0.996100</td>
+      <td>0.998750</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>2</td>
+      <td>0.999933</td>
+      <td>0.997220</td>
+      <td>0.996122</td>
+      <td>0.998766</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed_sec</th>
+      <td>3</td>
+      <td>0.999931</td>
+      <td>0.997181</td>
+      <td>0.996073</td>
+      <td>0.998793</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>4</td>
+      <td>0.999929</td>
+      <td>0.997180</td>
+      <td>0.996072</td>
+      <td>0.998792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>5</td>
+      <td>0.999929</td>
+      <td>0.997180</td>
+      <td>0.996071</td>
+      <td>0.998792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>6</td>
+      <td>0.999753</td>
+      <td>0.996694</td>
+      <td>0.995566</td>
+      <td>0.998071</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>7</td>
+      <td>0.999737</td>
+      <td>0.996531</td>
+      <td>0.995388</td>
+      <td>0.998030</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RAM_J</th>
+      <td>8</td>
+      <td>0.998845</td>
+      <td>0.997724</td>
+      <td>0.996840</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>9</td>
+      <td>0.997097</td>
+      <td>NaN</td>
+      <td>0.999886</td>
+      <td>0.997724</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>10</td>
+      <td>0.995984</td>
+      <td>0.999886</td>
+      <td>NaN</td>
+      <td>0.996840</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>11</td>
+      <td>0.966243</td>
+      <td>0.955691</td>
+      <td>0.952975</td>
+      <td>0.962763</td>
+      <td>0.703542</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>12</td>
+      <td>0.901714</td>
+      <td>0.891359</td>
+      <td>0.887871</td>
+      <td>0.887419</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>13</td>
+      <td>0.899921</td>
+      <td>0.890708</td>
+      <td>0.887390</td>
+      <td>0.888298</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time</th>
+      <td>14</td>
+      <td>0.861268</td>
+      <td>0.858919</td>
+      <td>0.859532</td>
+      <td>0.853319</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C10%</th>
+      <td>15</td>
+      <td>0.859295</td>
+      <td>0.836192</td>
+      <td>0.833374</td>
+      <td>0.856025</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>16</td>
+      <td>0.852720</td>
+      <td>0.866129</td>
+      <td>0.868671</td>
+      <td>0.842660</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>17</td>
+      <td>0.852421</td>
+      <td>0.858432</td>
+      <td>0.858437</td>
+      <td>0.869350</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>18</td>
+      <td>0.835362</td>
+      <td>0.848094</td>
+      <td>0.850432</td>
+      <td>0.824596</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>L1_icache_load_misses</th>
+      <td>19</td>
+      <td>0.724414</td>
+      <td>0.721489</td>
+      <td>0.721496</td>
+      <td>0.708006</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>20</td>
+      <td>NaN</td>
+      <td>0.997097</td>
+      <td>0.995984</td>
+      <td>0.998845</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>cache_references</th>
+      <td>21</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.796440</td>
+    </tr>
+    <tr>
+      <th>Any%C0</th>
+      <td>22</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.744992</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_load_misses</th>
+      <td>23</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.704274</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>6</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>1</td>
+      <td>-0.981101</td>
+      <td>-0.969969</td>
+      <td>-0.967169</td>
+      <td>-0.977329</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>2</td>
+      <td>-0.939543</td>
+      <td>-0.928099</td>
+      <td>-0.925854</td>
+      <td>-0.933945</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>C8%</th>
+      <td>3</td>
+      <td>-0.834114</td>
+      <td>-0.814161</td>
+      <td>-0.811920</td>
+      <td>-0.832472</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>4</td>
+      <td>-0.789248</td>
+      <td>-0.807717</td>
+      <td>-0.810381</td>
+      <td>-0.808121</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>dTLB_load_misses</th>
+      <td>5</td>
+      <td>-0.708176</td>
+      <td>-0.718391</td>
+      <td>-0.719376</td>
+      <td>-0.710719</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>shr</th>
+      <td>6</td>
+      <td>-0.701719</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool) - Binary Trees Version 2 of B using -O3</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool) - Binary Trees Version 2 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/turbostat_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Turbostat tool) - Binary Trees Version 6 of B using -O3</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/turbostat_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Turbostat tool) - Binary Trees Version 6 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/turbostat_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>5</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RAM_J</th>
+      <td>1</td>
+      <td>0.996945</td>
+      <td>0.990815</td>
+      <td>0.988106</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Pkg_J</th>
+      <td>2</td>
+      <td>0.988393</td>
+      <td>NaN</td>
+      <td>0.999747</td>
+      <td>0.990815</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Cor_J</th>
+      <td>3</td>
+      <td>0.985109</td>
+      <td>0.999747</td>
+      <td>NaN</td>
+      <td>0.988106</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>IRQ</th>
+      <td>4</td>
+      <td>0.880566</td>
+      <td>0.874580</td>
+      <td>0.870460</td>
+      <td>0.873431</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>time_elapsed</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>0.988393</td>
+      <td>0.985109</td>
+      <td>0.996945</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed</th>
+      <th>Pkg_J</th>
+      <th>Cor_J</th>
+      <th>RAM_J</th>
+      <th>GFX_J</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool) - Binary Trees Version 2 of B using -O3</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/perf_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool) - Binary Trees Version 2 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/perf_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Perf tool) - Binary Trees Version 6 of B using -O3</h3>
+                        <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/perf_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Perf tool) - Binary Trees Version 6 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 1000" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/perf_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>11</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>task_clock_msec</th>
+      <td>1</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>cpu_clock_msec</th>
+      <td>2</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>bus_cycles</th>
+      <td>3</td>
+      <td>0.999984</td>
+    </tr>
+    <tr>
+      <th>ref_cycles</th>
+      <td>4</td>
+      <td>0.999983</td>
+    </tr>
+    <tr>
+      <th>cpu_cycles</th>
+      <td>5</td>
+      <td>0.998314</td>
+    </tr>
+    <tr>
+      <th>cycles</th>
+      <td>6</td>
+      <td>0.998034</td>
+    </tr>
+    <tr>
+      <th>branches</th>
+      <td>7</td>
+      <td>0.964331</td>
+    </tr>
+    <tr>
+      <th>instructions</th>
+      <td>8</td>
+      <td>0.898438</td>
+    </tr>
+    <tr>
+      <th>branch_misses</th>
+      <td>9</td>
+      <td>0.847696</td>
+    </tr>
+    <tr>
+      <th>L1_dcache_loads</th>
+      <td>10</td>
+      <td>0.846663</td>
+    </tr>
+    <tr>
+      <th>dTLB_loads</th>
+      <td>11</td>
+      <td>0.834876</td>
+    </tr>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>3</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time_elapsed_sec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>L1D_Cache_Fill_BW</th>
+      <td>1</td>
+      <td>-0.970638</td>
+    </tr>
+    <tr>
+      <th>Kernel_Utilization</th>
+      <td>2</td>
+      <td>-0.823625</td>
+    </tr>
+    <tr>
+      <th>Backend_Bound</th>
+      <td>3</td>
+      <td>-0.778071</td>
+    </tr>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool) - Binary Trees Version 2 of B using -O3</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_correlation_General_FilteredVersion1.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool) - Binary Trees Version 2 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/top_correlation_General_FilteredVersion1_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Correlation (Top tool) - Binary Trees Version 6 of B using -O3</h3>
+                        <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_correlation_General_FilteredVersion2.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                    <details>
+                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH Correlation (Top tool) - Binary Trees Version 6 of B using -O3</summary>
+                        <div class="row">
+                                <!-- *** Section 2 *** --->
+                                <iframe class="plot" style="height: 400" frameborder="0" seamless="seamless" scrolling="no"                                     src="mainPrograms_plots/top_correlation_General_FilteredVersion2_Filtered.html"></iframe>
+                                <p>Notes: Detect the MAIN parameters</p>
+                        </div>
+                        <div class="row">
+                                <!-- *** Section 3 *** --->
+                                <h3> High <b>POSITIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>0</b></u> parameters)</h3>
+                                <table class="table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>position</th>
+      <th>time</th>
+      <th>virt</th>
+      <th>res</th>
+      <th>shr</th>
+      <th>percent_cpu</th>
+      <th>percent_mem</th>
+      <th>nTH</th>
+      <th>P</th>
+      <th>SWAP</th>
+      <th>CODE</th>
+      <th>DATA</th>
+      <th>nMaj</th>
+      <th>nDRT</th>
+      <th>USED</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                        </div>
+                    </details>
+            
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #28B463;">Energy Consumption</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Package Energy Consumption</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_Pkg_J.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Package Energy Consumption</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_Pkg_J_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  RAM Energy Consumption</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_RAM_J.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of RAM Energy Consumption</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_RAM_J_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Core Energy Consumption</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_Cor_J.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Core Energy Consumption</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_Cor_J_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  GFX Energy Consumption</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_GFX_J.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of GFX Energy Consumption</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_GFX_J_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F39C12;">Time Elapsed</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Time Elapsed</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_time_elapsed.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Time Elapsed</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_time_elapsed_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #3498DB;">Memory Consumption</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Memory usage</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_percent_mem.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Memory usage</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_percent_mem_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Virtual Memory</h3>
+                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_virt_box.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Virtual Memory</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_virt.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Virtual Memory</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_virt_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Resident Memory</h3>
+                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_res_box.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Resident Memory</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_res.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Resident Memory</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_res_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Shared Memory</h3>
+                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_shr_box.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Shared Memory</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_shr.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Shared Memory</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_shr_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  Code Memory</h3>
+                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_shr_box.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Code Memory</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_shr.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Code Memory</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_shr_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                        <!-- *** Section 1 *** --->
+                        <h3>Section:  DATA Memory</h3>
+                        <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                             src="mainPrograms_plots/top_shr_box.html"></iframe>
+                        <p>Notes: </p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of DATA Memory</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_shr.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of DATA Memory</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_shr_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #E74C3C;">Extra Parameters</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IPC (Instructions per Cycle/Clock) by TURBOSTAT</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_IPC.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IPC (Instructions per Cycle/Clock) by TURBOSTAT</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_IPC_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IRQ (Interrupt Request)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_IRQ.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IRQ (Interrupt Request)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_IRQ_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  CPI (Cycles per Instruction)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_CPI.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of CPI (Cycles per Instruction)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_CPI_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  IPC (Instructions per Cycle/Clock) by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_IPC.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of IPC (Instructions per Cycle/Clock) by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_IPC_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Cycles by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_cycles.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Cycles by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_cycles_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Instructions by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_instructions.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Instructions by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_instructions_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Branches by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_branches.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Branches by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_branches_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Branches Misses by PERF</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_branch_misses.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Branches Misses by PERF</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_branch_misses_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F1C40F;">CPU usage</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of CPU usage</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_percent_cpu.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of CPU usage</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_percent_cpu_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Average Frequency (MHz)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_Avg_MHz.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Average Frequency (MHz)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_Avg_MHz_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Total Percent in C0 state (active)</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_Totl_C0.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Total Percent in C0 state (active)</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_Totl_C0_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F1C40F;">Performance</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Frontend_Bound</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_frontendBound.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Frontend_Bound</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_frontendBound_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Backend_Bound</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_backendBound.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Backend_Bound</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_backendBound_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Bad Speculation</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_badSpeculation.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Bad Speculation</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_badSpeculation_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Mean of Percentage of Retiring</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/perf_retiring.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Mean of Percentage of Retiring</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/perf_retiring_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F1C40F;">Performance Top-Analysis</summary>
+                
+                <div class="row">
+        
+                    <div class="column">
+                            <h3>Section:  Performance of binaryTrees_v6_21_original_O3flag</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/binaryTrees_v6_21_original_O3flag_performanceTopAnalysis.html"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        
+                </div>
+            
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #9B59B6;">Temperature</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Degrees Celsius reported by the per-core Digital Thermal Sensor</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_CoreTmp.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-core Digital Thermal Sensor</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_CoreTmp_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Degrees Celsius reported by the per-package Package Thermal Monitor</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_PkgTmp.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Degrees Celsius reported by the per-package Package Thermal Monitor</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_PkgTmp_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #5DADE2;">Page Faults</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Page Faults</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_page_faults.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Page Faults</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_page_faults_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Minor Faults</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_minor_faults.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Faults</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_minor_faults_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Major Page Fault Count</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_nMaj.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Major Page Fault Count</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_nMaj_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Minor Page Fault Count</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/top_nMin.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Minor Page Fault Count</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/top_nMin_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+            
+            <details>
+                <summary style="background-color: #F7DC6F;">Cstates</summary>
+                
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C1% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C1_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C1% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C1_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C1E% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C1E_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C1E% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C1E_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C3% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C3_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C3% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C3_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C6% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C6_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C6% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C6_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C7s% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C7s_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C7s% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C7s_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C8% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C8_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C8% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C8_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C9% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C9_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C9% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C9_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+                <div class="row">
+                    
+                    <!-- *** Section 1 *** --->
+                    <h3>Section:  Linux requested the C10% idle state</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="mainPrograms_plots/turbostat_C10_percent.html"></iframe>
+                </div>
+                <details>
+                    <summary style="background-color: #E5E4E2;">Section: Difference of Linux requested the C10% idle state</summary>
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                                 src="mainPrograms_plots/turbostat_C10_percent_Comparison_Diff.html"></iframe>
+                            <p>Notes: Detect major changes between version to another</p>
+                    </div>
+                </details>
+    
+            </details>
+    
+        </body>
+    </html>
