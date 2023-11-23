@@ -326,7 +326,6 @@ def general_df(df_turbostat, df_perf, df_top):
 
 def html_generalPlots(df_turbostat, df_top, df_perf, df):
     
-      
     scatterplot_matrix = two_plotsMatrix(language, df_turbostat, "Scatterplot Matrix",
                                   filename_plot="turbostat_scatterplot_matrix", 
                                   type="scattermatrixTurbo")
@@ -352,98 +351,417 @@ def html_generalPlots(df_turbostat, df_top, df_perf, df):
 
 def html_matrixPlots(df_turbostat, df_top, df_perf, df):
 
-    corr_gral = two_plotsMatrix(language, df, "General Correlation (median values for each version and application)",
+    corr_gral, df_1, df_pos, df_neg = two_plotsMatrix(language, df, "<b>General</b> Correlation (median values for each version and application)",
                               filename_plot="general_correlation_MedianValues", 
                               type="corrGeneral")
 
-    corr_turbostat = two_plotsMatrix(language, df_turbostat, "Correlation (Turbostat tool)",
+    corr_turbostat, df_turbo, df_turbostat_pos, df_turbostat_neg = two_plotsMatrix(language, df_turbostat, "Correlation (<b>Turbostat</b> tool)",
                               filename_plot="turbostat_correlation_General", 
                               type="corrTurbo")
     
-    corr_perf = two_plotsMatrix(language, df_perf, "Correlation (Perf tool)",
+    corr_perf, df_per, df_perf_pos, df_perf_neg = two_plotsMatrix(language, df_perf, "Correlation (<b>Perf</b> tool)",
                               filename_plot="perf_correlation_General", 
                               type="corrPerf")
     
-    corr_top = two_plotsMatrix(language, df_top, "Correlation (Top tool)",
+    corr_top, df_to, df_top_pos, df_top_neg = two_plotsMatrix(language, df_top, "Correlation (<b>Top</b> tool)",
                               filename_plot="top_correlation_General", 
                               type="corrTop")
     
     div_html = corr_gral + corr_turbostat + corr_perf + corr_top
 
+    df_1 = df_1.drop_duplicates()
+    df_turbo = df_turbo.drop_duplicates()
+    df_per = df_per.drop_duplicates()
+    df_to = df_to.drop_duplicates()
+
+    df_1.to_csv(language + "/correlation_general_medianValues.csv")
+    df_turbo.to_csv(language + "/correlation_turbostat_allData.csv")
+    df_per.to_csv(language + "/correlation_perf_allData.csv")
+    df_to.to_csv(language + "/correlation_top_allData.csv")
+
     return div_html
 
-def html_matrixAnalysis(df_turbostat, df_top, df_perf, df):
+# SCENARIOS
+# ALL NBODY VS ALL BINARY TREES
+# NBODY (VERSIONS VS VERSIONS)
+# BINARY TREES (VERSIONS VS VERSIONS)
+# 
+# CREATE A DATAFRAME WHICH SHOWS THE PARAMETERS IN COMMON AND THE PARAMETERS THAT DOES NOT HAVE IN COMMON IN THE COMPARISON (FOR EACH SCENARIO)
+# CREATE ANOTHER TO COMPARE BETWEEN PROGRAMMING LANGUAGES (THE FASTEST AND ALL PROGRAMS)
 
-    # Per versions
-    if language == "python":
-        text1 = "ONLY Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
-        text2 = "WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
-        filter_1 = 'version == "3.11.3" or version == "3.12.0b1" or version == "3.13.0a0"'
-        filter_2 = 'version != "3.11.3" and version != "3.12.0b1" and version != "3.13.0a0"'
-    elif language == "c++":
-        text1 = "Binary Trees Version 2 of B using -O3"
-        text2 = "Binary Trees Version 6 of B using -O3"
-        filter_1 = 'path == "binaryTrees_v2_21_original_O3flag"'
-        filter_2 = 'path == "binaryTrees_v6_21_original_O3flag"'
-    elif language == 'java':
-        text1 = "ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2"
-        text2 = "WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
-        filter_1 = 'version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2"'
-        filter_2 = 'version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2"'
-    elif language == 'js':
-        text1 = "ONLY Versions 6.17.1 and 7.10.1 in the Nbody program"
-        text2 = "WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program"
-        filter_1 = 'path == "nbody_50000000_original" and (version == "6.17.1" or version == "7.10.1")'
-        filter_2 = 'path == "nbody_50000000_original" and (version != "6.17.1" and version != "7.10.1")'
+def df_common_and_noncommon_Parameters(df_1, df_2, filename1, filename2, type):
 
-    df_filtered_1 = df.query(filter_1)
-    df_filtered_2 = df.query(filter_2)
+    df_common_values = pd.merge(df_1, df_2, left_index=True, right_index=True, how='inner')
+    df_common_values = df_common_values.drop_duplicates()
 
-    df_turbostat_filtered_1 = df_turbostat.query(filter_1)
-    df_turbostat_filtered_2 = df_turbostat.query(filter_2)
+    df_non_common_values = pd.merge(df_1, df_2, left_index=True, right_index=True, how='outer', indicator=True).query('_merge != "both"').drop('_merge', axis=1)
+    df_non_common_values = df_non_common_values.drop_duplicates()
 
-    df_top_filtered_1 = df_top.query(filter_1)
-    df_top_filtered_2 = df_top.query(filter_2)
+    if type == "general" or type == "turbostat":
+        df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_elapsed_y']) else filename2, axis=1)    
 
-    df_perf_filtered_1 = df_perf.query(filter_1)
-    df_perf_filtered_2 = df_perf.query(filter_2)
+        df_common_values = df_common_values.rename(columns={
+                                'time_elapsed_x': 'time_elapsed ' + filename1 ,
+                                'Pkg_J_x': 'Pkg_J ' + filename1 ,
+                                'Cor_J_x': 'Cor_J ' + filename1 ,
+                                'RAM_J_x': 'RAM_J ' + filename1 ,
+                                'GFX_J_x': 'GFX_J ' + filename1 ,
+                                'time_elapsed_y': 'time_elapsed ' + filename2,
+                                'Pkg_J_y': 'Pkg_J ' + filename2,
+                                'Cor_J_y': 'Cor_J ' + filename2,
+                                'RAM_J_y': 'RAM_J ' + filename2,
+                                'GFX_J_y': 'GFX_J ' + filename2
+                            })
+        df_non_common_values = df_non_common_values.rename(columns={
+                                'time_elapsed_x': 'time_elapsed ' + filename1 ,
+                                'Pkg_J_x': 'Pkg_J ' + filename1 ,
+                                'Cor_J_x': 'Cor_J ' + filename1 ,
+                                'RAM_J_x': 'RAM_J ' + filename1 ,
+                                'GFX_J_x': 'GFX_J ' + filename1 ,
+                                'time_elapsed_y': 'time_elapsed ' + filename2,
+                                'Pkg_J_y': 'Pkg_J ' + filename2,
+                                'Cor_J_y': 'Cor_J ' + filename2,
+                                'RAM_J_y': 'RAM_J ' + filename2,
+                                'GFX_J_y': 'GFX_J ' + filename2
+                            })
+        df_common_values = df_common_values.sort_values(by=['time_elapsed ' + filename1 ,
+                                                            'Pkg_J ' + filename1 ,
+                                                            'Cor_J ' + filename1 ,
+                                                            'RAM_J ' + filename1 ,
+                                                            'GFX_J ' + filename1 ,
+                                                            'time_elapsed ' + filename2 ,
+                                                            'Pkg_J ' + filename2 ,
+                                                            'Cor_J ' + filename2 ,
+                                                            'RAM_J ' + filename2 ,
+                                                            'GFX_J ' + filename2 ,
+                                                            ], ascending=False)
+    elif type == "perf":
+        df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_elapsed_sec_y']) else filename2, axis=1)    
 
-    div_html = ""
+        df_common_values = df_common_values.rename(columns={
+                                'time_elapsed_sec_x': 'time_elapsed_sec ' + filename1 ,
+                                'time_elapsed_sec_y': 'time_elapsed_sec ' + filename2,
+                            })
+        df_non_common_values = df_non_common_values.rename(columns={
+                                'time_elapsed_sec_x': 'time_elapsed_sec ' + filename1 ,
+                                'time_elapsed_sec_y': 'time_elapsed_sec ' + filename2,
+                            })
+        df_common_values = df_common_values.sort_values(by=['time_elapsed_sec ' + filename1 ,
+                                                            'time_elapsed_sec ' + filename2,
+                                                            ], ascending=False)
+    elif type == "top":
+        df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_y']) else filename2, axis=1)    
 
-    
-    div_html = div_html + two_plotsMatrix(language, df_filtered_1, "General Correlation (median values for each version and application) - " + text1,
-                                     filename_plot="general_correlation_MedianValues_FilteredVersion1", 
-                                     type="corrGeneral")
-    
-    div_html = div_html + two_plotsMatrix(language, df_filtered_2, "General Correlation (median values for each version and application) - " + text2,
-                                     filename_plot="general_correlation_MedianValues_FilteredVersion2", 
-                                     type="corrGeneral")
+        df_common_values = df_common_values.rename(columns={
+                                'time_x': 'time ' + filename1 ,
+                                'time_y': 'time ' + filename2,
+                            })
+        df_non_common_values = df_non_common_values.rename(columns={
+                                'time_x': 'time ' + filename1 ,
+                                'time_y': 'time ' + filename2,
+                            })
+        df_common_values = df_common_values.sort_values(by=['time ' + filename1 ,
+                                                            'time ' + filename2,
+                                                            ], ascending=False)
 
-    div_html = div_html + two_plotsMatrix(language, df_turbostat_filtered_1, "Correlation (Turbostat tool) - " + text1,
-                              filename_plot="turbostat_correlation_General_FilteredVersion1", 
-                              type="corrTurbo")
+    second_column = df_non_common_values.pop('Source') 
+    df_non_common_values.insert(1, 'Source', second_column)
+    df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+
+    df_common_values['position'] = range(1,len(df_common_values)+1)
+    first_column = df_common_values.pop('position') 
+    df_common_values.insert(0, 'position', first_column)
+
+    df_non_common_values['position'] = range(1,len(df_non_common_values)+1)
+    first_column = df_non_common_values.pop('position') 
+    df_non_common_values.insert(0, 'position', first_column)
     
-    div_html = div_html + two_plotsMatrix(language, df_turbostat_filtered_2, "Correlation (Turbostat tool) - " + text2,
-                              filename_plot="turbostat_correlation_General_FilteredVersion2", 
-                              type="corrTurbo")
+    common = df_common_values.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">')
+    non_common = df_non_common_values.to_html().replace('<table border="1" class="dataframe">','<table class="table table-striped">')
+
+    return common, non_common, df_common_values, df_non_common_values
+
+def html_filters2Compare(df_turbostat, df_top, df_perf, df, filter1, filter2, text1, text2, filename1, filename2, title):
+
+    df_filtered_1 = df.query(filter1)
+    df_filtered_2 = df.query(filter2)
+
+    df_turbostat_filtered_1 = df_turbostat.query(filter1)
+    df_turbostat_filtered_2 = df_turbostat.query(filter2)
+
+    df_top_filtered_1 = df_top.query(filter1)
+    df_top_filtered_2 = df_top.query(filter2)
+
+    df_perf_filtered_1 = df_perf.query(filter1)
+    df_perf_filtered_2 = df_perf.query(filter2)
+   
+    df_HTML_1, df_1, df_1_pos, df_1_neg = two_plotsMatrix(language, df_filtered_1, "<b>General</b> Correlation (median values) - " + text1,
+                                        filename_plot="general_correlation_MedianValues_Filtered_" + filename1, 
+                                        type="corrGeneral")
     
-    div_html = div_html + two_plotsMatrix(language, df_perf_filtered_1, "Correlation (Perf tool) - " + text1,
-                              filename_plot="perf_correlation_General_FilteredVersion1", 
-                              type="corrPerf")
+    df_HTML_2, df_2, df_2_pos, df_2_neg = two_plotsMatrix(language, df_filtered_2, "<b>General</b> Correlation (median values) - " + text2,
+                                        filename_plot="general_correlation_MedianValues_Filtered_" + filename2, 
+                                        type="corrGeneral")
+
+    df_HTML_turbostat_1, df_turbostat_1, df_turbostat_1_pos, df_turbostat_1_neg = two_plotsMatrix(language, df_turbostat_filtered_1, "Correlation (<b>Turbostat</b> tool) - " + text1,
+                                        filename_plot="turbostat_correlation_General_FilteredNbody_" + filename1, 
+                                        type="corrTurbo")
     
-    div_html = div_html + two_plotsMatrix(language, df_perf_filtered_2, "Correlation (Perf tool) - " + text2,
-                              filename_plot="perf_correlation_General_FilteredVersion2", 
-                              type="corrPerf")
+    df_HTML_turbostat_2, df_turbostat_2, df_turbostat_2_pos, df_turbostat_2_neg = two_plotsMatrix(language, df_turbostat_filtered_2, "Correlation (<b>Turbostat</b> tool) - " + text2,
+                                        filename_plot="turbostat_correlation_General_FilteredBinarytrees_" + filename2, 
+                                        type="corrTurbo")
     
-    div_html = div_html + two_plotsMatrix(language, df_top_filtered_1, "Correlation (Top tool) - " + text1,
-                              filename_plot="top_correlation_General_FilteredVersion1", 
-                              type="corrTop")
+    df_HTML_perf_1, df_perf_1, df_perf_1_pos, df_perf_1_neg = two_plotsMatrix(language, df_perf_filtered_1, "Correlation (<b>Perf</b> tool) - " + text1,
+                                        filename_plot="perf_correlation_General_FilteredNbody_" + filename1, 
+                                        type="corrPerf")
     
-    div_html = div_html + two_plotsMatrix(language, df_top_filtered_2, "Correlation (Top tool) - " + text2,
-                              filename_plot="top_correlation_General_FilteredVersion2", 
-                              type="corrTop")
+    df_HTML_perf_2, df_perf_2, df_perf_2_pos, df_perf_2_neg = two_plotsMatrix(language, df_perf_filtered_2, "Correlation (<b>Perf</b> tool) - " + text2,
+                                        filename_plot="perf_correlation_General_FilteredBinarytrees_" + filename2, 
+                                        type="corrPerf")
     
-    # Per program
+    df_HTML_top_1, df_top_1, df_top_1_pos, df_top_1_neg = two_plotsMatrix(language, df_top_filtered_1, "Correlation (<b>Top</b> tool) - " + text1,
+                                        filename_plot="top_correlation_General_FilteredNbody_" + filename1, 
+                                        type="corrTop")
+    
+    df_HTML_top_2, df_top_2, df_top_2_pos, df_top_2_neg = two_plotsMatrix(language, df_top_filtered_2, "Correlation (<b>Top</b> tool) - " + text2,
+                                        filename_plot="top_correlation_General_FilteredBinarytrees_" + filename2, 
+                                        type="corrTop")
+    
+    # div_html = df_HTML_1 + df_HTML_2 + df_HTML_turbostat_1 + df_HTML_turbostat_2 + df_HTML_perf_1 + df_HTML_perf_2 + df_HTML_top_1 + df_HTML_top_2
+    div_html1 = df_HTML_1 + df_HTML_turbostat_1 + df_HTML_perf_1 + df_HTML_top_1
+    div_html2 = df_HTML_2 + df_HTML_turbostat_2 + df_HTML_perf_2 + df_HTML_top_2
+
+    df_html_common, df_html_non_common, df_common_values, df_non_common_values = df_common_and_noncommon_Parameters(df_1, df_2, filename1, filename2, "general")
+    df_turbostat_html_common, df_turbostat_non_common, df_turbostat_common_values, df_turbostat_non_common_values = df_common_and_noncommon_Parameters(df_turbostat_1, df_turbostat_2, filename1, filename2, "turbostat")
+    df_perf_html_common, df_perf_non_common, df_perf_common_values, df_perf_non_common_values = df_common_and_noncommon_Parameters(df_perf_1, df_perf_2, filename1, filename2, "perf")
+    df_top_html_common, df_top_non_common, df_top_common_values, df_top_non_common_values = df_common_and_noncommon_Parameters(df_top_1, df_top_2, filename1, filename2, "top")
+
+    # print("------" + language + "-------")
+    # print("Common Values:")
+    # print(df_common_values)
+
+    # print("\nNon-Common Values:")
+    # print(df_non_common_values)
+
+    div_common = '''
+                    <div class="row">
+                            <!-- *** Section 3 *** --->
+                            <h2 style="color: #4169E1">Section:  ''' + title + '''</h2>
+                            <h3 style="color: #C41E3A"> General Parameters (median values)</h3>
+                            <h3> <b>Common</b> parameters (<b><u>''' + str(len(df_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_html_common + '''
+                            <h3> <b>Non-Common</b> parameters (<b><u>''' + str(len(df_non_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_html_non_common + '''
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                        ''' + df_HTML_1 + '''
+                        </div>
+                        <div class="column">
+                        ''' + df_HTML_2 + '''
+                        </div>
+                    </div>
+                    <div class="row">
+                            <!-- *** Section 3 *** --->
+                            <h2 style="color: #4169E1">Section:  ''' + title + '''</h2>
+                            <h3 style="color: #C41E3A"> Turbostat Parameters (all data)</h3>
+                            <h3> <b>Common</b> parameters (<b><u>''' + str(len(df_perf_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_turbostat_html_common + '''
+                            <h3> <b>Non-Common</b> parameters (<b><u>''' + str(len(df_perf_non_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_turbostat_non_common + '''
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                        ''' + df_HTML_turbostat_1 + '''
+                        </div>
+                        <div class="column">
+                        ''' + df_HTML_turbostat_2 + '''
+                        </div>
+                    </div>
+                    <div class="row">
+                            <!-- *** Section 3 *** --->
+                            <h2 style="color: #4169E1">Section:  ''' + title + '''</h2>
+                            <h3 style="color: #C41E3A"> Perf Parameters (all data)</h3>
+                            <h3> <b>Common</b> parameters (<b><u>''' + str(len(df_turbostat_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_perf_html_common + '''
+                            <h3> <b>Non-Common</b> parameters (<b><u>''' + str(len(df_turbostat_non_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_perf_non_common + '''
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                        ''' + df_HTML_perf_1 + '''
+                        </div>
+                        <div class="column">
+                        ''' + df_HTML_perf_2 + '''
+                        </div>
+                    </div>
+                    <div class="row">
+                            <!-- *** Section 3 *** --->
+                            <h2 style="color: #4169E1">Section:  ''' + title + '''</h2>
+                            <h3 style="color: #C41E3A"> Top Parameters (all data)</h3>
+                            <h3> <b>Common</b> parameters (<b><u>''' + str(len(df_top_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_top_html_common + '''
+                            <h3> <b>Non-Common</b> parameters (<b><u>''' + str(len(df_top_non_common_values)) + '''</b></u> parameters)</h3>
+                                ''' + df_top_non_common + '''
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                        ''' + df_HTML_top_1 + '''
+                        </div>
+                        <div class="column">
+                        ''' + df_HTML_top_2 + '''
+                        </div>
+                    </div>
+    '''
+
+    return div_common
+
+def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
+
+    if filter == "NbodyandBinarytrees":
+        if language == "python":
+            nbody = "nbody_50000000_OOflag"
+            binarytrees = "binaryTrees_21_original_OOflag"
+        elif language == "c++":
+            nbody = "nbody_50000000_original_O3flag"
+            binarytrees = "binaryTrees_v6_21_original_O3flag"
+        elif language == "java":
+            nbody = "nbody_50000000"
+            binarytrees = "binaryTrees_21_with_Multithreading"
+        elif language == "js":
+            nbody = "nbody_50000000_original"
+            binarytrees = "binaryTrees_original_v1"
+
+        div_html = html_filters2Compare(df_turbostat, df_top, df_perf, df,
+                                        filter1='path == "' + nbody + '"',
+                                        filter2='path == "' + binarytrees +'"',
+                                        text1='ONLY ' + nbody,
+                                        text2='ONLY ' + binarytrees,
+                                        filename1=nbody,
+                                        filename2=binarytrees,
+                                        title="nBody vs BinaryTrees")
+    
+    elif filter == "Nbody" or filter == "Binarytrees":
+        if language == "python":
+            if filter == "Nbody":
+                program = "nbody_50000000_OOflag"
+            elif filter == "Binarytrees":
+                program = "binaryTrees_21_original_OOflag"
+
+            filter_1 = 'path == "' + program + '" and (version == "3.11.3" or version == "3.12.0b1" or version == "3.13.0a0")'
+            filter_2 = 'path == "' + program + '" and (version != "3.11.3" and version != "3.12.0b1" and version != "3.13.0a0")'
+
+            text_1 = "ONLY Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in " + program
+            text_2 = "WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in " + program
+
+            filename_1 = "ONLY_3.11.3_3.12.0b1_and_3.13.0a.0_Versions_" + program
+            filename_2 = "WITHOUT_3.11.3_3.12.0b1_and_3.13.0a.0_Versions_" + program
+
+            title_prog = "ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in " + program
+
+        elif language == "c++":
+            if filter == "Nbody":
+                program = "nbody_50000000_original"
+            elif filter == "Binarytrees":
+                program = "binaryTrees_v6_21_original"
+
+            filter_1 = 'path == "' + program + '_O3flag"'
+            filter_2 = 'path == "' + program + '"'
+
+            text_1 = "USING -O3 flag in " + program + '_O3flag'
+            text_2 = "WITHOUT -O3 flag in " + program
+
+            filename_1 = "USING_O3_" + program + '_O3flag'
+            filename_2 = "WITHOUT_O3_" + program
+
+            title_prog = "USING and WITHOUT -O3 flag in " + program
+
+        elif language == "java":
+            if filter == "Nbody":
+                program = "nbody_50000000"
+            elif filter == "Binarytrees":
+                program = "binaryTrees_21_with_Multithreading"
+
+            filter_1 = 'path == "' + program + '" and (version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2")'
+            filter_2 = 'path == "' + program + '" and (version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2")'
+
+            text_1 = "ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2 in " + program
+            text_2 = "WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in " + program
+
+            filename_1 = "ONLY_1.8.0_382_9.0.4_and_10.0.2_Versions_" + program
+            filename_2 = "WITHOUT_1.8.0_382_9.0.4_and_10.0.2_Versions_" + program
+
+            title_prog = "ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in " + program
+
+        elif language == "js":
+            if filter == "Nbody":
+                program = "nbody_50000000_original"
+            elif filter == "Binarytrees":
+                program = "binaryTrees_original_v7"
+
+            filter_1 = 'path == "' + program + '" and (version == "6.17.1" or version == "7.10.1")'
+            filter_2 = 'path == "' + program + '" and (version != "6.17.1" and version != "7.10.1")'
+
+            text_1 = "ONLY Versions 6.17.1 and 7.10.1 in " + program
+            text_2 = "WITHOUT Versions 6.17.1 and 7.10.1 in " + program
+
+            filename_1 = "ONLY_6.17.1_and_7.10.1_Versions_" + program
+            filename_2 = "WITHOUT_6.17.1_and_7.10.1_Versions_" + program
+
+            title_prog = "ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in " + program
+
+        div_html = html_filters2Compare(df_turbostat, df_top, df_perf, df,
+                                        filter1=filter_1,
+                                        filter2=filter_2,
+                                        text1=text_1,
+                                        text2=text_2,
+                                        filename1=filename_1,
+                                        filename2=filename_2,
+                                        title=title_prog)
+
+    elif filter == "SpecialVersions":
+        if language == "python":
+            text_1 = "ONLY Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+            text_2 = "WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+            filter_1 = 'version == "3.11.3" or version == "3.12.0b1" or version == "3.13.0a0"'
+            filter_2 = 'version != "3.11.3" and version != "3.12.0b1" and version != "3.13.0a0"'
+            filename_1 = "ONLY_3.11.3_3.12.0b1_and_3.13.0a.0_Versions"
+            filename_2 = "WITHOUT_3.11.3_3.12.0b1_and_3.13.0a.0_Versions"
+            title_prog = "ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+        elif language == "c++":
+            text_1 = "Binary Trees Original Version 2 using -O3 (MORE energy consumption and SLOWER)"
+            text_2 = "Binary Trees Original Version 6 using -O3 (LESS energy consumption and FASTER)"
+            filter_1 = 'path == "binaryTrees_v2_21_original_O3flag"'
+            filter_2 = 'path == "binaryTrees_v6_21_original_O3flag"'
+            filename_1 = "binaryTrees_v2_slow"
+            filename_2 = "binaryTrees_v6_fast"
+            title_prog = "Binary Trees Original Version 2 vs Version 6"
+        elif language == 'java':
+            text_1 = "ONLY Versions 1.8.0_382, 9.0.4, and 10.0.2"
+            text_2 = "WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
+            filter_1 = 'version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2"'
+            filter_2 = 'version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2"'
+            filename_1 = "ONLY_1.8.0_382_9.0.4_and_10.0.2_Versions"
+            filename_2 = "WITHOUT_1.8.0_382_9.0.4_and_10.0.2_Versions"
+            title_prog = "ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
+        elif language == 'js':
+            text_1 = "ONLY Versions 6.17.1 and 7.10.1 in the Nbody program"
+            text_2 = "WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program"
+            filter_1 = 'path == "nbody_50000000_original" and (version == "6.17.1" or version == "7.10.1")'
+            filter_2 = 'path == "nbody_50000000_original" and (version != "6.17.1" and version != "7.10.1")'
+            filename_1 = "ONLY_6.17.1_and_7.10.1_Versions_Nbody"
+            filename_2 = "WITHOUT_6.17.1_and_7.10.1_Versions_Nbody"
+            title_prog = "ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program"
+        
+        div_html = html_filters2Compare(df_turbostat, df_top, df_perf, df,
+                                        filter1=filter_1,
+                                        filter2=filter_2,
+                                        text1=text_1,
+                                        text2=text_2,
+                                        filename1=filename_1,
+                                        filename2=filename_2,
+                                        title=title_prog)
+        
     return div_html
 
 def html_TimePlots(df):
@@ -982,8 +1300,14 @@ def html_Information(title, parameter, color):
         div_Information = html_generalPlots(df_turbostat, df_top, df_perf, df)
     elif parameter == "matrix":
         div_Information = html_matrixPlots(df_turbostat, df_top, df_perf, df)
-    elif parameter == "matrixAnalysis":
-        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df)
+    elif parameter == "matrixSpecialVersions":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "SpecialVersions")
+    elif parameter == "matrixNbodyandBinarytrees":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "NbodyandBinarytrees")
+    elif parameter == "matrixNbody":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Nbody")
+    elif parameter == "matrixBinarytrees":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Binarytrees")
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":
@@ -1027,7 +1351,10 @@ if __name__ == '__main__':
 
     div_general = html_Information("General Information", "general", "#B3B6B7")
     div_matrix = html_Information("Matrix Correlation for each tool", "matrix","#B3B6B7")
-    div_matrxiAnalysis = html_Information("Matrix Correlation (Analysis according to the cases)", "matrixAnalysis","#B3B6B7")
+    div_matrixSpecialVersions = html_Information("Matrix Correlation (Special Versions)", "matrixSpecialVersions","#B3B6B7")
+    div_matrixNbodyandBinarytrees = html_Information("Matrix Correlation (the fastest nBody and Binary Trees)", "matrixNbodyandBinarytrees","#B3B6B7")
+    div_matrixNbody = html_Information("Matrix Correlation (the fastest nBody)", "matrixNbody","#B3B6B7")
+    div_matrixBinarytrees = html_Information("Matrix Correlation (the fastest Binary Trees)", "matrixBinarytrees","#B3B6B7")
     div_energy = html_Information("Energy Consumption", "energy", "#28B463")
     div_memory = html_Information("Memory Consumption", "memory", "#3498DB")
     div_extraParam = html_Information("Extra Parameters", "extra_param", "#E74C3C")
@@ -1082,7 +1409,10 @@ if __name__ == '__main__':
             <h1>Programmming Language is  <b>''' + language + '''</b> </h1>
             ''' + div_general + '''
             ''' + div_matrix + '''
-            ''' + div_matrxiAnalysis + '''
+            ''' + div_matrixSpecialVersions + '''
+            ''' + div_matrixNbodyandBinarytrees + '''
+            ''' + div_matrixNbody + '''
+            ''' + div_matrixBinarytrees + '''
             ''' + div_energy + '''
             ''' + div_time + '''
             ''' + div_memory + '''

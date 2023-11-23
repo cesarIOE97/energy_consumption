@@ -1,6 +1,7 @@
 # Libraries
 import os
 import webbrowser
+import pandas as pd
 
 
 # Arguments
@@ -12,6 +13,153 @@ import webbrowser
 
 # Directory
 actual_directory = os.getcwd() + '/'
+
+def get_source(row):
+    if row['_indicator_python_c++'] == 'both':
+        if row['_indicator_java'] == 'both':
+            if row['_indicator_js'] == 'both':
+                return 'common'
+            else:
+                return 'python, c++, java'
+        else:
+            if row['_indicator_js'] == 'both':
+                return 'python, c++, js'
+            else:
+                return 'python, c++'
+    elif row['_indicator_python_c++'] == 'left_only':
+        if row['_indicator_java'] == 'left_only':
+            if row['_indicator_js'] == 'both':
+                return 'python, js'
+            else:
+                return 'python'
+        else: 
+            if row['_indicator_js'] == 'both':
+                return 'python, java, js'
+            else:
+                return 'python, java'
+    elif row['_indicator_python_c++'] == 'right_only':
+        if row['_indicator_java'] == 'left_only':
+            if row['_indicator_js'] == 'both':
+                return 'c++, js'
+            else:
+                return 'c++'
+        else: 
+            if row['_indicator_js'] == 'both':
+                return 'c++, java, js'
+            else:
+                return 'c++, java'
+    elif row['_indicator_java'] == 'both':
+        return 'common'
+    elif row['_indicator_js'] == 'both':
+        return 'common'
+    elif row['_indicator_python_c++'] == 'left_only':
+        return 'python'
+    elif row['_indicator_java'] == 'left_only':
+        return 'c++'
+    elif row['_indicator_js'] == 'left_only':
+        return 'java'
+    else:
+        return 'js'
+
+def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type):
+    df_common_values = pd.merge(pd.merge(pd.merge(df_1, df_2, left_index=True, right_index=True, how='inner', suffixes=('_python', '_c++')),
+                                         df_3, left_index=True, right_index=True, how='inner', suffixes=('', '_java')),
+                                df_4, left_index=True, right_index=True, how='inner', suffixes=('', '_js'))
+    # df_common_values = pd.merge(df_common_values, df_3, left_index=True, right_index=True, how='inner')
+    # df_common_values = df_common_values.drop_duplicates()
+    # df_common_values = pd.merge(df_common_values, df_4, left_index=True, right_index=True, how='inner')
+    df_common_values = df_common_values.drop_duplicates()
+
+    # df_non_common_values = pd.merge(df_1, df_2, left_index=True, right_index=True, how='outer', indicator=True).query('_merge != "both"').drop('_merge', axis=1)
+    # df_non_common_values = pd.merge(df_non_common_values, df_4, left_index=True, right_index=True, how='outer', indicator=True).query('_merge != "both"').drop('_merge', axis=1)
+    df_non_common_values = pd.merge(pd.merge(pd.merge(df_1, df_2, left_index=True, right_index=True, how='outer', indicator='_indicator_python_c++', suffixes=('_python', '_c++')),
+                                     df_3, left_index=True, right_index=True, how='outer', indicator='_indicator_java', suffixes=('', '_java')),
+                            df_4, left_index=True, right_index=True, how='outer', indicator='_indicator_js', suffixes=('', '_js'))
+    df_non_common_values = df_non_common_values.drop_duplicates()
+
+    df_non_common_values['Source'] = df_non_common_values.apply(lambda row: get_source(row), axis=1)
+    second_column = df_non_common_values.pop('Source') 
+    df_non_common_values.insert(0, 'Source', second_column)
+    df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+
+    df_common_values['position'] = range(1,len(df_common_values)+1)
+    first_column = df_common_values.pop('position') 
+    df_common_values.insert(0, 'position', first_column)
+
+    df_non_common_values['position'] = range(1,len(df_non_common_values)+1)
+    first_column = df_non_common_values.pop('position') 
+    df_non_common_values.insert(0, 'position', first_column)
+
+    return df_common_values, df_non_common_values
+
+def correlation_ProgrammingLanguages(correlation_type):
+    if correlation_type == "general":
+        df_python = pd.read_csv("python" + "/correlation_general_medianValues.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_general_medianValues.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_general_medianValues.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_general_medianValues.csv", index_col=0)
+    elif correlation_type == "turbostat":
+        df_python = pd.read_csv("python" + "/correlation_turbostat_allData.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_turbostat_allData.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_turbostat_allData.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_turbostat_allData.csv", index_col=0)
+    elif correlation_type == "perf":
+        df_python = pd.read_csv("python" + "/correlation_perf_allData.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_perf_allData.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_perf_allData.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_perf_allData.csv", index_col=0)
+    elif correlation_type == "top":
+        df_python = pd.read_csv("python" + "/correlation_top_allData.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_top_allData.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_top_allData.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_top_allData.csv", index_col=0)
+
+    df_python.set_index(df_python.columns[0])
+    df_cplusplus.set_index(df_cplusplus.columns[0])
+    df_java.set_index(df_java.columns[0])
+    df_js.set_index(df_js.columns[0])
+
+    df_common_values, df_non_common_values = df_common_and_noncommon_Parameters(df_python, df_cplusplus, df_java, df_js, correlation_type)
+
+    return df_common_values, df_non_common_values
+
+def correlations():
+
+    correlations_df_html = "correlations_all_data.html"
+    with open(correlations_df_html, 'w') as f:
+        f.write('<html><head><title>Correlations Dataframes</title>')
+        f.write('<link rel="shortcut icon" type="x-icon" href="aalto.ico"> </link>')
+        f.write('<style>')
+        f.write('body { font-family: Arial, sans-serif; margin: 20px; }')
+        f.write('table { border-collapse: collapse; width: 100%; margin-top: 20px; }')
+        f.write('th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }')
+        f.write('th { background-color: #f2f2f2; }')
+        f.write('</style>')
+        f.write('</head><body>')
+
+        list = ['general', 'turbostat', 'perf', 'top']
+
+        for correlation_type in list:
+            print("")
+            print("")
+            print("                             -------------------" + correlation_type + "-------------------")
+            df_common_values, df_non_common_values = correlation_ProgrammingLanguages(correlation_type)
+            print("")
+            print("COMMON Correlation " + correlation_type)
+            print(df_common_values)
+            print("")
+            print("NON-COMMON Correlation " + correlation_type)
+            print(df_non_common_values)
+            print("")
+            
+            f.write("<h2>COMMON Correlation " + correlation_type + "</h2>")
+            f.write(df_common_values.to_html())
+            f.write("<h2>NON-COMMON Correlation " + correlation_type + "</h2>")
+            f.write(df_non_common_values.to_html())
+
+        f.write('</body></html>')
+
+    webbrowser.open(correlations_df_html)
 
 # Function by programming language to create the html string
 def html_Language(language, active):
@@ -117,3 +265,5 @@ if __name__ == '__main__':
     f.close()
 
     webbrowser.open_new_tab('general_report.html')
+
+    correlations()

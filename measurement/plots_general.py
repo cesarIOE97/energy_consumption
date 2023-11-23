@@ -38,7 +38,7 @@ def custom_hover_mean(program, x, y, mean, diff, percent_diff, diff_flag):
     return hover
 
 def custom_hover_median(program, x, median, diff, percent_diff):
-    hover = f'Version: {x}<br>Program: {program}<br><b><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br>Median: {median:.2f}<br>'
+    hover = f'Version: {x}<br>Program: {program}<br><i>Percentage Difference:</i> {percent_diff:.2f}%<br>Difference: {diff:.2f}<br>Median: {median:.2f}<br>'
     return hover
 
 def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, diff_flag):
@@ -84,6 +84,8 @@ def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, 
 
     fig = go.Figure(data=bar_traces, layout=layout)
     if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
+    if language == 'python': fig.update_xaxes(categoryorder='array', categoryarray= ['2.5.6', '2.7.18', '3.0.1',  '3.4.10', '3.5.10', '3.6.15', '3.7.16', '3.8.16', '3.9.16','3.10.11', '3.11.3', '3.12.0b1', '3.13.0a0'])
+
 
     if x_data == "time_elapsed":
         fig.update_layout(
@@ -354,7 +356,7 @@ def plot_Matrix(language, df, filename_plot, type, filtered_flag):
             no_pos = str(len(df_positive))
             no_neg = str(len(df_negative))
 
-            return html_fig, positive, negative, no_pos, no_neg
+            return html_fig, positive, negative, no_pos, no_neg, corrs, df_positive, df_negative
 
     return html_fig
 
@@ -465,6 +467,8 @@ def plot_Type(language, df, filename_plot, x_data, y_data, color_data, type):
 
     fig.update_layout(updatemenus=updatemenus, annotations=annotations, hovermode="x unified")
     if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
+    if language == 'python': fig.update_xaxes(categoryorder='array', categoryarray= ['2.5.6', '2.7.18', '3.0.1',  '3.4.10', '3.5.10', '3.6.15', '3.7.16', '3.8.16', '3.9.16','3.10.11', '3.11.3', '3.12.0b1', '3.13.0a0'])
+
 
     if x_data == "time_elapsed":
         fig.update_layout(
@@ -552,7 +556,7 @@ def two_plotsMatrix(language, df, title, filename_plot, type):
         fig1 = plot_Matrix(language, df, filename_plot, type, filtered_flag = False)
     else:
         fig1 = plot_Matrix(language, df, filename_plot, type, filtered_flag = False)
-        fig2, df_positive, df_negative, no_positive, no_negative = plot_Matrix(language, df, filename_plot + "_Filtered", type, filtered_flag=True)
+        fig2, df_positive, df_negative, no_positive, no_negative, df, df_pos, df_neg = plot_Matrix(language, df, filename_plot + "_Filtered", type, filtered_flag=True)
 
     if type == "corrGeneral":
         height = "2000"
@@ -565,40 +569,87 @@ def two_plotsMatrix(language, df, title, filename_plot, type):
     else:
         height = "600"
 
-    div_string = '''
-                <div class="row">
-                        <!-- *** Section 1 *** --->
-                        <h3>Section:  ''' + title + '''</h3>
-                        <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
-                            src="''' + fig1 + '''"></iframe>
-                        <p>Notes: </p>
-                    </div>
-                </div>
-    '''
+    # div_string = '''
+    #             <div class="row">
+    #                     <!-- *** Section 1 *** --->
+    #                     <h3>Section:  ''' + title + '''</h3>
+    #                     <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
+    #                         src="''' + fig1 + '''"></iframe>
+    #                     <p>Notes: </p>
+    #                 </div>
+    #             </div>
+    # '''
+
+    # if type != "scattermatrixTurbo" and type != "scatterTurbo_program" and type != "scatterTurbo_version":
+
+    #     div_extra = '''
+    #                 <details>
+    #                     <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH ''' + title + '''</summary>
+    #                     <div class="row">
+    #                             <!-- *** Section 2 *** --->
+    #                             <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
+    #                                 src="''' + fig2 + '''"></iframe>
+    #                             <p>Notes: Detect the MAIN parameters</p>
+    #                     </div>
+    #                     <div class="row">
+    #                             <!-- *** Section 3 *** --->
+    #                             <h3> High <b>POSITIVE</b> Correlation (<b><u>''' + no_positive + '''</b></u> parameters)</h3>
+    #                             ''' + df_positive + '''
+    #                             <h3> High <b>NEGATIVE</b> Correlation (<b><u>''' + no_negative + '''</b></u> parameters)</h3>
+    #                             ''' + df_negative + '''
+    #                     </div>
+    #                 </details>
+    #         '''
+    #     return div_string + div_extra
+
+    # return div_string
 
     if type != "scattermatrixTurbo" and type != "scatterTurbo_program" and type != "scatterTurbo_version":
 
-        div_extra = '''
-                    <details>
-                        <summary style="background-color: #E5E4E2;">Section: Filtered by HIGH ''' + title + '''</summary>
-                        <div class="row">
-                                <!-- *** Section 2 *** --->
-                                <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
+        div_extra = '''                     
+                    <div class="row">
+                            <!-- *** Section 2 *** --->
+                            <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
                                     src="''' + fig2 + '''"></iframe>
-                                <p>Notes: Detect the MAIN parameters</p>
-                        </div>
-                        <div class="row">
-                                <!-- *** Section 3 *** --->
-                                <h3> High <b>POSITIVE</b> Correlation (<b><u>''' + no_positive + '''</b></u> parameters)</h3>
+                            <p>Notes: Detect the MAIN parameters</p>
+                    </div>
+                    <div class="row">
+                            <!-- *** Section 3 *** --->
+                            <h3 style="color: #C41E3A">Section:  ''' + title + '''</h3>
+                            <h4> High <b>POSITIVE</b> Correlation (<b><u>''' + no_positive + '''</b></u> parameters)</h3>
                                 ''' + df_positive + '''
-                                <h3> High <b>NEGATIVE</b> Correlation (<b><u>''' + no_negative + '''</b></u> parameters)</h3>
+                            <h4> High <b>NEGATIVE</b> Correlation (<b><u>''' + no_negative + '''</b></u> parameters)</h3>
                                 ''' + df_negative + '''
+                    </div>
+            '''
+        div_string = '''
+                    <details>
+                        <summary style="background-color: #E5E4E2;"><b>ALL PARAMETERS</b> ''' + title + '''</summary>
+                        <div class="row">
+                                <!-- *** Section 1 *** --->
+                                <h3>Section:  ''' + title + '''</h3>
+                                <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
+                                    src="''' + fig1 + '''"></iframe>
+                                <p>Notes: </p>
                         </div>
                     </details>
-            '''
-        return div_string + div_extra
+        '''
+        return div_extra + div_string, df, df_pos, df_neg
+    
+    else:
+        div_string = '''
+                    <div class="row">
+                            <!-- *** Section 1 *** --->
+                            <h3>Section:  ''' + title + '''</h3>
+                            <iframe class="plot" style="height: ''' + height + '''" frameborder="0" seamless="seamless" scrolling="no" \
+                                src="''' + fig1 + '''"></iframe>
+                            <p>Notes: </p>
+                        </div>
+                    </div>
+        '''
 
-    return div_string
+        return div_string
+
 
 def one_plot(language, df, title, filename_plot, x_data, y_data, color_data, type):
 
