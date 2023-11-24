@@ -1,0 +1,44 @@
+Think of removing the GFX_J
+Save all plots as jpg 
+Save all tables as ...
+
+
+
+
+OBSERVATIONS
+
+Compare the compatible vs original
+Compare the original with OPTIMIZATION and without
+
+Compare 4 compatible codes and see the differences and impact
+
+
+
+
+COMMENTS
+
+How to the write codes accordi
+
+Codes compatible with old versions consume MUCH ENERGY
+Codes with less compatiblity with the versions consume LESS ENERGY (original versions due to they have been developed to run very fast
+
+
+
+
+
+PYTHON
+
+binarytrees original vs compatible
+
+
+C++
+binarytrees v2 original with VS without O3 flag
+nbody original vs compatible WITH O3 flag
+nbody original vs compatible WITHOUT O3 flag
+
+Java
+original vs modified
+
+JS
+nbody original vs compatible
+binary trees v7 original vs compatible

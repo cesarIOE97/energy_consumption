@@ -465,7 +465,7 @@ def df_common_and_noncommon_Parameters(df_1, df_2, filename1, filename2, type):
                                                             ], ascending=False)
 
     second_column = df_non_common_values.pop('Source') 
-    df_non_common_values.insert(1, 'Source', second_column)
+    df_non_common_values.insert(0, 'Source', second_column)
     df_non_common_values = df_non_common_values.sort_values(by=['Source'])
 
     df_common_values['position'] = range(1,len(df_common_values)+1)
@@ -1302,12 +1302,44 @@ def html_Information(title, parameter, color):
         div_Information = html_matrixPlots(df_turbostat, df_top, df_perf, df)
     elif parameter == "matrixSpecialVersions":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "SpecialVersions")
+        if language == "python":
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+        elif language == "c++":
+            title = title + " - Binary Trees Original v2 VS v6"
+        elif language == "java":
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
+        elif language == "js":
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program (original)"
     elif parameter == "matrixNbodyandBinarytrees":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "NbodyandBinarytrees")
+        if language == "python":
+            title = title + " - Nbody vs Binary Trees (original version using OO flag)"
+        elif language == "c++":
+            title = title + " - Nbody vs Binary Trees v6 (original version using O3 flag)"
+        elif language == "java":
+            title = title + " - Nbody vs Binary Trees v1 (original version)"
+        elif language == "js":
+            title = title + " - Nbody vs Binary Trees v1 (original version)"
     elif parameter == "matrixNbody":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Nbody")
+        if language == "python":
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Nbody Original (using OO flag)"
+        elif language == "c++":
+            title = title + " - USING and WITHOUT -O3 flag in Nbody Original"
+        elif language == "java":
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in Nbody Original"
+        elif language == "js":
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Nbody Original"
     elif parameter == "matrixBinarytrees":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Binarytrees")
+        if language == "python":
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Binary Trees Original (using OO flag)"
+        elif language == "c++":
+            title = title + " - USING and WITHOUT -O3 flag in Binary Trees v6 (original)"
+        elif language == "java":
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in in Binary Trees (original)"
+        elif language == "js":
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Binary Trees v7 (original)"
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":

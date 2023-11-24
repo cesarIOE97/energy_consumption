@@ -1,6 +1,7 @@
 # Libraries
 import os
 import webbrowser
+import math
 import pandas as pd
 from IPython.display import display, HTML
 
@@ -48,6 +49,14 @@ def get_source(row):
                 return 'c++, java, js'
             else:
                 return 'c++, java'
+    elif math.isnan(row['_indicator_python_c++']):
+        if row['_indicator_java'] == 'right_only':
+            if row['_indicator_js'] == 'both':
+                return 'java, js'
+            else:
+                return 'js'
+        else: 
+            return 'js'
     elif row['_indicator_java'] == 'both':
         return 'common'
     elif row['_indicator_js'] == 'both':
@@ -80,7 +89,7 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: get_source(row), axis=1)
     second_column = df_non_common_values.pop('Source') 
     df_non_common_values.insert(0, 'Source', second_column)
-    df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+    df_non_common_values = df_non_common_values.sort_values(by=['Source','_indicator_python_c++','_indicator_java','_indicator_js'])
 
     # if type == "general" or type == "turbostat":
     #     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_elapsed_y']) else filename2, axis=1)    
@@ -152,6 +161,15 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     # second_column = df_non_common_values.pop('Source') 
     # df_non_common_values.insert(1, 'Source', second_column)
     # df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+
+    custom_order = ["common","python,c++,java","python,c++,js","python,java","python,js","c++,java","c++,js","java,js","python","c++","java","js"]
+
+    # Create a custom sorting key based on the order
+    sorting_key = {value: index for index, value in enumerate(custom_order)}
+
+    # Apply the custom sorting key to sort the DataFrame
+    df_non_common_values['sorting_key'] = df_non_common_values['Source'].map(sorting_key)
+    df_non_common_values = df_non_common_values.sort_values(by='sorting_key').drop('sorting_key', axis=1)
 
     df_common_values['position'] = range(1,len(df_common_values)+1)
     first_column = df_common_values.pop('position') 

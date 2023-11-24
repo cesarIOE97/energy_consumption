@@ -80,7 +80,14 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: get_source(row), axis=1)
     second_column = df_non_common_values.pop('Source') 
     df_non_common_values.insert(0, 'Source', second_column)
-    df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+    # df_non_common_values = df_non_common_values.sort_values(by=['Source'])
+
+    custom_order = ["common","python,c++,java","python,c++,js","python,java","python,js","c++,java","c++,js","java,js","python","c++","java","js"]
+
+    sorting_key = {value: index for index, value in enumerate(custom_order)}
+
+    df_non_common_values['sorting_key'] = df_non_common_values['Source'].map(sorting_key)
+    df_non_common_values = df_non_common_values.sort_values(by='sorting_key').drop('sorting_key', axis=1)
 
     df_common_values['position'] = range(1,len(df_common_values)+1)
     first_column = df_common_values.pop('position') 
