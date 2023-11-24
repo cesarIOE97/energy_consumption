@@ -1303,13 +1303,13 @@ def html_Information(title, parameter, color):
     elif parameter == "matrixSpecialVersions":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "SpecialVersions")
         if language == "python":
-            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0"
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 (all programs)"
         elif language == "c++":
-            title = title + " - Binary Trees Original v2 VS v6"
+            title = title + " - Binary Trees v2 VS v6 (original versions using O3)"
         elif language == "java":
-            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2"
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 (all programs)"
         elif language == "js":
-            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program (original)"
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in the Nbody program (original version)"
     elif parameter == "matrixNbodyandBinarytrees":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "NbodyandBinarytrees")
         if language == "python":
@@ -1323,23 +1323,23 @@ def html_Information(title, parameter, color):
     elif parameter == "matrixNbody":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Nbody")
         if language == "python":
-            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Nbody Original (using OO flag)"
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Nbody (original version using OO flag)"
         elif language == "c++":
-            title = title + " - USING and WITHOUT -O3 flag in Nbody Original"
+            title = title + " - USING and WITHOUT -O3 flag in Nbody (original version)"
         elif language == "java":
-            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in Nbody Original"
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in Nbody (original version)"
         elif language == "js":
-            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Nbody Original"
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Nbody (original version)"
     elif parameter == "matrixBinarytrees":
         div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "Binarytrees")
         if language == "python":
-            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Binary Trees Original (using OO flag)"
+            title = title + " - ONLY vs WITHOUT Versions 3.11.3, 3.12.0b1, and 3.13.0a.0 in Binary Trees (original version using OO flag)"
         elif language == "c++":
-            title = title + " - USING and WITHOUT -O3 flag in Binary Trees v6 (original)"
+            title = title + " - USING and WITHOUT -O3 flag in Binary Trees v6 (original version)"
         elif language == "java":
-            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in in Binary Trees (original)"
+            title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in in Binary Trees (original version)"
         elif language == "js":
-            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Binary Trees v7 (original)"
+            title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Binary Trees v7 (original version)"
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":
@@ -1381,22 +1381,22 @@ def html_Information(title, parameter, color):
 
 if __name__ == '__main__':
 
-    div_general = html_Information("General Information", "general", "#B3B6B7")
-    div_matrix = html_Information("Matrix Correlation for each tool", "matrix","#B3B6B7")
-    div_matrixSpecialVersions = html_Information("Matrix Correlation (Special Versions)", "matrixSpecialVersions","#B3B6B7")
-    div_matrixNbodyandBinarytrees = html_Information("Matrix Correlation (the fastest nBody and Binary Trees)", "matrixNbodyandBinarytrees","#B3B6B7")
-    div_matrixNbody = html_Information("Matrix Correlation (the fastest nBody)", "matrixNbody","#B3B6B7")
-    div_matrixBinarytrees = html_Information("Matrix Correlation (the fastest Binary Trees)", "matrixBinarytrees","#B3B6B7")
-    div_energy = html_Information("Energy Consumption", "energy", "#28B463")
-    div_memory = html_Information("Memory Consumption", "memory", "#3498DB")
-    div_extraParam = html_Information("Extra Parameters", "extra_param", "#E74C3C")
-    div_time = html_Information("Time Elapsed", "time", "#F39C12")
-    div_performance = html_Information("Performance", "performance", "#F1C40F")
-    div_performance_Top = html_Information("Performance Top-Analysis", "performance_top", "#F1C40F")
-    div_cpu = html_Information("CPU usage", "cpu", "#F1C40F")
-    div_temp = html_Information("Temperature", "temperature", "#9B59B6")
-    div_cstates = html_Information("Cstates", "cstates", "#F7DC6F")
-    div_pageFaults = html_Information("Page Faults", "pageFaults", "#5DADE2")
+    div_general = html_Information("<b>General Information</b>", "general", "#B3B6B7")
+    div_matrix = html_Information("<b>Matrix Correlation for each tool</b>", "matrix","#B3B6B7")
+    div_matrixSpecialVersions = html_Information("<b>Matrix Correlation (Special Versions)</b>", "matrixSpecialVersions","#B3B6B7")
+    div_matrixNbodyandBinarytrees = html_Information("<b>Matrix Correlation (the fastest nBody and Binary Trees)</b>", "matrixNbodyandBinarytrees","#B3B6B7")
+    div_matrixNbody = html_Information("<b>Matrix Correlation (the fastest nBody)</b>", "matrixNbody","#B3B6B7")
+    div_matrixBinarytrees = html_Information("<b>Matrix Correlation (the fastest Binary Trees)</b>", "matrixBinarytrees","#B3B6B7")
+    div_energy = html_Information("<b>Energy Consumption</b>", "energy", "#28B463")
+    div_memory = html_Information("<b>Memory Consumption</b>", "memory", "#3498DB")
+    div_extraParam = html_Information("<b>Extra Parameters</b>", "extra_param", "#E74C3C")
+    div_time = html_Information("<b>Time Elapsed</b>", "time", "#F39C12")
+    div_performance = html_Information("<b>Performance</b>", "performance", "#F1C40F")
+    div_performance_Top = html_Information("<b>Performance Top-Analysis</b>", "performance_top", "#F1C40F")
+    div_cpu = html_Information("<b>CPU usage</b>", "cpu", "#F1C40F")
+    div_temp = html_Information("<b>Temperature</b>", "temperature", "#9B59B6")
+    div_cstates = html_Information("<b>Cstates</b>", "cstates", "#F7DC6F")
+    div_pageFaults = html_Information("<b>Page Faults</b>", "pageFaults", "#5DADE2")
 
     print("Creating the general report for " + language + "...")
     
