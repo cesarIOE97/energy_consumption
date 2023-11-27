@@ -195,7 +195,7 @@ def plot_Matrix(language, df, filename_plot, type, filtered_flag):
 
         elif type == "corrPerf":
             corrs = df[['time_elapsed_sec','CPU_Utilization','Retiring','Frontend_Bound','Bad_Speculation','Backend_Bound',
-                        'TotalSlots_Giga','FetchBubbles_Giga','SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','SlotsBackend_Giga',
+                        'TotalSlots','FetchBubbles','SlotsRetired','SlotsIssued+RecoveryBubbles','SlotsBackend',
                         'CPI','ILP','IPC_perf','cycles','freq_cycles_GHz','instructions',
                         'Kernel_Utilization', 'L1D_Cache_Fill_BW', 'Turbo_Utilization', 'cycles',
                         'instructions', 'insn_per_cycle', 'cpu_clock_msec', 'no_cpus', 'cpu_cycles', 'freq_cpu_cycles_GHz',
@@ -243,7 +243,7 @@ def plot_Matrix(language, df, filename_plot, type, filtered_flag):
                     'time','virt','res','shr','percent_cpu','percent_mem','nTH','P',
                     'SWAP','CODE','DATA','nMaj','nDRT','USED',
                     'time_elapsed_sec','CPU_Utilization','Retiring','Frontend_Bound','Bad_Speculation','Backend_Bound',
-                    'TotalSlots_Giga','FetchBubbles_Giga','SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','SlotsBackend_Giga',
+                    'TotalSlots','FetchBubbles','SlotsRetired','SlotsIssued+RecoveryBubbles','SlotsBackend',
                         'CPI','ILP','IPC_perf','cycles','freq_cycles_GHz','instructions',
                         'Kernel_Utilization', 'L1D_Cache_Fill_BW', 'Turbo_Utilization', 'cycles',
                         'instructions', 'insn_per_cycle', 'cpu_clock_msec', 'no_cpus', 'cpu_cycles', 'freq_cpu_cycles_GHz',

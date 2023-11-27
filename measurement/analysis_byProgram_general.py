@@ -288,12 +288,12 @@ def from_CSVfiles(tool, norm):
                 df = df.rename(columns={"IPC": "IPC_perf"})
 
                 # df['TotalSlots'] = df['freq_cycles_GHz'] * 4 * 1000000000
-                df['TotalSlots_Giga'] = df['freq_cycles_GHz'] * 4
-                df['FetchBubbles_Giga'] = df['TotalSlots_Giga'] * df['Frontend_Bound'] 
-                df['SlotsRetired_Giga'] = df['TotalSlots_Giga'] * df['Retiring'] 
-                # df['SlotsIssued+RecoveryBubbles_Giga'] = (df['TotalSlots_Giga'] * df['Bad_Speculation']) + df['SlotsRetired_Giga']
-                df['SlotsIssued+RecoveryBubbles_Giga'] = df['TotalSlots_Giga'] * df['Bad_Speculation'] 
-                df['SlotsBackend_Giga'] = df['TotalSlots_Giga'] * df['Backend_Bound'] 
+                df['TotalSlots'] = df['cycles'] * 4
+                df['FetchBubbles'] = df['TotalSlots'] * df['Frontend_Bound'] 
+                df['SlotsRetired'] = df['TotalSlots'] * df['Retiring'] 
+                # df['SlotsIssued+RecoveryBubbles'] = (df['TotalSlots'] * df['Bad_Speculation']) + df['SlotsRetired']
+                df['SlotsIssued+RecoveryBubbles'] = df['TotalSlots'] * df['Bad_Speculation'] 
+                df['SlotsBackend'] = df['TotalSlots'] * df['Backend_Bound'] 
                 df.to_csv(path + "perf_data_allVersions_10times.csv", index=False)
             else:
                 # df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
@@ -309,7 +309,7 @@ def general_df(df_turbostat, df_perf, df_top):
                         'Pkg_J','Cor_J','RAM_J','GFX_J', 'Avg_MHz', 'Busy%', 'IPC', 'IRQ', 'POLL', 'C1%','C1E%','C3%','C6%','C7s%','C8%',
                         'C9%','C10%','CPU%c1','CPU%c3','CPU%c6','CPU%c7','CoreTmp','PkgTmp','GFX%rc6','Totl%C0','Any%C0','GFX%C0','CPUGFX%']].median().reset_index()
     df2 = df_perf.groupby(["path","version","release_date"], sort=False)[['time_elapsed_sec','CPU_Utilization','Retiring','Frontend_Bound','Bad_Speculation','Backend_Bound',
-                            'TotalSlots_Giga','FetchBubbles_Giga','SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','SlotsBackend_Giga',
+                            'TotalSlots','FetchBubbles','SlotsRetired','SlotsIssued+RecoveryBubbles','SlotsBackend',
                             'CPI','ILP','IPC_perf','cycles','freq_cycles_GHz','instructions',
                             'Kernel_Utilization', 'L1D_Cache_Fill_BW', 'Turbo_Utilization', 'cycles',
                             'instructions', 'insn_per_cycle', 'cpu_clock_msec', 'no_cpus', 'cpu_cycles', 'freq_cpu_cycles_GHz',
@@ -628,14 +628,14 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
 
     if filter == "NbodyandBinarytrees":
         if language == "python":
-            nbody = "nbody_50000000_OOflag"
+            nbody = "nbody_50000000_original_OOflag"
             binarytrees = "binaryTrees_21_original_OOflag"
         elif language == "c++":
             nbody = "nbody_50000000_original_O3flag"
             binarytrees = "binaryTrees_v6_21_original_O3flag"
         elif language == "java":
-            nbody = "nbody_50000000"
-            binarytrees = "binaryTrees_21_with_Multithreading"
+            nbody = "nbody_50000000_original"
+            binarytrees = "binaryTrees_21_original_with_Multithreading"
         elif language == "js":
             nbody = "nbody_50000000_original"
             binarytrees = "binaryTrees_original_v1"
@@ -652,7 +652,7 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
     elif filter == "Nbody" or filter == "Binarytrees":
         if language == "python":
             if filter == "Nbody":
-                program = "nbody_50000000_OOflag"
+                program = "nbody_50000000_original_OOflag"
             elif filter == "Binarytrees":
                 program = "binaryTrees_21_original_OOflag"
 
@@ -686,9 +686,9 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
 
         elif language == "java":
             if filter == "Nbody":
-                program = "nbody_50000000"
+                program = "nbody_50000000_original"
             elif filter == "Binarytrees":
-                program = "binaryTrees_21_with_Multithreading"
+                program = "binaryTrees_21_original_with_Multithreading"
 
             filter_1 = 'path == "' + program + '" and (version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2")'
             filter_2 = 'path == "' + program + '" and (version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2")'
@@ -920,28 +920,28 @@ def html_MemoryPlots(df_turbo, df_top):
                          type="barTop")
     
     code_Box = one_plot(language, df_top, "Code Memory",
-                         filename_plot="top_shr_box", 
+                         filename_plot="top_CODE_box", 
                          x_data="version", 
                          y_data="CODE", 
                          color_data="path",
                          type="box")
     
     code_Bar = two_plots(language, df_top, "Mean of Code Memory",
-                         filename_plot="top_shr", 
+                         filename_plot="top_CODE", 
                          x_data="version", 
                          y_data="CODE", 
                          color_data="path",
                          type="barTop")
     
     data_Box = one_plot(language, df_top, "DATA Memory",
-                         filename_plot="top_shr_box", 
+                         filename_plot="top_DATA_box", 
                          x_data="version", 
                          y_data="DATA", 
                          color_data="path",
                          type="box")
     
     data_Bar = two_plots(language, df_top, "Mean of DATA Memory",
-                         filename_plot="top_shr", 
+                         filename_plot="top_DATA", 
                          x_data="version", 
                          y_data="DATA", 
                          color_data="path",
@@ -982,59 +982,92 @@ def html_PerformancePlots(df_perf):
     
     return div_html
 
-def html_ExtraParameters(df_turbostat, df_perf):
-    IPC = two_plots(language, df_turbostat, "IPC (Instructions per Cycle/Clock) by TURBOSTAT",
-                         filename_plot="turbostat_IPC", 
-                         x_data="version", 
-                         y_data="IPC", 
-                         color_data="path",
-                         type="lineTurbo")
-    IRQ = two_plots(language, df_turbostat, "IRQ (Interrupt Request)",
-                         filename_plot="turbostat_IRQ", 
-                         x_data="version", 
-                         y_data="IRQ", 
-                         color_data="path",
-                         type="lineTop")
-    CPI = two_plots(language, df_perf, "CPI (Cycles per Instruction)",
-                         filename_plot="perf_CPI", 
-                         x_data="version", 
-                         y_data="CPI", 
-                         color_data="path",
-                         type="lineTop")
-    IPC_perf = two_plots(language, df_perf, "IPC (Instructions per Cycle/Clock) by PERF",
-                         filename_plot="perf_IPC", 
-                         x_data="version", 
-                         y_data="IPC_perf", 
-                         color_data="path",
-                         type="lineTop")
-    cycles = two_plots(language, df_perf, "Cycles by PERF",
-                         filename_plot="perf_cycles", 
-                         x_data="version", 
-                         y_data="cycles", 
-                         color_data="path",
-                         type="lineTop")
-    instructions = two_plots(language, df_perf, "Instructions by PERF",
-                         filename_plot="perf_instructions", 
-                         x_data="version", 
-                         y_data="instructions", 
-                         color_data="path",
-                         type="lineTop")
-    branches = two_plots(language, df_perf, "Branches by PERF",
-                         filename_plot="perf_branches", 
-                         x_data="version", 
-                         y_data="branches", 
-                         color_data="path",
-                         type="lineTop")
-    branch_misses = two_plots(language, df_perf, "Branches Misses by PERF",
-                         filename_plot="perf_branch_misses", 
-                         x_data="version", 
-                         y_data="branch_misses", 
-                         color_data="path",
-                         type="lineTop")
-    
-    div_html = IPC + IRQ + CPI + IPC_perf + cycles + instructions + branches + branch_misses
-    
+def html_HighParameters(df, df_turbostat, df_perf, df_top):
+
+    list=['instructions', 'SlotsRetired', 'branches', 'dTLB_loads', 'L1_dcache_loads', 'mem_stores', 'branch_misses', 'SlotsIssued+RecoveryBubbles', 'FetchBubbles', 'TotalSlots', 'cpu_cycles', 'GFX%C0', 'CPUGFX%']
+
+    div_html = ''
+
+    for parameter in list:
+
+        if parameter == 'GFX%C0' or parameter == 'CPUGFX%':
+            if parameter == 'GFX%C0':
+                div_html = div_html + two_plots(language, df_turbostat, parameter + " by TURBOSTAT",
+                                        filename_plot="perf_HIGHcorrelation_GFX_C0_PERCENT", 
+                                        x_data="version", 
+                                        y_data=parameter, 
+                                        color_data="path",
+                                        type="lineTop")
+            else:
+                div_html = div_html + two_plots(language, df_turbostat, parameter + " by TURBOSTAT",
+                                        filename_plot="perf_HIGHcorrelation_" + parameter, 
+                                        x_data="version", 
+                                        y_data=parameter, 
+                                        color_data="path",
+                                        type="lineTop")
+        else:
+            div_html = div_html + two_plots(language, df_perf, parameter + " by PERF",
+                                        filename_plot="perf_HIGHcorrelation_" + parameter, 
+                                        x_data="version", 
+                                        y_data=parameter, 
+                                        color_data="path",
+                                        type="lineTop")
+
     return div_html
+
+
+
+def html_ExtraParameters(df_turbostat, df_perf):
+    list=['IPC', 'IRQ', 'cycles', 'freq_cycles_GHz', 'cache_misses', 'cache_references', 'page_faults', 'LLC_loads', 'Kernel_Utilization', 'L1_dcache_load_misses']
+
+    div_html = ''
+
+    for parameter in list:
+
+        if parameter == 'IPC' or parameter == 'IRQ':
+            div_html = div_html + two_plots(language, df_turbostat, parameter + " by TURBOSTAT",
+                                        filename_plot="perf_HIGHcorrelation_" + parameter, 
+                                        x_data="version", 
+                                        y_data=parameter, 
+                                        color_data="path",
+                                        type="lineTop")
+        else:
+            div_html = div_html + two_plots(language, df_perf, parameter + " by PERF",
+                                        filename_plot="perf_HIGHcorrelation_" + parameter, 
+                                        x_data="version", 
+                                        y_data=parameter, 
+                                        color_data="path",
+                                        type="lineTop")
+
+    return div_html
+    # IPC = two_plots(language, df_turbostat, "IPC (Instructions per Cycle/Clock) by TURBOSTAT",
+    #                      filename_plot="turbostat_IPC", 
+    #                      x_data="version", 
+    #                      y_data="IPC", 
+    #                      color_data="path",
+    #                      type="lineTurbo")
+    # IRQ = two_plots(language, df_turbostat, "IRQ (Interrupt Request)",
+    #                      filename_plot="turbostat_IRQ", 
+    #                      x_data="version", 
+    #                      y_data="IRQ", 
+    #                      color_data="path",
+    #                      type="lineTop")
+    # cycles = two_plots(language, df_perf, "Cycles by PERF",
+    #                      filename_plot="perf_cycles", 
+    #                      x_data="version", 
+    #                      y_data="cycles", 
+    #                      color_data="path",
+    #                      type="lineTop")
+    # freq_cycles = two_plots(language, df_perf, "freq_cycles by PERF",
+    #                      filename_plot="perf_freq_cycles", 
+    #                      x_data="version", 
+    #                      y_data="freq_cycles", 
+    #                      color_data="path",
+    #                      type="lineTop")
+    
+    # div_html = IPC + IRQ + cycles + freq_cycles
+    
+    # return div_html
     
 
 def html_PerformanceEachOnePlots(df_perf):
@@ -1139,7 +1172,7 @@ def html_PerformanceEachOnePlots(df_perf):
 def html_PerformanceEachOnePlots_Slots(df_perf, df_turbostat):
 
     x_data = "version"
-    categories = ['SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','FetchBubbles_Giga','SlotsBackend_Giga']
+    categories = ['SlotsRetired','SlotsIssued+RecoveryBubbles','FetchBubbles','SlotsBackend']
     programs = df_perf["path"].unique()
     div_html = ''
     flag = True
@@ -1183,9 +1216,9 @@ def html_PerformanceEachOnePlots_Slots(df_perf, df_turbostat):
         fig.update_layout(
             legend=dict(orientation="h"),
             yaxis=dict(
-                title=dict(text="Issue-pipeline slots (10^9)"),
+                title=dict(text="Issue-pipeline slots"),
                 side="left",
-                range=[0, (df['SlotsRetired_Giga'] + df['SlotsIssued+RecoveryBubbles_Giga'] + df['FetchBubbles_Giga'] + df['SlotsBackend_Giga']).max()],
+                range=[0, (df['SlotsRetired'] + df['SlotsIssued+RecoveryBubbles'] + df['FetchBubbles'] + df['SlotsBackend']).max()],
             ),
             yaxis2=dict(
                 title=dict(text="Energy Consumed (Pkg + RAM) in Joules"),
@@ -1513,6 +1546,8 @@ def html_Information(title, parameter, color):
         div_Information = html_MemoryPlots(df_turbostat, df_top)
     elif parameter == "time":
         div_Information = html_TimePlots(df_turbostat)
+    elif parameter == "high_param":
+        div_Information = html_HighParameters(df, df_turbostat, df_perf, df_top)
     elif parameter == "extra_param":
         div_Information = html_ExtraParameters(df_turbostat, df_perf)
     elif parameter == "performance":
@@ -1559,6 +1594,7 @@ if __name__ == '__main__':
     div_matrixOriginalVSCompatible = html_Information("<b>Matrix Correlation (Original vs Compatible)</b>", "OriginalVSCompatible", "#B3B6B7")
     div_energy = html_Information("<b>Energy Consumption</b>", "energy", "#28B463")
     div_memory = html_Information("<b>Memory Consumption</b>", "memory", "#3498DB")
+    div_highParam = html_Information("<b>Parameters with HIGH correlation</b>", "high_param", "#E74C3C")
     div_extraParam = html_Information("<b>Extra Parameters</b>", "extra_param", "#E74C3C")
     div_time = html_Information("<b>Time Elapsed</b>", "time", "#F39C12")
     div_performance = html_Information("<b>Performance</b>", "performance", "#F1C40F")
@@ -1611,20 +1647,21 @@ if __name__ == '__main__':
         <body>
             <h1>Programmming Language is  <b>''' + language + '''</b> </h1>
             ''' + div_general + '''
+            ''' + div_energy + '''
+            ''' + div_time + '''
+            ''' + div_memory + '''
             ''' + div_matrix + '''
             ''' + div_matrixSpecialVersions + '''
             ''' + div_matrixNbodyandBinarytrees + '''
             ''' + div_matrixNbody + '''
             ''' + div_matrixBinarytrees + '''
             ''' + div_matrixOriginalVSCompatible + '''
-            ''' + div_energy + '''
-            ''' + div_time + '''
-            ''' + div_memory + '''
+            ''' + div_performance_Top_Slots + '''
+            ''' + div_performance_Top + '''
+            ''' + div_performance + '''
+            ''' + div_highParam + '''
             ''' + div_extraParam + '''
             ''' + div_cpu + '''
-            ''' + div_performance + '''
-            ''' + div_performance_Top + '''
-            ''' + div_performance_Top_Slots + '''
             ''' + div_temp + '''
             ''' + div_pageFaults + '''
             ''' + div_cstates + '''
