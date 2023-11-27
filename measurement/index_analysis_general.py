@@ -48,6 +48,14 @@ def get_source(row):
                 return 'c++, java, js'
             else:
                 return 'c++, java'
+    elif math.isnan(row['_indicator_python_c++']):
+        if row['_indicator_java'] == 'right_only':
+            if row['_indicator_js'] == 'both':
+                return 'java, js'
+            else:
+                return 'js'
+        else: 
+            return 'js'
     elif row['_indicator_java'] == 'both':
         return 'common'
     elif row['_indicator_js'] == 'both':
@@ -60,7 +68,7 @@ def get_source(row):
         return 'java'
     else:
         return 'js'
-
+    
 def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type):
     df_common_values = pd.merge(pd.merge(pd.merge(df_1, df_2, left_index=True, right_index=True, how='inner', suffixes=('_python', '_c++')),
                                          df_3, left_index=True, right_index=True, how='inner', suffixes=('', '_java')),

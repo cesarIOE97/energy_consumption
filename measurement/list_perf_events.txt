@@ -49,7 +49,7 @@
   mem-loads OR cpu/mem-loads/                        [Kernel PMU event]
   mem-stores OR cpu/mem-stores/                      [Kernel PMU event]
   ref-cycles OR cpu/ref-cycles/                      [Kernel PMU event]
-  topdown-fetch-bubbles OR cpu/topdown-fetch-bubbles/ [Kernel PMU event]
+  topdown--bubbles OR cpu/topdown-fetch-bubbles/ [Kernel PMU event]
   topdown-recovery-bubbles OR cpu/topdown-recovery-bubbles/ [Kernel PMU event]
   topdown-slots-issued OR cpu/topdown-slots-issued/  [Kernel PMU event]
   topdown-slots-retired OR cpu/topdown-slots-retired/ [Kernel PMU event]

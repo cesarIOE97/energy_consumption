@@ -287,6 +287,13 @@ def from_CSVfiles(tool, norm):
                         df.rename(columns={parameter: f'{parameter}_{colname}'}, inplace=True)
                 df = df.rename(columns={"IPC": "IPC_perf"})
 
+                # df['TotalSlots'] = df['freq_cycles_GHz'] * 4 * 1000000000
+                df['TotalSlots_Giga'] = df['freq_cycles_GHz'] * 4
+                df['FetchBubbles_Giga'] = df['TotalSlots_Giga'] * df['Frontend_Bound'] 
+                df['SlotsRetired_Giga'] = df['TotalSlots_Giga'] * df['Retiring'] 
+                # df['SlotsIssued+RecoveryBubbles_Giga'] = (df['TotalSlots_Giga'] * df['Bad_Speculation']) + df['SlotsRetired_Giga']
+                df['SlotsIssued+RecoveryBubbles_Giga'] = df['TotalSlots_Giga'] * df['Bad_Speculation'] 
+                df['SlotsBackend_Giga'] = df['TotalSlots_Giga'] * df['Backend_Bound'] 
                 df.to_csv(path + "perf_data_allVersions_10times.csv", index=False)
             else:
                 # df = from_CSVfile(path + '_data_allVersions.csv', directory_name, tool)
@@ -302,6 +309,7 @@ def general_df(df_turbostat, df_perf, df_top):
                         'Pkg_J','Cor_J','RAM_J','GFX_J', 'Avg_MHz', 'Busy%', 'IPC', 'IRQ', 'POLL', 'C1%','C1E%','C3%','C6%','C7s%','C8%',
                         'C9%','C10%','CPU%c1','CPU%c3','CPU%c6','CPU%c7','CoreTmp','PkgTmp','GFX%rc6','Totl%C0','Any%C0','GFX%C0','CPUGFX%']].median().reset_index()
     df2 = df_perf.groupby(["path","version","release_date"], sort=False)[['time_elapsed_sec','CPU_Utilization','Retiring','Frontend_Bound','Bad_Speculation','Backend_Bound',
+                            'TotalSlots_Giga','FetchBubbles_Giga','SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','SlotsBackend_Giga',
                             'CPI','ILP','IPC_perf','cycles','freq_cycles_GHz','instructions',
                             'Kernel_Utilization', 'L1D_Cache_Fill_BW', 'Turbo_Utilization', 'cycles',
                             'instructions', 'insn_per_cycle', 'cpu_clock_msec', 'no_cpus', 'cpu_cycles', 'freq_cpu_cycles_GHz',
@@ -761,6 +769,58 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
                                         filename1=filename_1,
                                         filename2=filename_2,
                                         title=title_prog)
+    
+    elif filter == "OriginalVSCompatible":
+        if language == "python":
+            original = "binaryTrees_21_original_OOflag"
+            compatible = "binaryTrees_21_compatible_OOflag"
+            text_1 = "Binary Trees (original version using OO flag)"
+            text_2 = "Binary Trees (compatible version using OO flag)"
+            filter_1 = 'path == "' + original + '"'
+            filter_2 = 'path == "' + compatible + '"'
+            filename_1 = "ORIGINALversion_" + original
+            filename_2 = "COMPATIBLEversion" + compatible
+            title_prog = "ORIGINAL vs COMPATIBLE versions of Binary Trees (using OO flag)"
+        elif language == "c++":
+            original = "nbody_50000000_original_O3flag"
+            compatible = "nbody_50000000_compatible_O3flag"
+            text_1 = "Nbody (original version using O3 flag)"
+            text_2 = "Nbody (compatible version using O3 flag)"
+            filter_1 = 'path == "' + original + '"'
+            filter_2 = 'path == "' + compatible + '"'
+            filename_1 = "ORIGINALversion_" + original
+            filename_2 = "COMPATIBLEversion" + compatible
+            title_prog = "ORIGINAL vs COMPATIBLE versions of Nbody (using O3 flag)"
+        elif language == 'java':
+            original = "binaryTrees_21_original_with_Multithreading"
+            modified = "binaryTrees_21_modified_without_Multithreading"
+            text_1 = "Binary trees (original version)"
+            text_2 = "Binary trees (modified version)"
+            filter_1 = 'path == "' + original + '"'
+            filter_2 = 'path == "' + modified + '"'
+            filename_1 = "ORIGINALversion_" + original
+            filename_2 = "MODIFIEDversion" + modified
+            title_prog = "ORIGINAL vs MODIFIED versions of Binary Trees"
+        elif language == 'js':
+            original = "nbody_50000000_original"
+            compatible = "nbody_50000000_compatible"
+            text_1 = "Nbody (original version)"
+            text_2 = "Nbody (compatible version)"
+            filter_1 = 'path == "' + original + '"'
+            filter_2 = 'path == "' + compatible + '"'
+            filename_1 = "ORIGINALversion_" + original
+            filename_2 = "COMPATIBLEversion" + compatible
+            title_prog = "ORIGINAL vs COMPATIBLE versions of Nbody"
+        
+        div_html = html_filters2Compare(df_turbostat, df_top, df_perf, df,
+                                        filter1=filter_1,
+                                        filter2=filter_2,
+                                        text1=text_1,
+                                        text2=text_2,
+                                        filename1=filename_1,
+                                        filename2=filename_2,
+                                        title=title_prog)
+        
         
     return div_html
 
@@ -1076,6 +1136,103 @@ def html_PerformanceEachOnePlots(df_perf):
     return div_html
                          
     
+def html_PerformanceEachOnePlots_Slots(df_perf, df_turbostat):
+
+    x_data = "version"
+    categories = ['SlotsRetired_Giga','SlotsIssued+RecoveryBubbles_Giga','FetchBubbles_Giga','SlotsBackend_Giga']
+    programs = df_perf["path"].unique()
+    div_html = ''
+    flag = True
+
+    for program in programs:
+        df = df_perf.groupby([x_data,"path"], sort=False)[categories].median().reset_index()
+        # df = df[df['version'].str.contains("2.5.6|2.7.18|3.0.1|3.4.10|3.5.10") == False]
+        df = df.query('path == "'+ program +'"')
+        df = df.drop('path', axis=1)
+        
+        df_Energy = df_turbostat.groupby([x_data,"path"], sort=False)['Pkg+RAM_J'].median().reset_index()
+        df_Energy = df_Energy.query('path == "'+ program +'"')
+        df_Energy = df_Energy.drop('path', axis=1)
+        
+        # if language == "python": color_list = ["DodgerBlue", "DeepSkyBlue", "OrangeRed", "Salmon", "MediumSeaGreen", "LightGreen", "SlateBlue", "Plum", "Gray", "LightGray"]
+        # if language == "c++": color_list = ["DodgerBlue", "DeepSkyBlue", "OrangeRed", "Salmon", "MediumSeaGreen", "LightGreen", "SlateBlue", "Plum", "Gray", "LightGray"]
+
+        color_list = ["MediumSeaGreen", "OrangeRed", "SlateBlue", "DodgerBlue"]
+
+        df_melted = pd.melt(df, id_vars=['version'], var_name='Perf_parameters', value_name='Value')
+        df_melted_2 = pd.melt(df_Energy, id_vars=['version'], var_name='Pkg+RAM_J', value_name='Value')
+        
+        fig = px.bar(df_melted,
+                x = "version",
+                y = "Value",
+                color = "Perf_parameters",
+                color_discrete_sequence=color_list,
+                title="Performance of " + program + " in " + language)
+        
+        fig.add_trace(
+            go.Scatter(
+                x=df_melted_2["version"],
+                y=df_melted_2["Value"],
+                mode="lines",
+                yaxis="y2",
+                marker=dict(color="black"),
+                name="Energy Pkg+RAM (J)"
+            )
+        )
+
+        fig.update_layout(
+            legend=dict(orientation="h"),
+            yaxis=dict(
+                title=dict(text="Issue-pipeline slots (10^9)"),
+                side="left",
+                range=[0, (df['SlotsRetired_Giga'] + df['SlotsIssued+RecoveryBubbles_Giga'] + df['FetchBubbles_Giga'] + df['SlotsBackend_Giga']).max()],
+            ),
+            yaxis2=dict(
+                title=dict(text="Energy Consumed (Pkg + RAM) in Joules"),
+                side="right",
+                range=[0, df_Energy['Pkg+RAM_J'].max()],
+                overlaying="y",
+                tickmode="sync",
+            ),
+        )
+
+        # Check if the directory exists
+        directory = language + '/general_plots/'
+        if not os.path.exists(directory):
+            # If it doesn't exist, create it
+            os.makedirs(directory)
+
+        filename_plot_wDir = directory + program + "_performanceTopAnalysis_Slots"
+        plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
+        fig = 'general_plots/' + program + "_performanceTopAnalysis_Slots" + ".html"
+
+        if flag:
+                div_html = div_html + '''
+                <div class="row">
+        '''
+
+        div_string = '''
+                    <div class="column">
+                            <h3>Section:  ''' + "Performance of " + program + '''</h3>
+                            <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no" \
+                                src="''' + fig + '''"></iframe>
+                            <p>Notes: </p>
+                    </div>
+        '''
+        div_html = div_html + div_string
+        if not flag:
+            div_html = div_html + '''
+                </div>
+            ''' 
+            flag = True
+        else:
+            flag = False
+    
+    if not flag:
+        div_html = div_html + '''
+                </div>
+            ''' 
+    return div_html
 
 
 def html_CPUPlots(df_turbo, df_top):
@@ -1340,6 +1497,16 @@ def html_Information(title, parameter, color):
             title = title + " - ONLY vs WITHOUT Versions 1.8.0_382, 9.0.4, and 10.0.2 in in Binary Trees (original version)"
         elif language == "js":
             title = title + " - ONLY vs WITHOUT Versions 6.17.1 and 7.10.1 in Binary Trees v7 (original version)"
+    elif parameter == "OriginalVSCompatible":
+        div_Information = html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter = "OriginalVSCompatible")
+        if language == "python":
+            title = title + " - ORIGINAL vs COMPATIBLE versions of Binary Trees (using OO flag)"
+        elif language == "c++":
+            title = title + " - ORIGINAL vs COMPATIBLE versions of Nbody (using O3 flag)"
+        elif language == "java":
+            title = title + " - ORIGINAL vs MODIFIED versions of Binary Trees"
+        elif language == "js":
+            title = title + " - ORIGINAL vs COMPATIBLE versions of Nbody"
     elif parameter == "energy":
         div_Information = html_EnergyPlots(df_turbostat)
     elif parameter == "memory":
@@ -1352,6 +1519,8 @@ def html_Information(title, parameter, color):
         div_Information = html_PerformancePlots(df_perf)
     elif parameter == "performance_top":
         div_Information = html_PerformanceEachOnePlots(df_perf)
+    elif parameter == "performance_top_slots":
+        div_Information = html_PerformanceEachOnePlots_Slots(df_perf, df_turbostat)
     elif parameter == "cpu":
         div_Information = html_CPUPlots(df_turbostat, df_top)
     elif parameter == "temperature":
@@ -1387,12 +1556,14 @@ if __name__ == '__main__':
     div_matrixNbodyandBinarytrees = html_Information("<b>Matrix Correlation (the fastest nBody and Binary Trees)</b>", "matrixNbodyandBinarytrees","#B3B6B7")
     div_matrixNbody = html_Information("<b>Matrix Correlation (the fastest nBody)</b>", "matrixNbody","#B3B6B7")
     div_matrixBinarytrees = html_Information("<b>Matrix Correlation (the fastest Binary Trees)</b>", "matrixBinarytrees","#B3B6B7")
+    div_matrixOriginalVSCompatible = html_Information("<b>Matrix Correlation (Original vs Compatible)</b>", "OriginalVSCompatible", "#B3B6B7")
     div_energy = html_Information("<b>Energy Consumption</b>", "energy", "#28B463")
     div_memory = html_Information("<b>Memory Consumption</b>", "memory", "#3498DB")
     div_extraParam = html_Information("<b>Extra Parameters</b>", "extra_param", "#E74C3C")
     div_time = html_Information("<b>Time Elapsed</b>", "time", "#F39C12")
     div_performance = html_Information("<b>Performance</b>", "performance", "#F1C40F")
     div_performance_Top = html_Information("<b>Performance Top-Analysis</b>", "performance_top", "#F1C40F")
+    div_performance_Top_Slots = html_Information("<b>Performance Top-Analysis (Number of Slots)</b>", "performance_top_slots", "#F1C40F")
     div_cpu = html_Information("<b>CPU usage</b>", "cpu", "#F1C40F")
     div_temp = html_Information("<b>Temperature</b>", "temperature", "#9B59B6")
     div_cstates = html_Information("<b>Cstates</b>", "cstates", "#F7DC6F")
@@ -1445,6 +1616,7 @@ if __name__ == '__main__':
             ''' + div_matrixNbodyandBinarytrees + '''
             ''' + div_matrixNbody + '''
             ''' + div_matrixBinarytrees + '''
+            ''' + div_matrixOriginalVSCompatible + '''
             ''' + div_energy + '''
             ''' + div_time + '''
             ''' + div_memory + '''
@@ -1452,6 +1624,7 @@ if __name__ == '__main__':
             ''' + div_cpu + '''
             ''' + div_performance + '''
             ''' + div_performance_Top + '''
+            ''' + div_performance_Top_Slots + '''
             ''' + div_temp + '''
             ''' + div_pageFaults + '''
             ''' + div_cstates + '''
