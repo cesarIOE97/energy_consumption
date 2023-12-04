@@ -53,6 +53,8 @@ def get_source(row):
         if row['_indicator_java'] == 'right_only':
             if row['_indicator_js'] == 'both':
                 return 'java, js'
+            elif row['_indicator_js'] == 'left_only':
+                return 'java'
             else:
                 return 'js'
         else: 
@@ -91,12 +93,20 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     df_non_common_values.insert(0, 'Source', second_column)
     # df_non_common_values = df_non_common_values.sort_values(by=['Source'])
 
-    custom_order = ["common","python,c++,java","python,c++,js","python,java","python,js","c++,java","c++,js","java,js","python","c++","java","js"]
+    custom_order = ["common","c++, java, js", "python, java, js", "python, c++, java","python, c++, js","python, c++", "python, java","python, js","c++, java","c++, js","java, js","python","c++","java","js"]
 
     sorting_key = {value: index for index, value in enumerate(custom_order)}
 
     df_non_common_values['sorting_key'] = df_non_common_values['Source'].map(sorting_key)
     df_non_common_values = df_non_common_values.sort_values(by='sorting_key').drop('sorting_key', axis=1)
+
+    # df_non_common_values = df_non_common_values[df_non_common_values["Source"].std.contains("common") == False]
+
+    # df_non_common_values[~df_non_common_values.Subject.str.contains('|'.join("common"))]
+    # if 2 in df_non_common_values["Source"]:
+    #     df_non_common_values = df_non_common_values[df_non_common_values["Source"].std.contains("common") == False]
+
+    df_non_common_values = df_non_common_values.query('Source != "common"')
 
     df_common_values['position'] = range(1,len(df_common_values)+1)
     first_column = df_common_values.pop('position') 
@@ -106,19 +116,30 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     first_column = df_non_common_values.pop('position') 
     df_non_common_values.insert(0, 'position', first_column)
 
+
     return df_common_values, df_non_common_values
+
+def generalANDturbo(language, correlation_type):
+    if correlation_type == "general":
+        correlation_type = correlation_type + "_medianValues"
+    else:
+        correlation_type = correlation_type + "_allData"
+    df= pd.read_csv(language + "/correlation_" + correlation_type + ".csv", index_col=0)
+    df = df.drop(columns=['Cor_J','GFX_J'])
+    df = df.dropna(subset=['time_elapsed', 'Pkg_J', 'RAM_J'], how='all')
+    return df
 
 def correlation_ProgrammingLanguages(correlation_type):
     if correlation_type == "general":
-        df_python = pd.read_csv("python" + "/correlation_general_medianValues.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_general_medianValues.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_general_medianValues.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_general_medianValues.csv", index_col=0)
+        df_python = generalANDturbo("python", correlation_type)
+        df_cplusplus = generalANDturbo("c++", correlation_type)
+        df_java = generalANDturbo("java", correlation_type)
+        df_js = generalANDturbo("js", correlation_type)
     elif correlation_type == "turbostat":
-        df_python = pd.read_csv("python" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_turbostat_allData.csv", index_col=0)
+        df_python = generalANDturbo("python", correlation_type)
+        df_cplusplus = generalANDturbo("c++", correlation_type)
+        df_java = generalANDturbo("java", correlation_type)
+        df_js = generalANDturbo("js", correlation_type)
     elif correlation_type == "perf":
         df_python = pd.read_csv("python" + "/correlation_perf_allData.csv", index_col=0)
         df_cplusplus = pd.read_csv("c++" + "/correlation_perf_allData.csv", index_col=0)

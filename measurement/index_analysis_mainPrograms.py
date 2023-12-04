@@ -53,6 +53,8 @@ def get_source(row):
         if row['_indicator_java'] == 'right_only':
             if row['_indicator_js'] == 'both':
                 return 'java, js'
+            elif row['_indicator_js'] == 'left_only':
+                return 'java'
             else:
                 return 'js'
         else: 
@@ -71,6 +73,7 @@ def get_source(row):
         return 'js'
 
 def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type):
+    
     df_common_values = pd.merge(pd.merge(pd.merge(df_1, df_2, left_index=True, right_index=True, how='inner', suffixes=('_python', '_c++')),
                                          df_3, left_index=True, right_index=True, how='inner', suffixes=('', '_java')),
                                 df_4, left_index=True, right_index=True, how='inner', suffixes=('', '_js'))
@@ -91,78 +94,7 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     df_non_common_values.insert(0, 'Source', second_column)
     df_non_common_values = df_non_common_values.sort_values(by=['Source','_indicator_python_c++','_indicator_java','_indicator_js'])
 
-    # if type == "general" or type == "turbostat":
-    #     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_elapsed_y']) else filename2, axis=1)    
-
-    #     df_common_values = df_common_values.rename(columns={
-    #                             'time_elapsed_x': 'time_elapsed ' + filename1 ,
-    #                             'Pkg_J_x': 'Pkg_J ' + filename1 ,
-    #                             'Cor_J_x': 'Cor_J ' + filename1 ,
-    #                             'RAM_J_x': 'RAM_J ' + filename1 ,
-    #                             'GFX_J_x': 'GFX_J ' + filename1 ,
-    #                             'time_elapsed_y': 'time_elapsed ' + filename2,
-    #                             'Pkg_J_y': 'Pkg_J ' + filename2,
-    #                             'Cor_J_y': 'Cor_J ' + filename2,
-    #                             'RAM_J_y': 'RAM_J ' + filename2,
-    #                             'GFX_J_y': 'GFX_J ' + filename2
-    #                         })
-    #     df_non_common_values = df_non_common_values.rename(columns={
-    #                             'time_elapsed_x': 'time_elapsed ' + filename1 ,
-    #                             'Pkg_J_x': 'Pkg_J ' + filename1 ,
-    #                             'Cor_J_x': 'Cor_J ' + filename1 ,
-    #                             'RAM_J_x': 'RAM_J ' + filename1 ,
-    #                             'GFX_J_x': 'GFX_J ' + filename1 ,
-    #                             'time_elapsed_y': 'time_elapsed ' + filename2,
-    #                             'Pkg_J_y': 'Pkg_J ' + filename2,
-    #                             'Cor_J_y': 'Cor_J ' + filename2,
-    #                             'RAM_J_y': 'RAM_J ' + filename2,
-    #                             'GFX_J_y': 'GFX_J ' + filename2
-    #                         })
-    #     df_common_values = df_common_values.sort_values(by=['time_elapsed ' + filename1 ,
-    #                                                         'Pkg_J ' + filename1 ,
-    #                                                         'Cor_J ' + filename1 ,
-    #                                                         'RAM_J ' + filename1 ,
-    #                                                         'GFX_J ' + filename1 ,
-    #                                                         'time_elapsed ' + filename2 ,
-    #                                                         'Pkg_J ' + filename2 ,
-    #                                                         'Cor_J ' + filename2 ,
-    #                                                         'RAM_J ' + filename2 ,
-    #                                                         'GFX_J ' + filename2 ,
-    #                                                         ], ascending=False)
-    # elif type == "perf":
-    #     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_elapsed_sec_y']) else filename2, axis=1)    
-
-    #     df_common_values = df_common_values.rename(columns={
-    #                             'time_elapsed_sec_x': 'time_elapsed_sec ' + filename1 ,
-    #                             'time_elapsed_sec_y': 'time_elapsed_sec ' + filename2,
-    #                         })
-    #     df_non_common_values = df_non_common_values.rename(columns={
-    #                             'time_elapsed_sec_x': 'time_elapsed_sec ' + filename1 ,
-    #                             'time_elapsed_sec_y': 'time_elapsed_sec ' + filename2,
-    #                         })
-    #     df_common_values = df_common_values.sort_values(by=['time_elapsed_sec ' + filename1 ,
-    #                                                         'time_elapsed_sec ' + filename2,
-    #                                                         ], ascending=False)
-    # elif type == "top":
-    #     df_non_common_values['Source'] = df_non_common_values.apply(lambda row: filename1 if pd.isna(row['time_y']) else filename2, axis=1)    
-
-    #     df_common_values = df_common_values.rename(columns={
-    #                             'time_x': 'time ' + filename1 ,
-    #                             'time_y': 'time ' + filename2,
-    #                         })
-    #     df_non_common_values = df_non_common_values.rename(columns={
-    #                             'time_x': 'time ' + filename1 ,
-    #                             'time_y': 'time ' + filename2,
-    #                         })
-    #     df_common_values = df_common_values.sort_values(by=['time ' + filename1 ,
-    #                                                         'time ' + filename2,
-    #                                                         ], ascending=False)
-
-    # second_column = df_non_common_values.pop('Source') 
-    # df_non_common_values.insert(1, 'Source', second_column)
-    # df_non_common_values = df_non_common_values.sort_values(by=['Source'])
-
-    custom_order = ["common","python,c++,java","python,c++,js","python,java","python,js","c++,java","c++,js","java,js","python","c++","java","js"]
+    custom_order = ["common","c++, java, js", "python, java, js", "python, c++, java","python, c++, js","python, c++", "python, java","python, js","c++, java","c++, js","java, js","python","c++","java","js"]
 
     # Create a custom sorting key based on the order
     sorting_key = {value: index for index, value in enumerate(custom_order)}
@@ -170,6 +102,8 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
     # Apply the custom sorting key to sort the DataFrame
     df_non_common_values['sorting_key'] = df_non_common_values['Source'].map(sorting_key)
     df_non_common_values = df_non_common_values.sort_values(by='sorting_key').drop('sorting_key', axis=1)
+
+    df_non_common_values = df_non_common_values.query('Source != "common"')
 
     df_common_values['position'] = range(1,len(df_common_values)+1)
     first_column = df_common_values.pop('position') 
@@ -181,17 +115,27 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
 
     return df_common_values, df_non_common_values
 
+def generalANDturbo(language, correlation_type):
+    if correlation_type == "general":
+        correlation_type = correlation_type + "_medianValues"
+    else:
+        correlation_type = correlation_type + "_allData"
+    df= pd.read_csv(language + "/correlation_" + correlation_type + "_mainPrograms.csv", index_col=0)
+    df = df.drop(columns=['Cor_J','GFX_J'])
+    df = df.dropna(subset=['time_elapsed', 'Pkg_J', 'RAM_J'], how='all')
+    return df
+
 def correlation_ProgrammingLanguages(correlation_type):
     if correlation_type == "general":
-        df_python = pd.read_csv("python" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
+        df_python = generalANDturbo("python", correlation_type)
+        df_cplusplus = generalANDturbo("c++", correlation_type)
+        df_java = generalANDturbo("java", correlation_type)
+        df_js = generalANDturbo("js", correlation_type)
     elif correlation_type == "turbostat":
-        df_python = pd.read_csv("python" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
+        df_python = generalANDturbo("python", correlation_type)
+        df_cplusplus = generalANDturbo("c++", correlation_type)
+        df_java = generalANDturbo("java", correlation_type)
+        df_js = generalANDturbo("js", correlation_type)
     elif correlation_type == "perf":
         df_python = pd.read_csv("python" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)
         df_cplusplus = pd.read_csv("c++" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)

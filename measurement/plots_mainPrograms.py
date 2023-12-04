@@ -92,17 +92,6 @@ def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, 
         textfont_size=18
     )
 
-    if x_data == "time_elapsed":
-        fig.update_layout(
-            xaxis_title="Time Elapsed (sec)",
-        )
-
-    if y_data == "time_elapsed":
-        fig.update_layout(
-            yaxis_title="Time Elapsed (sec)",
-        )
-
-
     # Check if the directory exists
     directory = language + '/mainPrograms_plots/'
     if not os.path.exists(directory):
