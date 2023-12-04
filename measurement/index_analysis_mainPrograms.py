@@ -183,25 +183,25 @@ def df_common_and_noncommon_Parameters(df_1, df_2, df_3, df_4, correlation_type)
 
 def correlation_ProgrammingLanguages(correlation_type):
     if correlation_type == "general":
-        df_python = pd.read_csv("python" + "/correlation_general_medianValues.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_general_medianValues.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_general_medianValues.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_general_medianValues.csv", index_col=0)
+        df_python = pd.read_csv("python" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_general_medianValues_mainPrograms.csv", index_col=0)
     elif correlation_type == "turbostat":
-        df_python = pd.read_csv("python" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_turbostat_allData.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_turbostat_allData.csv", index_col=0)
+        df_python = pd.read_csv("python" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_turbostat_allData_mainPrograms.csv", index_col=0)
     elif correlation_type == "perf":
-        df_python = pd.read_csv("python" + "/correlation_perf_allData.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_perf_allData.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_perf_allData.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_perf_allData.csv", index_col=0)
+        df_python = pd.read_csv("python" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_perf_allData_mainPrograms.csv", index_col=0)
     elif correlation_type == "top":
-        df_python = pd.read_csv("python" + "/correlation_top_allData.csv", index_col=0)
-        df_cplusplus = pd.read_csv("c++" + "/correlation_top_allData.csv", index_col=0)
-        df_java = pd.read_csv("java" + "/correlation_top_allData.csv", index_col=0)
-        df_js = pd.read_csv("js" + "/correlation_top_allData.csv", index_col=0)
+        df_python = pd.read_csv("python" + "/correlation_top_allData_mainPrograms.csv", index_col=0)
+        df_cplusplus = pd.read_csv("c++" + "/correlation_top_allData_mainPrograms.csv", index_col=0)
+        df_java = pd.read_csv("java" + "/correlation_top_allData_mainPrograms.csv", index_col=0)
+        df_js = pd.read_csv("js" + "/correlation_top_allData_mainPrograms.csv", index_col=0)
 
     df_python.set_index(df_python.columns[0])
     df_cplusplus.set_index(df_cplusplus.columns[0])
@@ -214,7 +214,7 @@ def correlation_ProgrammingLanguages(correlation_type):
 
 def correlations():
 
-    correlations_df_html = "correlations_all_data.html"
+    correlations_df_html = "correlations_all_data_mainPrograms.html"
     with open(correlations_df_html, 'w') as f:
         f.write('<html><head><title>Correlations Dataframes</title>')
         f.write('<style>')
@@ -353,3 +353,5 @@ if __name__ == '__main__':
     f.close()
 
     webbrowser.open_new_tab('mainPrograms_report.html')
+
+    correlations()

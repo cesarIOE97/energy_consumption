@@ -223,11 +223,11 @@ def from_CSVfiles(tool, norm):
         nbody = "nbody_50000000_original_OOflag"
         binarytrees = "binaryTrees_21_original_OOflag"
     elif language == "c++":
-        nbody = "nbody_50000000_original_O3flag"
+        nbody = "nbody_50000000_v2_original_O3flag"
         binarytrees = "binaryTrees_v6_21_original_O3flag"
     elif language == "java":
-        nbody = "nbody_50000000_original"
-        binarytrees = "binaryTrees_21_original_with_Multithreading"
+        nbody = "nbody_50000000_v5_original"
+        binarytrees = "binaryTrees_21_v4_original_with_Multithreading"
     elif language == "js":
         nbody = "nbody_50000000_original"
         binarytrees = "binaryTrees_original_v1"
@@ -374,23 +374,33 @@ def html_generalPlots(df_turbostat, df_top, df_perf, df):
 
 def html_matrixPlots(df_turbostat, df_top, df_perf, df):
 
-    corr_gral = two_plotsMatrix(language, df, "General Correlation (median values for each version and application)",
+    corr_gral, df_1 = two_plotsMatrix(language, df, "General Correlation (median values for each version and application)",
                               filename_plot="general_correlation_MedianValues", 
                               type="corrGeneral")
 
-    corr_turbostat = two_plotsMatrix(language, df_turbostat, "Correlation (Turbostat tool)",
+    corr_turbostat, df_turbo = two_plotsMatrix(language, df_turbostat, "Correlation (Turbostat tool)",
                               filename_plot="turbostat_correlation_General", 
                               type="corrTurbo")
     
-    corr_perf = two_plotsMatrix(language, df_perf, "Correlation (Perf tool)",
+    corr_perf, df_per = two_plotsMatrix(language, df_perf, "Correlation (Perf tool)",
                               filename_plot="perf_correlation_General", 
                               type="corrPerf")
     
-    corr_top = two_plotsMatrix(language, df_top, "Correlation (Top tool)",
+    corr_top, df_to = two_plotsMatrix(language, df_top, "Correlation (Top tool)",
                               filename_plot="top_correlation_General", 
                               type="corrTop")
     
     div_html = corr_gral + corr_turbostat + corr_perf + corr_top
+
+    df_1 = df_1.drop_duplicates()
+    df_turbo = df_turbo.drop_duplicates()
+    df_per = df_per.drop_duplicates()
+    df_to = df_to.drop_duplicates()
+
+    df_1.to_csv(language + "/correlation_general_medianValues_mainPrograms.csv")
+    df_turbo.to_csv(language + "/correlation_turbostat_allData_mainPrograms.csv")
+    df_per.to_csv(language + "/correlation_perf_allData_mainPrograms.csv")
+    df_to.to_csv(language + "/correlation_top_allData_mainPrograms.csv")
 
     return div_html
 
@@ -1185,7 +1195,7 @@ if __name__ == '__main__':
 
     div_general = html_Information("General Information", "general", "#B3B6B7")
     div_matrix = html_Information("Matrix Correlation for each tool", "matrix","#B3B6B7")
-    div_matrxiAnalysis = html_Information("Matrix Correlation (Analysis according to the cases)", "matrixAnalysis","#B3B6B7")
+    # div_matrxiAnalysis = html_Information("Matrix Correlation (Analysis according to the cases)", "matrixAnalysis","#B3B6B7")
     div_energy = html_Information("Energy Consumption", "energy", "#28B463")
     div_memory = html_Information("Memory Consumption", "memory", "#3498DB")
     div_highParam = html_Information("Parameters with HIGH correlation", "high_param", "#E74C3C")

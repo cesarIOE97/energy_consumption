@@ -60,7 +60,7 @@ def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, 
         # mean = mean_per_program[program]
         median = median_per_program[program]
         program_df['Difference'] = program_df[y_data].diff()
-        program_df['Percentage_Difference'] = program_df[y_data].pct_change()*100
+        program_df['Percentage_Difference'] = round(program_df[y_data].pct_change()*100,2)
         # program_df['Percentage_DifferenceFromMean'] = program_df.apply(lambda row: 0 if (mean == 0) else 100 * (row["DifferenceFromMean"] / mean), axis=1)
         if diff_flag:
             hover_texts = [custom_hover_median(program, x, median, diff, percent_diff) for x, diff, percent_diff in zip(program_df[x_data],program_df['Difference'],program_df['Percentage_Difference'])]
@@ -79,12 +79,16 @@ def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, 
 
     layout = go.Layout(title='Comparison of ' + y_data,
                        xaxis=dict(title=x_data),
-                       yaxis=dict(title='Difference from Mean of ' + y_data, zeroline=False))
+                       yaxis=dict(title='(%) Difference from Mean of ' + y_data, zeroline=False))
         
 
     fig = go.Figure(data=bar_traces, layout=layout)
     if language == 'js': fig.update_xaxes(categoryorder='array', categoryarray= ['0.8.28', '0.10.48', '0.12.18', '1.8.4', '2.5.0', '3.3.1', '4.9.1', '5.12.0', '6.17.1', '7.10.1', '8.17.0', '9.11.2', '10.24.1', '11.15.0', '12.22.12', '13.14.0', '14.21.3', '15.14.0', '16.20.2', '17.9.1', '18.17.1', '19.9.0', '20.5.1'])
     if language == 'python': fig.update_xaxes(categoryorder='array', categoryarray= ['2.5.6', '2.7.18', '3.0.1',  '3.4.10', '3.5.10', '3.6.15', '3.7.16', '3.8.16', '3.9.16','3.10.11', '3.11.3', '3.12.0b1', '3.13.0a0'])
+
+    fig.update_traces(
+        textfont_size=18
+    )
 
 
     if x_data == "time_elapsed":

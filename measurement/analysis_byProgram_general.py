@@ -631,11 +631,11 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             nbody = "nbody_50000000_original_OOflag"
             binarytrees = "binaryTrees_21_original_OOflag"
         elif language == "c++":
-            nbody = "nbody_50000000_original_O3flag"
+            nbody = "nbody_50000000_v2_original_O3flag"
             binarytrees = "binaryTrees_v6_21_original_O3flag"
         elif language == "java":
-            nbody = "nbody_50000000_original"
-            binarytrees = "binaryTrees_21_original_with_Multithreading"
+            nbody = "nbody_50000000_v5_original"
+            binarytrees = "binaryTrees_21_v4_original_with_Multithreading"
         elif language == "js":
             nbody = "nbody_50000000_original"
             binarytrees = "binaryTrees_original_v1"
@@ -669,7 +669,7 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
 
         elif language == "c++":
             if filter == "Nbody":
-                program = "nbody_50000000_original"
+                program = "nbody_50000000_v2_original"
             elif filter == "Binarytrees":
                 program = "binaryTrees_v6_21_original"
 
@@ -686,9 +686,9 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
 
         elif language == "java":
             if filter == "Nbody":
-                program = "nbody_50000000_original"
+                program = "nbody_50000000_v5_original"
             elif filter == "Binarytrees":
-                program = "binaryTrees_21_original_with_Multithreading"
+                program = "binaryTrees_21_v4_original_with_Multithreading"
 
             filter_1 = 'path == "' + program + '" and (version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2")'
             filter_2 = 'path == "' + program + '" and (version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2")'
@@ -782,8 +782,8 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             filename_2 = "COMPATIBLEversion" + compatible
             title_prog = "ORIGINAL vs COMPATIBLE versions of Binary Trees (using OO flag)"
         elif language == "c++":
-            original = "nbody_50000000_original_O3flag"
-            compatible = "nbody_50000000_compatible_O3flag"
+            original = "nbody_50000000_v2_original_O3flag"
+            compatible = "nbody_50000000_v2_compatible_O3flag"
             text_1 = "Nbody (original version using O3 flag)"
             text_2 = "Nbody (compatible version using O3 flag)"
             filter_1 = 'path == "' + original + '"'
@@ -792,8 +792,8 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             filename_2 = "COMPATIBLEversion" + compatible
             title_prog = "ORIGINAL vs COMPATIBLE versions of Nbody (using O3 flag)"
         elif language == 'java':
-            original = "binaryTrees_21_original_with_Multithreading"
-            modified = "binaryTrees_21_modified_without_Multithreading"
+            original = "binaryTrees_21_v4_original_with_Multithreading"
+            modified = "binaryTrees_21_v4_modified_without_Multithreading"
             text_1 = "Binary trees (original version)"
             text_2 = "Binary trees (modified version)"
             filter_1 = 'path == "' + original + '"'

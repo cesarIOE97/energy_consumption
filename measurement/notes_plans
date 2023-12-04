@@ -2,10 +2,26 @@
 Save all plots as jpg 
 Save all tables as ...
 Add the other scenarios
-Calculate the real numbers of clocks*4
+Add the other two versions of Java
 
 
 
+SLOTS = 4 * CYCLES(clocks)
+
+Ideally there 4 slots in a cycle which are 4 instructions per cycle (FETCH-DECODE-EXECUTE-WRITEBACK)
+
+    - Related to clock speed, memory latency, and architecture design
+    
+IPC, IRQ,  cycles, freq_cycles, 
+instructions, SlotsRetired, branches, dTLB_loads, L1_dcache_loads, mem_stores, branch_misses, SlotsIssued+RecoveryBubbles, FetchBubles, TotalSlots, cpu_cycles, GFX%C0, CPUGFX%
+
+
+EXTRA
+cache_misses, cache_references, page_faults, LLC_loads, Kernel_Utilization, L1_dcache_load_misses	
+
+
+
+sudo perf stat -M SLOTS -e CPU_CLK_UNHALTED.THREAD sleep 2
 
 OBSERVATIONS
 
@@ -25,22 +41,34 @@ Codes compatible with old versions consume MUCH ENERGY
 Codes with less compatiblity with the versions consume LESS ENERGY (original versions due to they have been developed to run very fast
 
 
+JS 
 
+-Less slots -> More energy
+-More FetchBubble -> More energy (Frontend)
+
+
+
+
+
+COMMENTS
+-Retiring is related to IPC (ideally we want to have 4 instructions per cycle)
+-Shared memory influences a bit more (Python)
+-CODE memory is fixed (Python)
 
 
 PYTHON
 
-binarytrees original vs compatible
-
 
 C++
 binarytrees v2 original with VS without O3 flag
-nbody original vs compatible WITH O3 flag
-nbody original vs compatible WITHOUT O3 flag
 
 Java
-original vs modified
+
 
 JS
-nbody original vs compatible
 binary trees v7 original vs compatible
+
+
+
+
+
