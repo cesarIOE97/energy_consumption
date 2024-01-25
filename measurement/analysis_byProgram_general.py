@@ -635,7 +635,7 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             binarytrees = "binaryTrees_v6_21_original_O3flag"
         elif language == "java":
             nbody = "nbody_50000000_v5_original"
-            binarytrees = "binaryTrees_21_v4_original_with_Multithreading"
+            binarytrees = "binaryTrees_21_v4_original"
         elif language == "js":
             nbody = "nbody_50000000_original"
             binarytrees = "binaryTrees_original_v1"
@@ -688,7 +688,7 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             if filter == "Nbody":
                 program = "nbody_50000000_v5_original"
             elif filter == "Binarytrees":
-                program = "binaryTrees_21_v4_original_with_Multithreading"
+                program = "binaryTrees_21_v4_original"
 
             filter_1 = 'path == "' + program + '" and (version == "1.8.0_382" or version == "9.0.4" or version == "10.0.2")'
             filter_2 = 'path == "' + program + '" and (version != "1.8.0_382" and version != "9.0.4" and version != "10.0.2")'
@@ -792,15 +792,15 @@ def html_matrixAnalysis(df_turbostat, df_top, df_perf, df, filter):
             filename_2 = "COMPATIBLEversion" + compatible
             title_prog = "ORIGINAL vs COMPATIBLE versions of Nbody (using O3 flag)"
         elif language == 'java':
-            original = "binaryTrees_21_v4_original_with_Multithreading"
-            modified = "binaryTrees_21_v4_modified_without_Multithreading"
+            original = "binaryTrees_21_v4_original"
+            modified = "binaryTrees_21_v4_original"
             text_1 = "Binary trees (original version)"
             text_2 = "Binary trees (modified version)"
             filter_1 = 'path == "' + original + '"'
             filter_2 = 'path == "' + modified + '"'
-            filename_1 = "ORIGINALversion_" + original
-            filename_2 = "MODIFIEDversion" + modified
-            title_prog = "ORIGINAL vs MODIFIED versions of Binary Trees"
+            filename_1 = "ORIGINALversion_test1" + original
+            filename_2 = "ORIGINALversion_test2" + modified
+            title_prog = "ORIGINAL vs ORIGINAL versions of Binary Trees"
         elif language == 'js':
             original = "nbody_50000000_original"
             compatible = "nbody_50000000_compatible"

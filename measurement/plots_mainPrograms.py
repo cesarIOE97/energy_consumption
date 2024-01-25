@@ -100,6 +100,10 @@ def plot_Compare(language, df, filename_plot, x_data, y_data, color_data, type, 
 
     filename_plot_wDir = directory + filename_plot
     plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
+    # fig.update_layout(width =500, height=250, 
+    #               font_family="Serif", font_size=14, 
+    #               margin_l=5, margin_t=5, margin_b=5, margin_r=5)
+    fig.write_image(filename_plot_wDir + '.pdf', width=700, height=400)
     return 'mainPrograms_plots/' + filename_plot + ".html"
 
 def plot_Matrix(language, df, filename_plot, type, filtered_flag):
@@ -303,7 +307,13 @@ def plot_Matrix(language, df, filename_plot, type, filtered_flag):
 
     filename_plot_wDir = directory + filename_plot
     plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
-
+    # fig.update_layout(width =500, height=250, 
+    #               font_family="Serif", font_size=14, 
+    #               margin_l=5, margin_t=5, margin_b=5, margin_r=5)
+    if type == "scatterTurbo_program" or type == "scatterTurbo_version" or type == "scattermatrixTurbo":
+        fig.write_image(filename_plot_wDir + '.pdf', width=700, height=450)
+    else:
+        fig.write_image(filename_plot_wDir + '.pdf', width=700, height=775)
     html_fig = 'mainPrograms_plots/' + filename_plot + ".html"
 
     if filtered_flag:
@@ -482,6 +492,11 @@ def plot_Type(language, df, filename_plot, x_data, y_data, color_data, type):
 
     filename_plot_wDir = directory + filename_plot
     plot = plotly.offline.plot(fig, filename= filename_plot_wDir + '.html', auto_open=False)
+    # fig.update_layout(width =1000, height=1000, 
+    #               font_family="Serif", font_size=10, 
+    #               margin_l=5, margin_t=5, margin_b=5, margin_r=5)
+    fig.write_image(filename_plot_wDir + '.pdf',  width=700, height=775)
+    fig.write_image(filename_plot_wDir + '.jpeg',  width=700, height=775)
     return 'mainPrograms_plots/' + filename_plot + ".html"
 
 def three_plots(language, df, title, filename_plot, x_data, y_data, color_data, type):

@@ -227,7 +227,7 @@ def from_CSVfiles(tool, norm):
         binarytrees = "binaryTrees_v6_21_original_O3flag"
     elif language == "java":
         nbody = "nbody_50000000_v5_original"
-        binarytrees = "binaryTrees_21_v4_original_with_Multithreading"
+        binarytrees = "binaryTrees_21_v4_original"
     elif language == "js":
         nbody = "nbody_50000000_original"
         binarytrees = "binaryTrees_original_v1"
