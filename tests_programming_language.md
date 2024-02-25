@@ -2,31 +2,6 @@
 
 ## Programming Language
 
-- [Testing](#testing)
-  - [Programming Language](#programming-language)
-    - [Python](#python)
-      - [Basic](#basic)
-      - [Compilers/Interpreters](#compilersinterpreters)
-        - [CPython](#cpython)
-        - [CODON](#codon)
-    - [Java](#java)
-      - [Basic](#basic-1)
-      - [Compilers/Interpreters](#compilersinterpreters-1)
-        - [OpenJDK](#openjdk)
-        - [](#)
-      - [Basic](#basic-2)
-      - [Compilers/Interpreters](#compilersinterpreters-2)
-        - [Node.js](#nodejs)
-    - [C++](#c)
-      - [Basic](#basic-3)
-      - [Compilers](#compilers)
-        - [GCC](#gcc)
-        - [CLANG](#clang)
-    - [GO](#go)
-      - [Basic](#basic-4)
-      - [Compilers](#compilers-1)
-        - [Go](#go-1)
-
 
 <details>
 <summary>1. Python</summary>
@@ -311,52 +286,3 @@ Compilers | Version | Release date    | First release
 </details>
 
 
-
-<details>
-<summary>6. Rust</summary>
-
-
-</details>
-
-<details>
-<summary>7. Ruby</summary>
-
-
-</details>
-
-
-<details>
-<summary>8. R</summary>
-
-
-</details>
-
-<details>
-<summary>9. C#</summary>
-
-
-</details>
-
-<details>
-<summary>10. PHP</summary>
-
-
-</details>
-
-<details>
-<summary>11. Swift</summary>
-
-
-</details>
-
-<details>
-<summary>12. Kotlin</summary>
-
-
-</details>
-
-<details>
-<summary>13. TypeScript</summary>
-
-
-</details>
