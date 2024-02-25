@@ -27,7 +27,9 @@ Compilers | Version | Release date    | First release | C+++ Standard Support | 
  GCC and G++ | 3.0.4 | 2002-02-20 | 2001-01-18 | C++23 | NO installed (Configuration x86_64-unknown-linux-gnu not supported)
 
 Command to verify the standars support in gcc compiler
-`g++-4.4 -v --help 2> /dev/null | sed -n '/^ *-std=\([^<][^ ]\+\).*/ {s//\1/p}'`
+```
+g++-4.4 -v --help 2> /dev/null | sed -n '/^ *-std=\([^<][^ ]\+\).*/ {s//\1/p}'
+```
 
 
 
@@ -37,20 +39,11 @@ Source:
  - [C++ Compiler Support](https://en.cppreference.com/w/cpp/compiler_support#References)
 
 
-## Programs
-
-- nbody -> version 2, 7 .... 7/14
-
-
-
-
-## Mul
-
-
-
+## Multi-versions
 
 Options for multi versions of C++
 
+```
 sudo update-alternatives --remove-all gcc 
 sudo update-alternatives --remove-all g++
 
@@ -61,6 +54,7 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
+```
 
 https://www.fosslinux.com/39386/how-to-install-multiple-versions-of-gcc-and-g-on-ubuntu-20-04.htm
 https://askubuntu.com/questions/26498/how-to-choose-the-default-gcc-and-g-version
@@ -70,19 +64,20 @@ https://askubuntu.com/questions/26498/how-to-choose-the-default-gcc-and-g-versio
 
 
 UNINSTALL GCC
-
+```
 sudo apt-get install --reinstall gcc-
 sudo apt-get purge gcc-
 sudo apt-get --purge remove gcc-
-
+```
 
 
 TO INSTALL GCC-5
+```
 echo "deb http://old-releases.ubuntu.com/ubuntu zesty main" | sudo tee /etc/apt/sources.list.d/zesty.list
 sudo apt-add-repository -r universe
 sudo apt update
 sudo apt install gcc-5
-
+```
 
 
 

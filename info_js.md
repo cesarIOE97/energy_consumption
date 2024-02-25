@@ -28,20 +28,22 @@ Compiler | Version | Release date    | First release | Status
 
 
 --Installation--
-
+```
 nvm install 16.20.2; nvm install 15.14.0; nvm install 14.21.3; nvm install 13.14.0; nvm install 12.22.12; nvm install 11.15.0; nvm install 10.24.1; nvm install 9.11.2; nvm install 8.17.0; nvm install 7.10.1; nvm install 6.17.1; nvm install 5.12.0; nvm install 4.9.1; nvm install 3.3.1; nvm install 2.5.0; nvm install 1.8.4; nvm install 0.12.18; nvm install 0.10.48; nvm install 0.8.28
-
+```
 
 -- List all js versions --
+```
 nvm ls
+```
 
 -- Set a version --
+```
 nvm use <number>
+```
 
 - Source: 
   - https://www.tecmint.com/nvm-install-multiple-nodejs-versions-in-linux/
   - https://nodejs.org/en/download/releases
   - https://nodejs.dev/en/download/releases/
   - https://endoflife.date/nodejs
-  - 
-
