@@ -1,0 +1,914 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "nbody.java 50000000" "nbody_50000000"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Without problems in terms of pauses
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody.java 50000000" "nbody_50000000"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - java
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): java
+
+Available java versions are the next ones:
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - all
+
+ *** Type the version (for example '8', or 'all' to measure all java versions): all
+
+update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 1.8.0_362 and javac 1.8.0_362 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.074260
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_8.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4010143153
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1180936...
+-0.169075164
+-0.169059907
+Python program with PID 1180936 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-9.0.4/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-9.0.4/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 9.0.4 and javac 9.0.4 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.070241
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_9.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4045461568
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1181888...
+-0.169075164
+-0.169059907
+Python program with PID 1181888 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-10.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-10.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 10.0.2 and javac 10.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.132879
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_10.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4104025914
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1182878...
+-0.169075164
+-0.169059907
+Python program with PID 1182878 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/java-11-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/java-11-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 11.0.19 and javac 11.0.19 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.145047
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_11.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4105611772
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1183646...
+-0.169075164
+-0.169059907
+Python program with PID 1183646 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-12.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-12.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 12.0.2 and javac 12.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 3.975652
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_12.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3933662893
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1185148...
+-0.169075164
+-0.169059907
+Python program with PID 1185148 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-13.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-13.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 13.0.2 and javac 13.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 3.940381
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_13.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3899297785
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1185908...
+-0.169075164
+-0.169059907
+Python program with PID 1185908 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-14.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-14.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 14.0.2 and javac 14.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.095632
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_14.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4054462444
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1186663...
+-0.169075164
+-0.169059907
+Python program with PID 1186663 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-15.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-15.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 15.0.2 and javac 15.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.229327
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_15.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4124971732
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1187397...
+-0.169075164
+-0.169059907
+Python program with PID 1187397 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-16.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-16.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 16.0.2 and javac 16.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.208099
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_16.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4093220746
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1188164...
+-0.169075164
+-0.169059907
+Python program with PID 1188164 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 17.0.7 and javac 17.0.7 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 4.165613
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_17.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 4131922845
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1188980...
+-0.169075164
+-0.169059907
+Python program with PID 1188980 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/java-18-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/java-18-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 18.0.2-ea and javac 18.0.2-ea ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 3.992864
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_18.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3934080459
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1189743...
+-0.169075164
+-0.169059907
+Python program with PID 1189743 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/java-19-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/java-19-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 19.0.2 and javac 19.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 3.981718
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_19.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3934863376
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1190511...
+-0.169075164
+-0.169059907
+Python program with PID 1190511 has ended. Monitoring stopped.
+
+update-alternatives: using /usr/lib/jvm/jdk-20.0.2/bin/javac to provide /usr/bin/javac (javac) in manual mode
+update-alternatives: using /usr/lib/jvm/jdk-20.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+
+        ... Analysing java 20.0.2 and javac 20.0.2 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+
+    - Time of the 1st running: 3.945990
+    - Recording #1 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #2 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #3 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #4 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #5 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #6 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #7 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #8 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #9 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Recording #10 turbostat data in a CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_20.csv
+    - Recording AVG turbostat data in the general CSV file: java/nbody_50000000/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 3915736055
+    - Recording perf data in the general CSV file: java/nbody_50000000/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 1192010...
+-0.169075164
+-0.169059907
+Python program with PID 1192010 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:99: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+/u/13/olverac1/unix/.pyenv/versions/3.11.3/lib/python3.11/site-packages/sklearn/preprocessing/_data.py:1207: RuntimeWarning:
+
+All-NaN slice encountered
+
+Analysis of Perf data
+     version release_date         appplication  no_measurement   timestamp      pid command     virt    res    shr  ...  cpu_st    mem_total    mem_free    mem_used  mem_buff_cache  swap_total   swap_free   swap_used   swap_avail  Unnamed: 32
+0  1.8.0_362   2023-04-18  nbody.java 50000000               0  1690637749  1180936    java  6832680  28236  18408  ...     0.0  15795.0 MiB  7614.6 MiB  2041.8 MiB      6138.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12958.9 MiB          NaN
+1  1.8.0_362   2023-04-18  nbody.java 50000000               1  1690637750  1180936    java  6832680  28236  18408  ...     0.0  15795.0 MiB  7613.4 MiB  2042.8 MiB      6138.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12957.7 MiB          NaN
+2  1.8.0_362   2023-04-18  nbody.java 50000000               2  1690637752  1180936    java  6832680  28236  18408  ...     0.0  15795.0 MiB  7614.4 MiB  2048.9 MiB      6131.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12958.8 MiB          NaN
+3  1.8.0_362   2023-04-18  nbody.java 50000000               3  1690637753  1180936    java  6832680  28236  18408  ...     0.0  15795.0 MiB  7613.4 MiB  2049.9 MiB      6131.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12957.8 MiB          NaN
+0      9.0.4   2018-01-16  nbody.java 50000000               0  1690638160  1181888    java  7962284  33852  17388  ...     0.0  15795.0 MiB  7608.8 MiB  2043.6 MiB      6142.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12956.9 MiB          NaN
+1      9.0.4   2018-01-16  nbody.java 50000000               1  1690638161  1181888    java  7962284  33852  17388  ...     0.0  15795.0 MiB  7606.6 MiB  2045.7 MiB      6142.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12954.7 MiB          NaN
+2      9.0.4   2018-01-16  nbody.java 50000000               2  1690638163  1181888    java  7962284  33852  17388  ...     0.0  15795.0 MiB  7613.9 MiB  2045.3 MiB      6135.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12962.1 MiB          NaN
+3      9.0.4   2018-01-16  nbody.java 50000000               3  1690638164  1181888    java  7962284  33852  17388  ...     0.0  15795.0 MiB  7614.2 MiB  2045.0 MiB      6135.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12962.4 MiB          NaN
+0     10.0.2   2018-07-17  nbody.java 50000000               0  1690638572  1182878    java  7954164  33484  17544  ...     0.0  15795.0 MiB  7630.8 MiB  2016.6 MiB      6147.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12981.0 MiB          NaN
+1     10.0.2   2018-07-17  nbody.java 50000000               1  1690638573  1182878    java  7954164  33484  17544  ...     0.0  15795.0 MiB  7629.1 MiB  2018.0 MiB      6147.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12979.3 MiB          NaN
+2     10.0.2   2018-07-17  nbody.java 50000000               2  1690638574  1182878    java  7954164  33484  17544  ...     0.0  15795.0 MiB  7636.3 MiB  2017.8 MiB      6140.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12986.5 MiB          NaN
+3     10.0.2   2018-07-17  nbody.java 50000000               3  1690638575  1182878    java  7954164  33484  17544  ...     0.0  15795.0 MiB  7635.8 MiB  2018.3 MiB      6140.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12986.0 MiB          NaN
+0    11.0.19   2020-10-20  nbody.java 50000000               0  1690638984  1183646    java  6807184  38188  27140  ...     0.0  15795.0 MiB  7674.6 MiB  1972.6 MiB      6147.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13028.5 MiB          NaN
+1    11.0.19   2020-10-20  nbody.java 50000000               1  1690638985  1183646    java  6807184  38188  27140  ...     0.0  15795.0 MiB  7672.2 MiB  1974.9 MiB      6147.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13026.1 MiB          NaN
+2    11.0.19   2020-10-20  nbody.java 50000000               2  1690638986  1183646    java  6807184  38188  27140  ...     0.0  15795.0 MiB  7671.7 MiB  1975.4 MiB      6147.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13025.7 MiB          NaN
+3    11.0.19   2020-10-20  nbody.java 50000000               3  1690638987  1183646    java  6807184  38188  27140  ...     0.0  15795.0 MiB  7670.0 MiB  1977.1 MiB      6147.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13023.9 MiB          NaN
+0     12.0.2   2019-07-16  nbody.java 50000000               0  1690639393  1185148    java  6824492  38172  25896  ...     0.0  15795.0 MiB  7649.1 MiB  1990.4 MiB      6155.5 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13010.7 MiB          NaN
+1     12.0.2   2019-07-16  nbody.java 50000000               1  1690639394  1185148    java  6824492  38172  25896  ...     0.0  15795.0 MiB  7647.6 MiB  1991.8 MiB      6155.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13009.2 MiB          NaN
+2     12.0.2   2019-07-16  nbody.java 50000000               2  1690639395  1185148    java  6824492  38172  25896  ...     0.0  15795.0 MiB  7654.3 MiB  1992.1 MiB      6148.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.9 MiB          NaN
+3     12.0.2   2019-07-16  nbody.java 50000000               3  1690639397  1185148    java  6824492  38172  25896  ...     0.0  15795.0 MiB  7654.3 MiB  1992.1 MiB      6148.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.9 MiB          NaN
+0     13.0.2   2020-01-14  nbody.java 50000000               0  1690639802  1185908    java  6801944  37528  25556  ...     0.0  15795.0 MiB  7644.0 MiB  1992.6 MiB      6158.4 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13008.6 MiB          NaN
+1     13.0.2   2020-01-14  nbody.java 50000000               1  1690639804  1185908    java  6801944  37528  25556  ...     0.0  15795.0 MiB  7651.4 MiB  1991.9 MiB      6151.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.9 MiB          NaN
+2     13.0.2   2020-01-14  nbody.java 50000000               2  1690639805  1185908    java  6801944  37528  25556  ...     0.0  15795.0 MiB  7650.7 MiB  1992.7 MiB      6151.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.2 MiB          NaN
+3     13.0.2   2020-01-14  nbody.java 50000000               3  1690639806  1185908    java  6801944  37528  25556  ...     0.0  15795.0 MiB  7650.4 MiB  1993.0 MiB      6151.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.0 MiB          NaN
+0     14.0.2   2020-07-14  nbody.java 50000000               0  1690640214  1186663    java  6871416  37852  25748  ...     0.0  15795.0 MiB  7646.4 MiB  1988.1 MiB      6160.5 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13013.1 MiB          NaN
+1     14.0.2   2020-07-14  nbody.java 50000000               1  1690640215  1186663    java  6871416  37852  25748  ...     0.0  15795.0 MiB  7644.7 MiB  1989.7 MiB      6160.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13011.4 MiB          NaN
+2     14.0.2   2020-07-14  nbody.java 50000000               2  1690640216  1186663    java  6871416  37852  25748  ...     0.0  15795.0 MiB  7651.6 MiB  1989.6 MiB      6153.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13018.3 MiB          NaN
+3     14.0.2   2020-07-14  nbody.java 50000000               3  1690640217  1186663    java  6871416  37852  25748  ...     0.0  15795.0 MiB  7652.6 MiB  1988.7 MiB      6153.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13019.3 MiB          NaN
+0     15.0.2   2021-01-19  nbody.java 50000000               0  1690640626  1187397    java  6864832  35676  24748  ...     0.0  15795.0 MiB  7631.5 MiB  2001.1 MiB      6162.3 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13000.0 MiB          NaN
+1     15.0.2   2021-01-19  nbody.java 50000000               1  1690640627  1187397    java  6864832  35676  24748  ...     0.0  15795.0 MiB  7628.8 MiB  2003.6 MiB      6162.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12997.4 MiB          NaN
+2     15.0.2   2021-01-19  nbody.java 50000000               2  1690640628  1187397    java  6864832  35676  24748  ...     0.0  15795.0 MiB  7635.2 MiB  2004.1 MiB      6155.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13003.8 MiB          NaN
+3     15.0.2   2021-01-19  nbody.java 50000000               3  1690640629  1187397    java  6864832  35676  24748  ...     0.0  15795.0 MiB  7634.5 MiB  2004.9 MiB      6155.6 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13003.0 MiB          NaN
+0     16.0.2   2021-07-20  nbody.java 50000000               0  1690641038  1188164    java  6921584  36604  26316  ...     0.0  15795.0 MiB  7637.5 MiB  1992.0 MiB      6165.5 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13009.3 MiB          NaN
+1     16.0.2   2021-07-20  nbody.java 50000000               1  1690641039  1188164    java  6921584  36604  26316  ...     0.0  15795.0 MiB  7637.5 MiB  1991.7 MiB      6165.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13009.4 MiB          NaN
+2     16.0.2   2021-07-20  nbody.java 50000000               2  1690641040  1188164    java  6921584  36604  26316  ...     0.0  15795.0 MiB  7643.4 MiB  1992.4 MiB      6159.2 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.4 MiB          NaN
+3     16.0.2   2021-07-20  nbody.java 50000000               3  1690641041  1188164    java  6921584  36604  26316  ...     0.0  15795.0 MiB  7643.1 MiB  1992.8 MiB      6159.0 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13015.1 MiB          NaN
+0     17.0.7   2023-04-18  nbody.java 50000000               0  1690641449  1188980    java  6990032  38440  27720  ...     0.0  15795.0 MiB  7641.9 MiB  1989.5 MiB      6163.5 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13011.8 MiB          NaN
+1     17.0.7   2023-04-18  nbody.java 50000000               1  1690641451  1188980    java  6990032  38440  27720  ...     0.0  15795.0 MiB  7643.7 MiB  1994.5 MiB      6156.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13013.5 MiB          NaN
+2     17.0.7   2023-04-18  nbody.java 50000000               2  1690641452  1188980    java  6990032  38440  27720  ...     0.0  15795.0 MiB  7642.7 MiB  1995.5 MiB      6156.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13012.6 MiB          NaN
+3     17.0.7   2023-04-18  nbody.java 50000000               3  1690641453  1188980    java  6990032  38440  27720  ...     0.0  15795.0 MiB  7642.7 MiB  1995.4 MiB      6156.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13012.6 MiB          NaN
+0  18.0.2-ea   2022-07-19  nbody.java 50000000               0  1690641859  1189743    java  6989224  36720  26804  ...     0.0  15795.0 MiB  7660.4 MiB  1969.2 MiB      6165.4 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13032.0 MiB          NaN
+1  18.0.2-ea   2022-07-19  nbody.java 50000000               1  1690641861  1189743    java  6989224  36720  26804  ...     0.0  15795.0 MiB  7660.4 MiB  1975.9 MiB      6158.7 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13032.2 MiB          NaN
+2  18.0.2-ea   2022-07-19  nbody.java 50000000               2  1690641862  1189743    java  6989224  36720  26804  ...     0.0  15795.0 MiB  7659.6 MiB  1976.5 MiB      6158.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13031.4 MiB          NaN
+3  18.0.2-ea   2022-07-19  nbody.java 50000000               3  1690641863  1189743    java  6989224  36720  26804  ...     0.0  15795.0 MiB  7658.9 MiB  1977.3 MiB      6158.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13030.7 MiB          NaN
+0     19.0.2   2023-01-17  nbody.java 50000000               0  1690642269  1190511    java  6999892  40544  28788  ...     0.0  15795.0 MiB  7610.5 MiB  2017.5 MiB      6167.0 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  12985.6 MiB          NaN
+1     19.0.2   2023-01-17  nbody.java 50000000               1  1690642270  1190511    java  6999892  40544  28788  ...     0.0  15795.0 MiB  7675.0 MiB  1952.9 MiB      6167.1 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13050.1 MiB          NaN
+2     19.0.2   2023-01-17  nbody.java 50000000               2  1690642271  1190511    java  6999892  40544  28788  ...     0.0  15795.0 MiB  7681.6 MiB  1953.2 MiB      6160.1 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13056.8 MiB          NaN
+3     19.0.2   2023-01-17  nbody.java 50000000               3  1690642273  1190511    java  6999892  40544  28788  ...     0.0  15795.0 MiB  7681.1 MiB  1953.7 MiB      6160.1 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13056.3 MiB          NaN
+0     20.0.2   2023-07-18  nbody.java 50000000               0  1690642679  1192010    java  6864876  40328  20708  ...     0.0  15795.0 MiB  7645.4 MiB  1978.8 MiB      6170.8 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13024.4 MiB          NaN
+1     20.0.2   2023-07-18  nbody.java 50000000               1  1690642680  1192010    java  6864876  40328  20708  ...     0.0  15795.0 MiB  7644.4 MiB  1979.6 MiB      6170.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13023.4 MiB          NaN
+2     20.0.2   2023-07-18  nbody.java 50000000               2  1690642681  1192010    java  6864876  40328  20708  ...     0.0  15795.0 MiB  7651.3 MiB  1979.7 MiB      6163.9 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13030.3 MiB          NaN
+3     20.0.2   2023-07-18  nbody.java 50000000               3  1690642682  1192010    java  6864876  40328  20708  ...     0.0  15795.0 MiB  7651.1 MiB  1979.9 MiB      6164.0 MiB  4096.0 MiB  1408.4 MiB  2687.6 MiB  13030.0 MiB          NaN
+
+[52 rows x 34 columns]
+Analysis of Top data
+Analysis of Top data
+Creating the general report ...

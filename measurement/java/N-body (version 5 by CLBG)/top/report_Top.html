@@ -1,0 +1,276 @@
+
+    <html>
+        <head>
+            <title>Top data</title>
+            <link rel="shortcut icon" type="x-icon" href="../../../aalto.ico"> </link>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <style>
+                body{ margin:0 50; background:whitesmoke; }
+                *{box-sizing: border-box;}
+                .column {float: left; width: 50%; padding: 10px;}
+                .row:after {content: ""; display: table; clear: both;}
+                .plot {width: 100%; height: 600;}
+                h1 {text-align: center}
+                h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Top data in in <b>java</b> through <b>nbody.java 50000000</b> </h1>
+            <div class="row">
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Virtual memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_virtualMemory.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: Resident memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_residentMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 3 *** --->
+                    <h3>Section 3: Shared memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop3_sharedMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 4 *** --->
+                    <h3>Section 4: Percent of CPU used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop4_percentCPU.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 5 *** --->
+                    <h3>Section 5: Percent of Memory used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop5_percentMemory.html"></iframe>
+                    <p>Notes</p>
+                </div>
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Memory information through different versions </h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_memoryData.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: CPU and Memory percent through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_percentData.html"></iframe>
+                    <p>Notes</p>
+                </div>
+            </div>
+            
+            <h2>Summary table of Top dataset</h2>
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">virt</th>
+      <th colspan="2" halign="left">res</th>
+      <th colspan="2" halign="left">shr</th>
+      <th colspan="2" halign="left">percent_cpu</th>
+      <th colspan="2" halign="left">percent_mem</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1.8.0_382</th>
+      <td>6832684</td>
+      <td>6832684</td>
+      <td>28440</td>
+      <td>28052</td>
+      <td>18556</td>
+      <td>18208</td>
+      <td>113.3</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>10.0.2</th>
+      <td>7954164</td>
+      <td>7954164</td>
+      <td>33940</td>
+      <td>33096</td>
+      <td>18088</td>
+      <td>17384</td>
+      <td>137.5</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>11.0.20.1</th>
+      <td>6807240</td>
+      <td>6807240</td>
+      <td>38616</td>
+      <td>37880</td>
+      <td>27456</td>
+      <td>26752</td>
+      <td>118.8</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>12.0.2</th>
+      <td>6824492</td>
+      <td>6824492</td>
+      <td>38300</td>
+      <td>37968</td>
+      <td>25976</td>
+      <td>25840</td>
+      <td>126.7</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>13.0.2</th>
+      <td>6801944</td>
+      <td>6801944</td>
+      <td>37828</td>
+      <td>37292</td>
+      <td>25876</td>
+      <td>25352</td>
+      <td>118.8</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>14.0.2</th>
+      <td>6871416</td>
+      <td>6871416</td>
+      <td>37768</td>
+      <td>37140</td>
+      <td>25684</td>
+      <td>25240</td>
+      <td>120.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>15.0.2</th>
+      <td>6864832</td>
+      <td>6864832</td>
+      <td>36376</td>
+      <td>35672</td>
+      <td>25192</td>
+      <td>24720</td>
+      <td>106.7</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>16.0.2</th>
+      <td>6921584</td>
+      <td>6921584</td>
+      <td>37156</td>
+      <td>35984</td>
+      <td>26596</td>
+      <td>25860</td>
+      <td>106.7</td>
+      <td>87.5</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>17.0.8.1</th>
+      <td>6990144</td>
+      <td>6990144</td>
+      <td>39416</td>
+      <td>39056</td>
+      <td>21228</td>
+      <td>20872</td>
+      <td>113.3</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>18.0.2-ea</th>
+      <td>6989224</td>
+      <td>6989224</td>
+      <td>36820</td>
+      <td>35728</td>
+      <td>26900</td>
+      <td>26040</td>
+      <td>106.7</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>19.0.2</th>
+      <td>7066452</td>
+      <td>6999892</td>
+      <td>41556</td>
+      <td>40740</td>
+      <td>28996</td>
+      <td>28408</td>
+      <td>126.7</td>
+      <td>93.8</td>
+      <td>0.3</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>20.0.2</th>
+      <td>6931436</td>
+      <td>6864876</td>
+      <td>40648</td>
+      <td>39740</td>
+      <td>21276</td>
+      <td>20656</td>
+      <td>126.7</td>
+      <td>93.8</td>
+      <td>0.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>9.0.4</th>
+      <td>7962284</td>
+      <td>7962284</td>
+      <td>34144</td>
+      <td>33004</td>
+      <td>17544</td>
+      <td>16880</td>
+      <td>140.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+        </body>
+    </html>

@@ -1,0 +1,730 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Running the command: './index.sh "nbody_2.c 50000000" "nbody_50000000_O3flag"'
+ONLY terminal was opened
+PC connected all time and 'performance' config (100%)
+Wi-Fi disconnected to avoid permission issues
+Without problems in terms of pauses
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+*** SLEEP FOR 2 MINS BEFORE RUNNING EVERY TOOL ***
+
+# Run measurement tools
+sleep 2m
+. ./script_turbostat.sh
+sleep 2m
+. ./script_perf.sh 
+sleep 2m
+. ./script_top.sh
+#. ./script_valgrind.sh 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+The file 'script_versionSelected.sh" was modified by adding a optimization flag '-O3'
+
+elif [ $1 == 'c++' ] ; then
+    # g++-11 c++/nbody.c -o c++/test/nbody_g++-11
+    $version_selected -O3 $1/$filename_program -o $path/${filename_program_woExtension}_$version_selected
+    command="./$path/${filename_program_woExtension}_$version_selected $arguments"
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+
+
+olverac1@l20-0061:~/Desktop/thesis/energy_consumption/measurement$ ./index.sh "nbody_2.c 50000000" "nbody_50000000_O3flag"
+
+Welcome to the Analysis of Performance and Energy Consumption in different programming languages
+ 
+          _ _    Aalto University, School of Electrical Engineering
+     /\  ( | )   
+    /  \  / /       Department of Information and Communications
+   / /\ \                          Engineering
+  / ____ \                                        
+ /_/    \_\      Please report any possible problems and issues to
+                           cesar.olveraespinosa@aalto.fi
+
+ 
+Available programming languages are the next ones:
+  - python
+  - c++
+  - java
+  - c
+
+ *** Type the version (for example 'python' or 'c++'): c++
+
+Available c++ versions are the next ones:
+  - g++-4.4
+  - g++-4.6
+  - g++-4.7
+  - g++-4.8
+  - g++-4.9
+  - g++-5
+  - g++-6
+  - g++-7
+  - g++-8
+  - g++-9
+  - g++-10
+  - g++-11
+  - g++-12
+  - g++-13
+  - all
+
+ *** Type the version (for example 'g++-4.4', or 'all' to measure all c++ versions): all
+
+        ... Analysing g++-4.4 4.4.7 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 8.894544
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.4.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 8740325022
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 271063...
+-0.169075164
+-0.169059907Python program with PID 271063 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.6 4.6.4 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 8.953237
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.6.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 8942915559
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 271543...
+-0.169075164
+-0.169059907Python program with PID 271543 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.7 4.7.4 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 9.117912
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.7.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 9056508712
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 272015...
+-0.169075164
+-0.169059907Python program with PID 272015 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.8 4.8.5 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 8.344621
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.8.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 8363005364
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 272527...
+-0.169075164
+-0.169059907Python program with PID 272527 has ended. Monitoring stopped.
+
+        ... Analysing g++-4.9 4.9.3 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.704141
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-4.9.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7710715655
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 272997...
+-0.169075164
+-0.169059907Python program with PID 272997 has ended. Monitoring stopped.
+
+        ... Analysing g++-5 5.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.902701
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-5.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7931947579
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 273457...
+-0.169075164
+-0.169059907Python program with PID 273457 has ended. Monitoring stopped.
+
+        ... Analysing g++-6 6.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.597418
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-6.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7599498727
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 274659...
+-0.169075164
+-0.169059907Python program with PID 274659 has ended. Monitoring stopped.
+
+        ... Analysing g++-7 7.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.831658
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-7.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7840153537
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 275161...
+-0.169075164
+-0.169059907Python program with PID 275161 has ended. Monitoring stopped.
+
+        ... Analysing g++-8  ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.457631
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-8.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7474656211
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 275632...
+-0.169075164
+-0.169059907Python program with PID 275632 has ended. Monitoring stopped.
+
+        ... Analysing g++-9 9.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.725038
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-9.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7759864902
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 276087...
+-0.169075164
+-0.169059907Python program with PID 276087 has ended. Monitoring stopped.
+
+        ... Analysing g++-10 10.5.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 8.026221
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-10.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 8023903723
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 276547...
+-0.169075164
+-0.169059907Python program with PID 276547 has ended. Monitoring stopped.
+
+        ... Analysing g++-11 11.4.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.826541
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-11.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7831142264
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 277031...
+-0.169075164
+-0.169059907Python program with PID 277031 has ended. Monitoring stopped.
+
+        ... Analysing g++-12 12.3.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.840685
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-12.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7860953959
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 277541...
+-0.169075164
+-0.169059907Python program with PID 277541 has ended. Monitoring stopped.
+
+        ... Analysing g++-13 13.1.0 ...
+Running Turbostat and program:
+-0.169075164
+-0.169059907
+    - Time of the 1st running: 7.534430
+    - Recording #1 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #2 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #3 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #4 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #5 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #6 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #7 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #8 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #9 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+Running Turbostat and program:
+-0.169075164
+-0.169059907    - Recording #10 turbostat data in a CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_g++-13.csv
+    - Recording AVG turbostat data in the general CSV file: c++/nbody_50000000_O3flag/turbostat/turbostat_performance_data_allVersions.csv
+Running Perf and program:
+-0.169075164
+-0.169059907    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+
+    - Time of the 1st running: 7543102398
+    - Recording perf data in the general CSV file: c++/nbody_50000000_O3flag/perf/perf_data_allVersions.csv
+Running the program for monitoring using 'top':
+Monitoring memory usage of process with PID 278000...
+-0.169075164
+-0.169059907Python program with PID 278000 has ended. Monitoring stopped.
+Analysis of Turbostat data
+Analysis of Turbostat data
+/u/13/olverac1/data/Desktop/thesis/energy_consumption/measurement/analysis_perf.py:99: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_metric[non_numeric_cols] = df_metric[non_numeric_cols].astype(str)
+Analysis of Perf data
+Analysis of Perf data
+    version release_date        appplication  no_measurement   timestamp     pid          command     time  virt  ...    mem_total    mem_free    mem_used  mem_buff_cache  swap_total   swap_free  swap_used   swap_avail  Unnamed: 33
+0   g++-4.4   2012-03-13  nbody_2.c 50000000               0  1690883120  271063  nbody_2_g++-4.4  0:00.17  6492  ...  15795.0 MiB  6384.8 MiB  1587.0 MiB      7823.2 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13531.1 MiB          NaN
+1   g++-4.4   2012-03-13  nbody_2.c 50000000               1  1690883121  271063  nbody_2_g++-4.4  0:01.34  6492  ...  15795.0 MiB  6384.6 MiB  1587.1 MiB      7823.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13530.8 MiB          NaN
+2   g++-4.4   2012-03-13  nbody_2.c 50000000               2  1690883122  271063  nbody_2_g++-4.4  0:02.52  6492  ...  15795.0 MiB  6391.7 MiB  1588.0 MiB      7815.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13538.0 MiB          NaN
+3   g++-4.4   2012-03-13  nbody_2.c 50000000               3  1690883123  271063  nbody_2_g++-4.4  0:03.69  6492  ...  15795.0 MiB  6391.0 MiB  1588.7 MiB      7815.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13537.2 MiB          NaN
+4   g++-4.4   2012-03-13  nbody_2.c 50000000               4  1690883125  271063  nbody_2_g++-4.4  0:04.87  6492  ...  15795.0 MiB  6390.7 MiB  1588.9 MiB      7815.3 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13537.0 MiB          NaN
+..      ...          ...                 ...             ...         ...     ...              ...      ...   ...  ...          ...         ...         ...             ...         ...         ...        ...          ...          ...
+2    g++-13   2023-04-26  nbody_2.c 50000000               2  1690889118  278000   nbody_2_g++-13  0:02.52  6492  ...  15795.0 MiB  6398.4 MiB  1550.0 MiB      7846.6 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13577.9 MiB          NaN
+3    g++-13   2023-04-26  nbody_2.c 50000000               3  1690889119  278000   nbody_2_g++-13  0:03.70  6492  ...  15795.0 MiB  6398.4 MiB  1550.0 MiB      7846.6 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13578.0 MiB          NaN
+4    g++-13   2023-04-26  nbody_2.c 50000000               4  1690889120  278000   nbody_2_g++-13  0:04.87  6492  ...  15795.0 MiB  6397.6 MiB  1550.7 MiB      7846.6 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13577.2 MiB          NaN
+5    g++-13   2023-04-26  nbody_2.c 50000000               5  1690889121  278000   nbody_2_g++-13  0:06.04  6492  ...  15795.0 MiB  6397.6 MiB  1550.7 MiB      7846.6 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13577.2 MiB          NaN
+6    g++-13   2023-04-26  nbody_2.c 50000000               6  1690889122  278000   nbody_2_g++-13  0:07.22  6492  ...  15795.0 MiB  6397.4 MiB  1551.0 MiB      7846.6 MiB  4096.0 MiB  4096.0 MiB    0.0 MiB  13577.0 MiB          NaN
+
+[102 rows x 35 columns]
+Analysis of Top data
+Analysis of Top data
+Creating the general report ...

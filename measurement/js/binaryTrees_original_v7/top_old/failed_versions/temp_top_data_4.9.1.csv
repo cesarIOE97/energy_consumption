@@ -1,2 +1,0 @@
-version,appplication,no_measurement,timestamp,pid,command,time,virt,res,shr,percent_cpu,percent_mem,nTH,P,TIME,SWAP,CODE,DATA,nMaj,nMin,nDRT,USED,tasks_total,tasks_running,tasks_sleeping,tasks_stopped,tasks_zombie,cpu_us,cpu_sy,cpu_ni,cpu_id,cpu_wa,cpu_hi,cpu_si,cpu_st,mem_total,mem_free,mem_used,mem_buff_cache,swap_total,swap_free,swap_used,swap_avail,
-v4.9.1,binaryTrees_7_original.js 21,0,1692190848,119101,,,,,,,,,,,,,,,,,,277,1,276,0,0,6.1,2.3,0.0,91.6,0.0,0.0,0.0,0.0,15795.0 MiB,8573.7 MiB,1447.7 MiB,5773.5 MiB,4096.0 MiB,3997.0 MiB,99.0 MiB,13613.1 MiB

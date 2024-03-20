@@ -1,0 +1,302 @@
+
+    <html>
+        <head>
+            <title>Top data</title>
+            <link rel="shortcut icon" type="x-icon" href="../../../aalto.ico"> </link>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <style>
+                body{ margin:0 50; background:whitesmoke; }
+                *{box-sizing: border-box;}
+                .column {float: left; width: 50%; padding: 10px;}
+                .row:after {content: ""; display: table; clear: both;}
+                .plot {width: 100%; height: 600;}
+                h1 {text-align: center}
+                h2 {text-align: center}
+                @media (max-width: 1200px) {
+                    .column {
+                    width: 100%;
+                    float: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Top data in in <b>js</b> through <b>nbody_6_original.js 50000000</b> </h1>
+            <div class="row">
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Virtual memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_virtualMemory.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: Resident memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_residentMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 3 *** --->
+                    <h3>Section 3: Shared memory through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop3_sharedMemory.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 4 *** --->
+                    <h3>Section 4: Percent of CPU used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop4_percentCPU.html"></iframe>
+                    <p>Notes</p>
+
+                    <!-- *** Section 5 *** --->
+                    <h3>Section 5: Percent of Memory used through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop5_percentMemory.html"></iframe>
+                    <p>Notes</p>
+                </div>
+                <div class="column">
+                    <h2>Top Data</h2>
+                    <!-- *** Section 1 *** --->
+                    <h3>Section 1: Memory information through different versions </h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop1_memoryData.html"></iframe>
+                    <p>Notes: </p>
+                    <!-- *** Section 2 *** --->
+                    <h3>Section 2: CPU and Memory percent through different versions</h3>
+                    <iframe class="plot" frameborder="0" seamless="seamless" scrolling="no"                         src="plotTop2_percentData.html"></iframe>
+                    <p>Notes</p>
+                </div>
+            </div>
+            
+            <h2>Summary table of Top dataset</h2>
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">virt</th>
+      <th colspan="2" halign="left">res</th>
+      <th colspan="2" halign="left">shr</th>
+      <th colspan="2" halign="left">percent_cpu</th>
+      <th colspan="2" halign="left">percent_mem</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10.24.1</th>
+      <td>548708</td>
+      <td>548708</td>
+      <td>34880</td>
+      <td>34880</td>
+      <td>25472</td>
+      <td>25472</td>
+      <td>93.8</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>11.15.0</th>
+      <td>549596</td>
+      <td>549596</td>
+      <td>33764</td>
+      <td>33764</td>
+      <td>25520</td>
+      <td>25520</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>12.22.12</th>
+      <td>555704</td>
+      <td>555704</td>
+      <td>35680</td>
+      <td>35680</td>
+      <td>27616</td>
+      <td>27616</td>
+      <td>106.7</td>
+      <td>106.7</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>13.14.0</th>
+      <td>579788</td>
+      <td>579788</td>
+      <td>35284</td>
+      <td>35284</td>
+      <td>27064</td>
+      <td>27064</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>14.21.3</th>
+      <td>581340</td>
+      <td>581340</td>
+      <td>37444</td>
+      <td>37444</td>
+      <td>28652</td>
+      <td>28652</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>15.14.0</th>
+      <td>579088</td>
+      <td>579088</td>
+      <td>36056</td>
+      <td>36056</td>
+      <td>28184</td>
+      <td>28184</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>16.20.2</th>
+      <td>585968</td>
+      <td>585968</td>
+      <td>38268</td>
+      <td>38268</td>
+      <td>29672</td>
+      <td>29672</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>17.9.1</th>
+      <td>585440</td>
+      <td>585440</td>
+      <td>39860</td>
+      <td>39860</td>
+      <td>30860</td>
+      <td>30860</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>18.17.1</th>
+      <td>598424</td>
+      <td>598424</td>
+      <td>49064</td>
+      <td>49064</td>
+      <td>36552</td>
+      <td>36552</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0.3</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>19.9.0</th>
+      <td>990328</td>
+      <td>990328</td>
+      <td>46852</td>
+      <td>46852</td>
+      <td>34944</td>
+      <td>34944</td>
+      <td>100.0</td>
+      <td>93.8</td>
+      <td>0.3</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>20.5.1</th>
+      <td>988528</td>
+      <td>988528</td>
+      <td>45312</td>
+      <td>45312</td>
+      <td>37556</td>
+      <td>37556</td>
+      <td>113.3</td>
+      <td>100.0</td>
+      <td>0.3</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>6.17.1</th>
+      <td>732380</td>
+      <td>732380</td>
+      <td>26416</td>
+      <td>26416</td>
+      <td>18828</td>
+      <td>18828</td>
+      <td>106.7</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>7.10.1</th>
+      <td>616172</td>
+      <td>603884</td>
+      <td>41388</td>
+      <td>29248</td>
+      <td>19952</td>
+      <td>19952</td>
+      <td>106.7</td>
+      <td>93.8</td>
+      <td>0.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>8.17.0</th>
+      <td>863696</td>
+      <td>863696</td>
+      <td>32536</td>
+      <td>32536</td>
+      <td>22344</td>
+      <td>22344</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>9.11.2</th>
+      <td>864236</td>
+      <td>864236</td>
+      <td>33476</td>
+      <td>33476</td>
+      <td>22684</td>
+      <td>22684</td>
+      <td>106.7</td>
+      <td>93.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+        </body>
+    </html>
